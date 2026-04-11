@@ -1,0 +1,32 @@
+# =============================================================================
+# cowrie.service — Systemd Service File for Cowrie Honeypot
+# =============================================================================
+# Install with:
+#   sudo cp configs/cowrie.service /etc/systemd/system/cowrie.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable cowrie
+#   sudo systemctl start cowrie
+# =============================================================================
+
+[Unit]
+Description=Cowrie SSH/Telnet Honeypot
+After=network.target
+
+[Service]
+Type=forking
+User=cowrie
+Group=cowrie
+WorkingDirectory=/home/cowrie/cowrie
+
+# Explicitly set PATH so systemd can find twistd inside the virtualenv
+Environment="PATH=/home/cowrie/cowrie/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+ExecStart=/home/cowrie/cowrie/cowrie-env/bin/cowrie start
+ExecStop=/home/cowrie/cowrie/cowrie-env/bin/cowrie stop
+
+# Restart automatically if Cowrie crashes
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
