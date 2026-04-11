@@ -1,0 +1,81 @@
+# =============================================================================
+# .gitignore — Cowrie Honeypot Project
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Sensitive credentials — NEVER commit these
+# -----------------------------------------------------------------------------
+*.pem
+*.key
+*.ppk
+id_rsa
+id_ed25519
+*.p12
+*.pfx
+.env
+.env.*
+secrets.yml
+secrets.yaml
+credentials.json
+
+# -----------------------------------------------------------------------------
+# Cowrie runtime data — logs stay local, not in git
+# -----------------------------------------------------------------------------
+cowrie/var/
+cowrie/log/
+cowrie/dl/
+var/log/cowrie/
+*.log
+*.json.gz
+
+# Cowrie session recordings (can be huge)
+*.tty
+*.ttylog
+
+# Cowrie downloads directory (captured malware — handle carefully)
+cowrie/dl/*
+dl/*
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# -----------------------------------------------------------------------------
+# Analysis outputs (generated locally, not tracked)
+# -----------------------------------------------------------------------------
+analysis/*.csv
+analysis/*.html
+analysis/*.png
+analysis/*.pdf
+
+# Exception: keep placeholder
+!analysis/.gitkeep
+!logs/.gitkeep
+
+# -----------------------------------------------------------------------------
+# OS junk
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# Editor files
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

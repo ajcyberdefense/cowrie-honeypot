@@ -1,0 +1,61 @@
+# =============================================================================
+# /etc/ssh/sshd_config — Hardened SSH Configuration for Cowrie Honeypot Host
+# =============================================================================
+# Apply this to the HOST machine (not Cowrie's fake SSH).
+# Real admin SSH runs on port 2223, key-based auth only.
+# Cowrie's fake SSH runs on port 2222 (handled separately).
+#
+# To apply: sudo cp configs/sshd_config /etc/ssh/sshd_config
+#           sudo systemctl restart sshd
+# =============================================================================
+
+# Move SSH off default port 22 — attackers scan 22 constantly
+Port 2223
+
+# Only listen on IPv4 (change to 'any' if you need IPv6)
+AddressFamily inet
+
+# Network
+ListenAddress 0.0.0.0
+
+# Authentication
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+PermitEmptyPasswords no
+
+# Limit brute force attempts
+MaxAuthTries 3
+MaxSessions 5
+LoginGraceTime 30
+
+# Only allow the ubuntu user
+AllowUsers ubuntu
+
+# Disable unused authentication methods
+ChallengeResponseAuthentication no
+KerberosAuthentication no
+GSSAPIAuthentication no
+
+# Disable X11 and agent forwarding (not needed for a honeypot server)
+X11Forwarding no
+AllowAgentForwarding no
+AllowTcpForwarding no
+PermitTunnel no
+
+# Logging
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+# Keep connections alive, disconnect idle sessions after 10 minutes
+ClientAliveInterval 300
+ClientAliveCountMax 2
+
+# Use strong ciphers and MACs only
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com
+KexAlgorithms curve25519-sha256,diffie-hellman-group16-sha512
+
+# Include drop-in config files
+Include /etc/ssh/sshd_config.d/*.conf
