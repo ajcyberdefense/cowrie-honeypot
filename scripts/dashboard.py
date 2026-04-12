@@ -19,7 +19,7 @@ from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-LOG_FILE = os.path.join(os.path.dirname(__file__), "../var/log/cowrie/cowrie.json")
+LOG_FILE = "/home/cowrie/cowrie/var/log/cowrie/cowrie.json"
 TOP_N = 10
 
 # -----------------------------------------------------------------------------
