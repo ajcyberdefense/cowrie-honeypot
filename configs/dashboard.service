@@ -1,0 +1,26 @@
+# =============================================================================
+# dashboard.service — Systemd Service for Cowrie Web Dashboard
+# =============================================================================
+# Install with:
+#   sudo cp configs/dashboard.service /etc/systemd/system/dashboard.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable dashboard
+#   sudo systemctl start dashboard
+# =============================================================================
+
+[Unit]
+Description=Cowrie Honeypot Web Dashboard
+After=network.target cowrie.service
+
+[Service]
+Type=simple
+User=cowrie
+Group=cowrie
+WorkingDirectory=/home/cowrie/cowrie
+Environment="PATH=/home/cowrie/cowrie/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/cowrie/cowrie/cowrie-env/bin/python3 /home/cowrie/cowrie/dashboard.py
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
