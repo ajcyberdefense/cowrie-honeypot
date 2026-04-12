@@ -59,18 +59,20 @@ cowrie-honeypot/
 │
 ├── scripts/
 │   ├── harden.sh               # Automated instance hardening script
-│   ├── install-cowrie.sh       # Automated Cowrie installation (coming soon)
-│   └── analyze-logs.py         # Log parser and analysis (coming soon)
+│   ├── install-cowrie.sh       # Automated Cowrie installation script
+│   ├── analyze.py              # CLI log parser and attack summary
+│   └── dashboard.py            # Flask web dashboard (real-time attack visualization)
 │
 ├── configs/
 │   ├── sshd_config             # Hardened SSH daemon configuration
-│   ├── cowrie.cfg              # Cowrie configuration (coming soon)
-│   └── fail2ban-jail.local     # Fail2ban rules (coming soon)
+│   ├── cowrie.cfg              # Cowrie honeypot configuration
+│   ├── cowrie.service          # Systemd service for Cowrie
+│   └── dashboard.service       # Systemd service for web dashboard
 │
 ├── logs/                       # Gitignored — local log storage only
 │   └── .gitkeep
 │
-└── analysis/                   # Attack analysis outputs (coming soon)
+└── analysis/                   # Attack analysis outputs
     └── .gitkeep
 ```
 
@@ -82,8 +84,8 @@ Follow the docs in order:
 
 1. [AWS Instance Setup](docs/01-aws-setup.md)
 2. [Instance Hardening](docs/02-hardening.md)
-3. Cowrie Installation *(coming soon)*
-4. Monitoring & Analysis *(coming soon)*
+3. [Cowrie Installation](docs/03-cowrie-install.md)
+4. [Monitoring & Web Dashboard](docs/04-monitoring.md)
 
 ---
 
@@ -96,7 +98,9 @@ Follow the docs in order:
 | Honeypot | Cowrie |
 | Firewall | UFW |
 | Intrusion Prevention | Fail2ban |
+| Web Dashboard | Flask + Chart.js |
 | Language | Python 3 |
+| Process Management | Systemd |
 
 ---
 
