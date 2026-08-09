@@ -166,6 +166,17 @@ Leave it running overnight. Bots sweep the entire IPv4 space for open SSH contin
 
 **Passwords:** `123456`, `admin`, `password`, `root`, `1234`, `test`
 
+**Every attacker fails once before getting in.** The honeypot is configured to reject the first credential pair from any new source IP and admit the second (`auth_class = AuthRandom`, see [Part 3](03-cowrie-install.md)). So a normal successful intrusion looks like this in the log:
+
+```
+cowrie.login.failed    45.9.148.99  root/123456
+cowrie.login.success   45.9.148.99  root/admin
+cowrie.session.connect ...
+cowrie.command.input   uname -a
+```
+
+If you see a `login.success` with no preceding `login.failed` from that IP, the attacker reused credentials that already worked for them earlier.
+
 **Commands, in a recognizable order:**
 
 | Command | What they are doing |

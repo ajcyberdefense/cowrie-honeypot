@@ -105,6 +105,9 @@ Cowrie layers its configuration — bundled defaults first, then your `etc/cowri
 ```ini
 [honeypot]
 hostname = svr04
+# Fail the 1st login attempt, admit on the 2nd. See below.
+auth_class = AuthRandom
+auth_class_parameters = 2, 2, 0
 
 [shell]
 # Note: the fake-system keys live in [shell], not [honeypot].
@@ -119,6 +122,31 @@ enabled = true
 # NOT the default 2223 - that collides with admin SSH.
 listen_endpoints = tcp:2323:interface=0.0.0.0
 ```
+
+### Why the first login fails
+
+A honeypot that accepts the very first credential offered is an obvious tell — a real box with a weak password still rejects the other guesses in a bot's list. `AuthRandom` admits a source IP once its attempt counter reaches a target drawn from `randint(<min try>, <max try>)`. Setting both bounds to `2` makes that target exactly 2, every time:
+
+```
+172.18.0.3   root/123456  ->  cowrie.login.failed
+172.18.0.3   root/admin   ->  cowrie.login.success
+```
+
+Counters are tracked **per source IP**, so every new attacker fails once first.
+
+The third parameter is a cross-IP cache of pairs already known to work. It is `0` deliberately: with a non-zero cache, a brand-new IP whose *first* guess matches a cached pair is admitted immediately, breaking the rule. Set it to `10` if you would rather model a botnet sharing a known-good password.
+
+Three behaviours to expect:
+
+| Situation | Result |
+|---|---|
+| Bot repeats the **same** username:password | Counter never advances — it never gets in |
+| Attacker returns later with the **same** pair that worked | Admitted again |
+| Attacker returns with a **different** pair | Rejected |
+
+State lives in `var/lib/cowrie/auth_random.json`. Delete it to reset every attacker's counter.
+
+> This replaces `etc/userdb.txt` entirely — with `AuthRandom`, *any* username and password works on the second try. Set `auth_class = UserDB` to control exactly which credentials succeed, at the cost of admitting on the first matching guess.
 
 The full reference is the `cowrie.cfg.dist` that `cowrie init` materializes alongside your config.
 

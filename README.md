@@ -17,6 +17,8 @@ This deployment captures:
 - Commands attackers run once "inside"
 - Malware they attempt to download
 
+Every attacker's **first login attempt is rejected** and the second accepted — a box that accepts the very first password it is offered reads as a honeypot, and the failure record is what a genuine compromise looks like in logs.
+
 ---
 
 ## Architecture
