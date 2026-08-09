@@ -4,22 +4,47 @@
 # =============================================================================
 # A lightweight Flask web dashboard for visualizing Cowrie attack data.
 #
-# Usage (run as cowrie user from /home/cowrie/cowrie):
-#   pip install flask requests
-#   python3 ~/cowrie/dashboard.py
+# Usage:
+#   pip install flask
+#   python3 dashboard.py                       # binds 0.0.0.0:8080
+#   DASHBOARD_PORT=80 python3 dashboard.py     # needs root or CAP_NET_BIND_SERVICE
 #
-# Then open in your browser: http://YOUR_ELASTIC_IP
+# Environment:
+#   COWRIE_JSON_LOG  path to cowrie.json   (default: auto-detect, see below)
+#   DASHBOARD_PORT   port to bind          (default: 8080)
+#   DASHBOARD_HOST   interface to bind     (default: 0.0.0.0)
+#
+# Then open in your browser: http://YOUR_PUBLIC_IP:8080
 # =============================================================================
 
 import json
 import os
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime
 from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-LOG_FILE = "/home/cowrie/cowrie/var/log/cowrie/cowrie.json"
+# Checked in order when $COWRIE_JSON_LOG is not set.
+DEFAULT_LOG_PATHS = [
+    os.path.expanduser("~/honeypot/var/log/cowrie/cowrie.json"),
+    "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
+    os.path.join(os.getcwd(), "var", "log", "cowrie", "cowrie.json"),
+]
+
+
+def resolve_log_file():
+    """$COWRIE_JSON_LOG wins; otherwise take the first layout that exists."""
+    env_path = os.environ.get("COWRIE_JSON_LOG")
+    if env_path:
+        return env_path
+    for candidate in DEFAULT_LOG_PATHS:
+        if os.path.exists(candidate):
+            return candidate
+    return DEFAULT_LOG_PATHS[0]
+
+
+LOG_FILE = resolve_log_file()
 TOP_N = 10
 
 # -----------------------------------------------------------------------------
@@ -91,9 +116,13 @@ def get_stats():
         "top_users":        top_users,
         "top_passwords":    top_passwords,
         "top_commands":     top_commands,
-        "recent_attacks":   list(reversed(recent_attacks))[:20],
+        # recent_attacks was built newest-first above; reversing it again here
+        # would surface the OLDEST 20 of the last 50, not the newest 20.
+        "recent_attacks":   recent_attacks[:20],
         "last_updated":     data["last_updated"],
-        "unique_ips":       len(set(e.get("src_ip") for e in data["login_failed"])),
+        "unique_ips":       len(
+            {e.get("src_ip") for e in data["login_failed"] + data["login_success"]}
+        ),
     }
 
 
@@ -437,7 +466,14 @@ def api_stats():
 
 
 if __name__ == "__main__":
+    host = os.environ.get("DASHBOARD_HOST", "0.0.0.0")
+    port = int(os.environ.get("DASHBOARD_PORT", "8080"))
+
     print("\n  Cowrie Dashboard starting...")
-    print("  Open in browser: http://YOUR_ELASTIC_IP")
+    print(f"  Reading log : {LOG_FILE}")
+    if not os.path.exists(LOG_FILE):
+        print("  WARNING     : log file does not exist yet — stats will be empty.")
+    print(f"  Listening on: http://{host}:{port}")
     print("  Press Ctrl+C to stop\n")
-    app.run(host="0.0.0.0", port=80, debug=False)
+
+    app.run(host=host, port=port, debug=False)

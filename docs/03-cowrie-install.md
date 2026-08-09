@@ -1,195 +1,246 @@
 # Part 3: Installing and Configuring Cowrie
 
-This guide covers installing Cowrie, configuring it, running it as a system service, and verifying it captures attacks.
+Install Cowrie, run it under systemd, and confirm it captures attacks.
 
-> **Prerequisites:** Instance is hardened per [Part 2](02-hardening.md). You are SSH'd in on port 2223.
+> **Prerequisites:** Host hardened per [Part 2](02-hardening.md). You are SSH'd in on port 2223.
 
 ---
 
-## A: Switch to the Cowrie User
+## What Changed in Cowrie 3.x
 
-All Cowrie work runs as the dedicated `cowrie` user — never as root:
+If you followed an older guide, the install looked like this:
+
+```bash
+git clone https://github.com/cowrie/cowrie
+pip install -r requirements.txt
+bin/cowrie start
+```
+
+**That no longer works.** Cowrie 3.0 ships as a package on PyPI, `bin/cowrie` was removed upstream, and `requirements.txt` installs Cowrie's *dependencies* without installing Cowrie itself — so no `cowrie` command is ever created. The current path is below.
+
+| | Old | Current |
+|---|---|---|
+| Source | `git clone` | `pip install cowrie` |
+| Launcher | `bin/cowrie` | `cowrie` console script |
+| Setup | copy `cowrie.cfg.dist` | `cowrie init` |
+| State dir | the git checkout | any directory you choose |
+
+Cowrie 3.x requires **Python 3.10+**. Ubuntu 22.04 ships 3.10; 24.04 ships 3.12.
+
+---
+
+## Automated Path (recommended)
+
+```bash
+sudo cp /opt/cowrie-honeypot/scripts/install-cowrie.sh /tmp/
+sudo su - cowrie
+bash /tmp/install-cowrie.sh
+```
+
+Then skip to [section F](#f-run-cowrie-under-systemd).
+
+---
+
+## Manual Path
+
+### A: Switch to the Cowrie User
 
 ```bash
 sudo su - cowrie
 ```
 
-Your prompt changes to `cowrie@ip-...` — that means it worked.
+Your prompt changes to `cowrie@...`.
 
----
+### B: Create the Honeypot Directory
 
-## B: Clone the Cowrie Repository
+Everything — venv, config, logs, downloads, TTY recordings — lives in one self-contained directory.
 
 ```bash
-git clone https://github.com/cowrie/cowrie
-cd cowrie
+mkdir -p ~/honeypot && cd ~/honeypot
 ```
 
----
-
-## C: Create a Python Virtual Environment
-
-A virtual environment keeps Cowrie's dependencies isolated:
+### C: Virtual Environment
 
 ```bash
 python3 -m venv cowrie-env
 source cowrie-env/bin/activate
 ```
 
-Your prompt will show `(cowrie-env)` — the environment is active.
+Your prompt shows `(cowrie-env)`.
 
----
-
-## D: Install Dependencies
+### D: Install Cowrie
 
 ```bash
-pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install cowrie
 ```
 
-This takes 1–2 minutes. You'll see a lot of output — that's normal.
-
----
-
-## E: Create the Config File
+Takes 1–3 minutes; several dependencies have native components. Verify:
 
 ```bash
-cp etc/cowrie.cfg.dist etc/cowrie.cfg
-nano etc/cowrie.cfg
+cowrie --help
+python -m pip show cowrie | grep Version
 ```
 
-Find and update these settings (`Ctrl + W` to search):
+If `cowrie: command not found`, the venv is not active — re-run `source cowrie-env/bin/activate`.
+
+### E: Initialize and Configure
+
+```bash
+cowrie init
+```
+
+That writes `etc/cowrie.cfg` and creates `var/log/cowrie`, `var/lib/cowrie`, `var/run`.
+
+> `cowrie init` is **not** idempotent — it exits non-zero rather than overwrite an existing config.
+
+Apply this repo's config:
+
+```bash
+cp /opt/cowrie-honeypot/configs/cowrie.cfg ~/honeypot/etc/cowrie.cfg
+```
+
+Cowrie layers its configuration — bundled defaults first, then your `etc/cowrie.cfg` on top — so that file only needs the keys being changed. The important ones:
 
 ```ini
-# Hostname attackers see when they connect
+[honeypot]
 hostname = svr04
 
-# Fake SSH listener port
+[shell]
+# Note: the fake-system keys live in [shell], not [honeypot].
+arch = linux-x64-lsb
+kernel_version = 5.15.0-119-generic
+
+[ssh]
 listen_endpoints = tcp:2222:interface=0.0.0.0
 
-# Enable Telnet
 [telnet]
 enabled = true
-listen_endpoints = tcp:23:interface=0.0.0.0
+# NOT the default 2223 - that collides with admin SSH.
+listen_endpoints = tcp:2323:interface=0.0.0.0
 ```
 
-> **Common mistake:** `enabled = enable` will crash Cowrie. It must be `enabled = true`.
+The full reference is the `cowrie.cfg.dist` that `cowrie init` materializes alongside your config.
 
-Save with `Ctrl + X` → `Y` → `Enter`
-
----
-
-## F: Test Start Cowrie Manually
+### F: Start and Verify
 
 ```bash
 cowrie start
+sleep 3
 cowrie status
 ```
 
-Expected output:
-```
-cowrie is running (PID XXXXX)
+Expected: `cowrie is running (PID: NNNNN).`
+
+Confirm both listeners bound:
+
+```bash
+ss -tlnp | grep -E ':(2222|2323)'
 ```
 
-Test it by connecting from your local machine:
+```
+LISTEN 0 50 0.0.0.0:2222 users:(("twistd",pid=4072,fd=11))
+LISTEN 0 50 0.0.0.0:2323 users:(("twistd",pid=4072,fd=12))
+```
+
+Test from your laptop — port 22 redirects to Cowrie:
+
 ```powershell
-ssh -p 2222 root@YOUR_ELASTIC_IP
+ssh -p 22 root@YOUR_PUBLIC_IP
 ```
 
-Try any password — Cowrie will fake a login. Type commands like `ls`, `whoami`, then `exit`.
+Any password works. Try `ls`, `whoami`, `uname -a`, then `exit`.
+
+> Connecting from the host itself will not work — `REDIRECT` rules skip loopback. Test from another machine.
 
 ---
 
-## G: Set Up Cowrie as a System Service
+## F: Run Cowrie Under Systemd
 
-Switch back to the ubuntu user:
+Leave the cowrie user:
 
 ```bash
 exit
 ```
 
-Create the systemd service file:
+Install the unit:
 
 ```bash
-sudo nano /etc/systemd/system/cowrie.service
-```
-
-Paste:
-
-```ini
-[Unit]
-Description=Cowrie SSH/Telnet Honeypot
-After=network.target
-
-[Service]
-Type=forking
-User=cowrie
-Group=cowrie
-WorkingDirectory=/home/cowrie/cowrie
-Environment="PATH=/home/cowrie/cowrie/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ExecStart=/home/cowrie/cowrie/cowrie-env/bin/cowrie start
-ExecStop=/home/cowrie/cowrie/cowrie-env/bin/cowrie stop
-Restart=always
-RestartSec=5s
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable and start:
-
-```bash
+sudo cp /opt/cowrie-honeypot/configs/cowrie.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable cowrie
-sudo systemctl start cowrie
+sudo systemctl enable --now cowrie
 sudo systemctl status cowrie
 ```
 
-Look for `Active: active (running)` in green.
+Look for `Active: active (running)`.
+
+The unit differs from the usual copy-paste versions in two ways that matter:
+
+- **`PIDFile=` is declared.** `cowrie start` daemonizes via twistd. With `Type=forking` and no `PIDFile`, systemd guesses the main process and gets it wrong — the service looks dead, or restarts in a loop.
+- **`Environment="PATH=…/cowrie-env/bin:…"`.** `cowrie` is a console script inside the venv, not a system binary. Without the venv on `PATH`, systemd cannot find it.
 
 ---
 
-## H: Verify Logs Are Being Written
+## G: Verify Logging
 
 ```bash
 sudo su - cowrie
-cd cowrie
-tail -f var/log/cowrie/cowrie.log
+tail -f ~/honeypot/var/log/cowrie/cowrie.log
 ```
 
-Connect from your laptop to generate a log entry:
-```powershell
-ssh -p 2222 root@YOUR_ELASTIC_IP
-```
+Connect from your laptop again; the session appears live. `Ctrl + C` to stop.
 
-You will see your connection appear live. Press `Ctrl + C` to stop watching.
+Two log files, different jobs:
+
+| File | What it is |
+|---|---|
+| `var/log/cowrie/cowrie.log` | Twisted's runtime log — read this when debugging startup |
+| `var/log/cowrie/cowrie.json` | Structured events — what `analyze.py` and the dashboard parse |
+
+Confirm JSON events are landing:
+
+```bash
+grep -c eventid ~/honeypot/var/log/cowrie/cowrie.json
+```
 
 ---
 
-## Cowrie Installation Checklist
+## Installation Checklist
 
-- [ ] Cowrie cloned to `/home/cowrie/cowrie`
-- [ ] Virtual environment created and activated
-- [ ] Requirements installed
-- [ ] `etc/cowrie.cfg` created from template
-- [ ] Cowrie starts successfully (`cowrie status` shows running)
-- [ ] Systemd service enabled and running
-- [ ] Logs writing to `var/log/cowrie/cowrie.log`
-- [ ] Test connection captured in logs
+- [ ] Python 3.10+ confirmed
+- [ ] `~/honeypot` created with venv inside
+- [ ] `pip install cowrie` succeeded, `cowrie --help` works
+- [ ] `cowrie init` run
+- [ ] Repo config copied to `etc/cowrie.cfg`
+- [ ] Listeners bound on **2222 and 2323**
+- [ ] Test connection from an external machine captured
+- [ ] Systemd service enabled and active
+- [ ] `cowrie.json` receiving events
 
 ---
 
 ## Troubleshooting
 
-**`ValueError: Not a boolean: enable`**
-Open `etc/cowrie.cfg` and find `enabled = enable` in the `[telnet]` section. Change to `enabled = true`.
+**`cowrie: command not found`**
+The venv is not active, or `pip install -r requirements.txt` was used instead of `pip install cowrie` — that installs dependencies only and never creates the command.
 
-**`FileNotFoundError` in systemd**
-The `Environment="PATH=..."` line is missing from the service file. The venv path must be explicitly set for systemd.
+**`ERROR: cowrie is not initialized`**
+Wrong working directory. `cd ~/honeypot` first — Cowrie resolves `etc/` and `var/` relative to CWD.
 
-**Cowrie not capturing connections**
-Check UFW allows port 2222: `sudo ufw status`
-Check Cowrie is listening: `ss -tlnp | grep 2222`
+**Telnet listener missing, or sshd behaving strangely**
+Port collision: Cowrie's default telnet port is 2223, the same as admin SSH. Pin `listen_endpoints = tcp:2323:...` in `[telnet]`.
+
+**Service fails, but `cowrie start` works by hand**
+Almost always the missing `PATH` or `PIDFile` in the unit. Check `sudo journalctl -u cowrie -n 50`.
+
+**`Not a boolean: enable`**
+`enabled = enable` in the config. It must be `true`.
+
+**Nothing in the logs after hours**
+Verify the redirect survived: `sudo iptables -t nat -L PREROUTING -n`. If empty, run `sudo netfilter-persistent save` after re-adding.
+
+**`No moduli, no diffie-hellman-group-exchange-sha1` at startup**
+Harmless. Cowrie logs it when no moduli file is present; connections still work.
 
 ---
 

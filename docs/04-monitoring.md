@@ -1,179 +1,192 @@
 # Part 4: Monitoring & Web Dashboard
 
-This guide sets up a real-time web dashboard to visualize Cowrie attack data in your browser.
+Read the attack data — from the terminal, and from a browser dashboard that refreshes itself.
+
+> **Prerequisites:** Cowrie running under systemd per [Part 3](03-cowrie-install.md).
 
 ---
 
-## What the Dashboard Shows
+## A: CLI Analyzer
 
-- Total login attempts, unique attackers, sessions, commands, and downloads
-- Bar charts of top attacking IPs and most-tried usernames
-- Table of top passwords attackers use
-- Table of commands attackers run after getting in
-- Live feed of the last 20 login attempts
-- Auto-refreshes every 30 seconds
+Quickest way to see what you have caught:
+
+```bash
+sudo su - cowrie
+~/honeypot/cowrie-env/bin/python3 /opt/cowrie-honeypot/scripts/analyze.py
+```
+
+It finds `~/honeypot/var/log/cowrie/cowrie.json` on its own. Override the path if your layout differs:
+
+```bash
+COWRIE_JSON_LOG=/path/to/cowrie.json python3 analyze.py
+# or
+python3 analyze.py /path/to/cowrie.json
+```
+
+Output covers totals, unique source IPs, and ranked tables of attacking IPs, usernames, passwords, and commands — plus every successful login and any malware the attackers pulled down.
 
 ---
 
-## A: Open Port 80 in UFW
+## B: Web Dashboard
 
-The dashboard runs on port 80 (standard web). Open it — but restrict to your IP only so the public can't see your attack data:
+Same data, charted, auto-refreshing every 30 seconds.
+
+### Install Flask
+
+Into Cowrie's venv:
+
+```bash
+sudo -u cowrie /home/cowrie/honeypot/cowrie-env/bin/pip install flask
+```
+
+### Test It by Hand
+
+```bash
+sudo su - cowrie
+DASHBOARD_PORT=8080 ~/honeypot/cowrie-env/bin/python3 \
+  /opt/cowrie-honeypot/scripts/dashboard.py
+```
+
+It prints the log path it resolved and the address it bound. Visit `http://YOUR_PUBLIC_IP:8080`, then `Ctrl + C`.
+
+> Open 8080 in the cloud firewall **from your IP only** while testing. The dashboard has no authentication — anyone who reaches it sees your attack data.
+
+### Run It as a Service
+
+```bash
+exit
+sudo cp /opt/cowrie-honeypot/configs/dashboard.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now dashboard
+sudo systemctl status dashboard
+```
+
+The unit serves on port **80**. Ports below 1024 are privileged, and the older approach — running the whole dashboard as root — is unnecessary. The unit grants exactly one capability instead:
+
+```ini
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+```
+
+The process still runs as `cowrie`, with permission to bind a low port and nothing else.
+
+### Restrict Access
 
 ```bash
 sudo ufw allow from YOUR_HOME_IP to any port 80
 sudo ufw status
 ```
 
-> Replace `YOUR_HOME_IP` with your actual IP. Find it at [whatismyip.com](https://whatismyip.com).
+Add the matching cloud rule (Oracle Security List / AWS Security Group) for port 80 from your IP only.
+
+Configuration comes from the environment, so no code edits are needed:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `COWRIE_JSON_LOG` | auto-detected | Path to `cowrie.json` |
+| `DASHBOARD_PORT` | `8080` | Port to bind |
+| `DASHBOARD_HOST` | `0.0.0.0` | Interface to bind |
 
 ---
 
-## B: Install Flask
+## C: Verify Everything Is Up
 
-Switch to the cowrie user:
+```bash
+sudo systemctl status cowrie dashboard --no-pager
+sudo ss -tlnp | grep -E ':(2222|2323|80)\b'
+```
+
+Expected:
+
+```
+LISTEN 0.0.0.0:2222   twistd     # Cowrie SSH   (:22 redirects here)
+LISTEN 0.0.0.0:2323   twistd     # Cowrie Telnet (:23 redirects here)
+LISTEN 0.0.0.0:80     python3    # dashboard
+```
+
+Confirm the redirects are still in place:
+
+```bash
+sudo iptables -t nat -L PREROUTING -n --line-numbers
+```
+
+---
+
+## D: Watch Live
 
 ```bash
 sudo su - cowrie
-cd cowrie
-source cowrie-env/bin/activate
+tail -f ~/honeypot/var/log/cowrie/cowrie.log
 ```
 
-Install Flask:
+Just the login attempts:
 
 ```bash
-pip install flask
+tail -f ~/honeypot/var/log/cowrie/cowrie.log | grep "login attempt"
+```
+
+Structured events as they land:
+
+```bash
+tail -f ~/honeypot/var/log/cowrie/cowrie.json | grep --line-buffered eventid
 ```
 
 ---
 
-## C: Copy the Dashboard Script
+## E: Replay Attacker Sessions
 
-```bash
-cp ~/cowrie/scripts/dashboard.py ~/cowrie/dashboard.py
-```
-
----
-
-## D: Test the Dashboard Manually
-
-Run it to make sure it works:
-
-```bash
-sudo python3 ~/cowrie/dashboard.py
-```
-
-> We need `sudo` here because port 80 requires root privileges.
-
-Open your browser and go to:
-```
-http://YOUR_ELASTIC_IP
-```
-
-You should see the dashboard. If you don't have much data yet, run the analyze.py script a few times or wait — real attackers will populate the logs within hours.
-
-Press `Ctrl + C` to stop the test run.
-
----
-
-## E: Run the Dashboard as a System Service
-
-So the dashboard stays up permanently, run it via systemd.
-
-Exit the cowrie user first:
-
-```bash
-exit
-```
-
-Install the service:
-
-```bash
-sudo cp /home/cowrie/cowrie/configs/dashboard.service /etc/systemd/system/dashboard.service
-sudo systemctl daemon-reload
-sudo systemctl enable dashboard
-sudo systemctl start dashboard
-sudo systemctl status dashboard
-```
-
-Look for `Active: active (running)` in green.
-
----
-
-## F: Verify Everything Is Running
-
-```bash
-sudo systemctl status cowrie
-sudo systemctl status dashboard
-```
-
-Both should show `active (running)`.
-
-Check open ports:
-
-```bash
-sudo ss -tlnp | grep -E '2222|23|80'
-```
-
-Expected output:
-```
-LISTEN  0  128  0.0.0.0:2222   cowrie (fake SSH)
-LISTEN  0  128  0.0.0.0:23     cowrie (fake Telnet)
-LISTEN  0  128  0.0.0.0:80     dashboard (web)
-```
-
----
-
-## G: View Live Logs
-
-Watch attacks in real time:
+The best feature in Cowrie, and the one most people miss. Every session is recorded as a TTY log and replays keystroke by keystroke, in real time:
 
 ```bash
 sudo su - cowrie
-cd cowrie
-tail -f var/log/cowrie/cowrie.log
+cd ~/honeypot
+ls var/lib/cowrie/tty/
+cowrie-env/bin/playlog var/lib/cowrie/tty/<file>
 ```
 
-Filter for just login attempts:
-
-```bash
-tail -f var/log/cowrie/cowrie.log | grep "login attempt"
-```
-
----
-
-## H: Run the CLI Analyzer
-
-For a terminal-based summary:
-
-```bash
-cd /home/cowrie/cowrie
-source cowrie-env/bin/activate
-python3 scripts/analyze.py
-```
+You watch the attacker type — including their typos and their pauses. This is the single most compelling artifact to put in a writeup or show in an interview.
 
 ---
 
 ## Monitoring Checklist
 
-- [ ] Port 80 open in UFW (restricted to your IP)
-- [ ] Flask installed in cowrie virtualenv
-- [ ] Dashboard accessible at `http://YOUR_ELASTIC_IP`
-- [ ] Dashboard systemd service enabled and running
-- [ ] Both `cowrie` and `dashboard` services show active
-- [ ] Logs writing to `var/log/cowrie/cowrie.json`
+- [ ] `analyze.py` runs and finds the log
+- [ ] Flask installed in Cowrie's venv
+- [ ] Dashboard reachable, restricted to your IP
+- [ ] `dashboard` service enabled and active
+- [ ] Both services show `active (running)`
+- [ ] NAT redirects confirmed present
+- [ ] A session replayed with `playlog`
 
 ---
 
-## Tips
+## What You Will See
 
-**Leave it running overnight.** Internet bots scan the entire IPv4 space for open SSH ports continuously. Within 24 hours you will see real login attempts from real attackers around the world.
+Leave it running overnight. Bots sweep the entire IPv4 space for open SSH continuously; with port 22 redirected to Cowrie, the first hits usually arrive within an hour.
 
-**Common attacker passwords you'll see:** `123456`, `admin`, `password`, `root`, `1234`, `test`.
+**Passwords:** `123456`, `admin`, `password`, `root`, `1234`, `test`
 
-**Common attacker commands after getting in:**
-- `uname -a` — checking OS version
-- `cat /proc/cpuinfo` — checking CPU for crypto mining
-- `wget http://...` — downloading malware
-- `chmod +x ...` — making malware executable
+**Commands, in a recognizable order:**
 
-These are all safely captured by Cowrie — none of them actually run on your real system.
+| Command | What they are doing |
+|---|---|
+| `uname -a` | Fingerprinting the kernel |
+| `cat /proc/cpuinfo` | Sizing the box for cryptomining |
+| `wget http://…` / `curl -O …` | Pulling second-stage malware |
+| `chmod +x …` | Making it executable |
+| `crontab -l` | Establishing persistence |
+
+None of it executes. Cowrie emulates the shell — the filesystem is fake and the commands are simulated.
+
+> **One real behaviour to know about:** when an attacker runs `wget`, Cowrie genuinely fetches the file so it can capture the sample to `var/lib/cowrie/downloads/`. That is real outbound traffic to malware infrastructure. It is normal for a honeypot, but it is why you keep this on a disposable host, and `download_limit_size` in `cowrie.cfg` caps what gets stored.
+
+---
+
+## Where to Take It Next
+
+- **Submit hashes to VirusTotal** — Cowrie has an `[output_virustotal]` plugin
+- **Ship to Elasticsearch or Splunk** — `[output_elasticsearch]`, `[output_splunk]`
+- **Feed threat intel** — `[output_dshield]`, `[output_abuseipdb]`
+- **Report to AbuseIPDB** — turns your honeypot into a contribution to community blocklists
+
+All are configured in `etc/cowrie.cfg`; see the `cowrie.cfg.dist` reference for the full list.

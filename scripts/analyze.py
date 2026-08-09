@@ -2,10 +2,12 @@
 # =============================================================================
 # analyze.py — Cowrie Honeypot Log Analyzer
 # =============================================================================
-# Parses Cowrie's JSON log and prints attack summaries.
+# Parses Cowrie's JSON log and prints an attack summary.
 #
-# Usage (run as cowrie user from /home/cowrie/cowrie):
-#   python3 ~/cowrie/analyze.py
+# Usage:
+#   python3 analyze.py                    # auto-detect the log
+#   python3 analyze.py /path/to/cowrie.json
+#   COWRIE_JSON_LOG=/path/to/cowrie.json python3 analyze.py
 #
 # Requirements: Python 3.6+ (no extra packages needed)
 # =============================================================================
@@ -16,11 +18,38 @@ import sys
 from collections import Counter
 from datetime import datetime
 
-# -----------------------------------------------------------------------------
-# Config
-# -----------------------------------------------------------------------------
-LOG_FILE = os.path.join(os.path.dirname(__file__), "../var/log/cowrie/cowrie.json")
 TOP_N = 10  # How many results to show per category
+
+# Checked in order when neither $COWRIE_JSON_LOG nor argv[1] is given.
+DEFAULT_LOG_PATHS = [
+    os.path.expanduser("~/honeypot/var/log/cowrie/cowrie.json"),
+    os.path.join(os.getcwd(), "var", "log", "cowrie", "cowrie.json"),
+    "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
+]
+
+
+# -----------------------------------------------------------------------------
+# Locate the log
+# -----------------------------------------------------------------------------
+def resolve_log_file(argv):
+    """Explicit argument wins, then $COWRIE_JSON_LOG, then the known layouts.
+
+    An explicit path is returned even when it does not exist, so the error
+    message names the file the user actually asked for.
+    """
+    if len(argv) > 1:
+        return argv[1]
+
+    env_path = os.environ.get("COWRIE_JSON_LOG")
+    if env_path:
+        return env_path
+
+    for candidate in DEFAULT_LOG_PATHS:
+        if os.path.exists(candidate):
+            return candidate
+
+    return DEFAULT_LOG_PATHS[0]
+
 
 # -----------------------------------------------------------------------------
 # Parse the log
@@ -35,36 +64,33 @@ def parse_log(log_file):
     }
 
     if not os.path.exists(log_file):
-        print(f"[!] Log file not found: {log_file}")
-        print("    Make sure Cowrie has run and generated logs.")
+        print(f"\n[!] Log file not found: {log_file}")
+        print("    Set the path explicitly if the honeypot lives elsewhere:")
+        print("      COWRIE_JSON_LOG=/path/to/cowrie.json python3 analyze.py")
         sys.exit(1)
 
-    with open(log_file) as f:
+    interesting = {
+        "cowrie.login.failed": "login_failed",
+        "cowrie.login.success": "login_success",
+        "cowrie.command.input": "commands",
+        "cowrie.session.file_download": "downloads",
+        "cowrie.session.connect": "sessions",
+    }
+
+    with open(log_file, encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
             if not line:
                 continue
             try:
                 event = json.loads(line)
-                eid = event.get("eventid", "")
-
-                if eid == "cowrie.login.failed":
-                    events["login_failed"].append(event)
-
-                elif eid == "cowrie.login.success":
-                    events["login_success"].append(event)
-
-                elif eid == "cowrie.command.input":
-                    events["commands"].append(event)
-
-                elif eid == "cowrie.session.file_download":
-                    events["downloads"].append(event)
-
-                elif eid == "cowrie.session.connect":
-                    events["sessions"].append(event)
-
             except json.JSONDecodeError:
+                # Cowrie can be mid-write on the last line; skip partial records.
                 continue
+
+            bucket = interesting.get(event.get("eventid", ""))
+            if bucket:
+                events[bucket].append(event)
 
     return events
 
@@ -77,72 +103,73 @@ def section(title):
     print(f"  {title}")
     print(f"{'=' * 55}")
 
-def top_n(items, label, n=TOP_N):
-    counts = Counter(items).most_common(n)
+
+def top_n(items, n=TOP_N):
+    counts = Counter(i for i in items if i).most_common(n)
     if not counts:
-        print(f"  (no data yet)")
+        print("  (no data yet)")
         return
+    # Scale bars to the largest value so one huge outlier doesn't flatten the rest.
+    peak = counts[0][1]
     for item, count in counts:
-        bar = "█" * min(count, 40)
-        print(f"  {str(item):<35} {count:>5}x  {bar}")
+        bar = "#" * max(1, int(30 * count / peak))
+        print(f"  {str(item)[:35]:<35} {count:>5}x  {bar}")
 
 
 # -----------------------------------------------------------------------------
 # Main report
 # -----------------------------------------------------------------------------
 def main():
-    log_file = os.path.abspath(LOG_FILE)
-    print(f"\nCowrie Honeypot Attack Analysis")
+    log_file = os.path.abspath(resolve_log_file(sys.argv))
+
+    print("\nCowrie Honeypot Attack Analysis")
     print(f"Log file : {log_file}")
     print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     events = parse_log(log_file)
 
-    total_sessions    = len(events["sessions"])
-    total_failed      = len(events["login_failed"])
-    total_success     = len(events["login_success"])
-    total_commands    = len(events["commands"])
-    total_downloads   = len(events["downloads"])
-
     section("OVERVIEW")
-    print(f"  Total sessions       : {total_sessions}")
-    print(f"  Failed login attempts: {total_failed}")
-    print(f"  Successful logins    : {total_success}")
-    print(f"  Commands executed    : {total_commands}")
-    print(f"  File downloads       : {total_downloads}")
+    print(f"  Total sessions       : {len(events['sessions'])}")
+    print(f"  Failed login attempts: {len(events['login_failed'])}")
+    print(f"  Successful logins    : {len(events['login_success'])}")
+    print(f"  Commands executed    : {len(events['commands'])}")
+    print(f"  File downloads       : {len(events['downloads'])}")
+
+    # Count attackers across every login attempt, not just the failures.
+    all_logins = events["login_failed"] + events["login_success"]
+    print(f"  Unique source IPs    : {len({e.get('src_ip') for e in all_logins})}")
 
     section(f"TOP {TOP_N} ATTACKING IPs")
-    ips = [e.get("src_ip", "unknown") for e in events["login_failed"]]
-    top_n(ips, "IP")
+    top_n([e.get("src_ip") for e in all_logins])
 
     section(f"TOP {TOP_N} USERNAMES TRIED")
-    usernames = [e.get("username", "unknown") for e in events["login_failed"]]
-    top_n(usernames, "Username")
+    top_n([e.get("username") for e in all_logins])
 
     section(f"TOP {TOP_N} PASSWORDS TRIED")
-    passwords = [e.get("password", "unknown") for e in events["login_failed"]]
-    top_n(passwords, "Password")
+    top_n([e.get("password") for e in all_logins])
 
     section(f"TOP {TOP_N} COMMANDS EXECUTED")
-    cmds = [e.get("input", "").strip() for e in events["commands"] if e.get("input", "").strip()]
-    top_n(cmds, "Command")
+    top_n([e.get("input", "").strip() for e in events["commands"]])
 
     if events["downloads"]:
-        section(f"FILES DOWNLOADED BY ATTACKERS")
+        section("FILES DOWNLOADED BY ATTACKERS")
         for e in events["downloads"]:
-            print(f"  URL : {e.get('url', 'unknown')}")
-            print(f"  SHA : {e.get('shasum', 'unknown')}")
-            print(f"  Size: {e.get('outfile', 'unknown')}")
+            print(f"  URL     : {e.get('url', 'unknown')}")
+            print(f"  SHA-256 : {e.get('shasum', 'unknown')}")
+            print(f"  Saved to: {e.get('outfile', 'unknown')}")
             print()
 
     if events["login_success"]:
-        section("SUCCESSFUL LOGINS (attacker got in!)")
+        section("SUCCESSFUL LOGINS (attacker got a shell)")
         for e in events["login_success"]:
-            print(f"  IP: {e.get('src_ip')}  User: {e.get('username')}  Pass: {e.get('password')}")
+            print(
+                f"  {e.get('timestamp', '')[:19]}  {e.get('src_ip'):<15} "
+                f"{e.get('username')}/{e.get('password')}"
+            )
 
     print(f"\n{'=' * 55}")
-    print(f"  Leave the honeypot running — real attackers")
-    print(f"  typically find open SSH ports within hours.")
+    print("  Leave the honeypot running — real scanners")
+    print("  typically find an open SSH port within hours.")
     print(f"{'=' * 55}\n")
 
 

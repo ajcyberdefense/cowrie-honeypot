@@ -1,32 +1,54 @@
 # =============================================================================
-# cowrie.service — Systemd Service File for Cowrie Honeypot
+# cowrie.service — Systemd unit for the Cowrie honeypot
 # =============================================================================
 # Install with:
-#   sudo cp configs/cowrie.service /etc/systemd/system/cowrie.service
+#   sudo cp /opt/cowrie-honeypot/configs/cowrie.service /etc/systemd/system/
 #   sudo systemctl daemon-reload
-#   sudo systemctl enable cowrie
-#   sudo systemctl start cowrie
+#   sudo systemctl enable --now cowrie
+#   sudo systemctl status cowrie
 # =============================================================================
 
 [Unit]
 Description=Cowrie SSH/Telnet Honeypot
-After=network.target
+Documentation=https://docs.cowrie.org/
+After=network-online.target
+Wants=network-online.target
 
 [Service]
+# `cowrie start` launches twistd, which daemonizes and writes a PID file.
+# Type=forking without an explicit PIDFile makes systemd guess the main
+# process, which it gets wrong here — state it outright.
 Type=forking
+PIDFile=/home/cowrie/honeypot/var/run/cowrie.pid
+
 User=cowrie
 Group=cowrie
-WorkingDirectory=/home/cowrie/cowrie
 
-# Explicitly set PATH so systemd can find twistd inside the virtualenv
-Environment="PATH=/home/cowrie/cowrie/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# Cowrie resolves etc/ and var/ relative to the working directory, so this
+# must be the state directory created by `cowrie init`.
+WorkingDirectory=/home/cowrie/honeypot
 
-ExecStart=/home/cowrie/cowrie/cowrie-env/bin/cowrie start
-ExecStop=/home/cowrie/cowrie/cowrie-env/bin/cowrie stop
+# The venv's bin/ must come first — `cowrie` is a console-script entry point
+# installed there by `pip install cowrie`, not a system binary.
+Environment="PATH=/home/cowrie/honeypot/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
-# Restart automatically if Cowrie crashes
-Restart=always
-RestartSec=5s
+ExecStart=/home/cowrie/honeypot/cowrie-env/bin/cowrie start
+ExecStop=/home/cowrie/honeypot/cowrie-env/bin/cowrie stop
+
+Restart=on-failure
+RestartSec=10s
+
+# --- Hardening -------------------------------------------------------------
+# Cowrie emulates commands rather than executing them, but it is deliberately
+# the most-attacked process on the box. Constrain it anyway.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/home/cowrie/honeypot
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
 
 [Install]
 WantedBy=multi-user.target

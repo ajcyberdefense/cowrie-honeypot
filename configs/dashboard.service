@@ -1,26 +1,55 @@
 # =============================================================================
-# dashboard.service — Systemd Service for Cowrie Web Dashboard
+# dashboard.service — Systemd unit for the Cowrie web dashboard
 # =============================================================================
 # Install with:
-#   sudo cp configs/dashboard.service /etc/systemd/system/dashboard.service
+#   sudo cp /opt/cowrie-honeypot/configs/dashboard.service /etc/systemd/system/
 #   sudo systemctl daemon-reload
-#   sudo systemctl enable dashboard
-#   sudo systemctl start dashboard
+#   sudo systemctl enable --now dashboard
+#   sudo systemctl status dashboard
+#
+# Restrict port 80 to your own IP in the firewall — this page exposes your
+# attack data and has no authentication. See docs/04-monitoring.md.
 # =============================================================================
 
 [Unit]
 Description=Cowrie Honeypot Web Dashboard
-After=network.target cowrie.service
+After=network-online.target cowrie.service
+Wants=network-online.target
 
 [Service]
 Type=simple
 User=cowrie
 Group=cowrie
-WorkingDirectory=/home/cowrie/cowrie
-Environment="PATH=/home/cowrie/cowrie/cowrie-env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ExecStart=/home/cowrie/cowrie/cowrie-env/bin/python3 /home/cowrie/cowrie/dashboard.py
-Restart=always
-RestartSec=5s
+
+WorkingDirectory=/opt/cowrie-honeypot
+
+Environment="COWRIE_JSON_LOG=/home/cowrie/honeypot/var/log/cowrie/cowrie.json"
+Environment="DASHBOARD_PORT=80"
+
+# Port 80 is privileged. Rather than running the whole dashboard as root,
+# grant just the one capability needed to bind it. AmbientCapabilities passes
+# it through to the unprivileged process; CapabilityBoundingSet stops it
+# acquiring anything else.
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+
+# Flask lives in Cowrie's venv — install it there:
+#   sudo -u cowrie /home/cowrie/honeypot/cowrie-env/bin/pip install flask
+ExecStart=/home/cowrie/honeypot/cowrie-env/bin/python3 /opt/cowrie-honeypot/scripts/dashboard.py
+
+Restart=on-failure
+RestartSec=10s
+
+# --- Hardening -------------------------------------------------------------
+# Safe alongside AmbientCapabilities: systemd installs the ambient set at exec
+# time, so CAP_NET_BIND_SERVICE survives while setuid escalation stays blocked.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
 
 [Install]
 WantedBy=multi-user.target

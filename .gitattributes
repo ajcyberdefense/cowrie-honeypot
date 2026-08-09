@@ -1,0 +1,24 @@
+# =============================================================================
+# Force LF line endings.
+# =============================================================================
+# Everything here is executed or parsed on Linux. A CRLF that survives into a
+# checkout breaks things in confusing ways:
+#   harden.sh          -> $'\r': command not found
+#   cowrie.cfg         -> config values silently gain a trailing \r
+#   *.service          -> systemd rejects the unit
+# This repo is authored on Windows, so pin the endings rather than relying on
+# each contributor's core.autocrlf setting.
+
+*           text=auto eol=lf
+
+*.sh        text eol=lf
+*.py        text eol=lf
+*.cfg       text eol=lf
+*.service   text eol=lf
+*.md        text eol=lf
+sshd_config text eol=lf
+
+# Never touch binary content
+*.png       binary
+*.jpg       binary
+*.pickle    binary

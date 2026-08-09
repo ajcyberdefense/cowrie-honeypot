@@ -1,61 +1,82 @@
 # =============================================================================
-# /etc/ssh/sshd_config — Hardened SSH Configuration for Cowrie Honeypot Host
+# /etc/ssh/sshd_config — Hardened SSH for the honeypot host
 # =============================================================================
-# Apply this to the HOST machine (not Cowrie's fake SSH).
-# Real admin SSH runs on port 2223, key-based auth only.
-# Cowrie's fake SSH runs on port 2222 (handled separately).
+# This is the REAL sshd, not Cowrie's fake one.
+#   Real admin SSH : port 2223, key auth only, restricted to your IP
+#   Cowrie fake SSH: port 2222, fed by an iptables redirect from :22
 #
-# To apply: sudo cp configs/sshd_config /etc/ssh/sshd_config
-#           sudo systemctl restart sshd
+# To apply:
+#   sudo cp /opt/cowrie-honeypot/configs/sshd_config /etc/ssh/sshd_config
+#   sudo sshd -t                       # ALWAYS validate before restarting
+#   sudo systemctl restart ssh
+#
+# UBUNTU 24.04: this file's `Port` directive is IGNORED. sshd is socket-
+# activated there and the port comes from ssh.socket. See docs/02-hardening.md
+# section C2 — you must also drop an ssh.socket override, or SSH stays on 22.
 # =============================================================================
 
-# Move SSH off default port 22 — attackers scan 22 constantly
+# Move real SSH off :22 — that port belongs to the honeypot now
 Port 2223
 
-# Only listen on IPv4 (change to 'any' if you need IPv6)
+# IPv4 only (set to 'any' if you need IPv6)
 AddressFamily inet
-
-# Network
 ListenAddress 0.0.0.0
 
-# Authentication
+# --- Authentication --------------------------------------------------------
 PermitRootLogin no
 PasswordAuthentication no
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 PermitEmptyPasswords no
 
-# Limit brute force attempts
+# Modern name for the old ChallengeResponseAuthentication, which is
+# deprecated in OpenSSH 8.7+ and logs a warning on current Ubuntu.
+KbdInteractiveAuthentication no
+
+# --- Brute force limits ----------------------------------------------------
 MaxAuthTries 3
 MaxSessions 5
 LoginGraceTime 30
 
-# Only allow the ubuntu user
+# Only this account may log in. Change if your cloud image uses a different
+# default user (Ubuntu images: 'ubuntu'; Oracle Linux images: 'opc').
 AllowUsers ubuntu
 
-# Disable unused authentication methods
-ChallengeResponseAuthentication no
+# --- Disable unused auth methods -------------------------------------------
 KerberosAuthentication no
 GSSAPIAuthentication no
 
-# Disable X11 and agent forwarding (not needed for a honeypot server)
+# --- Disable forwarding ----------------------------------------------------
+# Nothing on this host should be tunnelling anywhere.
 X11Forwarding no
 AllowAgentForwarding no
 AllowTcpForwarding no
 PermitTunnel no
 
-# Logging
+# --- Logging ---------------------------------------------------------------
+# VERBOSE records key fingerprints on login — useful for incident response,
+# and required for Fail2ban to match reliably.
 SyslogFacility AUTH
 LogLevel VERBOSE
 
-# Keep connections alive, disconnect idle sessions after 10 minutes
+# --- Session timeouts ------------------------------------------------------
 ClientAliveInterval 300
 ClientAliveCountMax 2
 
-# Use strong ciphers and MACs only
+# --- Cryptography ----------------------------------------------------------
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
 MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com
 KexAlgorithms curve25519-sha256,diffie-hellman-group16-sha512
 
-# Include drop-in config files
+# --- Drop-in configs -------------------------------------------------------
+# This Include MUST stay at the BOTTOM. sshd uses the FIRST value it obtains
+# for each keyword, so everything set above wins over the drop-ins below.
+# Ubuntu's stock config puts this line at the top for the opposite reason —
+# so its 50-cloud-init.conf (which re-enables PasswordAuthentication) can
+# override the defaults. Here we want our hardening to be the authority.
+#
+# CAVEAT: `Port` is an exception. It ACCUMULATES rather than first-wins, so a
+# Port line in any drop-in adds a second listener instead of being ignored —
+# verified with `sshd -T`. harden.sh comments out any such lines. If you edit
+# these files by hand, check with:  sudo sshd -T | grep '^port '
 Include /etc/ssh/sshd_config.d/*.conf

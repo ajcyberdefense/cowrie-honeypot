@@ -38,11 +38,14 @@ Think of a Security Group as a firewall that controls who can reach your server 
 
 | Port | Protocol | Source | Purpose |
 |------|----------|--------|---------|
+| `22` | TCP | **Anywhere (0.0.0.0/0)** | Cowrie fake SSH — redirected to 2222 |
+| `23` | TCP | **Anywhere (0.0.0.0/0)** | Cowrie fake Telnet — redirected to 2323 |
 | `2223` | TCP | **My IP** | Real admin SSH access |
-| `2222` | TCP | **Anywhere (0.0.0.0/0)** | Cowrie fake SSH (honeypot) |
-| `23` | TCP | **Anywhere (0.0.0.0/0)** | Cowrie fake Telnet (honeypot) |
+| `80` | TCP | **My IP** | Dashboard (Part 4) |
 
-> **Never expose port 22 to the world.** Attackers scan port 22 constantly. We move real SSH to 2223.
+> **Port 22 is exposed on purpose.** Attackers scan it constantly — that is exactly the traffic we want to capture. [Part 2](02-hardening.md) moves real SSH to 2223 and redirects `:22` to Cowrie on 2222, so nothing but the honeypot ever answers there.
+>
+> **Add the `2223` rule before running `harden.sh`**, or you will be locked out the moment your session drops.
 
 ### Outbound Rules
 Leave outbound as default: **All traffic → Anywhere**
@@ -79,12 +82,9 @@ Go to **EC2 → Instances**, click your instance. The **Public IPv4 address** in
 
 ## Connecting for the First Time
 
-> **Temporary step only:** You need port 22 open just for first login. We close it in Part 2.
+Port 22 still reaches the real sshd at this stage — Cowrie takes it over in Part 2.
 
-1. Temporarily add a rule to your security group:
-   - Port: `22` | Source: **My IP** | Description: `Temporary initial access`
-
-2. Connect from your terminal:
+1. Connect from your terminal:
 
 **Mac/Linux:**
 ```bash
@@ -97,7 +97,7 @@ ssh -i ~/Downloads/your-key.pem ubuntu@YOUR_ELASTIC_IP
 ssh -i C:\Users\YourName\Downloads\your-key.pem ubuntu@YOUR_ELASTIC_IP
 ```
 
-3. Type `yes` when prompted about the host fingerprint.
+2. Type `yes` when prompted about the host fingerprint.
 
 Once you're inside, proceed to [Part 2: Instance Hardening](02-hardening.md).
 
