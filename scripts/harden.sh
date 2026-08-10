@@ -152,6 +152,30 @@ fi
 # -----------------------------------------------------------------------------
 # Step 4: Firewall — allow the new port BEFORE restarting SSH
 # -----------------------------------------------------------------------------
+# ORDER IS LOAD-BEARING. Oracle's preinstalled REJECT rules must be cleared
+# BEFORE UFW is enabled, never after.
+#
+# UFW works by setting the INPUT policy to DROP and adding jump rules into the
+# INPUT chain. Flushing INPUT afterwards deletes those jumps but LEAVES the
+# DROP policy, so every packet — including the SSH session running the
+# script — is silently dropped. That is an instant, total lockout requiring
+# out-of-band console recovery.
+if [ "$IS_ORACLE" = yes ] && sudo iptables -S INPUT | grep -q "REJECT"; then
+  warn "Oracle's default iptables REJECT rules are present."
+  warn "They shadow UFW and would block Cowrie's ports."
+  if confirm "Clear them so UFW can own filtering?"; then
+    # Set the policy permissive FIRST. If anything below fails midway, the box
+    # stays reachable instead of defaulting to dropping everything.
+    sudo iptables -P INPUT ACCEPT
+    sudo iptables -P FORWARD ACCEPT
+    sudo iptables -F INPUT
+    sudo iptables -F FORWARD
+    log "Cleared. UFW is configured next and becomes the only ruleset."
+  else
+    warn "Left in place — expect Cowrie's ports to be unreachable."
+  fi
+fi
+
 log "Configuring UFW..."
 sudo ufw --force reset >/dev/null
 sudo ufw default deny incoming >/dev/null
@@ -166,21 +190,16 @@ sudo ufw allow "${COWRIE_TELNET_PORT}/tcp"   comment 'Cowrie Telnet' >/dev/null
 sudo ufw --force enable >/dev/null
 log "UFW enabled."
 
-# Oracle's preinstalled REJECT rules sit in the filter table underneath UFW
-# and will drop traffic UFW believes it is allowing.
-if [ "$IS_ORACLE" = yes ]; then
-  if sudo iptables -S INPUT | grep -q "REJECT"; then
-    warn "Oracle's default iptables REJECT rules are present."
-    warn "They shadow UFW and will block Cowrie's ports."
-    if confirm "Flush Oracle's filter rules and let UFW own filtering?"; then
-      sudo iptables -F INPUT
-      sudo iptables -F FORWARD
-      log "Flushed. UFW is now the only filter ruleset."
-    else
-      warn "Left in place — expect Cowrie's ports to be unreachable."
-    fi
-  fi
+# Sanity check: UFW must own the INPUT chain now. If the chain is empty while
+# the policy is DROP, something cleared UFW's jumps out from under it and the
+# host is unreachable to every new connection.
+if ! sudo iptables -S INPUT | grep -q "ufw"; then
+  warn "INPUT chain has no UFW jump rules — firewall state is inconsistent."
+  warn "Restoring a permissive policy so you keep access."
+  sudo iptables -P INPUT ACCEPT
+  error "Aborted before touching sshd. Re-run this script."
 fi
+log "UFW owns the INPUT chain."
 
 # -----------------------------------------------------------------------------
 # Step 5: Restart SSH  ***LOCKOUT RISK***
@@ -203,6 +222,26 @@ echo ""
 # Validate before restarting — a syntax error here means sshd never comes back.
 sudo sshd -t || error "sshd config is INVALID. Not restarting. Fix ${SSHD_CONFIG} first."
 log "sshd config validates."
+
+# UsePAM must be on. OpenSSH defaults it to "no", and cloud images lock the
+# default user's password — with PAM off sshd rejects locked accounts and every
+# key auth fails with a misleading "Permission denied (publickey)".
+if ! sudo sshd -T 2>/dev/null | grep -qi '^usepam yes'; then
+  warn "UsePAM is not enabled. On a cloud image this locks you out:"
+  warn "  sshd refuses locked accounts when PAM is off, and ${ADMIN_USER}'s"
+  warn "  password is locked by design."
+  if confirm "Add 'UsePAM yes' to ${SSHD_CONFIG} now?"; then
+    if grep -q '^[[:space:]]*Include ' "$SSHD_CONFIG"; then
+      sudo sed -i '0,/^[[:space:]]*Include /s//UsePAM yes\n&/' "$SSHD_CONFIG"
+    else
+      echo 'UsePAM yes' | sudo tee -a "$SSHD_CONFIG" >/dev/null
+    fi
+    sudo sshd -t || error "config broke after adding UsePAM. Not restarting."
+    log "UsePAM enabled."
+  else
+    error "Refusing to restart sshd without PAM — it would lock you out."
+  fi
+fi
 
 # `sshd -T` prints the settings sshd will actually use, drop-ins included.
 EFFECTIVE_PORTS=$(sudo sshd -T 2>/dev/null | awk '/^port /{print $2}' | sort -u | tr '\n' ' ')

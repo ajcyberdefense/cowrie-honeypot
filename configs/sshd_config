@@ -33,6 +33,21 @@ PermitEmptyPasswords no
 # deprecated in OpenSSH 8.7+ and logs a warning on current Ubuntu.
 KbdInteractiveAuthentication no
 
+# DO NOT REMOVE — removing this line locks you out of any cloud instance.
+#
+# OpenSSH's built-in default for UsePAM is "no"; Ubuntu's stock sshd_config
+# sets it to yes, so a hand-written config that simply omits it silently
+# turns PAM off.
+#
+# Cloud images lock the default user's password (a "!" in /etc/shadow) because
+# login is key-only by design. With PAM off, sshd does its own account check,
+# treats the locked password as a disabled account, and refuses the login:
+#     sshd: User ubuntu not allowed because account is locked
+#     sshd: Connection closed by invalid user ubuntu [preauth]
+# The client just sees "Permission denied (publickey)", so it looks like a key
+# problem when the key is perfectly valid. Verified on Ubuntu 22.04.
+UsePAM yes
+
 # --- Brute force limits ----------------------------------------------------
 MaxAuthTries 3
 MaxSessions 5
