@@ -1,0 +1,26 @@
+# =============================================================================
+# report-publish.timer — Refresh the published report hourly
+# =============================================================================
+#   sudo systemctl enable --now report-publish.timer
+#   systemctl list-timers report-publish
+# =============================================================================
+
+[Unit]
+Description=Hourly refresh of the published honeypot report
+
+[Timer]
+OnCalendar=hourly
+
+# Spread the push a few minutes off the hour. Every honeypot running this
+# would otherwise hit GitHub at exactly :00.
+RandomizedDelaySec=300
+
+# Publish soon after boot rather than waiting for the next full hour.
+OnBootSec=10min
+
+# If the box was off when a run was due, catch up once on the next boot
+# instead of silently skipping it.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

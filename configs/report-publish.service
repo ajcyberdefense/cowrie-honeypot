@@ -1,0 +1,40 @@
+# =============================================================================
+# report-publish.service — Render and publish the static honeypot report
+# =============================================================================
+# Triggered by report-publish.timer, not enabled directly.
+#
+#   sudo cp configs/report-publish.{service,timer} /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now report-publish.timer
+#
+# Run once by hand to test:
+#   sudo systemctl start report-publish.service
+#   sudo journalctl -u report-publish -n 40
+# =============================================================================
+
+[Unit]
+Description=Publish Cowrie honeypot report to GitHub Pages
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+
+# Runs as root purely so the GitHub deploy key can live outside the cowrie
+# account. Cowrie is the deliberately-attacked process on this host; a key it
+# could read would be exposed by any Cowrie compromise.
+User=root
+Group=root
+
+ExecStart=/opt/cowrie-honeypot/scripts/publish-report.sh
+
+# Outbound git push only — no inbound exposure is created by this unit.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+ReadWritePaths=/var/lib/honeypot-report
+
+TimeoutStartSec=300
