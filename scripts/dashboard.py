@@ -21,7 +21,15 @@ import json
 import os
 from collections import Counter
 from datetime import datetime
-from flask import Flask, render_template_string
+from flask import Flask, Response, render_template_string
+
+# mitre_map lives beside this file. Keep the dashboard usable without it
+# rather than failing to boot if only dashboard.py was copied somewhere.
+try:
+    import mitre_map
+    MITRE_AVAILABLE = True
+except ImportError:  # pragma: no cover
+    MITRE_AVAILABLE = False
 
 app = Flask(__name__)
 
@@ -123,6 +131,40 @@ def get_stats():
         "unique_ips":       len(
             {e.get("src_ip") for e in data["login_failed"] + data["login_success"]}
         ),
+        "mitre":            get_mitre(),
+    }
+
+
+def get_mitre():
+    """ATT&CK techniques observed, grouped by tactic in kill-chain order."""
+    if not MITRE_AVAILABLE:
+        return {"available": False, "tactics": [], "total": 0}
+
+    try:
+        result = mitre_map.analyze(LOG_FILE)
+    except SystemExit:
+        # analyze() exits when the log is missing; the dashboard should not.
+        return {"available": False, "tactics": [], "total": 0}
+
+    grouped = {}
+    for t in result["techniques"]:
+        grouped.setdefault(t["tactic"], []).append(t)
+
+    tactics = [
+        {
+            "name": name,
+            "techniques": sorted(grouped[name], key=lambda x: -x["count"]),
+            "total": sum(t["count"] for t in grouped[name]),
+        }
+        for name in mitre_map.TACTIC_ORDER
+        if name in grouped
+    ]
+
+    return {
+        "available": True,
+        "tactics": tactics,
+        "total": len(result["techniques"]),
+        "unmapped": result["unmapped"][:5],
     }
 
 
@@ -391,6 +433,59 @@ TEMPLATE = """
     </table>
   </div>
 
+  <!-- MITRE ATT&CK -->
+  <style>
+    .mitre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+    .tactic { background:#0d1117; border:1px solid #21262d; border-radius:8px; padding:12px; }
+    .tactic h3 { font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+                 color:#8b949e; margin-bottom:10px; display:flex;
+                 justify-content:space-between; align-items:center; }
+    .tactic h3 span { background:#21262d; color:#e6edf3; border-radius:10px;
+                      padding:1px 8px; font-size:11px; letter-spacing:0; }
+    .tech { padding:7px 0; border-top:1px solid #161b22; }
+    .tech:first-of-type { border-top:0; }
+    .tech-id { font-family:ui-monospace,Consolas,monospace; color:#58a6ff; font-size:12px; }
+    .tech-count { float:right; color:#f85149; font-size:12px; font-weight:600; }
+    .tech-name { color:#e6edf3; font-size:13px; margin-top:1px; }
+    .tech-eg { color:#6e7681; font-size:11px; font-family:ui-monospace,Consolas,monospace;
+               margin-top:3px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .mitre-actions a { color:#58a6ff; font-size:13px; margin-right:18px; }
+    .mitre-empty { color:#8b949e; padding:16px 0; }
+  </style>
+
+  <div class="card">
+    <h2>MITRE ATT&amp;CK — Techniques Observed</h2>
+    {% if stats.mitre.available and stats.mitre.tactics %}
+    <p style="color:#8b949e; font-size:13px; margin:6px 0 14px">
+      {{ stats.mitre.total }} technique(s) across {{ stats.mitre.tactics|length }} tactic(s),
+      derived from commands attackers actually ran.
+    </p>
+    <div class="mitre-actions" style="margin-bottom:14px">
+      <a href="/attack-layer.json">Download ATT&amp;CK Navigator layer</a>
+      <a href="/api/attack">Raw JSON</a>
+    </div>
+    <div class="mitre-grid">
+      {% for tactic in stats.mitre.tactics %}
+      <div class="tactic">
+        <h3>{{ tactic.name }} <span>{{ tactic.total }}</span></h3>
+        {% for t in tactic.techniques %}
+        <div class="tech">
+          <span class="tech-count">{{ t.count }}x</span>
+          <span class="tech-id">{{ t.id }}</span>
+          <div class="tech-name">{{ t.name }}</div>
+          {% if t.examples %}<div class="tech-eg" title="{{ t.examples[0] }}">{{ t.examples[0] }}</div>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    {% elif not stats.mitre.available %}
+    <p class="mitre-empty">mitre_map.py not found alongside dashboard.py — mapping disabled.</p>
+    {% else %}
+    <p class="mitre-empty">No techniques observed yet. They appear once attackers run commands.</p>
+    {% endif %}
+  </div>
+
 </div><!-- /container -->
 
 <script>
@@ -446,6 +541,30 @@ new Chart(document.getElementById('userChart'), {
 def index():
     stats = get_stats()
     return render_template_string(TEMPLATE, stats=stats)
+
+
+@app.route("/api/attack")
+def api_attack():
+    """Full ATT&CK analysis as JSON."""
+    if not MITRE_AVAILABLE:
+        return {"error": "mitre_map.py not available"}, 501
+    return Response(
+        json.dumps(mitre_map.analyze(LOG_FILE), indent=2, default=str),
+        mimetype="application/json",
+    )
+
+
+@app.route("/attack-layer.json")
+def attack_layer():
+    """ATT&CK Navigator layer, ready to upload to the Navigator UI."""
+    if not MITRE_AVAILABLE:
+        return {"error": "mitre_map.py not available"}, 501
+    layer = mitre_map.build_layer(mitre_map.analyze(LOG_FILE), "Cowrie Honeypot")
+    return Response(
+        json.dumps(layer, indent=2),
+        mimetype="application/json",
+        headers={"Content-Disposition": "attachment; filename=cowrie-attack-layer.json"},
+    )
 
 
 @app.route("/api/stats")
