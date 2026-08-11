@@ -74,10 +74,14 @@ python3 "$SCRIPTS/generate_report.py" --out "$WORKDIR" --log "$COWRIE_JSON_LOG" 
 # GitHub Pages runs Jekyll unless told otherwise, which would mangle the output.
 touch "$WORKDIR/.nojekyll"
 
-# A CNAME file is what binds the custom domain to the Pages site.
-if [ -n "$CUSTOM_DOMAIN" ]; then
+# A CNAME file binds a custom domain on GitHub Pages. Netlify manages domains
+# in its own UI and ignores this file, so it is opt-out via WRITE_CNAME=no.
+if [ -n "$CUSTOM_DOMAIN" ] && [ "${WRITE_CNAME:-yes}" = "yes" ]; then
   echo "$CUSTOM_DOMAIN" > "$WORKDIR/CNAME"
-  log "CNAME set to $CUSTOM_DOMAIN"
+  log "CNAME set to $CUSTOM_DOMAIN (GitHub Pages)"
+elif [ -f "$WORKDIR/CNAME" ]; then
+  rm -f "$WORKDIR/CNAME"
+  log "Removed CNAME (host manages domains itself)"
 fi
 
 # -----------------------------------------------------------------------------
