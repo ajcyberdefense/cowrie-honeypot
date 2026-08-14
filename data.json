@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 17:02:43",
+  "generated": "2026-08-14 18:05:12",
   "totals": {
-    "commands": 863,
-    "login_failed": 2985,
-    "login_success": 74,
-    "sessions": 3273
+    "commands": 870,
+    "login_failed": 3004,
+    "login_success": 80,
+    "sessions": 3309
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2985,
+      "count": 3004,
       "examples": [
         "dispatch-sjjr / dispatch-sjjr",
         "root / 123321",
@@ -21,8 +21,8 @@
         "root / 12345"
       ],
       "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T16:53:21.366487Z",
-      "unique_ips": 79
+      "last": "2026-08-14T17:59:41.921830Z",
+      "unique_ips": 84
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 74,
+      "count": 80,
       "examples": [
         "ubuntu / 123456",
         "enable\\x00 / linuxshell\\x00",
@@ -53,8 +53,8 @@
         "root / root"
       ],
       "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T16:53:13.789497Z",
-      "unique_ips": 55
+      "last": "2026-08-14T17:59:46.535905Z",
+      "unique_ips": 60
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 17,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-14T00:12:07.783870Z",
-      "last": "2026-08-14T13:03:40.594547Z",
-      "unique_ips": 15
+      "last": "2026-08-14T17:29:02.503630Z",
+      "unique_ips": 16
     },
     {
       "id": "T1033",
@@ -209,7 +209,7 @@
     ],
     [
       "sh",
-      34
+      36
     ],
     [
       "shell",
@@ -229,7 +229,7 @@
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      17
+      19
     ],
     [
       "ping ;sh",
