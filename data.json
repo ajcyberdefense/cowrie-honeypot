@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 08:00:42",
+  "generated": "2026-08-15 09:05:11",
   "totals": {
-    "commands": 656,
-    "login_failed": 1235,
-    "login_success": 61,
-    "sessions": 1262
+    "commands": 665,
+    "login_failed": 1267,
+    "login_success": 65,
+    "sessions": 1324
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1235,
+      "count": 1267,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,8 +21,8 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T08:00:01.495396Z",
-      "unique_ips": 55
+      "last": "2026-08-15T09:02:26.514415Z",
+      "unique_ips": 60
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 61,
+      "count": 65,
       "examples": [
         "enable / system",
         " / ",
@@ -53,8 +53,8 @@
         "admin / admin"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T07:59:55.734162Z",
-      "unique_ips": 38
+      "last": "2026-08-15T08:35:06.971922Z",
+      "unique_ips": 41
     },
     {
       "id": "T1105",
@@ -196,27 +196,27 @@
     ],
     [
       "sh",
-      40
+      42
     ],
     [
       "shell",
-      29
+      30
     ],
     [
       "enable",
-      18
+      19
     ],
     [
       "system",
-      18
+      19
     ],
     [
       "shel",
-      11
+      13
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      11
+      12
     ],
     [
       "/bin/busybox BOTNET",
@@ -231,6 +231,10 @@
       7
     ],
     [
+      "/bin/busybox SORA",
+      7
+    ],
+    [
       "enablelinuxshell",
       6
     ],
@@ -240,10 +244,6 @@
     ],
     [
       "busybox",
-      6
-    ],
-    [
-      "/bin/busybox SORA",
       6
     ],
     [
