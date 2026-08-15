@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 12:00:45",
+  "generated": "2026-08-15 13:02:45",
   "totals": {
-    "commands": 811,
-    "login_failed": 1437,
-    "login_success": 77,
-    "sessions": 1522
+    "commands": 821,
+    "login_failed": 1453,
+    "login_success": 83,
+    "sessions": 1609
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1437,
+      "count": 1453,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,8 +21,8 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T11:59:50.162148Z",
-      "unique_ips": 73
+      "last": "2026-08-15T12:58:58.492755Z",
+      "unique_ips": 80
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 77,
+      "count": 83,
       "examples": [
         "enable / system",
         " / ",
@@ -53,8 +53,8 @@
         "admin / admin"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T11:46:33.627623Z",
-      "unique_ips": 51
+      "last": "2026-08-15T12:59:03.921097Z",
+      "unique_ips": 57
     },
     {
       "id": "T1105",
@@ -192,26 +192,30 @@
   "unmapped": [
     [
       "/bin/busybox",
-      362
+      363
     ],
     [
       "sh",
-      48
+      49
     ],
     [
       "shell",
-      36
+      37
     ],
     [
       "enable",
-      25
+      26
     ],
     [
       "system",
-      25
+      26
     ],
     [
       "linuxshell",
+      15
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       14
     ],
     [
@@ -219,23 +223,19 @@
       13
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "enablelinuxshell",
+      13
+    ],
+    [
+      "ping ;sh",
+      13
+    ],
+    [
+      "busybox",
       13
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      12
-    ],
-    [
-      "enablelinuxshell",
-      12
-    ],
-    [
-      "ping ;sh",
-      12
-    ],
-    [
-      "busybox",
       12
     ],
     [
