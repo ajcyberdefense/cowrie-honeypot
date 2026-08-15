@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 16:01:11",
+  "generated": "2026-08-15 17:03:45",
   "totals": {
-    "commands": 905,
-    "login_failed": 2340,
-    "login_success": 96,
-    "sessions": 2523
+    "commands": 1010,
+    "login_failed": 2686,
+    "login_success": 129,
+    "sessions": 2888
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2340,
+      "count": 2686,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,8 +21,8 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T16:01:10.294150Z",
-      "unique_ips": 95
+      "last": "2026-08-15T17:02:53.338814Z",
+      "unique_ips": 100
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 96,
+      "count": 129,
       "examples": [
         "enable / system",
         " / ",
@@ -53,8 +53,8 @@
         "admin / admin"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T15:23:21.257781Z",
-      "unique_ips": 69
+      "last": "2026-08-15T16:37:55.289453Z",
+      "unique_ips": 72
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 17,
+      "count": 18,
       "examples": [
         "uname -s -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-15T00:56:10.378109Z",
-      "last": "2026-08-15T15:23:22.961686Z",
-      "unique_ips": 13
+      "last": "2026-08-15T16:30:55.778166Z",
+      "unique_ips": 14
     },
     {
       "id": "T1033",
@@ -222,39 +222,39 @@
     ],
     [
       "sh",
-      52
+      84
     ],
     [
       "shell",
-      40
-    ],
-    [
-      "enable",
-      29
+      72
     ],
     [
       "system",
-      29
+      61
+    ],
+    [
+      "enable",
+      30
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      20
+      22
     ],
     [
       "linuxshell",
-      17
+      18
     ],
     [
       "cd /proc && cat self/cmdline",
-      17
+      18
     ],
     [
       "enablelinuxshell",
-      15
+      16
     ],
     [
       "ping ;sh",
-      15
+      16
     ],
     [
       "busybox",
