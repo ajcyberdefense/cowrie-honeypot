@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 00:04:36",
+  "generated": "2026-08-15 01:03:11",
   "totals": {
-    "commands": 6,
-    "login_failed": 69,
-    "login_success": 2,
-    "sessions": 65
+    "commands": 54,
+    "login_failed": 622,
+    "login_success": 7,
+    "sessions": 636
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 69,
+      "count": 622,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,33 +21,128 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T00:04:34.431728Z",
-      "unique_ips": 5
+      "last": "2026-08-15T01:00:09.338176Z",
+      "unique_ips": 16
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2,
+      "count": 7,
       "examples": [
-        "enable / system"
+        "enable / system",
+        " / ",
+        "root / root",
+        "root / root123456"
       ],
       "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T00:02:16.216089Z",
-      "unique_ips": 2
+      "last": "2026-08-15T00:55:55.616925Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx"
+      ],
+      "first": "2026-08-15T00:48:26.058950Z",
+      "last": "2026-08-15T00:48:28.354625Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "uname -s -m"
+      ],
+      "first": "2026-08-15T00:56:10.378109Z",
+      "last": "2026-08-15T00:56:10.378109Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
-      "shel",
-      2
+      "sh",
+      5
     ],
     [
-      "sh",
-      2
+      "shel",
+      3
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      3
+    ],
+    [
+      "enable",
+      2
+    ],
+    [
+      "system",
+      2
+    ],
+    [
+      "linuxshell",
+      2
+    ],
+    [
+      "shell",
+      2
+    ],
+    [
+      ">/tmp/.codi && cd /tmp/",
+      2
+    ],
+    [
+      ">/var/.codi && cd /var/",
+      2
+    ],
+    [
+      ">/dev/.codi && cd /dev/",
+      2
+    ],
+    [
+      ">/mnt/.codi && cd /mnt/",
+      2
+    ],
+    [
+      ">/var/run/.codi && cd /var/run/",
+      2
+    ],
+    [
+      ">/var/tmp/.codi && cd /var/tmp/",
+      2
+    ],
+    [
+      ">/.codi && cd /",
+      2
+    ],
+    [
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      2
+    ],
+    [
+      ">/dev/shm/.codi && cd /dev/shm/",
+      2
+    ],
+    [
+      ">/bin/.codi && cd /bin/",
+      2
+    ],
+    [
+      ">/etc/.codi && cd /etc/",
+      2
+    ],
+    [
+      ">/boot/.codi && cd /boot/",
+      2
+    ],
+    [
+      ">/usr/.codi && cd /usr/",
       2
     ]
   ]
