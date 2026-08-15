@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 04:01:42",
+  "generated": "2026-08-15 05:00:40",
   "totals": {
-    "commands": 175,
-    "login_failed": 757,
-    "login_success": 30,
-    "sessions": 774
+    "commands": 202,
+    "login_failed": 806,
+    "login_success": 42,
+    "sessions": 826
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 757,
+      "count": 806,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,8 +21,24 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T03:50:55.776293Z",
-      "unique_ips": 32
+      "last": "2026-08-15T05:00:14.374360Z",
+      "unique_ips": 41
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 42,
+      "examples": [
+        "enable / system",
+        " / ",
+        "root / root",
+        "root / root123456",
+        "admin / admin"
+      ],
+      "first": "2026-08-15T00:02:00.287482Z",
+      "last": "2026-08-15T04:57:47.530119Z",
+      "unique_ips": 26
     },
     {
       "id": "T1222.002",
@@ -39,22 +55,6 @@
       "first": "2026-08-15T00:48:26.058950Z",
       "last": "2026-08-15T03:04:44.517282Z",
       "unique_ips": 5
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 30,
-      "examples": [
-        "enable / system",
-        " / ",
-        "root / root",
-        "root / root123456",
-        "admin / admin"
-      ],
-      "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T03:50:58.758564Z",
-      "unique_ips": 19
     },
     {
       "id": "T1105",
@@ -126,7 +126,7 @@
   "unmapped": [
     [
       "sh",
-      22
+      30
     ],
     [
       "shell",
@@ -134,30 +134,34 @@
     ],
     [
       "/bin/busybox",
-      14
+      15
+    ],
+    [
+      "shel",
+      11
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      11
     ],
     [
       "/bin/busybox BOTNET",
       10
     ],
     [
-      "system",
+      "enable",
       9
     ],
     [
-      "enable",
-      8
+      "system",
+      9
     ],
     [
       "linuxshell",
       4
     ],
     [
-      "shel",
-      3
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      "cd /proc && cat self/cmdline",
       3
     ],
     [
@@ -198,10 +202,6 @@
     ],
     [
       ">/bin/.codi && cd /bin/",
-      2
-    ],
-    [
-      ">/etc/.codi && cd /etc/",
       2
     ]
   ]
