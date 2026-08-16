@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 08:04:36",
+  "generated": "2026-08-16 09:01:45",
   "totals": {
-    "commands": 1009,
-    "login_failed": 1732,
-    "login_success": 72,
-    "sessions": 1703
+    "commands": 1019,
+    "login_failed": 1848,
+    "login_success": 74,
+    "sessions": 1760
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1732,
+      "count": 1848,
       "examples": [
         "usr1cv8 / usr1cv8",
         "serv / serv",
@@ -21,8 +21,8 @@
         "admin / Aa123456"
       ],
       "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T08:04:31.524666Z",
-      "unique_ips": 67
+      "last": "2026-08-16T09:01:38.987103Z",
+      "unique_ips": 71
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 72,
+      "count": 74,
       "examples": [
         "admin / admin",
         "enable\\x00 / linuxshell\\x00",
@@ -69,8 +69,8 @@
         "installer / installer"
       ],
       "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T08:00:07.339109Z",
-      "unique_ips": 52
+      "last": "2026-08-16T08:50:21.234141Z",
+      "unique_ips": 54
     },
     {
       "id": "T1033",
@@ -193,39 +193,39 @@
     ],
     [
       "sh",
-      40
+      41
     ],
     [
       "shell",
-      33
+      34
     ],
     [
       "system",
-      27
+      28
     ],
     [
       "enable",
-      26
-    ],
-    [
-      "linuxshell",
-      18
+      27
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      17
+      19
+    ],
+    [
+      "linuxshell",
+      19
     ],
     [
       "ping ;sh",
-      15
+      16
     ],
     [
       "enablelinuxshell",
-      13
+      14
     ],
     [
       "cd /proc && cat self/cmdline",
-      13
+      14
     ],
     [
       "busybox",
