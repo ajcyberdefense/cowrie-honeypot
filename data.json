@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 15:01:53",
+  "generated": "2026-08-17 16:04:32",
   "totals": {
-    "commands": 3423,
-    "login_failed": 8414,
-    "login_success": 874,
-    "sessions": 6414
+    "commands": 3531,
+    "login_failed": 8566,
+    "login_success": 882,
+    "sessions": 6515
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 8414,
+      "count": 8566,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,14 +21,14 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T15:01:45.565262Z",
-      "unique_ips": 90
+      "last": "2026-08-17T16:03:50.804522Z",
+      "unique_ips": 93
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 874,
+      "count": 882,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "admin / 7ujMko0admin",
@@ -37,14 +37,14 @@
         "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T15:01:24.662747Z",
-      "unique_ips": 68
+      "last": "2026-08-17T15:28:45.050634Z",
+      "unique_ips": 71
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 169,
+      "count": 173,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,7 +53,7 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-17T00:12:41.686965Z",
-      "last": "2026-08-17T15:01:26.091823Z",
+      "last": "2026-08-17T15:02:49.567358Z",
       "unique_ips": 18
     },
     {
@@ -181,83 +181,83 @@
   "unmapped": [
     [
       "sh",
-      824
-    ],
-    [
-      "shell",
-      806
+      831
     ],
     [
       "system",
-      805
+      812
+    ],
+    [
+      "shell",
+      811
     ],
     [
       "/bin/busybox",
-      379
+      380
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      52
+      54
     ],
     [
       "enable",
-      38
+      45
     ],
     [
       "linuxshell",
-      32
+      37
     ],
     [
       "shel",
-      18
+      20
     ],
     [
       ">/tmp/.codi && cd /tmp/",
-      12
+      16
     ],
     [
       ">/var/.codi && cd /var/",
-      12
+      16
     ],
     [
       ">/dev/.codi && cd /dev/",
-      12
+      16
     ],
     [
       ">/mnt/.codi && cd /mnt/",
-      12
+      16
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      12
+      16
     ],
     [
       ">/var/tmp/.codi && cd /var/tmp/",
-      12
+      16
     ],
     [
       ">/.codi && cd /",
-      12
+      16
     ],
     [
       ">/dev/netslink/.codi && cd /dev/netslink/",
-      12
+      16
     ],
     [
       ">/dev/shm/.codi && cd /dev/shm/",
-      12
+      16
     ],
     [
       ">/bin/.codi && cd /bin/",
-      12
+      16
     ],
     [
       ">/etc/.codi && cd /etc/",
-      12
+      16
     ],
     [
       ">/boot/.codi && cd /boot/",
-      12
+      16
     ]
   ]
 }
