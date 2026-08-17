@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 05:00:45",
+  "generated": "2026-08-17 06:02:45",
   "totals": {
-    "commands": 2454,
-    "login_failed": 4137,
-    "login_success": 791,
-    "sessions": 3129
+    "commands": 2463,
+    "login_failed": 4743,
+    "login_success": 796,
+    "sessions": 3654
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4137,
+      "count": 4743,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,14 +21,14 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T05:00:44.181742Z",
-      "unique_ips": 32
+      "last": "2026-08-17T06:02:44.551919Z",
+      "unique_ips": 37
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 791,
+      "count": 796,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "admin / 7ujMko0admin",
@@ -37,8 +37,8 @@
         "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T04:58:54.390211Z",
-      "unique_ips": 22
+      "last": "2026-08-17T05:58:16.019454Z",
+      "unique_ips": 26
     },
     {
       "id": "T1222.002",
@@ -101,16 +101,16 @@
   ],
   "unmapped": [
     [
+      "sh",
+      779
+    ],
+    [
       "system",
-      777
+      778
     ],
     [
       "shell",
-      777
-    ],
-    [
-      "sh",
-      777
+      778
     ],
     [
       "/bin/busybox",
@@ -118,11 +118,15 @@
     ],
     [
       "enable",
-      10
+      11
     ],
     [
       "linuxshell",
-      7
+      8
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      4
     ],
     [
       "enablelinuxshell",
@@ -137,11 +141,11 @@
       4
     ],
     [
-      "/bin/busybox UNSTABLE",
+      "busybox",
       3
     ],
     [
-      "busybox",
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       3
     ],
     [
@@ -154,10 +158,6 @@
     ],
     [
       "/bin/busybox hostname TOASTER",
-      2
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
