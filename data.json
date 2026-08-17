@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 03:03:45",
+  "generated": "2026-08-17 04:00:45",
   "totals": {
-    "commands": 2411,
-    "login_failed": 3199,
-    "login_success": 784,
-    "sessions": 2455
+    "commands": 2412,
+    "login_failed": 3590,
+    "login_success": 787,
+    "sessions": 2719
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3199,
+      "count": 3590,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,14 +21,14 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T03:03:38.207455Z",
-      "unique_ips": 25
+      "last": "2026-08-17T04:00:34.196596Z",
+      "unique_ips": 28
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 784,
+      "count": 787,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "admin / 7ujMko0admin",
@@ -37,8 +37,8 @@
         "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T03:02:05.303595Z",
-      "unique_ips": 16
+      "last": "2026-08-17T03:43:33.372569Z",
+      "unique_ips": 18
     },
     {
       "id": "T1222.002",
@@ -76,14 +76,15 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 5,
       "examples": [
         "uname -s -v -n -r -m",
-        "uname -a"
+        "uname -a",
+        "uname -s -m"
       ],
       "first": "2026-08-17T00:25:26.685038Z",
-      "last": "2026-08-17T03:02:06.387333Z",
-      "unique_ips": 4
+      "last": "2026-08-17T03:20:45.652058Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
