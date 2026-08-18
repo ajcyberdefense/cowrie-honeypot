@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-18 05:03:45",
+  "generated": "2026-08-18 06:04:36",
   "totals": {
-    "commands": 1646,
-    "login_failed": 1628,
-    "login_success": 442,
-    "sessions": 1659
+    "commands": 1926,
+    "login_failed": 1854,
+    "login_success": 538,
+    "sessions": 1896
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1628,
+      "count": 1854,
       "examples": [
         "root / 19801024",
         "root / sunsunsun",
@@ -21,14 +21,14 @@
         "root / 826826826"
       ],
       "first": "2026-08-18T00:00:03.054815Z",
-      "last": "2026-08-18T05:03:28.376159Z",
-      "unique_ips": 27
+      "last": "2026-08-18T06:04:32.594310Z",
+      "unique_ips": 31
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 442,
+      "count": 538,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123@@@",
@@ -37,8 +37,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-18T00:06:39.840434Z",
-      "last": "2026-08-18T05:03:28.808095Z",
-      "unique_ips": 14
+      "last": "2026-08-18T06:04:23.970857Z",
+      "unique_ips": 17
     },
     {
       "id": "T1222.002",
@@ -73,6 +73,20 @@
       "unique_ips": 4
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 5,
+      "examples": [
+        "uname -s -v -n -r -m",
+        "/bin/./uname -s -v -n -r -m",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-08-18T02:27:39.980641Z",
+      "last": "2026-08-18T05:52:03.069581Z",
+      "unique_ips": 4
+    },
+    {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
@@ -84,20 +98,6 @@
       "first": "2026-08-18T03:14:17.803787Z",
       "last": "2026-08-18T05:03:17.839531Z",
       "unique_ips": 4
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 4,
-      "examples": [
-        "uname -s -v -n -r -m",
-        "/bin/./uname -s -v -n -r -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-18T02:27:39.980641Z",
-      "last": "2026-08-18T04:38:14.387524Z",
-      "unique_ips": 3
     },
     {
       "id": "T1059.004",
@@ -127,15 +127,15 @@
   "unmapped": [
     [
       "system",
-      435
+      527
     ],
     [
       "shell",
-      433
+      526
     ],
     [
       "sh",
-      433
+      526
     ],
     [
       "/bin/busybox",
@@ -191,6 +191,10 @@
     ],
     [
       "./",
+      1
+    ],
+    [
+      "/bin/busybox MIORI",
       1
     ]
   ]
