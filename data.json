@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 08:01:26",
+  "generated": "2026-08-19 09:02:28",
   "totals": {
-    "commands": 4617,
-    "login_failed": 2436,
-    "login_success": 1497,
-    "sessions": 2568
+    "commands": 4619,
+    "login_failed": 2470,
+    "login_success": 1499,
+    "sessions": 2631
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2436,
+      "count": 2470,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T07:57:47.378109Z",
-      "unique_ips": 46
+      "last": "2026-08-19T09:00:17.317030Z",
+      "unique_ips": 49
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1497,
+      "count": 1499,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,8 +37,8 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T07:43:05.565843Z",
-      "unique_ips": 31
+      "last": "2026-08-19T08:25:54.575927Z",
+      "unique_ips": 33
     },
     {
       "id": "T1222.002",
@@ -188,7 +188,7 @@
     ],
     [
       "/bin/busybox",
-      19
+      20
     ],
     [
       "/bin/busybox LZRD",
@@ -199,11 +199,11 @@
       16
     ],
     [
-      "enable",
-      9
+      "cd /proc && cat self/cmdline",
+      10
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "enable",
       9
     ],
     [
