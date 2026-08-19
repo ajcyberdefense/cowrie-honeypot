@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 03:02:53",
+  "generated": "2026-08-19 04:00:16",
   "totals": {
-    "commands": 4453,
-    "login_failed": 1970,
-    "login_success": 1468,
-    "sessions": 2029
+    "commands": 4478,
+    "login_failed": 2336,
+    "login_success": 1478,
+    "sessions": 2407
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1970,
+      "count": 2336,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T03:02:51.154178Z",
-      "unique_ips": 19
+      "last": "2026-08-19T03:58:28.765967Z",
+      "unique_ips": 22
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1468,
+      "count": 1478,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,8 +37,8 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T03:02:51.519775Z",
-      "unique_ips": 11
+      "last": "2026-08-19T03:23:03.055903Z",
+      "unique_ips": 13
     },
     {
       "id": "T1222.002",
@@ -76,14 +76,14 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m"
       ],
       "first": "2026-08-19T01:22:46.787305Z",
-      "last": "2026-08-19T02:52:37.699888Z",
-      "unique_ips": 3
+      "last": "2026-08-19T03:18:43.978281Z",
+      "unique_ips": 4
     },
     {
       "id": "T1033",
@@ -101,15 +101,15 @@
   "unmapped": [
     [
       "shell",
-      1463
+      1471
     ],
     [
       "sh",
-      1463
+      1471
     ],
     [
       "system",
-      1446
+      1454
     ],
     [
       "/bin/busybox LZRD",
