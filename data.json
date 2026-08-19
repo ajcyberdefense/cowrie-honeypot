@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-19 15:03:45",
+  "generated": "2026-08-19 16:03:12",
   "totals": {
-    "commands": 4773,
-    "login_failed": 3955,
-    "login_success": 1521,
-    "sessions": 4220
+    "commands": 4779,
+    "login_failed": 4022,
+    "login_success": 1523,
+    "sessions": 4265
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3955,
+      "count": 4022,
       "examples": [
         "root / vizxv",
         "root / 19801021",
@@ -21,14 +21,14 @@
         "root / 19820308"
       ],
       "first": "2026-08-19T00:00:00.138204Z",
-      "last": "2026-08-19T15:03:31.007623Z",
-      "unique_ips": 74
+      "last": "2026-08-19T16:01:56.343662Z",
+      "unique_ips": 77
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1521,
+      "count": 1523,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "hikvision / hikvision",
@@ -37,8 +37,8 @@
         "telnetadmin / telnetadmin"
       ],
       "first": "2026-08-19T00:00:00.538972Z",
-      "last": "2026-08-19T15:03:37.266337Z",
-      "unique_ips": 52
+      "last": "2026-08-19T15:39:11.668588Z",
+      "unique_ips": 54
     },
     {
       "id": "T1222.002",
@@ -180,15 +180,15 @@
   "unmapped": [
     [
       "shell",
-      1483
+      1484
     ],
     [
       "sh",
-      1483
+      1484
     ],
     [
       "system",
-      1466
+      1467
     ],
     [
       "/bin/busybox",
@@ -204,15 +204,15 @@
     ],
     [
       "enable",
+      15
+    ],
+    [
+      "linuxshell",
       14
     ],
     [
       "cd /proc && cat self/cmdline",
       14
-    ],
-    [
-      "linuxshell",
-      13
     ],
     [
       "ping ;sh",
@@ -247,15 +247,15 @@
       2
     ],
     [
+      "/bin/busybox UNSTABLE",
+      2
+    ],
+    [
       "/bin/busybox IZ1H9",
       1
     ],
     [
       "ping; sh",
-      1
-    ],
-    [
-      "/bin/busybox STC",
       1
     ]
   ]
