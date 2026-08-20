@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 18:00:53",
+  "generated": "2026-08-20 19:04:45",
   "totals": {
-    "commands": 652,
-    "login_failed": 3407,
-    "login_success": 87,
-    "sessions": 3620
+    "commands": 662,
+    "login_failed": 3622,
+    "login_success": 89,
+    "sessions": 3872
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3407,
+      "count": 3622,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T18:00:41.112106Z",
-      "unique_ips": 80
+      "last": "2026-08-20T19:04:39.864630Z",
+      "unique_ips": 84
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 87,
+      "count": 89,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,8 +53,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T17:46:47.464317Z",
-      "unique_ips": 64
+      "last": "2026-08-20T18:45:54.834166Z",
+      "unique_ips": 66
     },
     {
       "id": "T1105",
@@ -234,7 +234,7 @@
   "unmapped": [
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      271
+      273
     ],
     [
       "/bin/busybox",
@@ -242,19 +242,23 @@
     ],
     [
       "sh",
-      18
+      19
     ],
     [
       "shell",
-      13
+      14
     ],
     [
       "enable",
-      12
+      13
     ],
     [
       "system",
-      12
+      13
+    ],
+    [
+      "linuxshell",
+      10
     ],
     [
       "zalee",
@@ -269,20 +273,16 @@
       10
     ],
     [
-      "linuxshell",
+      "ping ;sh",
       9
     ],
     [
-      "ping ;sh",
+      "enablelinuxshell",
       8
     ],
     [
-      "enablelinuxshell",
-      7
-    ],
-    [
       "cd /proc && cat self/cmdline",
-      7
+      8
     ],
     [
       "busybox",
