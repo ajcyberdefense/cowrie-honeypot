@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 11:00:45",
+  "generated": "2026-08-20 12:03:45",
   "totals": {
-    "commands": 500,
-    "login_failed": 1644,
-    "login_success": 57,
-    "sessions": 1818
+    "commands": 505,
+    "login_failed": 2159,
+    "login_success": 62,
+    "sessions": 2362
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1644,
+      "count": 2159,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,24 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T11:00:43.133124Z",
-      "unique_ips": 53
+      "last": "2026-08-20T12:03:34.738806Z",
+      "unique_ips": 57
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 62,
+      "examples": [
+        "admin / switch",
+        "admin / admin",
+        "Admin / ",
+        "admin / qwaszx",
+        "enable\\x00 / system\\x00"
+      ],
+      "first": "2026-08-20T01:07:19.606932Z",
+      "last": "2026-08-20T12:03:35.778445Z",
+      "unique_ips": 43
     },
     {
       "id": "T1222.002",
@@ -39,22 +55,6 @@
       "first": "2026-08-20T01:21:21.761677Z",
       "last": "2026-08-20T10:23:17.665810Z",
       "unique_ips": 9
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 57,
-      "examples": [
-        "admin / switch",
-        "admin / admin",
-        "Admin / ",
-        "admin / qwaszx",
-        "enable\\x00 / system\\x00"
-      ],
-      "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T10:47:23.558929Z",
-      "unique_ips": 39
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 14,
+      "count": 15,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T10:40:31.758341Z",
-      "unique_ips": 10
+      "last": "2026-08-20T12:01:19.186574Z",
+      "unique_ips": 11
     },
     {
       "id": "T1489",
@@ -226,7 +226,7 @@
     ],
     [
       "sh",
-      12
+      13
     ],
     [
       "zalee",
@@ -241,6 +241,10 @@
       10
     ],
     [
+      "shell",
+      8
+    ],
+    [
       "enable",
       7
     ],
@@ -249,12 +253,8 @@
       7
     ],
     [
-      "shell",
-      7
-    ],
-    [
       "linuxshell",
-      5
+      6
     ],
     [
       "ping ;sh",

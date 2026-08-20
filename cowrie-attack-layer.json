@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-20 11:00:45",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-20 12:03:45",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 1644,
+      "score": 2159,
       "enabled": true,
-      "comment": "1644 observation(s) from 53 unique IP(s). e.g. nginx / 150.136.155.47",
+      "comment": "2159 observation(s) from 57 unique IP(s). e.g. nginx / 150.136.155.47",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "53"
+          "value": "57"
         },
         {
           "name": "first seen",
@@ -40,7 +40,31 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-20T11:00:43"
+          "value": "2026-08-20T12:03:34"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 62,
+      "enabled": true,
+      "comment": "62 observation(s) from 43 unique IP(s). e.g. admin / switch",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "43"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-20T01:07:19"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-20T12:03:35"
         }
       ]
     },
@@ -65,30 +89,6 @@
         {
           "name": "last seen",
           "value": "2026-08-20T10:23:17"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1078",
-      "score": 57,
-      "enabled": true,
-      "comment": "57 observation(s) from 39 unique IP(s). e.g. admin / switch",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Initial Access"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "39"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-08-20T01:07:19"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-08-20T10:47:23"
         }
       ]
     },
@@ -118,9 +118,9 @@
     },
     {
       "techniqueID": "T1082",
-      "score": 14,
+      "score": 15,
       "enabled": true,
-      "comment": "14 observation(s) from 10 unique IP(s). e.g. uname -s -v -n -r -m",
+      "comment": "15 observation(s) from 11 unique IP(s). e.g. uname -s -v -n -r -m",
       "metadata": [
         {
           "name": "tactic",
@@ -128,7 +128,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "10"
+          "value": "11"
         },
         {
           "name": "first seen",
@@ -136,7 +136,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-20T10:40:31"
+          "value": "2026-08-20T12:01:19"
         }
       ]
     },
@@ -388,7 +388,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 1644
+    "maxValue": 2159
   },
   "legendItems": [
     {
