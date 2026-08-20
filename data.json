@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 22:03:28",
+  "generated": "2026-08-20 23:01:45",
   "totals": {
-    "commands": 688,
-    "login_failed": 3875,
-    "login_success": 101,
-    "sessions": 4108
+    "commands": 698,
+    "login_failed": 4522,
+    "login_success": 102,
+    "sessions": 4736
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3875,
+      "count": 4522,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T22:02:09.970960Z",
-      "unique_ips": 99
+      "last": "2026-08-20T23:01:41.579361Z",
+      "unique_ips": 102
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 101,
+      "count": 102,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,8 +53,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T21:53:54.621193Z",
-      "unique_ips": 77
+      "last": "2026-08-20T22:07:07.480950Z",
+      "unique_ips": 78
     },
     {
       "id": "T1105",
@@ -234,7 +234,7 @@
   "unmapped": [
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      273
+      275
     ],
     [
       "/bin/busybox",
@@ -242,26 +242,34 @@
     ],
     [
       "sh",
-      21
+      22
     ],
     [
       "shell",
-      16
+      17
     ],
     [
       "enable",
-      14
+      15
     ],
     [
       "system",
-      14
+      15
     ],
     [
       "linuxshell",
-      11
+      12
     ],
     [
       "ping ;sh",
+      11
+    ],
+    [
+      "enablelinuxshell",
+      10
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       10
     ],
     [
@@ -275,14 +283,6 @@
     [
       "&k`g&k|zpkfq)ES[M",
       10
-    ],
-    [
-      "enablelinuxshell",
-      9
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      9
     ],
     [
       "busybox",
