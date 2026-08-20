@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 19:04:45",
+  "generated": "2026-08-20 20:00:12",
   "totals": {
-    "commands": 662,
-    "login_failed": 3622,
-    "login_success": 89,
-    "sessions": 3872
+    "commands": 673,
+    "login_failed": 3704,
+    "login_success": 93,
+    "sessions": 3991
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3622,
+      "count": 3704,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T19:04:39.864630Z",
-      "unique_ips": 84
+      "last": "2026-08-20T20:00:05.609688Z",
+      "unique_ips": 90
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 89,
+      "count": 93,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,8 +53,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T18:45:54.834166Z",
-      "unique_ips": 66
+      "last": "2026-08-20T19:52:51.766209Z",
+      "unique_ips": 70
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 25,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T17:46:15.581113Z",
-      "unique_ips": 16
+      "last": "2026-08-20T19:52:52.879963Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
@@ -117,6 +117,19 @@
       "unique_ips": 2
     },
     {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 6,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-08-20T08:44:43.331036Z",
+      "last": "2026-08-20T19:52:53.468264Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
@@ -130,19 +143,6 @@
       "first": "2026-08-20T06:51:04.231011Z",
       "last": "2026-08-20T16:38:02.507485Z",
       "unique_ips": 5
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 4,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
-      ],
-      "first": "2026-08-20T08:44:43.331036Z",
-      "last": "2026-08-20T08:48:26.223518Z",
-      "unique_ips": 2
     },
     {
       "id": "T1070.004",
@@ -161,26 +161,26 @@
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-08-20T07:29:50.494077Z",
-      "last": "2026-08-20T08:48:26.986751Z",
-      "unique_ips": 3
+      "last": "2026-08-20T19:52:53.772444Z",
+      "unique_ips": 4
     },
     {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "ifconfig"
       ],
       "first": "2026-08-20T08:44:30.959557Z",
-      "last": "2026-08-20T08:48:23.178182Z",
-      "unique_ips": 2
+      "last": "2026-08-20T19:52:52.219500Z",
+      "unique_ips": 3
     },
     {
       "id": "T1087.001",
@@ -294,6 +294,14 @@
     ],
     [
       "/ip cloud print",
+      4
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      3
+    ],
+    [
+      "echo Hi | cat -n",
       3
     ],
     [
@@ -302,14 +310,6 @@
     ],
     [
       "/bin/busybox STC",
-      2
-    ],
-    [
-      "/bin/busybox hostname TOASTER",
-      2
-    ],
-    [
-      "RPMA",
       2
     ]
   ]
