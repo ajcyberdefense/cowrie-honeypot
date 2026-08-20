@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 20:00:12",
+  "generated": "2026-08-20 21:02:06",
   "totals": {
-    "commands": 673,
-    "login_failed": 3704,
-    "login_success": 93,
-    "sessions": 3991
+    "commands": 688,
+    "login_failed": 3782,
+    "login_success": 99,
+    "sessions": 4058
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3704,
+      "count": 3782,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T20:00:05.609688Z",
-      "unique_ips": 90
+      "last": "2026-08-20T20:58:47.817921Z",
+      "unique_ips": 97
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 93,
+      "count": 99,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,8 +53,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T19:52:51.766209Z",
-      "unique_ips": 70
+      "last": "2026-08-20T20:39:26.406545Z",
+      "unique_ips": 76
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 25,
+      "count": 27,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T19:52:52.879963Z",
-      "unique_ips": 19
+      "last": "2026-08-20T20:21:40.316296Z",
+      "unique_ips": 21
     },
     {
       "id": "T1033",
@@ -238,26 +238,30 @@
     ],
     [
       "/bin/busybox",
-      38
+      39
     ],
     [
       "sh",
-      19
+      21
     ],
     [
       "shell",
-      14
+      16
     ],
     [
       "enable",
-      13
+      14
     ],
     [
       "system",
-      13
+      14
     ],
     [
       "linuxshell",
+      11
+    ],
+    [
+      "ping ;sh",
       10
     ],
     [
@@ -273,20 +277,16 @@
       10
     ],
     [
-      "ping ;sh",
+      "enablelinuxshell",
       9
     ],
     [
-      "enablelinuxshell",
-      8
-    ],
-    [
       "cd /proc && cat self/cmdline",
-      8
+      9
     ],
     [
       "busybox",
-      5
+      6
     ],
     [
       "shel",
