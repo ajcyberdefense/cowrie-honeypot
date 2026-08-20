@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 15:00:45",
+  "generated": "2026-08-20 16:03:11",
   "totals": {
-    "commands": 613,
-    "login_failed": 3150,
-    "login_success": 75,
-    "sessions": 3363
+    "commands": 614,
+    "login_failed": 3211,
+    "login_success": 77,
+    "sessions": 3423
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3150,
+      "count": 3211,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T15:00:44.364620Z",
-      "unique_ips": 69
+      "last": "2026-08-20T15:56:20.906379Z",
+      "unique_ips": 72
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 75,
+      "count": 77,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -53,8 +53,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T14:51:48.422967Z",
-      "unique_ips": 53
+      "last": "2026-08-20T15:53:58.304353Z",
+      "unique_ips": 55
     },
     {
       "id": "T1105",
@@ -290,6 +290,10 @@
       4
     ],
     [
+      "/ip cloud print",
+      3
+    ],
+    [
       "ping; sh",
       2
     ],
@@ -303,10 +307,6 @@
     ],
     [
       "RPMA",
-      2
-    ],
-    [
-      "AMOO",
       2
     ]
   ]
