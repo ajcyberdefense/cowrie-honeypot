@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-20 05:04:52",
+  "generated": "2026-08-20 06:03:52",
   "totals": {
-    "commands": 92,
-    "login_failed": 720,
-    "login_success": 18,
-    "sessions": 790
+    "commands": 108,
+    "login_failed": 1035,
+    "login_success": 26,
+    "sessions": 1138
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 720,
+      "count": 1035,
       "examples": [
         "nginx / 150.136.155.47",
         "tyre / tyre",
@@ -21,8 +21,8 @@
         "tyre / tyre1234"
       ],
       "first": "2026-08-20T00:02:12.859219Z",
-      "last": "2026-08-20T05:04:48.513088Z",
-      "unique_ips": 26
+      "last": "2026-08-20T06:03:16.985712Z",
+      "unique_ips": 29
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 18,
+      "count": 26,
       "examples": [
         "admin / switch",
         "admin / admin",
@@ -69,8 +69,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-08-20T01:07:19.606932Z",
-      "last": "2026-08-20T04:21:47.907288Z",
-      "unique_ips": 17
+      "last": "2026-08-20T05:50:54.501612Z",
+      "unique_ips": 20
     },
     {
       "id": "T1489",
@@ -86,6 +86,19 @@
       "unique_ips": 1
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "uname -s -v -n -r -m",
+        "uname -a"
+      ],
+      "first": "2026-08-20T04:16:38.276000Z",
+      "last": "2026-08-20T05:17:23.753621Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
@@ -95,18 +108,6 @@
       ],
       "first": "2026-08-20T02:31:13.448948Z",
       "last": "2026-08-20T02:31:13.448948Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "uname -s -v -n -r -m"
-      ],
-      "first": "2026-08-20T04:16:38.276000Z",
-      "last": "2026-08-20T04:16:38.276000Z",
       "unique_ips": 1
     },
     {
@@ -128,6 +129,18 @@
       10
     ],
     [
+      "sh",
+      9
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      7
+    ],
+    [
+      "shel",
+      5
+    ],
+    [
       "enable",
       4
     ],
@@ -140,10 +153,6 @@
       4
     ],
     [
-      "sh",
-      4
-    ],
-    [
       "linuxshell",
       3
     ],
@@ -153,10 +162,6 @@
     ],
     [
       "enablelinuxshell",
-      2
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
@@ -197,10 +202,6 @@
     ],
     [
       "/bin/busybox echo > /usr/.fxcat && sh /usr/.fxcat && cd /usr/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /boot/.fxcat && sh /boot/.fxcat && cd /boot/",
       1
     ]
   ]
