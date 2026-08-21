@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 05:02:11",
+  "generated": "2026-08-21 06:03:11",
   "totals": {
-    "commands": 192,
-    "login_failed": 1270,
-    "login_success": 18,
-    "sessions": 1052
+    "commands": 200,
+    "login_failed": 1609,
+    "login_success": 22,
+    "sessions": 1296
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1270,
+      "count": 1609,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,8 +21,8 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T05:01:26.209925Z",
-      "unique_ips": 29
+      "last": "2026-08-21T06:03:09.444409Z",
+      "unique_ips": 33
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 18,
+      "count": 22,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -69,8 +69,8 @@
         "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T04:43:23.995652Z",
-      "unique_ips": 17
+      "last": "2026-08-21T05:50:42.990138Z",
+      "unique_ips": 20
     },
     {
       "id": "T1033",
@@ -97,6 +97,19 @@
       "first": "2026-08-21T01:04:57.795191Z",
       "last": "2026-08-21T01:04:57.896823Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "uname -a",
+        "uname -s -v -n -r -m"
+      ],
+      "first": "2026-08-21T05:12:14.278101Z",
+      "last": "2026-08-21T05:50:44.972982Z",
+      "unique_ips": 2
     },
     {
       "id": "T1070.004",
@@ -141,15 +154,15 @@
       25
     ],
     [
+      "sh",
+      12
+    ],
+    [
       "system",
       10
     ],
     [
       "shell",
-      10
-    ],
-    [
-      "sh",
       10
     ],
     [
@@ -169,12 +182,12 @@
       6
     ],
     [
-      "enablelinuxshell",
-      5
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      6
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      4
+      "enablelinuxshell",
+      5
     ],
     [
       "busybox",
@@ -190,6 +203,10 @@
     ],
     [
       "/bin/busybox hostname TOASTER",
+      2
+    ],
+    [
+      "shel",
       2
     ],
     [
@@ -210,10 +227,6 @@
     ],
     [
       "/bin/busybox echo > /var/run/.fxcat && sh /var/run/.fxcat && cd /var/run/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
       1
     ]
   ]
