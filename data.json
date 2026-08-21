@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 19:01:45",
+  "generated": "2026-08-21 20:01:45",
   "totals": {
-    "commands": 485,
-    "login_failed": 7375,
-    "login_success": 81,
-    "sessions": 5182
+    "commands": 543,
+    "login_failed": 7669,
+    "login_success": 97,
+    "sessions": 5352
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7375,
+      "count": 7669,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,8 +21,8 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T19:01:38.649148Z",
-      "unique_ips": 81
+      "last": "2026-08-21T20:01:42.708086Z",
+      "unique_ips": 83
     },
     {
       "id": "T1222.002",
@@ -41,6 +41,22 @@
       "unique_ips": 20
     },
     {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 97,
+      "examples": [
+        "enable\\x00 / linuxshell\\x00",
+        "root / xirtam",
+        "admin / 1234",
+        "root / 070admin",
+        "root / root"
+      ],
+      "first": "2026-08-21T00:25:45.541215Z",
+      "last": "2026-08-21T20:00:31.755921Z",
+      "unique_ips": 67
+    },
+    {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
@@ -55,22 +71,6 @@
       "first": "2026-08-21T01:04:57.795191Z",
       "last": "2026-08-21T18:58:49.640079Z",
       "unique_ips": 19
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 81,
-      "examples": [
-        "enable\\x00 / linuxshell\\x00",
-        "root / xirtam",
-        "admin / 1234",
-        "root / 070admin",
-        "root / root"
-      ],
-      "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T18:58:49.019995Z",
-      "unique_ips": 65
     },
     {
       "id": "T1082",
@@ -236,23 +236,23 @@
     ],
     [
       "sh",
-      32
+      36
     ],
     [
       "system",
-      28
+      32
     ],
     [
       "shell",
-      28
+      32
     ],
     [
       "enable",
-      28
+      32
     ],
     [
       "linuxshell",
-      20
+      24
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -267,12 +267,24 @@
       13
     ],
     [
+      "/bin/busybox UNSTABLE",
+      12
+    ],
+    [
       "enablelinuxshell",
       12
     ],
     [
-      "/bin/busybox UNSTABLE",
-      8
+      "zalee",
+      10
+    ],
+    [
+      "za",
+      10
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
+      10
     ],
     [
       "busybox",
@@ -297,18 +309,6 @@
     [
       "exit",
       3
-    ],
-    [
-      "Accept-Encoding: gzip",
-      2
-    ],
-    [
-      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
-      1
     ]
   ]
 }
