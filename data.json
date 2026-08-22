@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-22 13:01:11",
+  "generated": "2026-08-22 14:02:32",
   "totals": {
-    "commands": 775,
-    "login_failed": 3722,
-    "login_success": 67,
-    "sessions": 3694
+    "commands": 779,
+    "login_failed": 3753,
+    "login_success": 71,
+    "sessions": 3730
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3722,
+      "count": 3753,
       "examples": [
         "git / test123",
         "stef / stef",
@@ -21,8 +21,8 @@
         "sh\\x00 / /bin/busybox UNSTABLE\\x00"
       ],
       "first": "2026-08-22T00:00:03.842808Z",
-      "last": "2026-08-22T12:51:28.540046Z",
-      "unique_ips": 70
+      "last": "2026-08-22T14:00:32.718251Z",
+      "unique_ips": 75
     },
     {
       "id": "T1222.002",
@@ -41,6 +41,22 @@
       "unique_ips": 12
     },
     {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 71,
+      "examples": [
+        "admin / 7ujMko0admin",
+        "root / Zxic521",
+        "ubuntu / ubuntu",
+        "root / root",
+        "admin / admin"
+      ],
+      "first": "2026-08-22T00:02:55.221938Z",
+      "last": "2026-08-22T13:50:19.926328Z",
+      "unique_ips": 55
+    },
+    {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
@@ -55,22 +71,6 @@
       "first": "2026-08-22T01:09:41.651398Z",
       "last": "2026-08-22T12:23:20.721025Z",
       "unique_ips": 14
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 67,
-      "examples": [
-        "admin / 7ujMko0admin",
-        "root / Zxic521",
-        "ubuntu / ubuntu",
-        "root / root",
-        "admin / admin"
-      ],
-      "first": "2026-08-22T00:02:55.221938Z",
-      "last": "2026-08-22T12:51:32.254951Z",
-      "unique_ips": 51
     },
     {
       "id": "T1082",
@@ -175,15 +175,15 @@
     ],
     [
       "sh",
-      26
+      27
     ],
     [
       "system",
-      20
+      21
     ],
     [
       "shell",
-      20
+      21
     ],
     [
       "enable",
@@ -214,6 +214,10 @@
       6
     ],
     [
+      "/bin/busybox UNSTABLE",
+      5
+    ],
+    [
       "ping; sh",
       5
     ],
@@ -224,10 +228,6 @@
     [
       "busybox",
       5
-    ],
-    [
-      "/bin/busybox UNSTABLE",
-      4
     ],
     [
       "/bin/busybox hostname TOASTER",
