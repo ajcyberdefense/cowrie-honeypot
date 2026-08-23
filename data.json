@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 22:02:11",
+  "generated": "2026-08-23 23:01:57",
   "totals": {
-    "commands": 744,
-    "login_failed": 1461,
-    "login_success": 90,
-    "sessions": 1978
+    "commands": 777,
+    "login_failed": 1495,
+    "login_success": 102,
+    "sessions": 2016
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1461,
+      "count": 1495,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,8 +21,8 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T22:02:00.975881Z",
-      "unique_ips": 83
+      "last": "2026-08-23T23:01:09.100349Z",
+      "unique_ips": 86
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 90,
+      "count": 102,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -69,8 +69,8 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T22:02:05.661877Z",
-      "unique_ips": 65
+      "last": "2026-08-23T22:58:23.202265Z",
+      "unique_ips": 68
     },
     {
       "id": "T1082",
@@ -246,15 +246,15 @@
   "unmapped": [
     [
       "/bin/busybox",
-      288
+      289
     ],
     [
       "shell",
-      21
+      31
     ],
     [
       "sh",
-      21
+      31
     ],
     [
       "system",
@@ -270,11 +270,11 @@
     ],
     [
       "ping ;sh",
-      11
+      12
     ],
     [
       "cd /proc && cat self/cmdline",
-      11
+      12
     ],
     [
       "enablelinuxshell",
@@ -282,6 +282,10 @@
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      10
+    ],
+    [
+      "/bin/busybox BOTNET",
       10
     ],
     [
@@ -318,10 +322,6 @@
     ],
     [
       "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
-      1
-    ],
-    [
-      "QyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxgAAAJAt8FDRLfBQ",
       1
     ]
   ]
