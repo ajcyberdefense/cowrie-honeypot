@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 21:00:45",
+  "generated": "2026-08-23 22:02:11",
   "totals": {
     "commands": 744,
-    "login_failed": 1443,
-    "login_success": 88,
-    "sessions": 1926
+    "login_failed": 1461,
+    "login_success": 90,
+    "sessions": 1978
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1443,
+      "count": 1461,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,8 +21,8 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T20:57:12.242089Z",
-      "unique_ips": 80
+      "last": "2026-08-23T22:02:00.975881Z",
+      "unique_ips": 83
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 88,
+      "count": 90,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -69,8 +69,8 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T20:44:47.376668Z",
-      "unique_ips": 63
+      "last": "2026-08-23T22:02:05.661877Z",
+      "unique_ips": 65
     },
     {
       "id": "T1082",
