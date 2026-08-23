@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 02:01:25",
+  "generated": "2026-08-23 03:03:56",
   "totals": {
-    "commands": 30,
-    "login_failed": 268,
-    "login_success": 10,
-    "sessions": 303
+    "commands": 36,
+    "login_failed": 631,
+    "login_success": 15,
+    "sessions": 710
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 268,
+      "count": 631,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,8 +21,8 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T01:52:41.566602Z",
-      "unique_ips": 12
+      "last": "2026-08-23T03:03:52.387399Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 10,
+      "count": 15,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -53,8 +53,8 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T01:48:23.909740Z",
-      "unique_ips": 7
+      "last": "2026-08-23T03:02:23.070695Z",
+      "unique_ips": 11
     },
     {
       "id": "T1222.002",
@@ -75,15 +75,16 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 9,
       "examples": [
         "uname -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -a"
+        "uname -a",
+        "uname -s -v -n -r -m"
       ],
       "first": "2026-08-23T00:09:31.058995Z",
-      "last": "2026-08-23T01:48:35.385183Z",
-      "unique_ips": 3
+      "last": "2026-08-23T02:52:37.187645Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
@@ -186,6 +187,22 @@
     ],
     [
       "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
+      1
+    ],
+    [
+      "echo SHELL_TEST",
+      1
+    ],
+    [
+      "/bin/busybox TEST",
+      1
+    ],
+    [
+      "cat /proc",
+      1
+    ],
+    [
+      "./",
       1
     ]
   ]
