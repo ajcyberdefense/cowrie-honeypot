@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 04:04:23",
+  "generated": "2026-08-23 05:02:44",
   "totals": {
-    "commands": 62,
-    "login_failed": 787,
-    "login_success": 21,
-    "sessions": 882
+    "commands": 65,
+    "login_failed": 817,
+    "login_success": 22,
+    "sessions": 921
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 787,
+      "count": 817,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,8 +21,8 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T04:03:32.767924Z",
-      "unique_ips": 22
+      "last": "2026-08-23T05:02:35.728835Z",
+      "unique_ips": 23
     },
     {
       "id": "T1105",
@@ -41,6 +41,22 @@
       "unique_ips": 3
     },
     {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 22,
+      "examples": [
+        "hikvision / hikvision",
+        "bin / bin",
+        "root / 123@@@",
+        "root / debian",
+        "root / 123123"
+      ],
+      "first": "2026-08-23T00:09:30.963003Z",
+      "last": "2026-08-23T04:33:52.131729Z",
+      "unique_ips": 17
+    },
+    {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
@@ -55,22 +71,6 @@
       "first": "2026-08-23T00:09:31.212472Z",
       "last": "2026-08-23T04:03:36.066290Z",
       "unique_ips": 4
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 21,
-      "examples": [
-        "hikvision / hikvision",
-        "bin / bin",
-        "root / 123@@@",
-        "root / debian",
-        "root / 123123"
-      ],
-      "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T04:03:33.653385Z",
-      "unique_ips": 16
     },
     {
       "id": "T1082",
@@ -140,11 +140,11 @@
   "unmapped": [
     [
       "shell",
-      3
+      4
     ],
     [
       "sh",
-      3
+      4
     ],
     [
       "enable",
