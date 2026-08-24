@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 17:04:45",
+  "generated": "2026-08-24 18:02:45",
   "totals": {
-    "commands": 441,
-    "login_failed": 1185,
-    "login_success": 89,
-    "sessions": 1379
+    "commands": 450,
+    "login_failed": 1206,
+    "login_success": 91,
+    "sessions": 1409
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1185,
+      "count": 1206,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T17:04:10.184417Z",
-      "unique_ips": 84
+      "last": "2026-08-24T18:02:39.344233Z",
+      "unique_ips": 85
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 89,
+      "count": 91,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T16:55:20.288290Z",
-      "unique_ips": 61
+      "last": "2026-08-24T17:18:13.360192Z",
+      "unique_ips": 62
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 23,
+      "count": 25,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,8 +85,8 @@
         "uname -m"
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T15:54:30.196734Z",
-      "unique_ips": 15
+      "last": "2026-08-24T17:18:16.337341Z",
+      "unique_ips": 16
     },
     {
       "id": "T1059.004",
@@ -131,21 +131,47 @@
       "unique_ips": 4
     },
     {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
-      "count": 1,
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
       ],
-      "first": "2026-08-24T00:50:37.867683Z",
-      "last": "2026-08-24T00:50:37.867683Z",
+      "first": "2026-08-24T17:18:17.164876Z",
+      "last": "2026-08-24T17:18:17.985677Z",
       "unique_ips": 1
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-24T00:50:37.867683Z",
+      "last": "2026-08-24T17:18:18.810734Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-24T17:18:14.699462Z",
+      "last": "2026-08-24T17:18:14.699462Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
       "count": 1,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
