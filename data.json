@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 20:03:11",
+  "generated": "2026-08-24 21:00:57",
   "totals": {
-    "commands": 497,
-    "login_failed": 1933,
-    "login_success": 104,
-    "sessions": 2155
+    "commands": 515,
+    "login_failed": 2135,
+    "login_success": 111,
+    "sessions": 2365
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1933,
+      "count": 2135,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T20:03:09.213198Z",
-      "unique_ips": 93
+      "last": "2026-08-24T21:00:39.179108Z",
+      "unique_ips": 98
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 104,
+      "count": 111,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T20:00:28.377717Z",
-      "unique_ips": 67
+      "last": "2026-08-24T21:00:40.096020Z",
+      "unique_ips": 72
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 26,
+      "count": 28,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,8 +85,8 @@
         "uname -m"
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T19:21:04.371853Z",
-      "unique_ips": 17
+      "last": "2026-08-24T20:46:22.056239Z",
+      "unique_ips": 18
     },
     {
       "id": "T1059.004",
@@ -134,39 +134,39 @@
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 4,
       "examples": [
         "ps | grep '[Mm]iner'",
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-08-24T17:18:17.164876Z",
-      "last": "2026-08-24T17:18:17.985677Z",
-      "unique_ips": 1
+      "last": "2026-08-24T20:46:23.130968Z",
+      "unique_ips": 2
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-08-24T00:50:37.867683Z",
-      "last": "2026-08-24T17:18:18.810734Z",
-      "unique_ips": 2
+      "last": "2026-08-24T20:46:23.650310Z",
+      "unique_ips": 3
     },
     {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "ifconfig"
       ],
       "first": "2026-08-24T17:18:14.699462Z",
-      "last": "2026-08-24T17:18:14.699462Z",
-      "unique_ips": 1
+      "last": "2026-08-24T20:46:21.012016Z",
+      "unique_ips": 2
     },
     {
       "id": "T1037",
@@ -224,11 +224,11 @@
     ],
     [
       "shell",
-      36
+      37
     ],
     [
       "sh",
-      35
+      36
     ],
     [
       "system",
@@ -248,15 +248,15 @@
     ],
     [
       "zalee",
-      10
+      12
     ],
     [
       "za",
-      10
+      12
     ],
     [
       "&k`g&k|zpkfq)ES[M",
-      10
+      12
     ],
     [
       "cd /proc && cat self/cmdline",
