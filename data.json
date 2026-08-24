@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 14:04:32",
+  "generated": "2026-08-24 15:01:45",
   "totals": {
-    "commands": 414,
-    "login_failed": 848,
-    "login_success": 79,
-    "sessions": 987
+    "commands": 431,
+    "login_failed": 881,
+    "login_success": 83,
+    "sessions": 1023
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 848,
+      "count": 881,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T14:03:54.083122Z",
-      "unique_ips": 72
+      "last": "2026-08-24T15:01:06.498422Z",
+      "unique_ips": 77
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 79,
+      "count": 83,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T13:43:07.480065Z",
-      "unique_ips": 53
+      "last": "2026-08-24T14:59:53.633046Z",
+      "unique_ips": 56
     },
     {
       "id": "T1105",
@@ -198,23 +198,27 @@
     ],
     [
       "shell",
-      23
+      26
     ],
     [
       "sh",
-      22
+      25
     ],
     [
       "system",
-      20
+      22
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      12
+      14
     ],
     [
       "enable",
-      11
+      12
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      10
     ],
     [
       "zalee",
@@ -229,24 +233,20 @@
       10
     ],
     [
-      "/bin/busybox UNSTABLE",
+      "cd /proc && cat self/cmdline",
       9
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "linuxshell",
       8
     ],
     [
-      "linuxshell",
-      7
-    ],
-    [
       "enablelinuxshell",
-      7
+      8
     ],
     [
       "ping ;sh",
-      7
+      8
     ],
     [
       "ping; sh",
@@ -265,11 +265,11 @@
       2
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
-      1
+      "/bin/busybox V3G4",
+      2
     ],
     [
-      "cat /tmp/bendi.py | python3 - ; rm -f /tmp/bendi.py",
+      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
       1
     ]
   ]
