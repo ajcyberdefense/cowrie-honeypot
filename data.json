@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 10:03:26",
+  "generated": "2026-08-24 11:02:27",
   "totals": {
-    "commands": 179,
-    "login_failed": 561,
-    "login_success": 56,
-    "sessions": 680
+    "commands": 193,
+    "login_failed": 624,
+    "login_success": 61,
+    "sessions": 749
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 561,
+      "count": 624,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T10:02:27.270394Z",
-      "unique_ips": 54
+      "last": "2026-08-24T11:00:52.710129Z",
+      "unique_ips": 59
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 56,
+      "count": 61,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T09:50:55.974816Z",
-      "unique_ips": 40
+      "last": "2026-08-24T10:53:40.959024Z",
+      "unique_ips": 44
     },
     {
       "id": "T1105",
@@ -192,18 +192,22 @@
   "unmapped": [
     [
       "shell",
-      16
+      18
     ],
     [
       "sh",
-      15
+      17
     ],
     [
       "system",
-      14
+      16
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      12
+    ],
+    [
+      "enable",
       10
     ],
     [
@@ -219,28 +223,24 @@
       10
     ],
     [
-      "enable",
-      9
-    ],
-    [
       "cd /proc && cat self/cmdline",
-      6
+      7
     ],
     [
       "/bin/busybox UNSTABLE",
-      5
+      6
     ],
     [
       "linuxshell",
-      5
+      6
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "ping ;sh",
-      5
+      6
     ],
     [
       "ping; sh",
