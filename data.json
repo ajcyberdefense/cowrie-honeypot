@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 15:01:45",
+  "generated": "2026-08-24 16:02:06",
   "totals": {
-    "commands": 431,
-    "login_failed": 881,
-    "login_success": 83,
-    "sessions": 1023
+    "commands": 438,
+    "login_failed": 1037,
+    "login_success": 87,
+    "sessions": 1224
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 881,
+      "count": 1037,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T15:01:06.498422Z",
-      "unique_ips": 77
+      "last": "2026-08-24T16:02:06.471750Z",
+      "unique_ips": 82
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 83,
+      "count": 87,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T14:59:53.633046Z",
-      "unique_ips": 56
+      "last": "2026-08-24T15:55:25.883736Z",
+      "unique_ips": 60
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 22,
+      "count": 23,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,8 +85,8 @@
         "uname -m"
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T13:43:08.057049Z",
-      "unique_ips": 14
+      "last": "2026-08-24T15:54:30.196734Z",
+      "unique_ips": 15
     },
     {
       "id": "T1059.004",
@@ -198,15 +198,15 @@
     ],
     [
       "shell",
-      26
+      27
     ],
     [
       "sh",
-      25
+      26
     ],
     [
       "system",
-      22
+      23
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -214,7 +214,7 @@
     ],
     [
       "enable",
-      12
+      13
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -250,7 +250,7 @@
     ],
     [
       "ping; sh",
-      2
+      3
     ],
     [
       "/bin/busybox STC",
