@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-24 09:04:12",
+  "generated": "2026-08-24 10:03:26",
   "totals": {
-    "commands": 148,
-    "login_failed": 507,
-    "login_success": 52,
-    "sessions": 608
+    "commands": 179,
+    "login_failed": 561,
+    "login_success": 56,
+    "sessions": 680
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 507,
+      "count": 561,
       "examples": [
         "root / 123456",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-08-24T00:00:38.589360Z",
-      "last": "2026-08-24T09:02:14.803252Z",
-      "unique_ips": 50
+      "last": "2026-08-24T10:02:27.270394Z",
+      "unique_ips": 54
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 52,
+      "count": 56,
       "examples": [
         "root / e10adc39",
         "ubuntu / ubuntu",
@@ -37,8 +37,8 @@
         "root / root"
       ],
       "first": "2026-08-24T00:20:02.041462Z",
-      "last": "2026-08-24T09:03:13.021476Z",
-      "unique_ips": 36
+      "last": "2026-08-24T09:50:55.974816Z",
+      "unique_ips": 40
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "uname -a",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -68,8 +68,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-24T00:42:00.777388Z",
-      "last": "2026-08-24T09:03:14.389500Z",
-      "unique_ips": 10
+      "last": "2026-08-24T09:51:08.849462Z",
+      "unique_ips": 11
     },
     {
       "id": "T1222.002",
@@ -192,15 +192,19 @@
   "unmapped": [
     [
       "shell",
-      13
+      16
     ],
     [
       "sh",
-      12
+      15
     ],
     [
       "system",
-      11
+      14
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      10
     ],
     [
       "zalee",
@@ -216,6 +220,10 @@
     ],
     [
       "enable",
+      9
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       6
     ],
     [
@@ -223,24 +231,16 @@
       5
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      4
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      3
-    ],
-    [
       "linuxshell",
-      2
+      5
     ],
     [
       "enablelinuxshell",
-      2
+      5
     ],
     [
       "ping ;sh",
-      2
+      5
     ],
     [
       "ping; sh",
