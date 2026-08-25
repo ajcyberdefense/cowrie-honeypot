@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 10:03:45",
+  "generated": "2026-08-25 11:01:56",
   "totals": {
-    "commands": 596,
-    "login_failed": 1093,
-    "login_success": 141,
-    "sessions": 1512
+    "commands": 612,
+    "login_failed": 1135,
+    "login_success": 146,
+    "sessions": 1566
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1093,
+      "count": 1135,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T10:03:34.323904Z",
-      "unique_ips": 87
+      "last": "2026-08-25T10:58:07.713063Z",
+      "unique_ips": 97
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 141,
+      "count": 146,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -37,8 +37,8 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T10:03:34.620981Z",
-      "unique_ips": 37
+      "last": "2026-08-25T10:58:12.191287Z",
+      "unique_ips": 40
     },
     {
       "id": "T1105",
@@ -211,15 +211,23 @@
     ],
     [
       "shell",
-      96
+      99
     ],
     [
       "sh",
-      95
+      98
     ],
     [
       "system",
-      94
+      97
+    ],
+    [
+      "enable",
+      6
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      6
     ],
     [
       "zalee",
@@ -234,28 +242,20 @@
       6
     ],
     [
-      "enable",
+      "cd /proc && cat self/cmdline",
       5
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      4
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      4
-    ],
-    [
       "linuxshell",
-      3
+      4
     ],
     [
       "enablelinuxshell",
-      3
+      4
     ],
     [
       "ping ;sh",
-      3
+      4
     ],
     [
       "exit",
