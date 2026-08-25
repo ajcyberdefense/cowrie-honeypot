@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 07:00:44",
+  "generated": "2026-08-25 08:01:47",
   "totals": {
-    "commands": 288,
-    "login_failed": 791,
-    "login_success": 39,
-    "sessions": 1153
+    "commands": 384,
+    "login_failed": 892,
+    "login_success": 70,
+    "sessions": 1271
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 791,
+      "count": 892,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,8 +21,24 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T07:00:22.771344Z",
-      "unique_ips": 55
+      "last": "2026-08-25T08:01:45.978050Z",
+      "unique_ips": 68
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 70,
+      "examples": [
+        "root / root",
+        "root / neworangetech",
+        "root / /*6.=_ja",
+        "nobody / nobody",
+        "admin / 1234"
+      ],
+      "first": "2026-08-25T00:17:08.525783Z",
+      "last": "2026-08-25T07:50:05.531855Z",
+      "unique_ips": 31
     },
     {
       "id": "T1105",
@@ -39,22 +55,6 @@
       "first": "2026-08-25T01:41:49.523664Z",
       "last": "2026-08-25T03:32:33.431663Z",
       "unique_ips": 3
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 39,
-      "examples": [
-        "root / root",
-        "root / neworangetech",
-        "root / /*6.=_ja",
-        "nobody / nobody",
-        "admin / 1234"
-      ],
-      "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T06:38:36.678532Z",
-      "unique_ips": 28
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 17,
       "examples": [
         "uname -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T06:20:06.760200Z",
-      "unique_ips": 7
+      "last": "2026-08-25T07:43:55.067044Z",
+      "unique_ips": 8
     },
     {
       "id": "T1059.004",
@@ -127,12 +127,61 @@
       "first": "2026-08-25T01:41:49.659882Z",
       "last": "2026-08-25T06:20:06.760200Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-08-25T07:43:55.704944Z",
+      "last": "2026-08-25T07:43:56.160076Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-25T07:43:54.161140Z",
+      "last": "2026-08-25T07:43:54.161140Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-25T07:43:56.618217Z",
+      "last": "2026-08-25T07:43:56.618217Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "/bin/busybox",
       189
+    ],
+    [
+      "shell",
+      33
+    ],
+    [
+      "system",
+      32
+    ],
+    [
+      "sh",
+      32
     ],
     [
       "zalee",
@@ -147,10 +196,6 @@
       6
     ],
     [
-      "shell",
-      4
-    ],
-    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       4
     ],
@@ -160,14 +205,6 @@
     ],
     [
       "enable",
-      3
-    ],
-    [
-      "system",
-      3
-    ],
-    [
-      "sh",
       3
     ],
     [
@@ -196,6 +233,18 @@
     ],
     [
       "Accept-Encoding: gzip",
+      1
+    ],
+    [
+      "/ip cloud print",
+      1
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      1
+    ],
+    [
+      "echo Hi | cat -n",
       1
     ]
   ]
