@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 04:02:06",
+  "generated": "2026-08-25 05:02:44",
   "totals": {
-    "commands": 260,
-    "login_failed": 206,
-    "login_success": 21,
-    "sessions": 420
+    "commands": 265,
+    "login_failed": 541,
+    "login_success": 24,
+    "sessions": 849
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 206,
+      "count": 541,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,8 +21,8 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T04:01:54.476258Z",
-      "unique_ips": 25
+      "last": "2026-08-25T05:02:43.042163Z",
+      "unique_ips": 35
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 21,
+      "count": 24,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -69,22 +69,23 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T04:00:56.463603Z",
-      "unique_ips": 16
+      "last": "2026-08-25T04:43:34.345895Z",
+      "unique_ips": 19
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 10,
       "examples": [
         "uname -m",
         "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T03:20:06.918065Z",
-      "unique_ips": 3
+      "last": "2026-08-25T04:32:26.446167Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -130,10 +131,18 @@
   "unmapped": [
     [
       "/bin/busybox",
-      188
+      189
+    ],
+    [
+      "shell",
+      4
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      4
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       4
     ],
     [
@@ -142,10 +151,6 @@
     ],
     [
       "system",
-      3
-    ],
-    [
-      "shell",
       3
     ],
     [
@@ -165,15 +170,15 @@
       3
     ],
     [
-      "cd /proc && cat self/cmdline",
-      3
-    ],
-    [
       "exit",
       1
     ],
     [
       "busybox",
+      1
+    ],
+    [
+      "User-Agent: Mozilla/5.0 zgrab/0.x",
       1
     ]
   ]
