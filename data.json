@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 08:01:47",
+  "generated": "2026-08-25 09:03:28",
   "totals": {
-    "commands": 384,
-    "login_failed": 892,
-    "login_success": 70,
-    "sessions": 1271
+    "commands": 518,
+    "login_failed": 999,
+    "login_success": 116,
+    "sessions": 1388
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 892,
+      "count": 999,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T08:01:45.978050Z",
-      "unique_ips": 68
+      "last": "2026-08-25T09:02:57.433859Z",
+      "unique_ips": 75
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 70,
+      "count": 116,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -37,7 +37,7 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T07:50:05.531855Z",
+      "last": "2026-08-25T09:02:58.050844Z",
       "unique_ips": 31
     },
     {
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 17,
+      "count": 19,
       "examples": [
         "uname -m",
         "uname -a",
@@ -85,7 +85,7 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T07:43:55.067044Z",
+      "last": "2026-08-25T08:29:33.366456Z",
       "unique_ips": 8
     },
     {
@@ -173,15 +173,15 @@
     ],
     [
       "shell",
-      33
+      77
     ],
     [
       "system",
-      32
+      76
     ],
     [
       "sh",
-      32
+      76
     ],
     [
       "zalee",
