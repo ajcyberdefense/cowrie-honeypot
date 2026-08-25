@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 05:02:44",
+  "generated": "2026-08-25 06:03:56",
   "totals": {
-    "commands": 265,
-    "login_failed": 541,
-    "login_success": 24,
-    "sessions": 849
+    "commands": 267,
+    "login_failed": 714,
+    "login_success": 28,
+    "sessions": 1033
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 541,
+      "count": 714,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,8 +21,8 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T05:02:43.042163Z",
-      "unique_ips": 35
+      "last": "2026-08-25T06:03:42.510178Z",
+      "unique_ips": 46
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 24,
+      "count": 28,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -69,23 +69,24 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T04:43:34.345895Z",
-      "unique_ips": 19
+      "last": "2026-08-25T05:28:06.587590Z",
+      "unique_ips": 23
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 11,
       "examples": [
         "uname -m",
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -s -v -n -r -m"
+        "uname -s -v -n -r -m",
+        "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T04:32:26.446167Z",
-      "unique_ips": 4
+      "last": "2026-08-25T05:08:12.966087Z",
+      "unique_ips": 5
     },
     {
       "id": "T1059.004",
@@ -179,6 +180,10 @@
     ],
     [
       "User-Agent: Mozilla/5.0 zgrab/0.x",
+      1
+    ],
+    [
+      "Accept-Encoding: gzip",
       1
     ]
   ]
