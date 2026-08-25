@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 19:03:12",
+  "generated": "2026-08-25 20:03:45",
   "totals": {
-    "commands": 2004,
-    "login_failed": 2897,
-    "login_success": 605,
-    "sessions": 3414
+    "commands": 2068,
+    "login_failed": 2944,
+    "login_success": 627,
+    "sessions": 3468
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2897,
+      "count": 2944,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T19:02:19.734865Z",
-      "unique_ips": 172
+      "last": "2026-08-25T20:02:52.508430Z",
+      "unique_ips": 182
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 605,
+      "count": 627,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -37,8 +37,8 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T18:56:04.694947Z",
-      "unique_ips": 63
+      "last": "2026-08-25T20:02:06.938002Z",
+      "unique_ips": 67
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 24,
+      "count": 25,
       "examples": [
         "uname -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-08-25T01:53:08.258780Z",
-      "last": "2026-08-25T15:45:23.796830Z",
-      "unique_ips": 13
+      "last": "2026-08-25T20:02:07.985262Z",
+      "unique_ips": 14
     },
     {
       "id": "T1059.004",
@@ -207,30 +207,34 @@
   "unmapped": [
     [
       "shell",
-      537
+      557
     ],
     [
       "sh",
-      536
+      556
     ],
     [
       "system",
-      534
+      544
     ],
     [
       "/bin/busybox",
-      198
+      199
     ],
     [
       "enable",
       13
     ],
     [
+      "cd /proc && cat self/cmdline",
+      11
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       10
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "/bin/busybox Cult",
       10
     ],
     [
@@ -279,10 +283,6 @@
     ],
     [
       "User-Agent: Mozilla/5.0 zgrab/0.x",
-      1
-    ],
-    [
-      "Accept-Encoding: gzip",
       1
     ]
   ]
