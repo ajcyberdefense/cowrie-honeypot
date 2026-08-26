@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-26 15:03:45",
+  "generated": "2026-08-26 16:02:57",
   "totals": {
-    "commands": 257,
-    "login_failed": 3805,
-    "login_success": 69,
-    "sessions": 4127
+    "commands": 261,
+    "login_failed": 3833,
+    "login_success": 74,
+    "sessions": 4159
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3805,
+      "count": 3833,
       "examples": [
         "frappe / epparf",
         "ubuntu / Living@123",
@@ -21,14 +21,14 @@
         "blank / user"
       ],
       "first": "2026-08-26T00:03:18.226679Z",
-      "last": "2026-08-26T15:00:47.209442Z",
-      "unique_ips": 165
+      "last": "2026-08-26T16:00:59.213135Z",
+      "unique_ips": 180
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 69,
+      "count": 74,
       "examples": [
         "root / ",
         "ubnt / ubnt999",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-08-26T00:16:32.761158Z",
-      "last": "2026-08-26T14:56:58.096508Z",
-      "unique_ips": 61
+      "last": "2026-08-26T16:00:32.342149Z",
+      "unique_ips": 66
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 12,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -84,8 +84,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-26T01:56:58.945871Z",
-      "last": "2026-08-26T14:41:28.186662Z",
-      "unique_ips": 10
+      "last": "2026-08-26T15:35:54.950244Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -156,7 +156,11 @@
   "unmapped": [
     [
       "/bin/busybox",
-      20
+      21
+    ],
+    [
+      "shell",
+      17
     ],
     [
       "enable",
@@ -164,10 +168,6 @@
     ],
     [
       "system",
-      16
-    ],
-    [
-      "shell",
       16
     ],
     [
@@ -188,7 +188,7 @@
     ],
     [
       "cd /proc && cat self/cmdline",
-      9
+      10
     ],
     [
       "enablelinuxshell",
