@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-26 09:01:44",
+  "generated": "2026-08-26 10:03:44",
   "totals": {
-    "commands": 143,
-    "login_failed": 1936,
-    "login_success": 37,
-    "sessions": 2177
+    "commands": 153,
+    "login_failed": 1996,
+    "login_success": 40,
+    "sessions": 2247
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1936,
+      "count": 1996,
       "examples": [
         "frappe / epparf",
         "ubuntu / Living@123",
@@ -21,14 +21,14 @@
         "blank / user"
       ],
       "first": "2026-08-26T00:03:18.226679Z",
-      "last": "2026-08-26T08:59:02.848351Z",
-      "unique_ips": 98
+      "last": "2026-08-26T10:02:56.053525Z",
+      "unique_ips": 108
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 37,
+      "count": 40,
       "examples": [
         "root / ",
         "ubnt / ubnt999",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-08-26T00:16:32.761158Z",
-      "last": "2026-08-26T08:59:08.037024Z",
-      "unique_ips": 34
+      "last": "2026-08-26T09:46:58.395078Z",
+      "unique_ips": 37
     },
     {
       "id": "T1105",
@@ -160,39 +160,39 @@
     ],
     [
       "enable",
-      9
+      10
     ],
     [
       "system",
-      9
+      10
     ],
     [
       "shell",
-      9
+      10
     ],
     [
       "sh",
-      9
-    ],
-    [
-      "linuxshell",
-      6
-    ],
-    [
-      "ping ;sh",
-      6
+      10
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      6
+      8
+    ],
+    [
+      "linuxshell",
+      7
+    ],
+    [
+      "ping ;sh",
+      7
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "cd /proc && cat self/cmdline",
-      5
+      6
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
