@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-26 14:02:06",
+  "generated": "2026-08-26 15:03:45",
   "totals": {
-    "commands": 246,
-    "login_failed": 3302,
-    "login_success": 62,
-    "sessions": 3621
+    "commands": 257,
+    "login_failed": 3805,
+    "login_success": 69,
+    "sessions": 4127
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3302,
+      "count": 3805,
       "examples": [
         "frappe / epparf",
         "ubuntu / Living@123",
@@ -21,14 +21,14 @@
         "blank / user"
       ],
       "first": "2026-08-26T00:03:18.226679Z",
-      "last": "2026-08-26T14:02:01.601878Z",
-      "unique_ips": 155
+      "last": "2026-08-26T15:00:47.209442Z",
+      "unique_ips": 165
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 62,
+      "count": 69,
       "examples": [
         "root / ",
         "ubnt / ubnt999",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-08-26T00:16:32.761158Z",
-      "last": "2026-08-26T13:59:40.927239Z",
-      "unique_ips": 55
+      "last": "2026-08-26T14:56:58.096508Z",
+      "unique_ips": 61
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 11,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -84,8 +84,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-26T01:56:58.945871Z",
-      "last": "2026-08-26T12:40:53.573405Z",
-      "unique_ips": 8
+      "last": "2026-08-26T14:41:28.186662Z",
+      "unique_ips": 10
     },
     {
       "id": "T1033",
@@ -156,42 +156,42 @@
   "unmapped": [
     [
       "/bin/busybox",
-      18
+      20
     ],
     [
       "enable",
-      15
+      16
     ],
     [
       "system",
-      15
+      16
     ],
     [
       "shell",
-      15
+      16
     ],
     [
       "sh",
-      15
+      16
+    ],
+    [
+      "linuxshell",
+      10
+    ],
+    [
+      "ping ;sh",
+      10
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       10
     ],
     [
-      "linuxshell",
-      9
-    ],
-    [
-      "ping ;sh",
+      "cd /proc && cat self/cmdline",
       9
     ],
     [
       "enablelinuxshell",
-      8
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       8
     ],
     [
