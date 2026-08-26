@@ -59,32 +59,37 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   <div class="sub">Observed attacker behaviour against an internet-exposed
   Cowrie honeypot, mapped to MITRE ATT&amp;CK.</div>
   <div class="sub" style="margin-top:10px">
-    <span class="badge">Generated 2026-08-26 00:03 UTC</span>
+    <span class="badge">Generated 2026-08-26 01:04 UTC</span>
     <span class="badge">Static snapshot</span>
     <span class="badge">Cowrie 3.x</span>
   </div>
 </header>
 <div class="tiles">
-<div class="tile"><div class="n">5</div><div class="l">Sessions</div></div>
-<div class="tile"><div class="n">1</div><div class="l">Login attempts</div></div>
-<div class="tile"><div class="n">1</div><div class="l">Unique attacker IPs</div></div>
+<div class="tile"><div class="n">64</div><div class="l">Sessions</div></div>
+<div class="tile"><div class="n">35</div><div class="l">Login attempts</div></div>
+<div class="tile"><div class="n">15</div><div class="l">Unique attacker IPs</div></div>
 <div class="tile"><div class="n">0</div><div class="l">Commands run</div></div>
 <div class="tile"><div class="n">0</div><div class="l">Malware downloads</div></div>
-<div class="tile"><div class="n">1</div><div class="l">ATT&amp;CK techniques</div></div>
+<div class="tile"><div class="n">2</div><div class="l">ATT&amp;CK techniques</div></div>
 </div>
 <h2>MITRE ATT&amp;CK Coverage</h2>
-<p class="muted" style="margin-bottom:14px">1 technique(s) across 1 tactic(s). <a href="cowrie-attack-layer.json">Download the ATT&amp;CK Navigator layer</a> and open it at <a href="https://mitre-attack.github.io/attack-navigator/">attack-navigator</a>.</p>
+<p class="muted" style="margin-bottom:14px">2 technique(s) across 2 tactic(s). <a href="cowrie-attack-layer.json">Download the ATT&amp;CK Navigator layer</a> and open it at <a href="https://mitre-attack.github.io/attack-navigator/">attack-navigator</a>.</p>
 <div class="tactics">
-<div class="tac"><h3>Credential Access <b>1</b></h3>
-<div class="tech"><span class="tct">1x</span><span class="tid">T1110.001</span><div class="tnm">Brute Force: Password Guessing</div>
+<div class="tac"><h3>Initial Access <b>3</b></h3>
+<div class="tech"><span class="tct">3x</span><span class="tid">T1078</span><div class="tnm">Valid Accounts</div>
+<div class="teg">root / </div>
+</div>
+</div>
+<div class="tac"><h3>Credential Access <b>32</b></h3>
+<div class="tech"><span class="tct">32x</span><span class="tid">T1110.001</span><div class="tnm">Brute Force: Password Guessing</div>
 <div class="teg">frappe / epparf</div>
 </div>
 </div>
 </div>
 <h2>Attack Volume</h2><div class='grid2'>
-<div class="panel"><h3>Top source IPs</h3><svg viewBox="0 0 420 32" class="chart" role="img"><text x="0" y="16" class="bl">107.155.48.84</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#f85149"/><text x="380" y="16" class="bv">1</text></svg></div>
-<div class="panel"><h3>Most-tried usernames</h3><svg viewBox="0 0 420 32" class="chart" role="img"><text x="0" y="16" class="bl">frappe</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#58a6ff"/><text x="380" y="16" class="bv">1</text></svg></div>
-<div class="panel"><h3>Most-tried passwords</h3><svg viewBox="0 0 420 32" class="chart" role="img"><text x="0" y="16" class="bl">epparf</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="16" class="bv">1</text></svg></div>
+<div class="panel"><h3>Top source IPs</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">217.60.255.130</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#f85149"/><text x="380" y="16" class="bv">14</text><text x="0" y="42" class="bl">2.57.121.112</text><rect x="160" y="32" width="76" height="13" rx="3" fill="#f85149"/><text x="242" y="42" class="bv">5</text><text x="0" y="68" class="bl">139.19.117.129</text><rect x="160" y="58" width="30" height="13" rx="3" fill="#f85149"/><text x="196" y="68" class="bv">2</text><text x="0" y="94" class="bl">154.16.112.232</text><rect x="160" y="84" width="30" height="13" rx="3" fill="#f85149"/><text x="196" y="94" class="bv">2</text><text x="0" y="120" class="bl">196.189.236.151</text><rect x="160" y="110" width="30" height="13" rx="3" fill="#f85149"/><text x="196" y="120" class="bv">2</text><text x="0" y="146" class="bl">107.155.48.84</text><rect x="160" y="136" width="15" height="13" rx="3" fill="#f85149"/><text x="181" y="146" class="bv">1</text><text x="0" y="172" class="bl">182.60.128.241</text><rect x="160" y="162" width="15" height="13" rx="3" fill="#f85149"/><text x="181" y="172" class="bv">1</text><text x="0" y="198" class="bl">61.145.181.7</text><rect x="160" y="188" width="15" height="13" rx="3" fill="#f85149"/><text x="181" y="198" class="bv">1</text><text x="0" y="224" class="bl">176.204.245.229</text><rect x="160" y="214" width="15" height="13" rx="3" fill="#f85149"/><text x="181" y="224" class="bv">1</text><text x="0" y="250" class="bl">183.171.55.249</text><rect x="160" y="240" width="15" height="13" rx="3" fill="#f85149"/><text x="181" y="250" class="bv">1</text></svg></div>
+<div class="panel"><h3>Most-tried usernames</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">root</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#58a6ff"/><text x="380" y="16" class="bv">13</text><text x="0" y="42" class="bl">ubuntu</text><rect x="160" y="32" width="115" height="13" rx="3" fill="#58a6ff"/><text x="281" y="42" class="bv">7</text><text x="0" y="68" class="bl">kohl</text><rect x="160" y="58" width="82" height="13" rx="3" fill="#58a6ff"/><text x="248" y="68" class="bv">5</text><text x="0" y="94" class="bl">ubnt</text><rect x="160" y="84" width="32" height="13" rx="3" fill="#58a6ff"/><text x="198" y="94" class="bv">2</text><text x="0" y="120" class="bl">user</text><rect x="160" y="110" width="32" height="13" rx="3" fill="#58a6ff"/><text x="198" y="120" class="bv">2</text><text x="0" y="146" class="bl">frappe</text><rect x="160" y="136" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="146" class="bv">1</text><text x="0" y="172" class="bl">blank</text><rect x="160" y="162" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="172" class="bv">1</text><text x="0" y="198" class="bl">admin1</text><rect x="160" y="188" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="198" class="bv">1</text><text x="0" y="224" class="bl">supervisor</text><rect x="160" y="214" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="224" class="bv">1</text><text x="0" y="250" class="bl">admin</text><rect x="160" y="240" width="16" height="13" rx="3" fill="#58a6ff"/><text x="182" y="250" class="bv">1</text></svg></div>
+<div class="panel"><h3>Most-tried passwords</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">user</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="16" class="bv">3</text><text x="0" y="42" class="bl">ubnt999</text><rect x="160" y="32" width="142" height="13" rx="3" fill="#d29922"/><text x="308" y="42" class="bv">2</text><text x="0" y="68" class="bl">epparf</text><rect x="160" y="58" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="68" class="bv">1</text><text x="0" y="94" class="bl">Living@123</text><rect x="160" y="84" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="94" class="bv">1</text><text x="0" y="120" class="bl">admin@12</text><rect x="160" y="110" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="120" class="bv">1</text><text x="0" y="146" class="bl">root8</text><rect x="160" y="136" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="146" class="bv">1</text><text x="0" y="172" class="bl">876O</text><rect x="160" y="162" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="172" class="bv">1</text><text x="0" y="198" class="bl">Dd@12345</text><rect x="160" y="188" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="198" class="bv">1</text><text x="0" y="224" class="bl">Black@123</text><rect x="160" y="214" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="224" class="bv">1</text><text x="0" y="250" class="bl">Active@123</text><rect x="160" y="240" width="71" height="13" rx="3" fill="#d29922"/><text x="237" y="250" class="bv">1</text></svg></div>
 <div class="panel"><h3>Most-run commands</h3><p class="muted">No data yet.</p></div>
 </div>
 <footer>Static snapshot generated from Cowrie's JSON event log. Cowrie emulates a Linux shell &mdash; attacker commands are recorded, never executed. Source and deployment automation: <a href="https://github.com/ajcyberdefense/cowrie-honeypot">github.com/ajcyberdefense/cowrie-honeypot</a>. </footer></div>
