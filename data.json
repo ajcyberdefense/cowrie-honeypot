@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-27 19:00:57",
+  "generated": "2026-08-27 20:03:41",
   "totals": {
-    "commands": 505,
-    "login_failed": 2218,
-    "login_success": 126,
-    "sessions": 2425
+    "commands": 523,
+    "login_failed": 2252,
+    "login_success": 133,
+    "sessions": 2470
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2218,
+      "count": 2252,
       "examples": [
         "root / zlxx.",
         "root / root",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-08-27T00:04:34.466347Z",
-      "last": "2026-08-27T19:00:36.415689Z",
-      "unique_ips": 191
+      "last": "2026-08-27T20:01:30.635117Z",
+      "unique_ips": 197
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 126,
+      "count": 133,
       "examples": [
         "admin / 12345",
         "default / techsupport",
@@ -37,8 +37,8 @@
         "root / taZz@01"
       ],
       "first": "2026-08-27T00:03:05.692337Z",
-      "last": "2026-08-27T18:57:53.293862Z",
-      "unique_ips": 98
+      "last": "2026-08-27T19:56:32.925138Z",
+      "unique_ips": 103
     },
     {
       "id": "T1222.002",
@@ -206,47 +206,47 @@
   "unmapped": [
     [
       "shell",
-      34
+      37
     ],
     [
       "sh",
-      34
+      37
     ],
     [
       "system",
-      33
+      36
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      28
     ],
     [
       "/bin/busybox",
       27
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      26
-    ],
-    [
       "enable",
-      21
+      22
     ],
     [
       "linuxshell",
-      17
+      18
     ],
     [
       "/bin/busybox UNSTABLE",
-      12
+      14
     ],
     [
       "ping ;sh",
-      11
+      12
     ],
     [
       "cd /proc && cat self/cmdline",
-      11
+      12
     ],
     [
       "enablelinuxshell",
-      10
+      11
     ],
     [
       "zalee",
