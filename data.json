@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 07:03:56",
+  "generated": "2026-08-28 08:03:44",
   "totals": {
-    "commands": 115,
-    "login_failed": 313,
-    "login_success": 27,
-    "sessions": 458
+    "commands": 119,
+    "login_failed": 338,
+    "login_success": 28,
+    "sessions": 491
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 313,
+      "count": 338,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,8 +21,8 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T07:00:30.815528Z",
-      "unique_ips": 40
+      "last": "2026-08-28T08:02:51.708180Z",
+      "unique_ips": 41
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 27,
+      "count": 28,
       "examples": [
         "superadmin / Is$uper@dmin",
         "admin / admin",
@@ -53,7 +53,7 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T07:00:31.907346Z",
+      "last": "2026-08-28T07:32:00.792151Z",
       "unique_ips": 25
     },
     {
@@ -189,15 +189,15 @@
     ],
     [
       "sh",
-      5
+      6
     ],
     [
       "shell",
-      5
+      6
     ],
     [
       "system",
-      5
+      6
     ],
     [
       "enable",
@@ -236,6 +236,10 @@
       2
     ],
     [
+      "/bin/busybox UNSTABLE",
+      2
+    ],
+    [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       1
     ],
@@ -253,10 +257,6 @@
     ],
     [
       "echo 1 > /dev/null && cat /bin/echo",
-      1
-    ],
-    [
-      "head -c 3716336 > /tmp/elOgmpn9T2",
       1
     ]
   ]
