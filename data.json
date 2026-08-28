@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-28 11:00:44",
+  "generated": "2026-08-28 12:02:06",
   "totals": {
-    "commands": 214,
-    "login_failed": 462,
-    "login_success": 43,
-    "sessions": 644
+    "commands": 228,
+    "login_failed": 490,
+    "login_success": 47,
+    "sessions": 680
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 462,
+      "count": 490,
       "examples": [
         "root / 0033",
         "root / 12345678",
@@ -21,8 +21,8 @@
         "root / 123456789"
       ],
       "first": "2026-08-28T00:00:26.408142Z",
-      "last": "2026-08-28T10:58:34.106731Z",
-      "unique_ips": 54
+      "last": "2026-08-28T11:55:00.898401Z",
+      "unique_ips": 57
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 43,
+      "count": 47,
       "examples": [
         "superadmin / Is$uper@dmin",
         "admin / admin",
@@ -53,8 +53,8 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-08-28T00:01:52.110632Z",
-      "last": "2026-08-28T10:37:50.557094Z",
-      "unique_ips": 36
+      "last": "2026-08-28T11:55:04.138428Z",
+      "unique_ips": 39
     },
     {
       "id": "T1105",
@@ -186,43 +186,43 @@
     ],
     [
       "sh",
-      12
+      14
     ],
     [
       "shell",
-      12
+      14
     ],
     [
       "system",
-      12
+      14
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      10
+      12
     ],
     [
       "enable",
-      8
+      9
     ],
     [
       "cd /proc && cat self/cmdline",
-      7
+      8
     ],
     [
       "linuxshell",
-      7
+      8
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "ping ;sh",
-      5
+      6
     ],
     [
       "/bin/busybox UNSTABLE",
-      4
+      5
     ],
     [
       "ping; sh",
