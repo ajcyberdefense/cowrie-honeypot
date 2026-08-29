@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 19:03:13",
+  "generated": "2026-08-29 20:02:47",
   "totals": {
-    "commands": 445,
-    "login_failed": 24056,
-    "login_success": 79,
-    "sessions": 24572
+    "commands": 449,
+    "login_failed": 26147,
+    "login_success": 83,
+    "sessions": 26678
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 24056,
+      "count": 26147,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,8 +21,8 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T19:03:12.666619Z",
-      "unique_ips": 79
+      "last": "2026-08-29T20:02:46.855905Z",
+      "unique_ips": 85
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 79,
+      "count": 83,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -69,14 +69,14 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T18:37:43.112838Z",
-      "unique_ips": 58
+      "last": "2026-08-29T19:46:48.066571Z",
+      "unique_ips": 62
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T17:41:02.792816Z",
-      "unique_ips": 11
+      "last": "2026-08-29T19:46:48.765073Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
@@ -211,11 +211,11 @@
     ],
     [
       "shell",
-      21
+      22
     ],
     [
       "sh",
-      21
+      22
     ],
     [
       "system",
