@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 01:01:11",
+  "generated": "2026-08-29 02:02:06",
   "totals": {
-    "commands": 6,
-    "login_failed": 27,
-    "login_success": 3,
-    "sessions": 30
+    "commands": 17,
+    "login_failed": 53,
+    "login_success": 7,
+    "sessions": 65
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 27,
+      "count": 53,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,20 +21,35 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T00:58:21.896440Z",
-      "unique_ips": 8
+      "last": "2026-08-29T02:01:44.780899Z",
+      "unique_ips": 12
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3,
+      "count": 7,
       "examples": [
         "root / 123@@@",
-        "ubuntu / ubuntu"
+        "ubuntu / ubuntu",
+        "root / zlxx.",
+        "root / root",
+        "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T00:59:53.865163Z",
+      "last": "2026-08-29T01:48:57.320748Z",
+      "unique_ips": 6
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "uname -a"
+      ],
+      "first": "2026-08-29T01:00:06.084418Z",
+      "last": "2026-08-29T01:48:12.379780Z",
       "unique_ips": 2
     },
     {
@@ -49,21 +64,13 @@
       "first": "2026-08-29T00:23:05.332392Z",
       "last": "2026-08-29T00:23:05.594423Z",
       "unique_ips": 1
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "uname -a"
-      ],
-      "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T01:00:06.084418Z",
-      "unique_ips": 1
     }
   ],
   "unmapped": [
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      2
+    ],
     [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       1
@@ -74,6 +81,38 @@
     ],
     [
       "rm /tmp/bendi.py",
+      1
+    ],
+    [
+      "enable",
+      1
+    ],
+    [
+      "system",
+      1
+    ],
+    [
+      "shell",
+      1
+    ],
+    [
+      "sh",
+      1
+    ],
+    [
+      "linuxshell",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       1
     ]
   ]
