@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 14:03:46",
+  "generated": "2026-08-29 15:00:46",
   "totals": {
-    "commands": 356,
-    "login_failed": 11690,
-    "login_success": 58,
-    "sessions": 12056
+    "commands": 358,
+    "login_failed": 13814,
+    "login_success": 61,
+    "sessions": 14249
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 11690,
+      "count": 13814,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,8 +21,8 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T14:03:45.846767Z",
-      "unique_ips": 56
+      "last": "2026-08-29T15:00:46.466200Z",
+      "unique_ips": 62
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 58,
+      "count": 61,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -69,22 +69,23 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T13:32:35.577371Z",
-      "unique_ips": 40
+      "last": "2026-08-29T14:45:13.400172Z",
+      "unique_ips": 43
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 9,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -s -v -n -r -m"
+        "uname -s -v -n -r -m",
+        "uname -s -m"
       ],
       "first": "2026-08-29T01:00:06.084418Z",
-      "last": "2026-08-29T13:25:03.877607Z",
-      "unique_ips": 7
+      "last": "2026-08-29T14:07:25.604200Z",
+      "unique_ips": 8
     },
     {
       "id": "T1033",
