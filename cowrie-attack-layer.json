@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-29 02:02:06",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-08-29 03:01:10",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 53,
+      "score": 168,
       "enabled": true,
-      "comment": "53 observation(s) from 12 unique IP(s). e.g. ubuntu / Abdullah1234@",
+      "comment": "168 observation(s) from 16 unique IP(s). e.g. ubuntu / Abdullah1234@",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "12"
+          "value": "16"
         },
         {
           "name": "first seen",
@@ -40,15 +40,39 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-29T02:01:44"
+          "value": "2026-08-29T02:55:58"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 15,
+      "enabled": true,
+      "comment": "15 observation(s) from 2 unique IP(s). e.g. if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Command and Control"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "2"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-29T00:23:05"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-29T02:50:30"
         }
       ]
     },
     {
       "techniqueID": "T1078",
-      "score": 7,
+      "score": 12,
       "enabled": true,
-      "comment": "7 observation(s) from 6 unique IP(s). e.g. root / 123@@@",
+      "comment": "12 observation(s) from 8 unique IP(s). e.g. root / 123@@@",
       "metadata": [
         {
           "name": "tactic",
@@ -56,7 +80,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "6"
+          "value": "8"
         },
         {
           "name": "first seen",
@@ -64,7 +88,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-08-29T01:48:57"
+          "value": "2026-08-29T02:49:32"
         }
       ]
     },
@@ -93,14 +117,14 @@
       ]
     },
     {
-      "techniqueID": "T1105",
+      "techniqueID": "T1222.002",
       "score": 2,
       "enabled": true,
-      "comment": "2 observation(s) from 1 unique IP(s). e.g. if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+      "comment": "2 observation(s) from 1 unique IP(s). e.g. /bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
       "metadata": [
         {
           "name": "tactic",
-          "value": "Command and Control"
+          "value": "Defense Evasion"
         },
         {
           "name": "unique source IPs",
@@ -108,11 +132,35 @@
         },
         {
           "name": "first seen",
-          "value": "2026-08-29T00:23:05"
+          "value": "2026-08-29T02:21:36"
         },
         {
           "name": "last seen",
-          "value": "2026-08-29T00:23:05"
+          "value": "2026-08-29T02:21:38"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1562.004",
+      "score": 1,
+      "enabled": true,
+      "comment": "1 observation(s) from 1 unique IP(s). e.g. iptables -F",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "1"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-08-29T02:50:27"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-08-29T02:50:27"
         }
       ]
     }
@@ -124,7 +172,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 53
+    "maxValue": 168
   },
   "legendItems": [
     {
