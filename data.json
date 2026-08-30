@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 17:05:10",
+  "generated": "2026-08-30 18:02:10",
   "totals": {
-    "commands": 829,
-    "login_failed": 746,
-    "login_success": 196,
-    "sessions": 984
+    "commands": 947,
+    "login_failed": 797,
+    "login_success": 228,
+    "sessions": 1049
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 746,
+      "count": 797,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T17:04:29.978470Z",
-      "unique_ips": 56
+      "last": "2026-08-30T18:01:53.504456Z",
+      "unique_ips": 60
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 196,
+      "count": 228,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -37,8 +37,8 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T17:03:46.557660Z",
-      "unique_ips": 36
+      "last": "2026-08-30T18:01:53.687357Z",
+      "unique_ips": 39
     },
     {
       "id": "T1222.002",
@@ -76,14 +76,14 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 7,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-30T01:15:18.300668Z",
-      "last": "2026-08-30T16:07:56.096455Z",
-      "unique_ips": 4
+      "last": "2026-08-30T18:01:56.277607Z",
+      "unique_ips": 6
     },
     {
       "id": "T1033",
@@ -150,19 +150,19 @@
   "unmapped": [
     [
       "shell",
-      168
+      197
     ],
     [
       "sh",
-      168
+      197
     ],
     [
       "system",
-      156
+      185
     ],
     [
       "/bin/busybox UNSTABLE",
-      147
+      176
     ],
     [
       "/bin/busybox",
