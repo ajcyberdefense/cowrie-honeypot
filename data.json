@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 08:03:54",
+  "generated": "2026-08-30 09:02:06",
   "totals": {
-    "commands": 156,
-    "login_failed": 306,
-    "login_success": 37,
-    "sessions": 489
+    "commands": 192,
+    "login_failed": 343,
+    "login_success": 50,
+    "sessions": 560
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 306,
+      "count": 343,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T08:03:25.623440Z",
-      "unique_ips": 27
+      "last": "2026-08-30T09:00:50.393750Z",
+      "unique_ips": 31
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 37,
+      "count": 50,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -37,8 +37,8 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T08:03:26.634504Z",
-      "unique_ips": 15
+      "last": "2026-08-30T08:53:49.675072Z",
+      "unique_ips": 18
     },
     {
       "id": "T1105",
@@ -112,19 +112,19 @@
   "unmapped": [
     [
       "system",
-      25
+      34
     ],
     [
       "shell",
-      25
+      34
     ],
     [
       "sh",
-      25
+      34
     ],
     [
       "/bin/busybox UNSTABLE",
-      22
+      31
     ],
     [
       "/bin/busybox",
