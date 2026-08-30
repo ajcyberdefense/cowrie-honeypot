@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 03:02:44",
+  "generated": "2026-08-30 04:00:10",
   "totals": {
-    "commands": 67,
-    "login_failed": 179,
-    "login_success": 8,
-    "sessions": 246
+    "commands": 88,
+    "login_failed": 199,
+    "login_success": 14,
+    "sessions": 313
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 179,
+      "count": 199,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,8 +21,8 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T03:02:00.783929Z",
-      "unique_ips": 15
+      "last": "2026-08-30T03:59:48.381149Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 8,
+      "count": 14,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -69,8 +69,20 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T02:26:49.107042Z",
-      "unique_ips": 7
+      "last": "2026-08-30T03:59:04.596403Z",
+      "unique_ips": 10
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "uname -a"
+      ],
+      "first": "2026-08-30T01:15:18.300668Z",
+      "last": "2026-08-30T03:03:44.455672Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
@@ -82,18 +94,6 @@
       ],
       "first": "2026-08-30T01:50:00.576826Z",
       "last": "2026-08-30T01:50:00.576826Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "uname -a"
-      ],
-      "first": "2026-08-30T01:15:18.300668Z",
-      "last": "2026-08-30T01:15:18.300668Z",
       "unique_ips": 1
     },
     {
@@ -115,19 +115,23 @@
       10
     ],
     [
-      "enable",
-      3
-    ],
-    [
       "system",
-      3
+      8
     ],
     [
       "shell",
-      3
+      8
     ],
     [
       "sh",
+      8
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      5
+    ],
+    [
+      "enable",
       3
     ],
     [
@@ -184,10 +188,6 @@
     ],
     [
       "/bin/busybox echo > /var/run/.fxcat && sh /var/run/.fxcat && cd /var/run/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
       1
     ]
   ]
