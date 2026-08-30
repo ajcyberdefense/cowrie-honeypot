@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 16:02:06",
+  "generated": "2026-08-30 17:05:10",
   "totals": {
-    "commands": 700,
-    "login_failed": 634,
-    "login_success": 171,
-    "sessions": 908
+    "commands": 829,
+    "login_failed": 746,
+    "login_success": 196,
+    "sessions": 984
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 634,
+      "count": 746,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T16:01:47.234118Z",
-      "unique_ips": 54
+      "last": "2026-08-30T17:04:29.978470Z",
+      "unique_ips": 56
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 171,
+      "count": 196,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T16:00:51.424867Z",
-      "unique_ips": 33
+      "last": "2026-08-30T17:03:46.557660Z",
+      "unique_ips": 36
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 46,
+      "count": 48,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,8 +53,8 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-30T01:49:59.206075Z",
-      "last": "2026-08-30T15:40:13.387941Z",
-      "unique_ips": 4
+      "last": "2026-08-30T16:31:58.689405Z",
+      "unique_ips": 5
     },
     {
       "id": "T1105",
@@ -76,14 +76,14 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 5,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo"
       ],
       "first": "2026-08-30T01:15:18.300668Z",
-      "last": "2026-08-30T11:36:22.823253Z",
-      "unique_ips": 3
+      "last": "2026-08-30T16:07:56.096455Z",
+      "unique_ips": 4
     },
     {
       "id": "T1033",
@@ -150,19 +150,19 @@
   "unmapped": [
     [
       "shell",
-      145
+      168
     ],
     [
       "sh",
-      145
+      168
     ],
     [
       "system",
-      133
+      156
     ],
     [
       "/bin/busybox UNSTABLE",
-      126
+      147
     ],
     [
       "/bin/busybox",
@@ -174,11 +174,11 @@
     ],
     [
       "enable",
-      7
+      9
     ],
     [
       "linuxshell",
-      6
+      8
     ],
     [
       "ping ;sh",
@@ -201,32 +201,32 @@
       3
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
-      1
+      ">/tmp/.codi && cd /tmp/",
+      2
     ],
     [
-      "python3 /tmp/bendi.py",
-      1
+      ">/var/.codi && cd /var/",
+      2
     ],
     [
-      "rm /tmp/bendi.py",
-      1
+      ">/dev/.codi && cd /dev/",
+      2
     ],
     [
-      "ping; sh",
-      1
+      ">/mnt/.codi && cd /mnt/",
+      2
     ],
     [
-      "/bin/busybox STC",
-      1
+      ">/var/run/.codi && cd /var/run/",
+      2
     ],
     [
-      "/bin/busybox hostname TOASTER",
-      1
+      ">/var/tmp/.codi && cd /var/tmp/",
+      2
     ],
     [
-      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
-      1
+      ">/.codi && cd /",
+      2
     ]
   ]
 }
