@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 11:04:44",
+  "generated": "2026-08-30 12:03:10",
   "totals": {
-    "commands": 328,
-    "login_failed": 446,
-    "login_success": 80,
-    "sessions": 683
+    "commands": 388,
+    "login_failed": 483,
+    "login_success": 96,
+    "sessions": 724
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 446,
+      "count": 483,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T11:04:06.374760Z",
-      "unique_ips": 37
+      "last": "2026-08-30T11:55:17.924274Z",
+      "unique_ips": 44
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 80,
+      "count": 96,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -37,8 +37,8 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T11:04:06.522379Z",
-      "unique_ips": 21
+      "last": "2026-08-30T11:53:26.089859Z",
+      "unique_ips": 27
     },
     {
       "id": "T1222.002",
@@ -73,6 +73,19 @@
       "unique_ips": 5
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "uname -a",
+        "cat /proc/cpuinfo"
+      ],
+      "first": "2026-08-30T01:15:18.300668Z",
+      "last": "2026-08-30T11:36:22.823253Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
@@ -85,16 +98,41 @@
       "unique_ips": 2
     },
     {
-      "id": "T1082",
-      "name": "System Information Discovery",
+      "id": "T1057",
+      "name": "Process Discovery",
       "tactic": "Discovery",
       "count": 2,
       "examples": [
-        "uname -a"
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
       ],
-      "first": "2026-08-30T01:15:18.300668Z",
-      "last": "2026-08-30T03:03:44.455672Z",
-      "unique_ips": 2
+      "first": "2026-08-30T11:36:23.438944Z",
+      "last": "2026-08-30T11:36:24.054344Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-08-30T11:36:21.599363Z",
+      "last": "2026-08-30T11:36:21.599363Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-08-30T11:36:24.674120Z",
+      "last": "2026-08-30T11:36:24.674120Z",
+      "unique_ips": 1
     },
     {
       "id": "T1562.004",
@@ -112,19 +150,19 @@
   "unmapped": [
     [
       "shell",
-      64
+      75
     ],
     [
       "sh",
-      64
+      75
     ],
     [
       "system",
-      53
+      64
     ],
     [
       "/bin/busybox UNSTABLE",
-      49
+      59
     ],
     [
       "/bin/busybox",
@@ -136,26 +174,30 @@
     ],
     [
       "enable",
-      4
+      5
     ],
     [
       "linuxshell",
-      3
+      4
     ],
     [
       "ping ;sh",
-      3
+      4
     ],
     [
       "enablelinuxshell",
-      2
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      3
     ],
     [
       "busybox",
       2
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       2
     ],
     [
@@ -184,10 +226,6 @@
     ],
     [
       "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
       1
     ]
   ]
