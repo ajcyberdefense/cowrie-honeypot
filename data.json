@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 00:02:44",
+  "generated": "2026-08-30 01:05:10",
   "totals": {
     "commands": 0,
-    "login_failed": 6,
+    "login_failed": 59,
     "login_success": 0,
-    "sessions": 4
+    "sessions": 97
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6,
+      "count": 59,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,8 +21,8 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T00:02:39.532403Z",
-      "unique_ips": 3
+      "last": "2026-08-30T01:03:50.135464Z",
+      "unique_ips": 6
     }
   ],
   "unmapped": []
