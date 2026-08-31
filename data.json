@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-31 13:04:36",
+  "generated": "2026-08-31 14:01:11",
   "totals": {
-    "commands": 2100,
-    "login_failed": 2172,
-    "login_success": 541,
-    "sessions": 2518
+    "commands": 2245,
+    "login_failed": 2233,
+    "login_success": 582,
+    "sessions": 2620
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2172,
+      "count": 2233,
       "examples": [
         "root / root2025@",
         "root / 7ujMko0vizxv",
@@ -21,14 +21,14 @@
         "support / support"
       ],
       "first": "2026-08-31T00:00:13.861123Z",
-      "last": "2026-08-31T13:04:06.539225Z",
-      "unique_ips": 118
+      "last": "2026-08-31T14:00:23.735460Z",
+      "unique_ips": 124
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 541,
+      "count": 582,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / root",
@@ -37,8 +37,8 @@
         "root / LeitboGi0ro"
       ],
       "first": "2026-08-31T00:01:56.916034Z",
-      "last": "2026-08-31T13:04:14.493306Z",
-      "unique_ips": 58
+      "last": "2026-08-31T14:00:28.702696Z",
+      "unique_ips": 63
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 16,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "uname -a"
       ],
       "first": "2026-08-31T01:14:37.600310Z",
-      "last": "2026-08-31T12:18:25.983728Z",
-      "unique_ips": 13
+      "last": "2026-08-31T13:53:53.280529Z",
+      "unique_ips": 14
     },
     {
       "id": "T1059.004",
@@ -177,19 +177,19 @@
   "unmapped": [
     [
       "shell",
-      483
+      519
     ],
     [
       "sh",
-      483
+      519
     ],
     [
       "system",
-      482
+      518
     ],
     [
       "/bin/busybox UNSTABLE",
-      475
+      511
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
