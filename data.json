@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-01 10:01:46",
+  "generated": "2026-09-01 11:01:12",
   "totals": {
-    "commands": 686,
-    "login_failed": 10528,
-    "login_success": 129,
-    "sessions": 10711
+    "commands": 701,
+    "login_failed": 10863,
+    "login_success": 141,
+    "sessions": 11080
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 10528,
+      "count": 10863,
       "examples": [
         "admin / 1111",
         "root / Password01",
@@ -21,14 +21,14 @@
         "ubuntu / 123456"
       ],
       "first": "2026-09-01T00:00:06.311906Z",
-      "last": "2026-09-01T10:01:32.513185Z",
-      "unique_ips": 123
+      "last": "2026-09-01T11:01:02.261291Z",
+      "unique_ips": 132
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 129,
+      "count": 141,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,8 +37,8 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-01T00:00:14.423114Z",
-      "last": "2026-09-01T09:55:54.071833Z",
-      "unique_ips": 61
+      "last": "2026-09-01T10:59:12.829969Z",
+      "unique_ips": 69
     },
     {
       "id": "T1222.002",
@@ -75,15 +75,15 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 12,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "uname -a",
         "uname -s -v -n -r -m"
       ],
       "first": "2026-09-01T01:17:40.680014Z",
-      "last": "2026-09-01T09:07:43.627826Z",
-      "unique_ips": 4
+      "last": "2026-09-01T10:59:25.202276Z",
+      "unique_ips": 6
     },
     {
       "id": "T1033",
@@ -130,19 +130,19 @@
     ],
     [
       "shell",
-      72
+      75
     ],
     [
       "sh",
-      71
+      74
     ],
     [
       "system",
-      70
+      73
     ],
     [
       "/bin/busybox UNSTABLE",
-      65
+      68
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
