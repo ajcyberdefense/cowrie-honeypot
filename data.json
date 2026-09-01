@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-01 14:01:43",
+  "generated": "2026-09-01 15:05:13",
   "totals": {
-    "commands": 792,
-    "login_failed": 11636,
-    "login_success": 171,
-    "sessions": 11931
+    "commands": 814,
+    "login_failed": 12035,
+    "login_success": 186,
+    "sessions": 12346
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 11636,
+      "count": 12035,
       "examples": [
         "admin / 1111",
         "root / Password01",
@@ -21,14 +21,14 @@
         "ubuntu / 123456"
       ],
       "first": "2026-09-01T00:00:06.311906Z",
-      "last": "2026-09-01T13:59:53.620048Z",
-      "unique_ips": 160
+      "last": "2026-09-01T15:05:12.669107Z",
+      "unique_ips": 175
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 171,
+      "count": 186,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,8 +37,8 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-01T00:00:14.423114Z",
-      "last": "2026-09-01T13:59:34.340306Z",
-      "unique_ips": 88
+      "last": "2026-09-01T15:04:10.931405Z",
+      "unique_ips": 98
     },
     {
       "id": "T1222.002",
@@ -76,16 +76,17 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 17,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "uname -a",
         "uname -s -v -n -r -m",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "uname -a ; echo 'vT'"
       ],
       "first": "2026-09-01T01:17:40.680014Z",
-      "last": "2026-09-01T12:08:00.605572Z",
-      "unique_ips": 8
+      "last": "2026-09-01T14:48:13.376782Z",
+      "unique_ips": 10
     },
     {
       "id": "T1033",
@@ -194,19 +195,19 @@
     ],
     [
       "shell",
-      86
+      91
     ],
     [
       "sh",
-      85
+      90
     ],
     [
       "system",
-      84
+      89
     ],
     [
       "/bin/busybox UNSTABLE",
-      77
+      82
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
