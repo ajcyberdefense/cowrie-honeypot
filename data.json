@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-01 01:00:10",
+  "generated": "2026-09-01 02:00:44",
   "totals": {
-    "commands": 43,
-    "login_failed": 65,
-    "login_success": 16,
-    "sessions": 144
+    "commands": 93,
+    "login_failed": 406,
+    "login_success": 37,
+    "sessions": 526
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 65,
+      "count": 406,
       "examples": [
         "admin / 1111",
         "root / Password01",
@@ -21,14 +21,14 @@
         "ubuntu / 123456"
       ],
       "first": "2026-09-01T00:00:06.311906Z",
-      "last": "2026-09-01T00:59:05.325733Z",
-      "unique_ips": 20
+      "last": "2026-09-01T02:00:43.931717Z",
+      "unique_ips": 32
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 16,
+      "count": 37,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,26 +37,86 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-01T00:00:14.423114Z",
-      "last": "2026-09-01T00:56:19.211638Z",
-      "unique_ips": 8
+      "last": "2026-09-01T01:59:32.111892Z",
+      "unique_ips": 17
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-01T01:17:40.680014Z",
+      "last": "2026-09-01T01:17:40.680014Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-01T01:17:40.680014Z",
+      "last": "2026-09-01T01:17:40.680014Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-01T01:17:40.680014Z",
+      "last": "2026-09-01T01:17:40.680014Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-01T01:17:40.680014Z",
+      "last": "2026-09-01T01:17:40.680014Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-01T01:17:40.680014Z",
+      "last": "2026-09-01T01:17:40.680014Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "shell",
-      11
+      23
     ],
     [
       "system",
-      10
+      22
     ],
     [
       "sh",
-      10
+      22
     ],
     [
       "/bin/busybox UNSTABLE",
-      10
+      22
     ],
     [
       "SH",
@@ -64,6 +124,10 @@
     ],
     [
       "/bin/busybox KAIZEN",
+      1
+    ],
+    [
+      "echo -e \"\\x6F\\x6B\"",
       1
     ]
   ]
