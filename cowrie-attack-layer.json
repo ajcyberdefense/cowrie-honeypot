@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-02 15:03:45",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-02 16:00:21",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 1581,
+      "score": 1628,
       "enabled": true,
-      "comment": "1581 observation(s) from 190 unique IP(s). e.g. admin / admin",
+      "comment": "1628 observation(s) from 197 unique IP(s). e.g. admin / admin",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "190"
+          "value": "197"
         },
         {
           "name": "first seen",
@@ -40,7 +40,31 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-02T15:01:16"
+          "value": "2026-09-02T15:58:37"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 126,
+      "enabled": true,
+      "comment": "126 observation(s) from 108 unique IP(s). e.g. admin / vertex25ektks123",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "108"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-02T00:18:42"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-02T15:50:36"
         }
       ]
     },
@@ -65,30 +89,6 @@
         {
           "name": "last seen",
           "value": "2026-09-02T14:00:19"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1078",
-      "score": 120,
-      "enabled": true,
-      "comment": "120 observation(s) from 103 unique IP(s). e.g. admin / vertex25ektks123",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Initial Access"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "103"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-02T00:18:42"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-02T15:03:39"
         }
       ]
     },
@@ -268,7 +268,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 1581
+    "maxValue": 1628
   },
   "legendItems": [
     {
