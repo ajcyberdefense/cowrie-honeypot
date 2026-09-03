@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 09:03:44",
+  "generated": "2026-09-03 10:02:06",
   "totals": {
-    "commands": 140,
-    "login_failed": 1086,
-    "login_success": 52,
-    "sessions": 1240
+    "commands": 146,
+    "login_failed": 1235,
+    "login_success": 60,
+    "sessions": 1424
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1086,
+      "count": 1235,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T09:03:42.011481Z",
-      "unique_ips": 121
+      "last": "2026-09-03T10:00:13.913374Z",
+      "unique_ips": 131
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 52,
+      "count": 60,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,8 +37,8 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T09:03:24.072813Z",
-      "unique_ips": 49
+      "last": "2026-09-03T10:00:15.104945Z",
+      "unique_ips": 57
     },
     {
       "id": "T1222.002",
@@ -73,6 +73,20 @@
       "unique_ips": 3
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "uname -s -v -n -r -m",
+        "uname -a",
+        "uname -s -m"
+      ],
+      "first": "2026-09-03T00:56:20.748613Z",
+      "last": "2026-09-03T09:55:47.558296Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
@@ -83,28 +97,16 @@
       "first": "2026-09-03T04:07:46.468687Z",
       "last": "2026-09-03T06:47:12.684070Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "uname -s -v -n -r -m"
-      ],
-      "first": "2026-09-03T00:56:20.748613Z",
-      "last": "2026-09-03T00:56:20.748613Z",
-      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "shell",
-      8
+      9
     ],
     [
       "sh",
-      8
+      9
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -143,6 +145,10 @@
       2
     ],
     [
+      "Accept-Encoding: gzip",
+      2
+    ],
+    [
       "/bin/busybox SORA",
       1
     ],
@@ -172,10 +178,6 @@
     ],
     [
       "./x86_64 telnet",
-      1
-    ],
-    [
-      "./aarch64 telnet",
       1
     ]
   ]
