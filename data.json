@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 18:04:06",
+  "generated": "2026-09-03 19:01:21",
   "totals": {
-    "commands": 302,
-    "login_failed": 1707,
-    "login_success": 124,
-    "sessions": 2124
+    "commands": 307,
+    "login_failed": 1834,
+    "login_success": 134,
+    "sessions": 2269
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1707,
+      "count": 1834,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T18:01:51.174635Z",
-      "unique_ips": 212
+      "last": "2026-09-03T19:01:20.860642Z",
+      "unique_ips": 224
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 124,
+      "count": 134,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,8 +37,8 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T18:00:21.695224Z",
-      "unique_ips": 105
+      "last": "2026-09-03T18:57:22.523165Z",
+      "unique_ips": 114
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "uname -s -v -n -r -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-03T00:56:20.748613Z",
-      "last": "2026-09-03T15:46:18.616865Z",
-      "unique_ips": 6
+      "last": "2026-09-03T18:55:55.147537Z",
+      "unique_ips": 7
     },
     {
       "id": "T1033",
@@ -203,7 +203,7 @@
     ],
     [
       "system",
-      13
+      14
     ],
     [
       "zalee",
@@ -218,19 +218,19 @@
       10
     ],
     [
+      "enable",
+      8
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
     [
-      "enable",
+      "linuxshell",
       7
     ],
     [
       "/bin/busybox UNSTABLE",
-      6
-    ],
-    [
-      "linuxshell",
       6
     ],
     [
