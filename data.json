@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 08:01:20",
+  "generated": "2026-09-03 09:03:44",
   "totals": {
-    "commands": 117,
-    "login_failed": 668,
-    "login_success": 44,
-    "sessions": 801
+    "commands": 140,
+    "login_failed": 1086,
+    "login_success": 52,
+    "sessions": 1240
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 668,
+      "count": 1086,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T08:00:18.356555Z",
-      "unique_ips": 107
+      "last": "2026-09-03T09:03:42.011481Z",
+      "unique_ips": 121
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 44,
+      "count": 52,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,14 +37,14 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T07:57:58.588351Z",
-      "unique_ips": 42
+      "last": "2026-09-03T09:03:24.072813Z",
+      "unique_ips": 49
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 40,
+      "count": 41,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,7 +53,7 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-03T04:07:44.788164Z",
-      "last": "2026-09-03T07:17:54.950334Z",
+      "last": "2026-09-03T08:14:14.893063Z",
       "unique_ips": 3
     },
     {
@@ -99,16 +99,16 @@
   ],
   "unmapped": [
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      "shell",
       8
     ],
     [
-      "shell",
-      7
+      "sh",
+      8
     ],
     [
-      "sh",
-      7
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
     ],
     [
       "/bin/busybox",
@@ -116,7 +116,7 @@
     ],
     [
       "system",
-      5
+      6
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -124,11 +124,11 @@
     ],
     [
       "enable",
-      2
+      3
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "enablelinuxshell",
