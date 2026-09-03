@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-03 11:04:11",
+  "generated": "2026-09-03 12:03:44",
   "totals": {
-    "commands": 177,
-    "login_failed": 1307,
-    "login_success": 67,
-    "sessions": 1494
+    "commands": 207,
+    "login_failed": 1358,
+    "login_success": 81,
+    "sessions": 1561
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1307,
+      "count": 1358,
       "examples": [
         "root / P@ssw0rd123",
         "root / Fazel@1234",
@@ -21,14 +21,14 @@
         "root / P@ssw0rd1234"
       ],
       "first": "2026-09-03T00:01:47.872746Z",
-      "last": "2026-09-03T10:59:35.859516Z",
-      "unique_ips": 142
+      "last": "2026-09-03T12:02:37.023992Z",
+      "unique_ips": 154
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 67,
+      "count": 81,
       "examples": [
         "support / passw0rd",
         "debian / debian",
@@ -37,8 +37,8 @@
         "guest / guest"
       ],
       "first": "2026-09-03T00:16:24.431802Z",
-      "last": "2026-09-03T10:49:07.140522Z",
-      "unique_ips": 64
+      "last": "2026-09-03T11:59:50.641896Z",
+      "unique_ips": 69
     },
     {
       "id": "T1222.002",
@@ -113,6 +113,18 @@
       10
     ],
     [
+      "zalee",
+      10
+    ],
+    [
+      "za",
+      10
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
+      10
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
@@ -166,18 +178,6 @@
     ],
     [
       "/bin/busybox TEST",
-      1
-    ],
-    [
-      "cat /proc",
-      1
-    ],
-    [
-      "./",
-      1
-    ],
-    [
-      "./x86_64 telnet",
       1
     ]
   ]
