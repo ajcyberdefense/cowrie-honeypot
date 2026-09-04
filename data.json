@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-04 04:02:06",
+  "generated": "2026-09-04 05:03:11",
   "totals": {
-    "commands": 71,
-    "login_failed": 285,
-    "login_success": 17,
-    "sessions": 316
+    "commands": 72,
+    "login_failed": 366,
+    "login_success": 23,
+    "sessions": 413
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 285,
+      "count": 366,
       "examples": [
         "root / abcd12345",
         "admin / yess",
@@ -21,8 +21,8 @@
         "root / Arian"
       ],
       "first": "2026-09-04T00:00:06.722859Z",
-      "last": "2026-09-04T04:00:49.745485Z",
-      "unique_ips": 57
+      "last": "2026-09-04T05:02:15.390133Z",
+      "unique_ips": 70
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 17,
+      "count": 23,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "support / letmein",
@@ -53,8 +53,8 @@
         "root / "
       ],
       "first": "2026-09-04T00:10:27.211479Z",
-      "last": "2026-09-04T03:29:45.211331Z",
-      "unique_ips": 16
+      "last": "2026-09-04T04:49:17.018818Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
@@ -87,13 +87,14 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "uname -a"
+        "uname -a",
+        "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-04T01:27:34.776778Z",
-      "last": "2026-09-04T01:27:34.776778Z",
-      "unique_ips": 1
+      "last": "2026-09-04T04:26:55.671271Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
