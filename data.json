@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 09:04:11",
+  "generated": "2026-09-06 10:04:11",
   "totals": {
-    "commands": 96,
-    "login_failed": 1404,
-    "login_success": 51,
-    "sessions": 1553
+    "commands": 98,
+    "login_failed": 1836,
+    "login_success": 57,
+    "sessions": 1994
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1404,
+      "count": 1836,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,14 +21,14 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T09:03:43.448832Z",
-      "unique_ips": 99
+      "last": "2026-09-06T10:03:56.574842Z",
+      "unique_ips": 106
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 51,
+      "count": 57,
       "examples": [
         "ftpuser / ftpuser",
         "support / 22222",
@@ -37,8 +37,8 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T08:34:34.208407Z",
-      "unique_ips": 45
+      "last": "2026-09-06T09:41:05.151570Z",
+      "unique_ips": 50
     },
     {
       "id": "T1222.002",
@@ -73,6 +73,21 @@
       "unique_ips": 6
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 7,
+      "examples": [
+        "/bin/./uname -s -v -n -r -m",
+        "uname -s -v -n -r -m",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "uname -a"
+      ],
+      "first": "2026-09-06T00:57:39.682052Z",
+      "last": "2026-09-06T09:31:58.971880Z",
+      "unique_ips": 5
+    },
+    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
@@ -85,21 +100,6 @@
       "first": "2026-09-06T00:40:30.920724Z",
       "last": "2026-09-06T08:14:43.054740Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 5,
-      "examples": [
-        "/bin/./uname -s -v -n -r -m",
-        "uname -s -v -n -r -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "uname -a"
-      ],
-      "first": "2026-09-06T00:57:39.682052Z",
-      "last": "2026-09-06T08:16:04.987571Z",
-      "unique_ips": 4
     },
     {
       "id": "T1033",
