@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 19:00:43",
+  "generated": "2026-09-06 20:00:53",
   "totals": {
-    "commands": 319,
-    "login_failed": 2912,
-    "login_success": 103,
-    "sessions": 2591
+    "commands": 323,
+    "login_failed": 2972,
+    "login_success": 106,
+    "sessions": 2652
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2912,
+      "count": 2972,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,8 +21,8 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T19:00:07.902554Z",
-      "unique_ips": 191
+      "last": "2026-09-06T20:00:20.383070Z",
+      "unique_ips": 203
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 103,
+      "count": 106,
       "examples": [
         "ftpuser / ftpuser",
         "support / 22222",
@@ -53,8 +53,8 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T18:47:13.346902Z",
-      "unique_ips": 89
+      "last": "2026-09-06T19:55:25.359235Z",
+      "unique_ips": 92
     },
     {
       "id": "T1105",
@@ -175,18 +175,18 @@
     ],
     [
       "shell",
-      13
+      14
     ],
     [
       "sh",
-      12
-    ],
-    [
-      "enable",
-      10
+      13
     ],
     [
       "system",
+      11
+    ],
+    [
+      "enable",
       10
     ],
     [
