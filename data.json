@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 21:02:21",
+  "generated": "2026-09-06 22:02:11",
   "totals": {
-    "commands": 332,
-    "login_failed": 3108,
-    "login_success": 116,
-    "sessions": 2797
+    "commands": 333,
+    "login_failed": 3261,
+    "login_success": 123,
+    "sessions": 2966
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3108,
+      "count": 3261,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,8 +21,24 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T21:02:07.088231Z",
-      "unique_ips": 215
+      "last": "2026-09-06T21:57:20.174780Z",
+      "unique_ips": 227
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 123,
+      "examples": [
+        "ftpuser / ftpuser",
+        "support / 22222",
+        "root / 1234",
+        "ftpuser / test",
+        "ubuntu / ubuntu"
+      ],
+      "first": "2026-09-06T00:08:31.210876Z",
+      "last": "2026-09-06T21:54:43.244310Z",
+      "unique_ips": 107
     },
     {
       "id": "T1222.002",
@@ -39,22 +55,6 @@
       "first": "2026-09-06T00:40:30.920724Z",
       "last": "2026-09-06T20:20:30.307025Z",
       "unique_ips": 13
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 116,
-      "examples": [
-        "ftpuser / ftpuser",
-        "support / 22222",
-        "root / 1234",
-        "ftpuser / test",
-        "ubuntu / ubuntu"
-      ],
-      "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T21:02:09.193269Z",
-      "unique_ips": 101
     },
     {
       "id": "T1105",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "/bin/./uname -s -v -n -r -m",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-09-06T00:57:39.682052Z",
-      "last": "2026-09-06T21:02:10.146329Z",
-      "unique_ips": 10
+      "last": "2026-09-06T21:42:29.084898Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
