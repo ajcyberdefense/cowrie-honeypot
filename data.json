@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-06 12:04:11",
+  "generated": "2026-09-06 13:01:44",
   "totals": {
-    "commands": 98,
-    "login_failed": 1982,
-    "login_success": 64,
-    "sessions": 2130
+    "commands": 107,
+    "login_failed": 2073,
+    "login_success": 67,
+    "sessions": 2224
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1982,
+      "count": 2073,
       "examples": [
         "root / Server@123",
         "admin / qazwsx",
@@ -21,14 +21,14 @@
         "root / server123"
       ],
       "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T12:03:47.357870Z",
-      "unique_ips": 127
+      "last": "2026-09-06T13:01:13.663382Z",
+      "unique_ips": 136
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 64,
+      "count": 67,
       "examples": [
         "ftpuser / ftpuser",
         "support / 22222",
@@ -37,8 +37,8 @@
         "ubuntu / ubuntu"
       ],
       "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T11:55:40.048184Z",
-      "unique_ips": 56
+      "last": "2026-09-06T12:48:07.200627Z",
+      "unique_ips": 59
     },
     {
       "id": "T1222.002",
@@ -76,16 +76,17 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 9,
       "examples": [
         "/bin/./uname -s -v -n -r -m",
         "uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "uname -a"
+        "uname -a",
+        "cat /proc/cpuinfo"
       ],
       "first": "2026-09-06T00:57:39.682052Z",
-      "last": "2026-09-06T09:31:58.971880Z",
-      "unique_ips": 5
+      "last": "2026-09-06T12:48:25.550508Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
@@ -131,25 +132,40 @@
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "netstat -tulpn | head -10"
+        "netstat -tulpn | head -10",
+        "ifconfig"
       ],
       "first": "2026-09-06T05:45:44.902529Z",
-      "last": "2026-09-06T05:45:44.902529Z",
+      "last": "2026-09-06T12:48:14.274077Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-09-06T12:48:29.698327Z",
+      "last": "2026-09-06T12:48:34.235106Z",
       "unique_ips": 1
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T03:22:52.847139Z",
-      "unique_ips": 1
+      "last": "2026-09-06T12:48:38.686669Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
@@ -227,6 +243,10 @@
     ],
     [
       "/bin/busybox KAIZEN",
+      1
+    ],
+    [
+      "/ip cloud print",
       1
     ]
   ]
