@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-07 04:01:44",
+  "generated": "2026-09-07 05:02:06",
   "totals": {
-    "commands": 91,
-    "login_failed": 1925,
-    "login_success": 22,
-    "sessions": 1249
+    "commands": 96,
+    "login_failed": 1974,
+    "login_success": 27,
+    "sessions": 1329
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1925,
+      "count": 1974,
       "examples": [
         "root / 123456789",
         "root / admin1",
@@ -21,8 +21,24 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-09-07T00:01:55.927554Z",
-      "last": "2026-09-07T04:01:41.918562Z",
-      "unique_ips": 61
+      "last": "2026-09-07T04:54:50.863731Z",
+      "unique_ips": 73
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 27,
+      "examples": [
+        "nobody / qwerty",
+        "root / 1234",
+        "admin / admin123#",
+        "root / momo123",
+        "root / senha1"
+      ],
+      "first": "2026-09-07T00:13:31.233466Z",
+      "last": "2026-09-07T04:36:51.282055Z",
+      "unique_ips": 23
     },
     {
       "id": "T1105",
@@ -39,22 +55,6 @@
       "first": "2026-09-07T02:03:31.165623Z",
       "last": "2026-09-07T02:35:51.421723Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 22,
-      "examples": [
-        "nobody / qwerty",
-        "root / 1234",
-        "admin / admin123#",
-        "root / momo123",
-        "root / senha1"
-      ],
-      "first": "2026-09-07T00:13:31.233466Z",
-      "last": "2026-09-07T03:52:22.185308Z",
-      "unique_ips": 18
     },
     {
       "id": "T1222.002",
@@ -147,15 +147,15 @@
       7
     ],
     [
+      "system",
+      7
+    ],
+    [
       "sh",
       6
     ],
     [
       "enable",
-      5
-    ],
-    [
-      "system",
       5
     ],
     [
@@ -187,16 +187,16 @@
       4
     ],
     [
+      "/bin/busybox",
+      3
+    ],
+    [
       "cd /tmp/",
       3
     ],
     [
-      "/bin/busybox",
-      2
-    ],
-    [
       "cd /proc && cat self/cmdline",
-      1
+      2
     ],
     [
       "linuxshell",
