@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-08 12:03:45",
+  "generated": "2026-09-08 13:03:45",
   "totals": {
-    "commands": 1729,
-    "login_failed": 2867,
-    "login_success": 524,
-    "sessions": 3229
+    "commands": 1730,
+    "login_failed": 2925,
+    "login_success": 525,
+    "sessions": 3343
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2867,
+      "count": 2925,
       "examples": [
         "root / test",
         "root / abcd123456",
@@ -21,14 +21,14 @@
         "root / Qweasd123"
       ],
       "first": "2026-09-08T00:00:00.445878Z",
-      "last": "2026-09-08T12:02:17.319095Z",
-      "unique_ips": 73
+      "last": "2026-09-08T13:03:18.083110Z",
+      "unique_ips": 76
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 524,
+      "count": 525,
       "examples": [
         "root / root123456",
         "root / cxlinux",
@@ -37,8 +37,8 @@
         "admin / qwaszxpo"
       ],
       "first": "2026-09-08T00:53:18.216912Z",
-      "last": "2026-09-08T11:44:15.276635Z",
-      "unique_ips": 51
+      "last": "2026-09-08T12:06:51.259730Z",
+      "unique_ips": 52
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "uname -s -m",
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
@@ -85,8 +85,8 @@
         "uname -s -v -n -r -m"
       ],
       "first": "2026-09-08T00:53:38.068295Z",
-      "last": "2026-09-08T11:03:11.387664Z",
-      "unique_ips": 11
+      "last": "2026-09-08T12:07:04.380000Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
