@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-09 08:02:21",
+  "generated": "2026-09-09 09:01:45",
   "totals": {
-    "commands": 1942,
-    "login_failed": 1134,
-    "login_success": 628,
-    "sessions": 1249
+    "commands": 1943,
+    "login_failed": 1179,
+    "login_success": 633,
+    "sessions": 1282
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1134,
+      "count": 1179,
       "examples": [
         "admin / admin",
         "root / root",
@@ -21,14 +21,14 @@
         "linuxshell / enablelinuxshell"
       ],
       "first": "2026-09-09T00:03:10.052346Z",
-      "last": "2026-09-09T08:02:21.054053Z",
-      "unique_ips": 51
+      "last": "2026-09-09T09:01:25.916690Z",
+      "unique_ips": 60
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 628,
+      "count": 633,
       "examples": [
         "root / root",
         "ubuntu / Oracle",
@@ -37,8 +37,8 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-09T00:03:10.740292Z",
-      "last": "2026-09-09T07:30:53.768126Z",
-      "unique_ips": 37
+      "last": "2026-09-09T08:58:38.359662Z",
+      "unique_ips": 41
     },
     {
       "id": "T1222.002",
@@ -91,16 +91,17 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "cat /proc/cpuinfo"
+        "cat /proc/cpuinfo",
+        "uname -s -m"
       ],
       "first": "2026-09-09T00:39:03.052905Z",
-      "last": "2026-09-09T07:20:58.085634Z",
-      "unique_ips": 9
+      "last": "2026-09-09T08:53:27.455325Z",
+      "unique_ips": 10
     },
     {
       "id": "T1083",
