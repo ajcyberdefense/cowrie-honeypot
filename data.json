@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-10 21:04:12",
+  "generated": "2026-09-10 22:02:12",
   "totals": {
-    "commands": 1560,
-    "login_failed": 3097,
-    "login_success": 410,
-    "sessions": 3528
+    "commands": 1692,
+    "login_failed": 3241,
+    "login_success": 456,
+    "sessions": 3680
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3097,
+      "count": 3241,
       "examples": [
         "root / xc3511",
         "root / 54321",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-10T00:00:10.861058Z",
-      "last": "2026-09-10T21:00:05.567184Z",
-      "unique_ips": 152
+      "last": "2026-09-10T22:02:08.857890Z",
+      "unique_ips": 158
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 410,
+      "count": 456,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,8 +37,8 @@
         "nobody / password"
       ],
       "first": "2026-09-10T00:00:11.554236Z",
-      "last": "2026-09-10T20:56:58.777992Z",
-      "unique_ips": 84
+      "last": "2026-09-10T22:02:08.154836Z",
+      "unique_ips": 87
     },
     {
       "id": "T1222.002",
@@ -73,6 +73,22 @@
       "unique_ips": 23
     },
     {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 20,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "uname -s -m",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "uname -a",
+        "cat /proc/cpuinfo"
+      ],
+      "first": "2026-09-10T02:39:32.292392Z",
+      "last": "2026-09-10T21:55:46.168988Z",
+      "unique_ips": 16
+    },
+    {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
@@ -85,22 +101,6 @@
       "first": "2026-09-10T03:09:55.964523Z",
       "last": "2026-09-10T20:57:03.060008Z",
       "unique_ips": 19
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 19,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "uname -s -m",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "uname -a",
-        "cat /proc/cpuinfo"
-      ],
-      "first": "2026-09-10T02:39:32.292392Z",
-      "last": "2026-09-10T19:18:10.310985Z",
-      "unique_ips": 15
     },
     {
       "id": "T1059.004",
@@ -231,15 +231,15 @@
   "unmapped": [
     [
       "shell",
-      336
+      379
     ],
     [
       "sh",
-      335
+      378
     ],
     [
       "system",
-      322
+      365
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -302,11 +302,11 @@
       3
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
-      2
+      "Accept-Encoding: gzip",
+      3
     ],
     [
-      "cat /tmp/bendi.py | python3 - ; rm -f /tmp/bendi.py",
+      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
       2
     ]
   ]
