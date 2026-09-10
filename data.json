@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-10 17:05:08",
+  "generated": "2026-09-10 18:04:21",
   "totals": {
-    "commands": 911,
-    "login_failed": 1162,
-    "login_success": 239,
-    "sessions": 1448
+    "commands": 941,
+    "login_failed": 1219,
+    "login_success": 249,
+    "sessions": 1512
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1162,
+      "count": 1219,
       "examples": [
         "root / xc3511",
         "root / 54321",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-10T00:00:10.861058Z",
-      "last": "2026-09-10T17:05:04.763548Z",
-      "unique_ips": 136
+      "last": "2026-09-10T18:00:40.204385Z",
+      "unique_ips": 139
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 239,
+      "count": 249,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,8 +37,8 @@
         "nobody / password"
       ],
       "first": "2026-09-10T00:00:11.554236Z",
-      "last": "2026-09-10T16:30:06.347477Z",
-      "unique_ips": 69
+      "last": "2026-09-10T17:06:31.447645Z",
+      "unique_ips": 70
     },
     {
       "id": "T1222.002",
@@ -218,11 +218,11 @@
   "unmapped": [
     [
       "shell",
-      172
+      182
     ],
     [
       "sh",
-      171
+      181
     ],
     [
       "system",
@@ -251,6 +251,10 @@
     [
       "ping ;sh",
       11
+    ],
+    [
+      "/bin/busybox BOTNET",
+      10
     ],
     [
       "/bin/busybox",
@@ -290,10 +294,6 @@
     ],
     [
       "cat /tmp/bendi.py | python3 - ; rm -f /tmp/bendi.py",
-      2
-    ],
-    [
-      "rm -f /tmp/bendi.py",
       2
     ]
   ]
