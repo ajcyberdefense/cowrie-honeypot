@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-11 11:01:46",
+  "generated": "2026-09-11 12:03:06",
   "totals": {
-    "commands": 10315,
-    "login_failed": 6826,
-    "login_success": 3393,
-    "sessions": 7017
+    "commands": 10350,
+    "login_failed": 6857,
+    "login_success": 3406,
+    "sessions": 7061
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6826,
+      "count": 6857,
       "examples": [
         "mathieu / mathieu",
         "mathieu / mathieu1",
@@ -21,14 +21,14 @@
         "mathieu / mathieu12345"
       ],
       "first": "2026-09-11T00:11:12.668081Z",
-      "last": "2026-09-11T11:00:41.048149Z",
-      "unique_ips": 61
+      "last": "2026-09-11T12:01:23.160908Z",
+      "unique_ips": 69
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3393,
+      "count": 3406,
       "examples": [
         "ubuntu / ubuntu",
         "root / 1001chin",
@@ -37,8 +37,8 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-11T00:12:50.249197Z",
-      "last": "2026-09-11T10:53:22.648393Z",
-      "unique_ips": 43
+      "last": "2026-09-11T11:55:01.486896Z",
+      "unique_ips": 47
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 17,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-11T00:13:02.581017Z",
-      "last": "2026-09-11T09:35:37.574235Z",
-      "unique_ips": 15
+      "last": "2026-09-11T11:28:20.573357Z",
+      "unique_ips": 16
     },
     {
       "id": "T1033",
@@ -215,15 +215,15 @@
   "unmapped": [
     [
       "system",
-      3349
+      3350
     ],
     [
       "shell",
-      3349
+      3350
     ],
     [
       "sh",
-      3349
+      3350
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -231,15 +231,15 @@
     ],
     [
       "zalee",
-      10
+      20
     ],
     [
       "za",
-      10
+      20
     ],
     [
       "&k`g&k|zpkfq)ES[M",
-      10
+      20
     ],
     [
       "enable",
@@ -262,11 +262,11 @@
       6
     ],
     [
-      "/bin/busybox ORsuavM2",
-      3
+      "/bin/busybox UNSTABLE",
+      4
     ],
     [
-      "/bin/busybox UNSTABLE",
+      "/bin/busybox ORsuavM2",
       3
     ],
     [
