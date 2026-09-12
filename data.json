@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 17:04:11",
+  "generated": "2026-09-12 18:04:45",
   "totals": {
-    "commands": 434,
-    "login_failed": 3088,
-    "login_success": 117,
-    "sessions": 3410
+    "commands": 442,
+    "login_failed": 3310,
+    "login_success": 121,
+    "sessions": 3639
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3088,
+      "count": 3310,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T17:03:47.796798Z",
-      "unique_ips": 127
+      "last": "2026-09-12T18:04:43.257828Z",
+      "unique_ips": 134
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 117,
+      "count": 121,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T15:58:49.188848Z",
-      "unique_ips": 66
+      "last": "2026-09-12T17:58:40.851242Z",
+      "unique_ips": 70
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 19,
+      "count": 20,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,8 +85,8 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-09-12T00:41:33.686577Z",
-      "last": "2026-09-12T15:57:20.922963Z",
-      "unique_ips": 14
+      "last": "2026-09-12T17:55:24.657447Z",
+      "unique_ips": 15
     },
     {
       "id": "T1083",
@@ -219,15 +219,15 @@
   "unmapped": [
     [
       "shell",
-      59
+      61
     ],
     [
       "sh",
-      59
+      61
     ],
     [
       "system",
-      40
+      41
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
