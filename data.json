@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 20:02:12",
+  "generated": "2026-09-12 21:04:21",
   "totals": {
-    "commands": 458,
-    "login_failed": 3439,
-    "login_success": 131,
-    "sessions": 3774
+    "commands": 468,
+    "login_failed": 3466,
+    "login_success": 134,
+    "sessions": 3830
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3439,
+      "count": 3466,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T20:01:00.996283Z",
-      "unique_ips": 145
+      "last": "2026-09-12T21:00:02.794410Z",
+      "unique_ips": 152
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 131,
+      "count": 134,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T19:32:27.050369Z",
-      "unique_ips": 74
+      "last": "2026-09-12T20:59:44.651317Z",
+      "unique_ips": 77
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 20,
+      "count": 23,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
@@ -85,22 +85,22 @@
         "cat /proc/cpuinfo"
       ],
       "first": "2026-09-12T00:41:33.686577Z",
-      "last": "2026-09-12T17:55:24.657447Z",
-      "unique_ips": 15
+      "last": "2026-09-12T20:21:08.307858Z",
+      "unique_ips": 17
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-12T00:54:21.385464Z",
-      "last": "2026-09-12T14:25:20.538849Z",
-      "unique_ips": 3
+      "last": "2026-09-12T20:17:10.238423Z",
+      "unique_ips": 4
     },
     {
       "id": "T1489",
@@ -143,6 +143,19 @@
       "unique_ips": 5
     },
     {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-09-12T14:25:14.804784Z",
+      "last": "2026-09-12T20:17:09.772958Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
@@ -155,29 +168,16 @@
       "unique_ips": 4
     },
     {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
-      ],
-      "first": "2026-09-12T14:25:14.804784Z",
-      "last": "2026-09-12T14:25:17.836550Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "ifconfig"
       ],
       "first": "2026-09-12T14:25:06.115260Z",
-      "last": "2026-09-12T14:25:06.115260Z",
-      "unique_ips": 1
+      "last": "2026-09-12T20:17:07.913943Z",
+      "unique_ips": 2
     },
     {
       "id": "T1037",
@@ -282,19 +282,19 @@
       2
     ],
     [
+      "/ip cloud print",
+      2
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      2
+    ],
+    [
+      "echo Hi | cat -n",
+      2
+    ],
+    [
       "/bin/busybox hostname PBOC",
-      1
-    ],
-    [
-      "/bin/busybox echo > /tmp/.b && sh /tmp/.b && cd /tmp/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/.b && sh /var/.b && cd /var/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/run/.b && sh /var/run/.b && cd /var/run/",
       1
     ]
   ]
