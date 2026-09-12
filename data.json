@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 02:04:44",
+  "generated": "2026-09-12 03:04:20",
   "totals": {
-    "commands": 88,
-    "login_failed": 544,
-    "login_success": 11,
-    "sessions": 621
+    "commands": 181,
+    "login_failed": 659,
+    "login_success": 43,
+    "sessions": 739
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 544,
+      "count": 659,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,8 +21,24 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T01:59:44.048558Z",
-      "unique_ips": 16
+      "last": "2026-09-12T03:04:17.657560Z",
+      "unique_ips": 22
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 43,
+      "examples": [
+        "root / root",
+        "root / xmhdipc",
+        "ubuntu / ubuntu",
+        "default / OxhlwSG8",
+        "root / 123@@@"
+      ],
+      "first": "2026-09-12T00:08:14.272082Z",
+      "last": "2026-09-12T02:56:57.649674Z",
+      "unique_ips": 13
     },
     {
       "id": "T1105",
@@ -55,22 +71,6 @@
       "first": "2026-09-12T00:08:17.167446Z",
       "last": "2026-09-12T00:09:10.231407Z",
       "unique_ips": 1
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 11,
-      "examples": [
-        "root / root",
-        "root / xmhdipc",
-        "ubuntu / ubuntu",
-        "default / OxhlwSG8",
-        "root / 123@@@"
-      ],
-      "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T01:49:46.250003Z",
-      "unique_ips": 10
     },
     {
       "id": "T1083",
@@ -124,6 +124,18 @@
   ],
   "unmapped": [
     [
+      "system",
+      32
+    ],
+    [
+      "shell",
+      32
+    ],
+    [
+      "sh",
+      32
+    ],
+    [
       "sh .k",
       10
     ],
@@ -133,23 +145,11 @@
     ],
     [
       "/bin/busybox",
-      3
+      4
     ],
     [
       "enable",
-      2
-    ],
-    [
-      "system",
-      2
-    ],
-    [
-      "shell",
-      2
-    ],
-    [
-      "sh",
-      2
+      3
     ],
     [
       "linuxshell",
@@ -160,11 +160,11 @@
       2
     ],
     [
-      "enablelinuxshell",
-      1
+      "cd /proc && cat self/cmdline",
+      2
     ],
     [
-      "cd /proc && cat self/cmdline",
+      "enablelinuxshell",
       1
     ],
     [
