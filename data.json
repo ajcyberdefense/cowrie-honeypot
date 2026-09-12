@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 19:02:12",
+  "generated": "2026-09-12 20:02:12",
   "totals": {
-    "commands": 446,
-    "login_failed": 3411,
-    "login_success": 126,
-    "sessions": 3748
+    "commands": 458,
+    "login_failed": 3439,
+    "login_success": 131,
+    "sessions": 3774
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3411,
+      "count": 3439,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T19:00:53.548921Z",
-      "unique_ips": 141
+      "last": "2026-09-12T20:01:00.996283Z",
+      "unique_ips": 145
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 126,
+      "count": 131,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,8 +37,8 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T18:59:10.506156Z",
-      "unique_ips": 73
+      "last": "2026-09-12T19:32:27.050369Z",
+      "unique_ips": 74
     },
     {
       "id": "T1222.002",
@@ -219,15 +219,15 @@
   "unmapped": [
     [
       "shell",
-      62
+      65
     ],
     [
       "sh",
-      62
+      65
     ],
     [
       "system",
-      42
+      45
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -266,6 +266,10 @@
       5
     ],
     [
+      "/bin/busybox UNSTABLE",
+      5
+    ],
+    [
       "command -v python3 >/dev/null 2>&1 || (apt-get update -y && apt-get install -y python3) || yum install -y python3",
       2
     ],
@@ -275,10 +279,6 @@
     ],
     [
       "rm /tmp/bendi.py",
-      2
-    ],
-    [
-      "/bin/busybox UNSTABLE",
       2
     ],
     [
