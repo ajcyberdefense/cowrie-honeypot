@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 17:02:12",
+  "generated": "2026-09-13 18:01:12",
   "totals": {
-    "commands": 1975,
-    "login_failed": 4225,
-    "login_success": 585,
-    "sessions": 4895
+    "commands": 3348,
+    "login_failed": 4734,
+    "login_success": 1044,
+    "sessions": 5440
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4225,
+      "count": 4734,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,14 +21,14 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T17:01:59.659152Z",
-      "unique_ips": 153
+      "last": "2026-09-13T18:01:10.853371Z",
+      "unique_ips": 159
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 585,
+      "count": 1044,
       "examples": [
         "root / ",
         "ftpuser / ftpuser",
@@ -37,8 +37,8 @@
         "root / Test@2022"
       ],
       "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T17:02:02.400271Z",
-      "unique_ips": 68
+      "last": "2026-09-13T18:01:12.565941Z",
+      "unique_ips": 71
     },
     {
       "id": "T1222.002",
@@ -76,16 +76,17 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 19,
+      "count": 20,
       "examples": [
         "uname -s -m",
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -s -v -n -r -m"
+        "uname -s -v -n -r -m",
+        "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-13T01:03:11.303355Z",
-      "last": "2026-09-13T14:53:46.321546Z",
-      "unique_ips": 14
+      "last": "2026-09-13T17:16:38.269417Z",
+      "unique_ips": 15
     },
     {
       "id": "T1033",
@@ -167,19 +168,19 @@
   "unmapped": [
     [
       "shell",
-      528
+      982
     ],
     [
       "sh",
-      528
+      982
     ],
     [
       "system",
-      526
+      980
     ],
     [
       "/bin/busybox UNSTABLE",
-      143
+      153
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
