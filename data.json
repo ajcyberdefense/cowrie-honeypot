@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 22:04:08",
+  "generated": "2026-09-13 23:03:46",
   "totals": {
-    "commands": 10910,
-    "login_failed": 7321,
-    "login_success": 3534,
-    "sessions": 8177
+    "commands": 10950,
+    "login_failed": 7386,
+    "login_success": 3547,
+    "sessions": 8265
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7321,
+      "count": 7386,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,14 +21,14 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T22:02:48.453042Z",
-      "unique_ips": 184
+      "last": "2026-09-13T23:03:19.854679Z",
+      "unique_ips": 188
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3534,
+      "count": 3547,
       "examples": [
         "root / ",
         "ftpuser / ftpuser",
@@ -37,8 +37,8 @@
         "root / Test@2022"
       ],
       "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T22:01:55.189866Z",
-      "unique_ips": 89
+      "last": "2026-09-13T23:01:57.452428Z",
+      "unique_ips": 94
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 22,
+      "count": 24,
       "examples": [
         "uname -s -m",
         "uname -a",
@@ -85,8 +85,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-13T01:03:11.303355Z",
-      "last": "2026-09-13T20:51:24.314684Z",
-      "unique_ips": 17
+      "last": "2026-09-13T22:22:21.267839Z",
+      "unique_ips": 18
     },
     {
       "id": "T1033",
@@ -170,19 +170,19 @@
   "unmapped": [
     [
       "shell",
-      3457
+      3465
     ],
     [
       "sh",
-      3457
+      3465
     ],
     [
       "system",
-      3455
+      3463
     ],
     [
       "/bin/busybox UNSTABLE",
-      202
+      209
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -190,27 +190,27 @@
     ],
     [
       "enable",
-      14
+      15
+    ],
+    [
+      "linuxshell",
+      10
     ],
     [
       "sh .k",
       10
     ],
     [
-      "linuxshell",
+      "ping ;sh",
       9
     ],
     [
-      "ping ;sh",
+      "enablelinuxshell",
       8
     ],
     [
-      "enablelinuxshell",
-      7
-    ],
-    [
       "cd /proc && cat self/cmdline",
-      7
+      8
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
