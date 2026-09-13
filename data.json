@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 07:00:45",
+  "generated": "2026-09-13 08:03:37",
   "totals": {
-    "commands": 168,
-    "login_failed": 1866,
-    "login_success": 38,
-    "sessions": 2100
+    "commands": 223,
+    "login_failed": 1902,
+    "login_success": 55,
+    "sessions": 2175
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1866,
+      "count": 1902,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,8 +21,24 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T06:59:16.350944Z",
-      "unique_ips": 47
+      "last": "2026-09-13T07:59:23.068250Z",
+      "unique_ips": 52
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 55,
+      "examples": [
+        "root / ",
+        "ftpuser / ftpuser",
+        "root / adminpassword",
+        "enable\\x00 / linuxshell\\x00",
+        "root / Test@2022"
+      ],
+      "first": "2026-09-13T00:06:04.494050Z",
+      "last": "2026-09-13T07:57:23.951858Z",
+      "unique_ips": 28
     },
     {
       "id": "T1222.002",
@@ -39,22 +55,6 @@
       "first": "2026-09-13T01:09:07.830574Z",
       "last": "2026-09-13T06:54:24.888336Z",
       "unique_ips": 6
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 38,
-      "examples": [
-        "root / ",
-        "ftpuser / ftpuser",
-        "root / adminpassword",
-        "enable\\x00 / linuxshell\\x00",
-        "root / Test@2022"
-      ],
-      "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T06:55:47.546766Z",
-      "unique_ips": 24
     },
     {
       "id": "T1105",
@@ -152,24 +152,24 @@
   ],
   "unmapped": [
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      24
-    ],
-    [
-      "system",
-      17
-    ],
-    [
       "shell",
-      17
+      31
     ],
     [
       "sh",
-      17
+      31
+    ],
+    [
+      "system",
+      30
     ],
     [
       "/bin/busybox UNSTABLE",
-      14
+      27
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      24
     ],
     [
       "enable",
@@ -221,6 +221,10 @@
     ],
     [
       "echo WGET_CHECK",
+      1
+    ],
+    [
+      "/bin/busybox IZ1H9",
       1
     ]
   ]
