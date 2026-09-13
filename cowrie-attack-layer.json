@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-13 05:02:38",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-13 06:01:44",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 836,
+      "score": 1601,
       "enabled": true,
-      "comment": "836 observation(s) from 40 unique IP(s). e.g. support / 123123",
+      "comment": "1601 observation(s) from 44 unique IP(s). e.g. support / 123123",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "40"
+          "value": "44"
         },
         {
           "name": "first seen",
@@ -40,7 +40,31 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-13T05:02:35"
+          "value": "2026-09-13T06:01:40"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 34,
+      "enabled": true,
+      "comment": "34 observation(s) from 23 unique IP(s). e.g. root / ",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "23"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-13T00:06:04"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-13T05:43:03"
         }
       ]
     },
@@ -65,30 +89,6 @@
         {
           "name": "last seen",
           "value": "2026-09-13T04:09:15"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1078",
-      "score": 30,
-      "enabled": true,
-      "comment": "30 observation(s) from 22 unique IP(s). e.g. root / ",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Initial Access"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "22"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-13T00:06:04"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-13T04:59:06"
         }
       ]
     },
@@ -268,7 +268,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 836
+    "maxValue": 1601
   },
   "legendItems": [
     {

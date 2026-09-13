@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-13 05:02:38",
+  "generated": "2026-09-13 06:01:44",
   "totals": {
-    "commands": 111,
-    "login_failed": 836,
-    "login_success": 30,
-    "sessions": 1008
+    "commands": 129,
+    "login_failed": 1601,
+    "login_success": 34,
+    "sessions": 1806
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 836,
+      "count": 1601,
       "examples": [
         "support / 123123",
         "root / ASD@1",
@@ -21,8 +21,24 @@
         "admin / 120491"
       ],
       "first": "2026-09-13T00:01:39.551024Z",
-      "last": "2026-09-13T05:02:35.845769Z",
-      "unique_ips": 40
+      "last": "2026-09-13T06:01:40.751548Z",
+      "unique_ips": 44
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 34,
+      "examples": [
+        "root / ",
+        "ftpuser / ftpuser",
+        "root / adminpassword",
+        "enable\\x00 / linuxshell\\x00",
+        "root / Test@2022"
+      ],
+      "first": "2026-09-13T00:06:04.494050Z",
+      "last": "2026-09-13T05:43:03.749688Z",
+      "unique_ips": 23
     },
     {
       "id": "T1222.002",
@@ -39,22 +55,6 @@
       "first": "2026-09-13T01:09:07.830574Z",
       "last": "2026-09-13T04:09:15.125452Z",
       "unique_ips": 5
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 30,
-      "examples": [
-        "root / ",
-        "ftpuser / ftpuser",
-        "root / adminpassword",
-        "enable\\x00 / linuxshell\\x00",
-        "root / Test@2022"
-      ],
-      "first": "2026-09-13T00:06:04.494050Z",
-      "last": "2026-09-13T04:59:06.288178Z",
-      "unique_ips": 22
     },
     {
       "id": "T1105",
@@ -157,27 +157,27 @@
     ],
     [
       "system",
-      10
+      14
     ],
     [
       "shell",
-      10
+      14
     ],
     [
       "sh",
-      10
+      14
     ],
     [
       "/bin/busybox UNSTABLE",
-      8
+      12
     ],
     [
       "enable",
-      2
+      3
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "enablelinuxshell",
