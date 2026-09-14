@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 15:03:12",
+  "generated": "2026-09-14 16:03:45",
   "totals": {
-    "commands": 1038,
-    "login_failed": 3665,
-    "login_success": 316,
-    "sessions": 4032
+    "commands": 1082,
+    "login_failed": 3878,
+    "login_success": 327,
+    "sessions": 4272
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3665,
+      "count": 3878,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T15:03:07.989435Z",
-      "unique_ips": 61
+      "last": "2026-09-14T16:03:41.352787Z",
+      "unique_ips": 65
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 316,
+      "count": 327,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,8 +37,8 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T14:54:20.153367Z",
-      "unique_ips": 46
+      "last": "2026-09-14T16:02:23.380280Z",
+      "unique_ips": 49
     },
     {
       "id": "T1083",
@@ -91,7 +91,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 18,
+      "count": 19,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "uname -a",
@@ -100,8 +100,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T14:26:23.867891Z",
-      "unique_ips": 13
+      "last": "2026-09-14T15:59:50.466609Z",
+      "unique_ips": 14
     },
     {
       "id": "T1033",
@@ -234,27 +234,43 @@
   "unmapped": [
     [
       "system",
-      274
+      283
     ],
     [
       "sh",
-      274
+      283
     ],
     [
       "shell",
-      86
+      95
     ],
     [
       "/bin/busybox UNSTABLE",
-      82
+      90
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      16
+      18
     ],
     [
       "enable",
-      4
+      5
+    ],
+    [
+      "linuxshell",
+      3
+    ],
+    [
+      "enablelinuxshell",
+      3
+    ],
+    [
+      "ping ;sh",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      3
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
@@ -266,22 +282,6 @@
     ],
     [
       "rm -f /tmp/bendi.py",
-      2
-    ],
-    [
-      "linuxshell",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
-    ],
-    [
-      "ping ;sh",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       2
     ],
     [
