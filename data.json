@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 21:04:12",
+  "generated": "2026-09-14 22:01:45",
   "totals": {
-    "commands": 1216,
-    "login_failed": 4864,
-    "login_success": 366,
-    "sessions": 5309
+    "commands": 1231,
+    "login_failed": 5305,
+    "login_success": 371,
+    "sessions": 5756
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4864,
+      "count": 5305,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T21:04:08.351963Z",
-      "unique_ips": 80
+      "last": "2026-09-14T22:01:14.189526Z",
+      "unique_ips": 85
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 366,
+      "count": 371,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,14 +37,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T21:03:46.991011Z",
-      "unique_ips": 63
+      "last": "2026-09-14T21:59:34.974215Z",
+      "unique_ips": 67
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 192,
+      "count": 193,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
@@ -52,8 +52,8 @@
         "ls /home; /bin/busybox BOTNET"
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T14:23:36.866280Z",
-      "unique_ips": 4
+      "last": "2026-09-14T21:38:11.036760Z",
+      "unique_ips": 5
     },
     {
       "id": "T1222.002",
@@ -91,7 +91,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 25,
+      "count": 27,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "uname -a",
@@ -100,8 +100,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T20:18:45.547481Z",
-      "unique_ips": 18
+      "last": "2026-09-14T21:38:08.629086Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
@@ -118,6 +118,21 @@
       "unique_ips": 7
     },
     {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 6,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'",
+        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \"",
+        "SPID=$$;printf 'SHELLPID:%d\\n' $SPID;awk '/^Pid:/{print \"STATUSPID:\"$2}' /proc/$SPID/status 2>/dev/null;printf 'PPID_PRO"
+      ],
+      "first": "2026-09-14T05:27:49.368657Z",
+      "last": "2026-09-14T21:38:10.233578Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
@@ -129,21 +144,6 @@
       "first": "2026-09-14T00:24:20.002540Z",
       "last": "2026-09-14T20:14:59.901301Z",
       "unique_ips": 3
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 4,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'",
-        "printf 'COWRIE_DIR:%s\\n' \"$(ls -d /home/cowrie /opt/cowrie /srv/cowrie 2>/dev/null | head -1)\";printf 'PROC1_CMD:%s\\n' \"",
-        "SPID=$$;printf 'SHELLPID:%d\\n' $SPID;awk '/^Pid:/{print \"STATUSPID:\"$2}' /proc/$SPID/status 2>/dev/null;printf 'PPID_PRO"
-      ],
-      "first": "2026-09-14T05:27:49.368657Z",
-      "last": "2026-09-14T08:02:18.755788Z",
-      "unique_ips": 2
     },
     {
       "id": "T1070.004",
@@ -169,6 +169,18 @@
       "first": "2026-09-14T05:40:09.567868Z",
       "last": "2026-09-14T12:15:17.988974Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-09-14T05:27:48.053899Z",
+      "last": "2026-09-14T21:38:07.063129Z",
+      "unique_ips": 2
     },
     {
       "id": "T1037",
@@ -207,18 +219,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1016",
-      "name": "System Network Configuration Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "ifconfig"
-      ],
-      "first": "2026-09-14T05:27:48.053899Z",
-      "last": "2026-09-14T05:27:48.053899Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1018",
       "name": "Remote System Discovery",
       "tactic": "Discovery",
@@ -234,19 +234,19 @@
   "unmapped": [
     [
       "system",
-      308
+      309
     ],
     [
       "sh",
-      307
+      309
     ],
     [
       "shell",
-      120
+      121
     ],
     [
       "/bin/busybox UNSTABLE",
-      113
+      115
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -285,6 +285,18 @@
       2
     ],
     [
+      "/ip cloud print",
+      2
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      2
+    ],
+    [
+      "echo Hi | cat -n",
+      2
+    ],
+    [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
       2
     ],
@@ -298,18 +310,6 @@
     ],
     [
       "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
-      2
-    ],
-    [
-      "QyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxgAAAJAt8FDRLfBQ",
-      2
-    ],
-    [
-      "0QAAAAtzc2gtZWQyNTUxOQAAACDveEt+JtIVZGBVIbVkHvdkvQqdMiafu5/IMOvelH/yxg",
-      2
-    ],
-    [
-      "AAAEAr1wl+3JHkjA3ZtPtjd8bAtLVFo13eZ12Aw2QnFXC/ie94S34m0hVkYFUhtWQe92S9",
       2
     ]
   ]
