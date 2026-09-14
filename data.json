@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-14 01:00:08",
+  "generated": "2026-09-14 02:00:20",
   "totals": {
-    "commands": 34,
-    "login_failed": 33,
-    "login_success": 12,
-    "sessions": 55
+    "commands": 52,
+    "login_failed": 62,
+    "login_success": 20,
+    "sessions": 107
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 33,
+      "count": 62,
       "examples": [
         "root / ASDF321#@!",
         "root / admin",
@@ -21,14 +21,14 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:02:07.251693Z",
-      "last": "2026-09-14T00:58:49.752026Z",
-      "unique_ips": 11
+      "last": "2026-09-14T01:55:33.262139Z",
+      "unique_ips": 15
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 12,
+      "count": 20,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / xirtam",
@@ -37,8 +37,8 @@
         "ubnt / ubnt"
       ],
       "first": "2026-09-14T00:05:42.284899Z",
-      "last": "2026-09-14T00:59:14.508921Z",
-      "unique_ips": 6
+      "last": "2026-09-14T01:38:09.497219Z",
+      "unique_ips": 10
     },
     {
       "id": "T1105",
@@ -54,6 +54,19 @@
       "first": "2026-09-14T00:24:16.661619Z",
       "last": "2026-09-14T00:24:19.998418Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "uname -a"
+      ],
+      "first": "2026-09-14T00:24:20.002540Z",
+      "last": "2026-09-14T01:07:06.548894Z",
+      "unique_ips": 2
     },
     {
       "id": "T1222.002",
@@ -84,18 +97,6 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-14T00:24:20.002540Z",
-      "last": "2026-09-14T00:24:20.002540Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
       "count": 1,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
@@ -144,19 +145,19 @@
   "unmapped": [
     [
       "system",
-      7
+      11
     ],
     [
       "shell",
-      7
+      11
     ],
     [
       "sh",
-      7
+      11
     ],
     [
       "/bin/busybox UNSTABLE",
-      6
+      11
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
