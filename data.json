@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 12:03:45",
+  "generated": "2026-09-15 13:03:21",
   "totals": {
-    "commands": 3809,
-    "login_failed": 4750,
-    "login_success": 1217,
-    "sessions": 4967
+    "commands": 3818,
+    "login_failed": 4849,
+    "login_success": 1220,
+    "sessions": 5072
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4750,
+      "count": 4849,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T11:58:16.390092Z",
-      "unique_ips": 65
+      "last": "2026-09-15T13:03:19.095104Z",
+      "unique_ips": 67
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1217,
+      "count": 1220,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,8 +37,8 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T11:25:08.552755Z",
-      "unique_ips": 48
+      "last": "2026-09-15T12:54:25.304940Z",
+      "unique_ips": 49
     },
     {
       "id": "T1083",
@@ -115,7 +115,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "uname -s -m",
         "uname -s -v -n -r -m",
@@ -124,8 +124,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-15T00:47:30.338036Z",
-      "last": "2026-09-15T09:58:50.966868Z",
-      "unique_ips": 10
+      "last": "2026-09-15T12:13:13.367823Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -182,19 +182,19 @@
   "unmapped": [
     [
       "sh",
-      1168
+      1170
     ],
     [
       "system",
-      1166
+      1168
     ],
     [
       "shell",
-      33
+      35
     ],
     [
       "/bin/busybox UNSTABLE",
-      24
+      26
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
