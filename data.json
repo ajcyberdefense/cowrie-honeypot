@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-15 20:03:12",
+  "generated": "2026-09-15 21:01:12",
   "totals": {
-    "commands": 4132,
-    "login_failed": 6344,
-    "login_success": 1271,
-    "sessions": 6257
+    "commands": 4136,
+    "login_failed": 6358,
+    "login_success": 1273,
+    "sessions": 6280
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6344,
+      "count": 6358,
       "examples": [
         "root / 12345678",
         "root / 123456789",
@@ -21,14 +21,14 @@
         "root / vizxv"
       ],
       "first": "2026-09-15T00:01:09.372940Z",
-      "last": "2026-09-15T20:02:50.653856Z",
-      "unique_ips": 91
+      "last": "2026-09-15T21:00:59.155609Z",
+      "unique_ips": 93
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1271,
+      "count": 1273,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / 123456",
@@ -37,8 +37,8 @@
         "root / root123"
       ],
       "first": "2026-09-15T00:08:25.379657Z",
-      "last": "2026-09-15T19:54:52.993108Z",
-      "unique_ips": 68
+      "last": "2026-09-15T20:03:47.494224Z",
+      "unique_ips": 69
     },
     {
       "id": "T1083",
@@ -209,15 +209,15 @@
   "unmapped": [
     [
       "system",
-      1200
+      1201
     ],
     [
       "sh",
-      1197
+      1198
     ],
     [
       "shell",
-      65
+      66
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -225,7 +225,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      36
+      37
     ],
     [
       "enable",
