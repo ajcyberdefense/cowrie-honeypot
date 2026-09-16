@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-16 04:03:44",
+  "generated": "2026-09-16 05:05:08",
   "totals": {
-    "commands": 72,
-    "login_failed": 119,
-    "login_success": 13,
-    "sessions": 155
+    "commands": 88,
+    "login_failed": 361,
+    "login_success": 21,
+    "sessions": 434
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 119,
+      "count": 361,
       "examples": [
         "root / ASDFGHJK",
         "root / Root123456",
@@ -21,8 +21,24 @@
         "root / 123456"
       ],
       "first": "2026-09-16T00:00:14.355320Z",
-      "last": "2026-09-16T04:01:10.057587Z",
-      "unique_ips": 22
+      "last": "2026-09-16T05:05:04.360810Z",
+      "unique_ips": 26
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 21,
+      "examples": [
+        "enable\\x00 / linuxshell\\x00",
+        "root / a1sev5y7c39k",
+        "root / Root@1234",
+        "root / solokey",
+        "admin / "
+      ],
+      "first": "2026-09-16T00:28:19.050720Z",
+      "last": "2026-09-16T05:03:52.773112Z",
+      "unique_ips": 14
     },
     {
       "id": "T1105",
@@ -36,22 +52,6 @@
       "first": "2026-09-16T01:59:12.972731Z",
       "last": "2026-09-16T01:59:24.271953Z",
       "unique_ips": 1
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 13,
-      "examples": [
-        "enable\\x00 / linuxshell\\x00",
-        "root / a1sev5y7c39k",
-        "root / Root@1234",
-        "root / solokey",
-        "admin / "
-      ],
-      "first": "2026-09-16T00:28:19.050720Z",
-      "last": "2026-09-16T04:01:34.154922Z",
-      "unique_ips": 10
     },
     {
       "id": "T1057",
@@ -93,13 +93,63 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 7,
       "examples": [
-        "uname -a"
+        "uname -a",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -v -n -r -m"
       ],
       "first": "2026-09-16T00:45:23.989630Z",
-      "last": "2026-09-16T02:02:20.248804Z",
-      "unique_ips": 2
+      "last": "2026-09-16T05:04:04.947114Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-16T04:07:01.872322Z",
+      "last": "2026-09-16T04:07:01.872322Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-16T04:07:01.872322Z",
+      "last": "2026-09-16T04:07:01.872322Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-16T04:07:01.872322Z",
+      "last": "2026-09-16T04:07:01.872322Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-16T04:07:01.872322Z",
+      "last": "2026-09-16T04:07:01.872322Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
@@ -109,23 +159,23 @@
     ],
     [
       "shell",
-      6
+      9
     ],
     [
       "system",
-      5
+      8
     ],
     [
       "sh",
-      5
+      8
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      7
     ],
     [
       "/bin/busybox",
       5
-    ],
-    [
-      "/bin/busybox UNSTABLE",
-      4
     ],
     [
       "!v54!",
