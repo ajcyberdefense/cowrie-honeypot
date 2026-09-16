@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-16 14:03:45",
+  "generated": "2026-09-16 15:02:12",
   "totals": {
-    "commands": 3279,
-    "login_failed": 4364,
-    "login_success": 1054,
-    "sessions": 4540
+    "commands": 3302,
+    "login_failed": 4388,
+    "login_success": 1065,
+    "sessions": 4580
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4364,
+      "count": 4388,
       "examples": [
         "root / ASDFGHJK",
         "root / Root123456",
@@ -21,14 +21,14 @@
         "root / 123456"
       ],
       "first": "2026-09-16T00:00:14.355320Z",
-      "last": "2026-09-16T14:02:12.353903Z",
-      "unique_ips": 55
+      "last": "2026-09-16T14:59:30.459406Z",
+      "unique_ips": 61
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1054,
+      "count": 1065,
       "examples": [
         "enable\\x00 / linuxshell\\x00",
         "root / a1sev5y7c39k",
@@ -37,8 +37,8 @@
         "admin / "
       ],
       "first": "2026-09-16T00:28:19.050720Z",
-      "last": "2026-09-16T14:03:10.287899Z",
-      "unique_ips": 33
+      "last": "2026-09-16T14:59:32.677740Z",
+      "unique_ips": 39
     },
     {
       "id": "T1083",
@@ -113,7 +113,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 13,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -121,8 +121,8 @@
         "uname -s -m"
       ],
       "first": "2026-09-16T00:45:23.989630Z",
-      "last": "2026-09-16T14:03:23.464660Z",
-      "unique_ips": 9
+      "last": "2026-09-16T14:59:33.063589Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -165,19 +165,19 @@
   "unmapped": [
     [
       "sh",
-      1016
+      1021
     ],
     [
       "system",
-      1015
+      1020
     ],
     [
       "shell",
-      31
+      36
     ],
     [
       "/bin/busybox UNSTABLE",
-      23
+      28
     ],
     [
       "sh 0",
