@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-16 03:00:55",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-16 04:03:44",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 95,
+      "score": 119,
       "enabled": true,
-      "comment": "95 observation(s) from 20 unique IP(s). e.g. root / ASDFGHJK",
+      "comment": "119 observation(s) from 22 unique IP(s). e.g. root / ASDFGHJK",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "20"
+          "value": "22"
         },
         {
           "name": "first seen",
@@ -40,7 +40,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-16T02:58:35"
+          "value": "2026-09-16T04:01:10"
         }
       ]
     },
@@ -65,6 +65,30 @@
         {
           "name": "last seen",
           "value": "2026-09-16T01:59:24"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 13,
+      "enabled": true,
+      "comment": "13 observation(s) from 10 unique IP(s). e.g. enable\\x00 / linuxshell\\x00",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Initial Access"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "10"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-16T00:28:19"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-16T04:01:34"
         }
       ]
     },
@@ -141,30 +165,6 @@
       ]
     },
     {
-      "techniqueID": "T1078",
-      "score": 9,
-      "enabled": true,
-      "comment": "9 observation(s) from 8 unique IP(s). e.g. enable\\x00 / linuxshell\\x00",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Initial Access"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "8"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-16T00:28:19"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-16T02:58:39"
-        }
-      ]
-    },
-    {
       "techniqueID": "T1082",
       "score": 2,
       "enabled": true,
@@ -196,7 +196,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 95
+    "maxValue": 119
   },
   "legendItems": [
     {

@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-16 03:00:55",
+  "generated": "2026-09-16 04:03:44",
   "totals": {
-    "commands": 64,
-    "login_failed": 95,
-    "login_success": 9,
-    "sessions": 131
+    "commands": 72,
+    "login_failed": 119,
+    "login_success": 13,
+    "sessions": 155
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 95,
+      "count": 119,
       "examples": [
         "root / ASDFGHJK",
         "root / Root123456",
@@ -21,8 +21,8 @@
         "root / 123456"
       ],
       "first": "2026-09-16T00:00:14.355320Z",
-      "last": "2026-09-16T02:58:35.237965Z",
-      "unique_ips": 20
+      "last": "2026-09-16T04:01:10.057587Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
@@ -36,6 +36,22 @@
       "first": "2026-09-16T01:59:12.972731Z",
       "last": "2026-09-16T01:59:24.271953Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 13,
+      "examples": [
+        "enable\\x00 / linuxshell\\x00",
+        "root / a1sev5y7c39k",
+        "root / Root@1234",
+        "root / solokey",
+        "admin / "
+      ],
+      "first": "2026-09-16T00:28:19.050720Z",
+      "last": "2026-09-16T04:01:34.154922Z",
+      "unique_ips": 10
     },
     {
       "id": "T1057",
@@ -74,22 +90,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 9,
-      "examples": [
-        "enable\\x00 / linuxshell\\x00",
-        "root / a1sev5y7c39k",
-        "root / Root@1234",
-        "root / solokey",
-        "admin / "
-      ],
-      "first": "2026-09-16T00:28:19.050720Z",
-      "last": "2026-09-16T02:58:39.986827Z",
-      "unique_ips": 8
-    },
-    {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
@@ -108,24 +108,24 @@
       10
     ],
     [
+      "shell",
+      6
+    ],
+    [
+      "system",
+      5
+    ],
+    [
+      "sh",
+      5
+    ],
+    [
       "/bin/busybox",
       5
     ],
     [
-      "shell",
-      4
-    ],
-    [
-      "system",
-      3
-    ],
-    [
-      "sh",
-      3
-    ],
-    [
       "/bin/busybox UNSTABLE",
-      2
+      4
     ],
     [
       "!v54!",
