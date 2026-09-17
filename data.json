@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-17 14:04:22",
+  "generated": "2026-09-17 15:04:11",
   "totals": {
-    "commands": 1830,
-    "login_failed": 2193,
-    "login_success": 607,
-    "sessions": 2376
+    "commands": 1833,
+    "login_failed": 2250,
+    "login_success": 609,
+    "sessions": 2440
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2193,
+      "count": 2250,
       "examples": [
         "root / 123123123a",
         "monish / monish123",
@@ -21,14 +21,14 @@
         "ubuntu / password"
       ],
       "first": "2026-09-17T00:00:04.955790Z",
-      "last": "2026-09-17T14:03:09.560651Z",
-      "unique_ips": 60
+      "last": "2026-09-17T15:03:25.575809Z",
+      "unique_ips": 62
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 607,
+      "count": 609,
       "examples": [
         "ubuntu / ubuntu",
         "admin / GeNeXiS@19",
@@ -37,8 +37,8 @@
         "root / 1234"
       ],
       "first": "2026-09-17T00:00:32.153729Z",
-      "last": "2026-09-17T13:50:11.886026Z",
-      "unique_ips": 45
+      "last": "2026-09-17T14:31:16.154735Z",
+      "unique_ips": 47
     },
     {
       "id": "T1083",
@@ -89,7 +89,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 14,
+      "count": 15,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -97,8 +97,8 @@
         "/bin/./uname -s -v -n -r -m"
       ],
       "first": "2026-09-17T00:00:44.711432Z",
-      "last": "2026-09-17T13:50:12.673583Z",
-      "unique_ips": 11
+      "last": "2026-09-17T14:31:28.579656Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
@@ -219,7 +219,15 @@
       3
     ],
     [
+      "/bin/busybox",
+      3
+    ],
+    [
       "/bin/busybox UNSTABLE",
+      3
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       3
     ],
     [
@@ -239,19 +247,11 @@
       2
     ],
     [
-      "/bin/busybox",
-      2
-    ],
-    [
       "enablelinuxshell",
       2
     ],
     [
       "ping ;sh",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       2
     ],
     [
