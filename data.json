@@ -1,25 +1,158 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-17 00:00:08",
+  "generated": "2026-09-17 01:01:11",
   "totals": {
-    "commands": 0,
-    "login_failed": 1,
-    "login_success": 0,
-    "sessions": 1
+    "commands": 1049,
+    "login_failed": 988,
+    "login_success": 350,
+    "sessions": 995
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1,
+      "count": 988,
       "examples": [
-        "root / 123123123a"
+        "root / 123123123a",
+        "monish / monish123",
+        "admin / 090807",
+        "kingbase / kingbase@2022",
+        "ubuntu / password"
       ],
       "first": "2026-09-17T00:00:04.955790Z",
-      "last": "2026-09-17T00:00:04.955790Z",
+      "last": "2026-09-17T01:01:10.755140Z",
+      "unique_ips": 13
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 350,
+      "examples": [
+        "ubuntu / ubuntu",
+        "admin / GeNeXiS@19",
+        "enable / linuxshell",
+        "root / root"
+      ],
+      "first": "2026-09-17T00:00:32.153729Z",
+      "last": "2026-09-17T01:01:11.156574Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 347,
+      "examples": [
+        "ls /home; /bin/busybox BOTNET",
+        "ls -l /tmp/.testfile 2>&1"
+      ],
+      "first": "2026-09-17T00:55:26.434194Z",
+      "last": "2026-09-17T01:01:11.431407Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 2,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-17T00:56:22.261587Z",
+      "last": "2026-09-17T00:56:39.246143Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-17T00:56:22.261587Z",
+      "last": "2026-09-17T00:56:22.261587Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "uname -a"
+      ],
+      "first": "2026-09-17T00:00:44.711432Z",
+      "last": "2026-09-17T00:00:44.711432Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-17T00:56:22.261587Z",
+      "last": "2026-09-17T00:56:22.261587Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 1,
+      "examples": [
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-17T00:56:22.261587Z",
+      "last": "2026-09-17T00:56:22.261587Z",
       "unique_ips": 1
     }
   ],
-  "unmapped": []
+  "unmapped": [
+    [
+      "system",
+      346
+    ],
+    [
+      "sh",
+      346
+    ],
+    [
+      "echo SHELL_TEST",
+      1
+    ],
+    [
+      "/bin/busybox TEST",
+      1
+    ],
+    [
+      "cat /proc",
+      1
+    ],
+    [
+      "./",
+      1
+    ],
+    [
+      "echo WRITABLE >/tmp/.testfile 2>&1",
+      1
+    ],
+    [
+      "rm -f /tmp/.testfile",
+      1
+    ],
+    [
+      "cd /tmp",
+      1
+    ],
+    [
+      "echo WGET_CHECK",
+      1
+    ]
+  ]
 }
