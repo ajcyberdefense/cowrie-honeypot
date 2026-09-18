@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 07:02:11",
+  "generated": "2026-09-18 08:03:11",
   "totals": {
-    "commands": 119,
-    "login_failed": 519,
-    "login_success": 41,
-    "sessions": 630
+    "commands": 128,
+    "login_failed": 572,
+    "login_success": 43,
+    "sessions": 707
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 519,
+      "count": 572,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T07:01:25.487981Z",
-      "unique_ips": 43
+      "last": "2026-09-18T08:03:05.146248Z",
+      "unique_ips": 46
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 41,
+      "count": 43,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -37,8 +37,8 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T06:56:20.958732Z",
-      "unique_ips": 22
+      "last": "2026-09-18T07:53:51.892349Z",
+      "unique_ips": 23
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 14,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo",
@@ -69,8 +69,8 @@
         "uname -s -m"
       ],
       "first": "2026-09-18T00:25:00.479830Z",
-      "last": "2026-09-18T05:49:14.882666Z",
-      "unique_ips": 9
+      "last": "2026-09-18T07:07:57.342809Z",
+      "unique_ips": 10
     },
     {
       "id": "T1105",
@@ -86,6 +86,19 @@
       ],
       "first": "2026-09-18T01:58:59.591466Z",
       "last": "2026-09-18T05:49:14.878940Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-09-18T02:28:05.820841Z",
+      "last": "2026-09-18T07:07:58.305206Z",
       "unique_ips": 2
     },
     {
@@ -115,17 +128,29 @@
       "unique_ips": 3
     },
     {
-      "id": "T1057",
-      "name": "Process Discovery",
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
+      ],
+      "first": "2026-09-18T02:28:07.263120Z",
+      "last": "2026-09-18T07:07:58.764733Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
       "count": 2,
       "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'"
+        "ifconfig"
       ],
-      "first": "2026-09-18T02:28:05.820841Z",
-      "last": "2026-09-18T02:28:06.541504Z",
-      "unique_ips": 1
+      "first": "2026-09-18T02:28:03.535500Z",
+      "last": "2026-09-18T07:07:56.434741Z",
+      "unique_ips": 2
     },
     {
       "id": "T1070.004",
@@ -138,31 +163,6 @@
       "first": "2026-09-18T03:19:54.207938Z",
       "last": "2026-09-18T04:18:53.181296Z",
       "unique_ips": 2
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
-      ],
-      "first": "2026-09-18T02:28:07.263120Z",
-      "last": "2026-09-18T05:49:14.882666Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1016",
-      "name": "System Network Configuration Discovery",
-      "tactic": "Discovery",
-      "count": 1,
-      "examples": [
-        "ifconfig"
-      ],
-      "first": "2026-09-18T02:28:03.535500Z",
-      "last": "2026-09-18T02:28:03.535500Z",
-      "unique_ips": 1
     },
     {
       "id": "T1037",
@@ -223,6 +223,18 @@
       2
     ],
     [
+      "/ip cloud print",
+      2
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      2
+    ],
+    [
+      "echo Hi | cat -n",
+      2
+    ],
+    [
       "enable",
       1
     ],
@@ -252,18 +264,6 @@
     ],
     [
       "busybox",
-      1
-    ],
-    [
-      "/ip cloud print",
-      1
-    ],
-    [
-      "locate D877F783D5D3EF8Cs",
-      1
-    ],
-    [
-      "echo Hi | cat -n",
       1
     ],
     [
