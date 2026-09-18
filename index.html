@@ -59,25 +59,45 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   <div class="sub">Observed attacker behaviour against an internet-exposed
   Cowrie honeypot, mapped to MITRE ATT&amp;CK.</div>
   <div class="sub" style="margin-top:10px">
-    <span class="badge">Generated 2026-09-18 00:01 UTC</span>
+    <span class="badge">Generated 2026-09-18 01:03 UTC</span>
     <span class="badge">Static snapshot</span>
     <span class="badge">Cowrie 3.x</span>
   </div>
 </header>
 <div class="tiles">
-<div class="tile"><div class="n">1</div><div class="l">Sessions</div></div>
-<div class="tile"><div class="n">0</div><div class="l">Login attempts</div></div>
-<div class="tile"><div class="n">0</div><div class="l">Unique attacker IPs</div></div>
-<div class="tile"><div class="n">0</div><div class="l">Commands run</div></div>
+<div class="tile"><div class="n">28</div><div class="l">Sessions</div></div>
+<div class="tile"><div class="n">28</div><div class="l">Login attempts</div></div>
+<div class="tile"><div class="n">8</div><div class="l">Unique attacker IPs</div></div>
+<div class="tile"><div class="n">1</div><div class="l">Commands run</div></div>
 <div class="tile"><div class="n">0</div><div class="l">Malware downloads</div></div>
-<div class="tile"><div class="n">0</div><div class="l">ATT&amp;CK techniques</div></div>
+<div class="tile"><div class="n">3</div><div class="l">ATT&amp;CK techniques</div></div>
 </div>
 <h2>MITRE ATT&amp;CK Coverage</h2>
-<p class="muted">No techniques observed yet.</p>
-<h2>Attack Volume</h2><div class='grid2'>
-<div class="panel"><h3>Top source IPs</h3><p class="muted">No data yet.</p></div>
-<div class="panel"><h3>Most-tried usernames</h3><p class="muted">No data yet.</p></div>
-<div class="panel"><h3>Most-tried passwords</h3><p class="muted">No data yet.</p></div>
-<div class="panel"><h3>Most-run commands</h3><p class="muted">No data yet.</p></div>
+<p class="muted" style="margin-bottom:14px">3 technique(s) across 3 tactic(s). <a href="cowrie-attack-layer.json">Download the ATT&amp;CK Navigator layer</a> and open it at <a href="https://mitre-attack.github.io/attack-navigator/">attack-navigator</a>.</p>
+<div class="tactics">
+<div class="tac"><h3>Initial Access <b>2</b></h3>
+<div class="tech"><span class="tct">2x</span><span class="tid">T1078</span><div class="tnm">Valid Accounts</div>
+<div class="teg">ubuntu / ubuntu</div>
 </div>
+</div>
+<div class="tac"><h3>Credential Access <b>26</b></h3>
+<div class="tech"><span class="tct">26x</span><span class="tid">T1110.001</span><div class="tnm">Brute Force: Password Guessing</div>
+<div class="teg">admin / user</div>
+</div>
+</div>
+<div class="tac"><h3>Discovery <b>1</b></h3>
+<div class="tech"><span class="tct">1x</span><span class="tid">T1082</span><div class="tnm">System Information Discovery</div>
+<div class="teg">uname -a</div>
+</div>
+</div>
+</div>
+<h2>Attack Volume</h2><div class='grid2'>
+<div class="panel"><h3>Top source IPs</h3><svg viewBox="0 0 420 214" class="chart" role="img"><text x="0" y="16" class="bl">161.248.37.160</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#f85149"/><text x="380" y="16" class="bv">8</text><text x="0" y="42" class="bl">2.57.121.112</text><rect x="160" y="32" width="133" height="13" rx="3" fill="#f85149"/><text x="299" y="42" class="bv">5</text><text x="0" y="68" class="bl">163.7.8.178</text><rect x="160" y="58" width="107" height="13" rx="3" fill="#f85149"/><text x="273" y="68" class="bv">4</text><text x="0" y="94" class="bl">2.57.121.25</text><rect x="160" y="84" width="80" height="13" rx="3" fill="#f85149"/><text x="246" y="94" class="bv">3</text><text x="0" y="120" class="bl">193.46.255.86</text><rect x="160" y="110" width="80" height="13" rx="3" fill="#f85149"/><text x="246" y="120" class="bv">3</text><text x="0" y="146" class="bl">139.19.117.129</text><rect x="160" y="136" width="53" height="13" rx="3" fill="#f85149"/><text x="219" y="146" class="bv">2</text><text x="0" y="172" class="bl">176.39.74.230</text><rect x="160" y="162" width="53" height="13" rx="3" fill="#f85149"/><text x="219" y="172" class="bv">2</text><text x="0" y="198" class="bl">62.101.165.93</text><rect x="160" y="188" width="26" height="13" rx="3" fill="#f85149"/><text x="192" y="198" class="bv">1</text></svg></div>
+<div class="panel"><h3>Most-tried usernames</h3><svg viewBox="0 0 420 214" class="chart" role="img"><text x="0" y="16" class="bl">admin</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#58a6ff"/><text x="380" y="16" class="bv">11</text><text x="0" y="42" class="bl">beck</text><rect x="160" y="32" width="97" height="13" rx="3" fill="#58a6ff"/><text x="263" y="42" class="bv">5</text><text x="0" y="68" class="bl">root</text><rect x="160" y="58" width="77" height="13" rx="3" fill="#58a6ff"/><text x="243" y="68" class="bv">4</text><text x="0" y="94" class="bl">user</text><rect x="160" y="84" width="58" height="13" rx="3" fill="#58a6ff"/><text x="224" y="94" class="bv">3</text><text x="0" y="120" class="bl">ubuntu</text><rect x="160" y="110" width="38" height="13" rx="3" fill="#58a6ff"/><text x="204" y="120" class="bv">2</text><text x="0" y="146" class="bl">ubnt</text><rect x="160" y="136" width="19" height="13" rx="3" fill="#58a6ff"/><text x="185" y="146" class="bv">1</text><text x="0" y="172" class="bl">daemon</text><rect x="160" y="162" width="19" height="13" rx="3" fill="#58a6ff"/><text x="185" y="172" class="bv">1</text><text x="0" y="198" class="bl">adm</text><rect x="160" y="188" width="19" height="13" rx="3" fill="#58a6ff"/><text x="185" y="198" class="bv">1</text></svg></div>
+<div class="panel"><h3>Most-tried passwords</h3><svg viewBox="0 0 420 266" class="chart" role="img"><text x="0" y="16" class="bl">user</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="16" class="bv">2</text><text x="0" y="42" class="bl">123456</text><rect x="160" y="32" width="214" height="13" rx="3" fill="#d29922"/><text x="380" y="42" class="bv">2</text><text x="0" y="68" class="bl">user123</text><rect x="160" y="58" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="68" class="bv">1</text><text x="0" y="94" class="bl">fuckfest</text><rect x="160" y="84" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="94" class="bv">1</text><text x="0" y="120" class="bl">fuck12</text><rect x="160" y="110" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="120" class="bv">1</text><text x="0" y="146" class="bl">franki</text><rect x="160" y="136" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="146" class="bv">1</text><text x="0" y="172" class="bl">beck</text><rect x="160" y="162" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="172" class="bv">1</text><text x="0" y="198" class="bl">beck1</text><rect x="160" y="188" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="198" class="bv">1</text><text x="0" y="224" class="bl">beck123</text><rect x="160" y="214" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="224" class="bv">1</text><text x="0" y="250" class="bl">beck1234</text><rect x="160" y="240" width="107" height="13" rx="3" fill="#d29922"/><text x="273" y="250" class="bv">1</text></svg></div>
+<div class="panel"><h3>Most-run commands</h3><svg viewBox="0 0 420 32" class="chart" role="img"><text x="0" y="16" class="bl">uname -a</text><rect x="160" y="6" width="214" height="13" rx="3" fill="#3fb950"/><text x="380" y="16" class="bv">1</text></svg></div>
+</div>
+<h2>Commands Executed by Attackers</h2><div class='panel scroll'><table><tr><th>Count</th><th>Command</th><th>Mapped technique(s)</th></tr>
+<tr><td>1</td><td>uname -a</td><td>T1082</td></tr>
+</table></div>
 <footer>Static snapshot generated from Cowrie's JSON event log. Cowrie emulates a Linux shell &mdash; attacker commands are recorded, never executed. Source and deployment automation: <a href="https://github.com/ajcyberdefense/cowrie-honeypot">github.com/ajcyberdefense/cowrie-honeypot</a>. </footer></div>
