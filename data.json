@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-20 21:02:39",
+  "generated": "2026-09-20 22:02:39",
   "totals": {
-    "commands": 4135,
-    "login_failed": 6713,
+    "commands": 4136,
+    "login_failed": 6868,
     "login_success": 1150,
-    "sessions": 7380
+    "sessions": 7559
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6713,
+      "count": 6868,
       "examples": [
         "zhy / zhy",
         "vivek / 123123",
@@ -21,8 +21,8 @@
         "admin / 28081979"
       ],
       "first": "2026-09-20T00:00:25.589298Z",
-      "last": "2026-09-20T21:02:38.455453Z",
-      "unique_ips": 141
+      "last": "2026-09-20T22:02:16.158627Z",
+      "unique_ips": 143
     },
     {
       "id": "T1078",
@@ -277,7 +277,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      12
+      13
     ],
     [
       "enable",
