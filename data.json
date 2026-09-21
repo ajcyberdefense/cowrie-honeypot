@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-21 16:04:03",
+  "generated": "2026-09-21 17:04:02",
   "totals": {
-    "commands": 4318,
-    "login_failed": 5250,
-    "login_success": 1330,
-    "sessions": 5738
+    "commands": 4354,
+    "login_failed": 5562,
+    "login_success": 1345,
+    "sessions": 6106
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5250,
+      "count": 5562,
       "examples": [
         "root / 654321",
         "scout / scout",
@@ -21,14 +21,14 @@
         "user / 11q2w3e4r5t"
       ],
       "first": "2026-09-21T00:00:00.681036Z",
-      "last": "2026-09-21T15:55:34.103682Z",
-      "unique_ips": 80
+      "last": "2026-09-21T17:04:01.661313Z",
+      "unique_ips": 87
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1330,
+      "count": 1345,
       "examples": [
         "root / root",
         "root / vizxv",
@@ -37,8 +37,8 @@
         "zhangc / zhangc123"
       ],
       "first": "2026-09-21T00:19:23.395124Z",
-      "last": "2026-09-21T15:56:20.370963Z",
-      "unique_ips": 64
+      "last": "2026-09-21T16:54:14.984003Z",
+      "unique_ips": 69
     },
     {
       "id": "T1083",
@@ -59,7 +59,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 153,
+      "count": 155,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -68,8 +68,8 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-21T00:43:34.288062Z",
-      "last": "2026-09-21T15:25:51.186927Z",
-      "unique_ips": 31
+      "last": "2026-09-21T16:54:16.059908Z",
+      "unique_ips": 33
     },
     {
       "id": "T1222.002",
@@ -189,19 +189,19 @@
   "unmapped": [
     [
       "system",
-      1268
+      1269
     ],
     [
       "sh",
-      1268
+      1269
     ],
     [
       "shell",
-      38
+      39
     ],
     [
       "/bin/busybox UNSTABLE",
-      34
+      35
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -209,6 +209,18 @@
     ],
     [
       "sh 0",
+      10
+    ],
+    [
+      "zalee",
+      10
+    ],
+    [
+      "za",
+      10
+    ],
+    [
+      "&k`g&k|zpkfq)ES[M",
       10
     ],
     [
@@ -253,18 +265,6 @@
     ],
     [
       "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
-      3
-    ],
-    [
-      "enablelinuxshell",
-      3
-    ],
-    [
-      "ping ;sh",
-      3
-    ],
-    [
-      "cd /proc && cat self/cmdline",
       3
     ]
   ]
