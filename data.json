@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-22 02:02:10",
+  "generated": "2026-09-22 03:03:11",
   "totals": {
-    "commands": 53,
-    "login_failed": 139,
-    "login_success": 13,
-    "sessions": 173
+    "commands": 74,
+    "login_failed": 208,
+    "login_success": 18,
+    "sessions": 258
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 139,
+      "count": 208,
       "examples": [
         "daoperator / daoperator",
         "root / User@2022",
@@ -21,30 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-22T00:01:24.262742Z",
-      "last": "2026-09-22T02:01:12.263852Z",
-      "unique_ips": 9
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 13,
-      "examples": [
-        "salam / salam",
-        "experiment / experiment",
-        "root / unisheen",
-        "enable\\x00 / linuxshell\\x00",
-        "root / password"
-      ],
-      "first": "2026-09-22T00:06:10.185022Z",
-      "last": "2026-09-22T01:20:43.791372Z",
-      "unique_ips": 5
+      "last": "2026-09-22T03:02:11.461149Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 21,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -53,87 +37,129 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-22T00:06:56.657809Z",
-      "last": "2026-09-22T00:07:17.975865Z",
-      "unique_ips": 1
+      "last": "2026-09-22T03:00:46.098175Z",
+      "unique_ips": 4
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 18,
+      "examples": [
+        "salam / salam",
+        "experiment / experiment",
+        "root / unisheen",
+        "enable\\x00 / linuxshell\\x00",
+        "root / password"
+      ],
+      "first": "2026-09-22T00:06:10.185022Z",
+      "last": "2026-09-22T03:02:41.963459Z",
+      "unique_ips": 9
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 3,
+      "count": 6,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-22T00:06:11.162241Z",
-      "last": "2026-09-22T00:06:49.446552Z",
-      "unique_ips": 2
+      "last": "2026-09-22T03:00:18.881964Z",
+      "unique_ips": 4
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 5,
       "examples": [
         "w",
-        "whoami"
+        "whoami",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-22T00:07:06.574871Z",
-      "last": "2026-09-22T00:07:15.105765Z",
-      "unique_ips": 1
+      "last": "2026-09-22T03:00:43.380032Z",
+      "unique_ips": 3
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 4,
       "examples": [
         "crontab -l",
         "top"
       ],
       "first": "2026-09-22T00:07:05.175470Z",
-      "last": "2026-09-22T00:07:10.869245Z",
-      "unique_ips": 1
+      "last": "2026-09-22T03:00:39.353459Z",
+      "unique_ips": 2
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 2,
       "examples": [
         "ls -lh $(which ls)"
       ],
       "first": "2026-09-22T00:07:03.797814Z",
-      "last": "2026-09-22T00:07:03.797814Z",
-      "unique_ips": 1
+      "last": "2026-09-22T03:00:32.558414Z",
+      "unique_ips": 2
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 1,
+      "count": 2,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-22T00:06:49.446552Z",
-      "last": "2026-09-22T00:06:49.446552Z",
-      "unique_ips": 1
+      "last": "2026-09-22T03:00:18.881964Z",
+      "unique_ips": 2
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 1,
+      "count": 2,
       "examples": [],
       "first": "2026-09-22T00:06:49.812853Z",
-      "last": "2026-09-22T00:06:49.812853Z",
+      "last": "2026-09-22T03:00:19.253603Z",
+      "unique_ips": 2
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-22T02:49:13.484849Z",
+      "last": "2026-09-22T02:49:13.484849Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-22T02:49:13.484849Z",
+      "last": "2026-09-22T02:49:13.484849Z",
       "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "system",
-      9
+      10
     ],
     [
       "shell",
@@ -153,6 +179,14 @@
     ],
     [
       "echo \"experiment\\nvyKdreJBKCyS\\nvyKdreJBKCyS\\n\"|passwd",
+      1
+    ],
+    [
+      "echo -e \"jg\\ngy8rSEDGkUI4\\ngy8rSEDGkUI4\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"jg\\ngy8rSEDGkUI4\\ngy8rSEDGkUI4\\n\"|passwd",
       1
     ]
   ]
