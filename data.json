@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 01:01:11",
+  "generated": "2026-09-24 02:01:45",
   "totals": {
-    "commands": 167,
-    "login_failed": 112,
-    "login_success": 19,
-    "sessions": 211
+    "commands": 1034,
+    "login_failed": 713,
+    "login_success": 276,
+    "sessions": 835
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 112,
+      "count": 713,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,46 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T01:00:19.465149Z",
-      "unique_ips": 20
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 54,
-      "examples": [
-        ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
-        ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
-        ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;",
-        ">/dev/.f && chmod 777 /dev/.f && /dev/.f && cd /dev/;",
-        ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
-      ],
-      "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T00:59:45.184096Z",
-      "unique_ips": 7
-    },
-    {
-      "id": "T1082",
-      "name": "System Information Discovery",
-      "tactic": "Discovery",
-      "count": 20,
-      "examples": [
-        "cat /proc/cpuinfo | grep name | wc -l",
-        "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-        "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-        "uname -m",
-        "cat /proc/cpuinfo | grep model | grep name | wc -l"
-      ],
-      "first": "2026-09-24T00:16:03.897652Z",
-      "last": "2026-09-24T00:48:28.580808Z",
-      "unique_ips": 3
+      "last": "2026-09-24T02:01:44.754207Z",
+      "unique_ips": 27
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 19,
+      "count": 276,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -69,8 +37,53 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T01:00:26.963118Z",
-      "unique_ips": 12
+      "last": "2026-09-24T02:01:45.159867Z",
+      "unique_ips": 16
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 245,
+      "examples": [
+        "ls -lh $(which ls)",
+        "ls /home; /bin/busybox BOTNET"
+      ],
+      "first": "2026-09-24T00:16:08.185425Z",
+      "last": "2026-09-24T02:01:44.137507Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 114,
+      "examples": [
+        ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
+        ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
+        ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;",
+        ">/dev/.f && chmod 777 /dev/.f && /dev/.f && cd /dev/;",
+        ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
+      ],
+      "first": "2026-09-24T00:04:54.092424Z",
+      "last": "2026-09-24T01:55:33.706512Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 23,
+      "examples": [
+        "cat /proc/cpuinfo | grep name | wc -l",
+        "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+        "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+        "uname -m",
+        "cat /proc/cpuinfo | grep model | grep name | wc -l"
+      ],
+      "first": "2026-09-24T00:16:03.897652Z",
+      "last": "2026-09-24T01:50:46.775554Z",
+      "unique_ips": 6
     },
     {
       "id": "T1033",
@@ -128,18 +141,6 @@
       "unique_ips": 2
     },
     {
-      "id": "T1083",
-      "name": "File and Directory Discovery",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "ls -lh $(which ls)"
-      ],
-      "first": "2026-09-24T00:16:08.185425Z",
-      "last": "2026-09-24T00:48:16.675658Z",
-      "unique_ips": 2
-    },
-    {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
@@ -190,32 +191,36 @@
   ],
   "unmapped": [
     [
-      "/bin/busybox HISILICON",
-      12
+      "sh",
+      265
     ],
     [
       "system",
-      11
+      265
     ],
     [
-      "sh",
-      10
+      "/bin/busybox HISILICON",
+      27
     ],
     [
       "shell",
-      10
+      21
     ],
     [
       "enable",
-      9
+      19
     ],
     [
       "ping; sh",
-      8
+      18
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      4
+      9
+    ],
+    [
+      "/bin/busybox UNSTABLE",
+      2
     ],
     [
       "echo \"root:sZzSiwFPQJmR\"|chpasswd|bash",
@@ -263,10 +268,6 @@
     ],
     [
       "Cp0yJp+7n8gw696Uf/LGAAAACGRsckBzZnRwAQIDBAU=",
-      1
-    ],
-    [
-      "-----END OPENSSH PRIVATE KEY-----' > key.ppk; echo 'StrictHostKeyChecking no",
       1
     ]
   ]
