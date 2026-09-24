@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 08:03:12",
+  "generated": "2026-09-24 09:03:46",
   "totals": {
-    "commands": 4166,
-    "login_failed": 2604,
-    "login_success": 1077,
-    "sessions": 2918
+    "commands": 4332,
+    "login_failed": 3004,
+    "login_success": 1093,
+    "sessions": 3335
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2604,
+      "count": 3004,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,14 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T08:02:42.363688Z",
-      "unique_ips": 69
+      "last": "2026-09-24T09:03:41.769449Z",
+      "unique_ips": 73
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1077,
+      "count": 1093,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -37,8 +37,8 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T07:58:53.375791Z",
-      "unique_ips": 54
+      "last": "2026-09-24T09:02:14.466599Z",
+      "unique_ips": 57
     },
     {
       "id": "T1083",
@@ -58,7 +58,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 542,
+      "count": 614,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -67,8 +67,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T07:32:09.893665Z",
-      "unique_ips": 31
+      "last": "2026-09-24T09:02:16.766930Z",
+      "unique_ips": 33
     },
     {
       "id": "T1082",
@@ -211,31 +211,31 @@
   "unmapped": [
     [
       "sh",
-      1029
+      1042
     ],
     [
       "system",
-      1029
+      1042
     ],
     [
       "/bin/busybox HISILICON",
-      127
+      145
     ],
     [
       "shell",
-      91
+      104
     ],
     [
       "enable",
-      88
+      100
     ],
     [
       "ping; sh",
-      85
+      97
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      43
+      49
     ],
     [
       "zalee",
@@ -255,10 +255,14 @@
     ],
     [
       "root",
-      4
+      8
     ],
     [
       "/bin/busybox UNSTABLE",
+      4
+    ],
+    [
+      "admin",
       3
     ],
     [
@@ -283,10 +287,6 @@
     ],
     [
       "rm /tmp/bendi.py",
-      1
-    ],
-    [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
       1
     ]
   ]
