@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 22:03:13",
+  "generated": "2026-09-25 23:02:40",
   "totals": {
-    "commands": 4076,
-    "login_failed": 6547,
-    "login_success": 379,
-    "sessions": 7412
+    "commands": 4155,
+    "login_failed": 7246,
+    "login_success": 387,
+    "sessions": 8124
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 6547,
+      "count": 7246,
       "examples": [
         "root / casa",
         "root / router",
@@ -21,14 +21,14 @@
         "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T22:03:09.763793Z",
-      "unique_ips": 160
+      "last": "2026-09-25T23:01:36.357508Z",
+      "unique_ips": 164
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1437,
+      "count": 1473,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,8 +37,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T21:56:13.277938Z",
-      "unique_ips": 99
+      "last": "2026-09-25T22:35:32.994203Z",
+      "unique_ips": 100
     },
     {
       "id": "T1082",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 379,
+      "count": 387,
       "examples": [
         "root / root",
         "adm / adm",
@@ -69,8 +69,8 @@
         "admin / password"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T21:56:11.067216Z",
-      "unique_ips": 135
+      "last": "2026-09-25T23:01:40.870034Z",
+      "unique_ips": 138
     },
     {
       "id": "T1105",
@@ -250,31 +250,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      309
+      318
     ],
     [
       "sh",
-      274
+      280
     ],
     [
       "system",
-      272
+      278
     ],
     [
       "shell",
-      219
+      225
     ],
     [
       "enable",
-      215
+      221
     ],
     [
       "ping; sh",
-      206
+      212
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      103
+      106
     ],
     [
       "/bin/busybox",
