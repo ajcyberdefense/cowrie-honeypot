@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-26 01:04:11",
+  "generated": "2026-09-26 02:00:08",
   "totals": {
-    "commands": 101,
-    "login_failed": 61,
-    "login_success": 18,
-    "sessions": 71
+    "commands": 189,
+    "login_failed": 122,
+    "login_success": 24,
+    "sessions": 153
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 61,
+      "count": 122,
       "examples": [
         "gizelle / gizelle",
         "gizelle / gizelle1",
@@ -21,14 +21,14 @@
         "gizelle / gizelle12345"
       ],
       "first": "2026-09-26T00:00:54.368774Z",
-      "last": "2026-09-26T01:02:57.450375Z",
-      "unique_ips": 9
+      "last": "2026-09-26T02:00:03.867939Z",
+      "unique_ips": 15
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 27,
+      "count": 55,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,30 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-26T00:13:52.548336Z",
-      "last": "2026-09-26T00:29:28.754109Z",
-      "unique_ips": 3
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 18,
-      "examples": [
-        "root / a1sev5y7c39k",
-        "root / root",
-        "git / 1122",
-        "ubuntu / linux",
-        "lghkel\\x09 / zpz}ld\\x09"
-      ],
-      "first": "2026-09-26T00:10:34.067165Z",
-      "last": "2026-09-26T01:02:42.570254Z",
-      "unique_ips": 6
+      "last": "2026-09-26T01:58:35.293809Z",
+      "unique_ips": 7
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 27,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -69,71 +53,91 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-26T00:18:56.619625Z",
-      "last": "2026-09-26T00:19:17.385642Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:48.373846Z",
+      "unique_ips": 3
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 24,
+      "examples": [
+        "root / a1sev5y7c39k",
+        "root / root",
+        "git / 1122",
+        "ubuntu / linux",
+        "lghkel\\x09 / zpz}ld\\x09"
+      ],
+      "first": "2026-09-26T00:10:34.067165Z",
+      "last": "2026-09-26T01:58:33.071043Z",
+      "unique_ips": 10
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 6,
       "examples": [
         "w",
         "whoami"
       ],
       "first": "2026-09-26T00:19:06.377345Z",
-      "last": "2026-09-26T00:19:14.692166Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:46.280745Z",
+      "unique_ips": 3
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 6,
       "examples": [
         "crontab -l",
         "top"
       ],
       "first": "2026-09-26T00:19:04.966226Z",
-      "last": "2026-09-26T00:19:10.560230Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:43.068221Z",
+      "unique_ips": 3
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 1,
+      "count": 3,
       "examples": [
         "ls -lh $(which ls)"
       ],
       "first": "2026-09-26T00:19:03.606935Z",
-      "last": "2026-09-26T00:19:03.606935Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:36.975983Z",
+      "unique_ips": 3
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 1,
+      "count": 3,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-26T00:18:49.666466Z",
-      "last": "2026-09-26T00:18:49.666466Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:21.681294Z",
+      "unique_ips": 3
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 1,
+      "count": 3,
       "examples": [],
       "first": "2026-09-26T00:18:50.025908Z",
-      "last": "2026-09-26T00:18:50.025908Z",
-      "unique_ips": 1
+      "last": "2026-09-26T01:42:21.961552Z",
+      "unique_ips": 3
     }
   ],
   "unmapped": [
+    [
+      "/bin/busybox HISILICON",
+      12
+    ],
     [
       "zalee",
       10
@@ -147,32 +151,28 @@
       10
     ],
     [
-      "/bin/busybox HISILICON",
-      6
-    ],
-    [
       "sh",
-      4
+      8
     ],
     [
       "shell",
-      4
+      8
     ],
     [
       "enable",
-      4
+      8
     ],
     [
       "system",
-      4
+      8
     ],
     [
       "ping; sh",
-      4
+      8
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      2
+      4
     ],
     [
       "echo -e \"linux\\nB4cWkRZ8eGZR\\nB4cWkRZ8eGZR\"|passwd|bash",
@@ -180,6 +180,22 @@
     ],
     [
       "echo \"linux\\nB4cWkRZ8eGZR\\nB4cWkRZ8eGZR\\n\"|passwd",
+      1
+    ],
+    [
+      "echo -e \"123456\\nqyz4Gpx6mN3d\\nqyz4Gpx6mN3d\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"123456\\nqyz4Gpx6mN3d\\nqyz4Gpx6mN3d\\n\"|passwd",
+      1
+    ],
+    [
+      "echo -e \"bot@123\\n1iAvt1YQkyKJ\\n1iAvt1YQkyKJ\"|passwd|bash",
+      1
+    ],
+    [
+      "echo \"bot@123\\n1iAvt1YQkyKJ\\n1iAvt1YQkyKJ\\n\"|passwd",
       1
     ]
   ]
