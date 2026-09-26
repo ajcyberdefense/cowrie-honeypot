@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-26 15:01:53",
+  "generated": "2026-09-26 16:04:53",
   "totals": {
-    "commands": 2882,
-    "login_failed": 5200,
-    "login_success": 698,
-    "sessions": 4267
+    "commands": 3013,
+    "login_failed": 5285,
+    "login_success": 709,
+    "sessions": 4384
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5200,
+      "count": 5285,
       "examples": [
         "gizelle / gizelle",
         "gizelle / gizelle1",
@@ -21,14 +21,14 @@
         "gizelle / gizelle12345"
       ],
       "first": "2026-09-26T00:00:54.368774Z",
-      "last": "2026-09-26T15:01:46.272754Z",
-      "unique_ips": 100
+      "last": "2026-09-26T16:03:49.384640Z",
+      "unique_ips": 102
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 698,
+      "count": 709,
       "examples": [
         "root / a1sev5y7c39k",
         "root / root",
@@ -37,8 +37,8 @@
         "lghkel\\x09 / zpz}ld\\x09"
       ],
       "first": "2026-09-26T00:10:34.067165Z",
-      "last": "2026-09-26T14:59:33.484039Z",
-      "unique_ips": 74
+      "last": "2026-09-26T15:57:22.773180Z",
+      "unique_ips": 75
     },
     {
       "id": "T1083",
@@ -58,7 +58,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 326,
+      "count": 386,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -67,14 +67,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-26T00:13:52.548336Z",
-      "last": "2026-09-26T14:59:35.592885Z",
-      "unique_ips": 44
+      "last": "2026-09-26T15:57:25.379117Z",
+      "unique_ips": 45
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 239,
+      "count": 240,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -83,7 +83,7 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-26T00:18:56.619625Z",
-      "last": "2026-09-26T14:34:19.222004Z",
+      "last": "2026-09-26T15:14:15.979982Z",
       "unique_ips": 36
     },
     {
@@ -195,31 +195,31 @@
   "unmapped": [
     [
       "sh",
-      633
+      643
     ],
     [
       "system",
-      633
+      643
     ],
     [
       "/bin/busybox HISILICON",
-      60
+      75
     ],
     [
       "shell",
-      55
+      65
     ],
     [
       "enable",
-      51
+      61
     ],
     [
       "ping; sh",
-      40
+      50
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      20
+      25
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
