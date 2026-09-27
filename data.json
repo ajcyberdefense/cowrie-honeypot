@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-27 18:04:47",
+  "generated": "2026-09-27 19:00:24",
   "totals": {
-    "commands": 1625,
-    "login_failed": 5200,
-    "login_success": 166,
-    "sessions": 5647
+    "commands": 1911,
+    "login_failed": 5220,
+    "login_success": 188,
+    "sessions": 5718
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 5200,
+      "count": 5220,
       "examples": [
         "mongo / 1qaz@WSX",
         "gitlab-runner / qwerty",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-09-27T00:00:14.493551Z",
-      "last": "2026-09-27T18:02:23.968877Z",
-      "unique_ips": 106
+      "last": "2026-09-27T18:58:28.784576Z",
+      "unique_ips": 107
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 545,
+      "count": 677,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,14 +37,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-27T00:03:01.683614Z",
-      "last": "2026-09-27T17:43:05.057110Z",
-      "unique_ips": 43
+      "last": "2026-09-27T18:50:23.969197Z",
+      "unique_ips": 44
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 166,
+      "count": 188,
       "examples": [
         "root / root",
         "enable / linuxshell",
@@ -53,8 +53,8 @@
         "root / 1234"
       ],
       "first": "2026-09-27T00:02:58.504576Z",
-      "last": "2026-09-27T17:58:14.770147Z",
-      "unique_ips": 83
+      "last": "2026-09-27T18:50:21.374288Z",
+      "unique_ips": 84
     },
     {
       "id": "T1082",
@@ -231,31 +231,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      120
+      153
     ],
     [
       "sh",
-      89
+      111
     ],
     [
       "system",
-      89
+      111
     ],
     [
       "shell",
-      88
+      110
     ],
     [
       "enable",
-      86
+      108
     ],
     [
       "ping; sh",
-      80
+      102
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      40
+      51
     ],
     [
       "/bin/busybox",
