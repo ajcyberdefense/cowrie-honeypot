@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-28 11:01:47",
+  "generated": "2026-09-28 12:00:40",
   "totals": {
-    "commands": 1512,
-    "login_failed": 2559,
-    "login_success": 136,
-    "sessions": 2935
+    "commands": 1513,
+    "login_failed": 2589,
+    "login_success": 139,
+    "sessions": 2988
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2559,
+      "count": 2589,
       "examples": [
         "admin / admin",
         "admin / admins",
@@ -21,14 +21,14 @@
         "casie / casie123"
       ],
       "first": "2026-09-28T00:01:12.771895Z",
-      "last": "2026-09-28T11:01:12.470517Z",
-      "unique_ips": 83
+      "last": "2026-09-28T11:49:06.386157Z",
+      "unique_ips": 85
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 509,
+      "count": 510,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -37,8 +37,8 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-28T00:01:18.281427Z",
-      "last": "2026-09-28T10:47:32.758102Z",
-      "unique_ips": 44
+      "last": "2026-09-28T11:29:35.178786Z",
+      "unique_ips": 45
     },
     {
       "id": "T1082",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 136,
+      "count": 139,
       "examples": [
         "root / root",
         "root / password",
@@ -69,8 +69,8 @@
         "developer / root"
       ],
       "first": "2026-09-28T00:01:14.476654Z",
-      "last": "2026-09-28T10:47:28.669464Z",
-      "unique_ips": 63
+      "last": "2026-09-28T11:31:07.087789Z",
+      "unique_ips": 66
     },
     {
       "id": "T1105",
