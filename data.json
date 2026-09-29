@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-29 04:05:08",
+  "generated": "2026-09-29 05:04:45",
   "totals": {
-    "commands": 542,
-    "login_failed": 724,
-    "login_success": 44,
-    "sessions": 900
+    "commands": 544,
+    "login_failed": 1402,
+    "login_success": 46,
+    "sessions": 1556
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 724,
+      "count": 1402,
       "examples": [
         "root / 12345Abc",
         "administrator / 1qazxsw2",
@@ -21,14 +21,14 @@
         "latoya / latoya1"
       ],
       "first": "2026-09-29T00:00:22.776997Z",
-      "last": "2026-09-29T04:05:07.280981Z",
-      "unique_ips": 33
+      "last": "2026-09-29T05:04:40.949003Z",
+      "unique_ips": 40
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 193,
+      "count": 194,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
@@ -37,14 +37,14 @@
         ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;"
       ],
       "first": "2026-09-29T00:21:19.292312Z",
-      "last": "2026-09-29T03:58:07.479305Z",
-      "unique_ips": 20
+      "last": "2026-09-29T04:17:59.277484Z",
+      "unique_ips": 21
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 84,
+      "count": 85,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -53,14 +53,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-29T00:21:27.067552Z",
-      "last": "2026-09-29T03:58:23.784642Z",
-      "unique_ips": 12
+      "last": "2026-09-29T04:30:14.371746Z",
+      "unique_ips": 13
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 44,
+      "count": 46,
       "examples": [
         "root / Asdfghjk1",
         "root / root",
@@ -69,8 +69,8 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-29T00:21:18.787089Z",
-      "last": "2026-09-29T03:58:28.276128Z",
-      "unique_ips": 25
+      "last": "2026-09-29T04:30:02.087122Z",
+      "unique_ips": 27
     },
     {
       "id": "T1105",
