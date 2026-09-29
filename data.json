@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-29 15:00:47",
+  "generated": "2026-09-29 16:01:45",
   "totals": {
-    "commands": 1887,
-    "login_failed": 3231,
-    "login_success": 166,
-    "sessions": 3587
+    "commands": 1917,
+    "login_failed": 3500,
+    "login_success": 171,
+    "sessions": 3856
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 3231,
+      "count": 3500,
       "examples": [
         "root / 12345Abc",
         "administrator / 1qazxsw2",
@@ -21,14 +21,14 @@
         "latoya / latoya1"
       ],
       "first": "2026-09-29T00:00:22.776997Z",
-      "last": "2026-09-29T15:00:35.193007Z",
-      "unique_ips": 106
+      "last": "2026-09-29T16:01:44.546230Z",
+      "unique_ips": 110
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 675,
+      "count": 687,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
@@ -37,14 +37,14 @@
         ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;"
       ],
       "first": "2026-09-29T00:21:19.292312Z",
-      "last": "2026-09-29T14:45:45.068177Z",
-      "unique_ips": 53
+      "last": "2026-09-29T15:01:54.547970Z",
+      "unique_ips": 54
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 237,
+      "count": 238,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -53,14 +53,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-29T00:21:27.067552Z",
-      "last": "2026-09-29T14:46:18.153058Z",
-      "unique_ips": 35
+      "last": "2026-09-29T15:46:36.577004Z",
+      "unique_ips": 36
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 166,
+      "count": 171,
       "examples": [
         "root / Asdfghjk1",
         "root / root",
@@ -69,8 +69,8 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-29T00:21:18.787089Z",
-      "last": "2026-09-29T14:45:40.068283Z",
-      "unique_ips": 76
+      "last": "2026-09-29T15:46:35.484564Z",
+      "unique_ips": 80
     },
     {
       "id": "T1105",
@@ -213,31 +213,31 @@
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      141
+      144
     ],
     [
       "sh",
-      100
+      103
     ],
     [
       "shell",
-      100
+      103
     ],
     [
       "enable",
-      100
+      102
     ],
     [
       "system",
-      100
+      102
     ],
     [
       "ping; sh",
-      94
+      96
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      47
+      48
     ],
     [
       "/bin/busybox",
