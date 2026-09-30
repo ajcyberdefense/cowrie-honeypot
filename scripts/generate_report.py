@@ -25,7 +25,7 @@ import json
 import os
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mitre_map  # noqa: E402
@@ -57,6 +57,7 @@ h2{font-size:16px;margin:30px 0 12px;padding-bottom:8px;
 .tile .n{font-size:26px;font-weight:650}
 .tile .l{color:var(--mut);font-size:12px;text-transform:uppercase;
          letter-spacing:.06em;margin-top:2px}
+.tile .d{color:var(--acc);font-size:12px;margin-top:6px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
 .panel h3{font-size:13px;color:var(--mut);text-transform:uppercase;
@@ -96,6 +97,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
   Cowrie honeypot, mapped to MITRE ATT&amp;CK.</div>
   <div class="sub" style="margin-top:10px">
     <span class="badge">Generated __GENERATED__</span>
+    <span class="badge">All-time since __SINCE__</span>
     <span class="badge">Static snapshot</span>
     <span class="badge">Cowrie 3.x</span>
   </div>
@@ -111,21 +113,63 @@ def redact_ip(ip, enabled):
     return ip
 
 
-def load_events(log_file):
-    events = []
-    if not os.path.exists(log_file):
-        print("[!] Log file not found: %s" % log_file, file=sys.stderr)
-        sys.exit(1)
-    with open(log_file, encoding="utf-8", errors="replace") as fh:
-        for line in fh:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                events.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue
-    return events
+class Tally:
+    """Report-only aggregates, filled as events stream past mitre_map.analyze().
+
+    All-time logs run to gigabytes and the host has under 1 GB of RAM, so
+    events are counted on the fly and never held in a list.
+    """
+
+    def __init__(self, since):
+        self.since = since          # "YYYY-MM-DDTHH:MM:SS"; at/after = last 24h
+        self.first_ts = None
+        self.session_ips = Counter()
+        self.users = Counter()
+        self.passwords = Counter()
+        self.commands = Counter()
+        self.downloads = {}         # sha256 -> url, first seen wins
+        self.download_count = 0
+        self.recent = Counter()
+        self.recent_ips = set()
+
+    def watch(self, events):
+        for event in events:
+            self.add(event)
+            yield event
+
+    def add(self, e):
+        eid = e.get("eventid")
+        src = e.get("src_ip")
+        ts = (e.get("timestamp") or "")[:19]
+        if ts and self.first_ts is None:
+            self.first_ts = ts      # rotations are read oldest first
+        recent = ts >= self.since
+
+        if eid == "cowrie.session.connect":
+            if src:
+                self.session_ips[src] += 1
+            if recent:
+                self.recent["sessions"] += 1
+                if src:
+                    self.recent_ips.add(src)
+        elif eid in ("cowrie.login.failed", "cowrie.login.success"):
+            if e.get("username"):
+                self.users[e["username"]] += 1
+            if e.get("password"):
+                self.passwords[e["password"]] += 1
+            if recent:
+                self.recent["logins"] += 1
+        elif eid == "cowrie.command.input":
+            cmd = (e.get("input") or "").strip()
+            if cmd:
+                self.commands[cmd[:120]] += 1   # bound memory; display is 70
+                if recent:
+                    self.recent["commands"] += 1
+        elif eid == "cowrie.session.file_download":
+            self.download_count += 1
+            self.downloads.setdefault(e.get("shasum", ""), e.get("url", ""))
+            if recent:
+                self.recent["downloads"] += 1
 
 
 def bar_svg(rows, color="#f85149", width=420, row_h=26):
@@ -152,44 +196,43 @@ def bar_svg(rows, color="#f85149", width=420, row_h=26):
     return "".join(out)
 
 
-def build_html(analysis, events, redact):
-    logins = [e for e in events
-              if e.get("eventid") in ("cowrie.login.failed", "cowrie.login.success")]
-    cmds = [e for e in events if e.get("eventid") == "cowrie.command.input"]
-    downloads = [e for e in events
-                 if e.get("eventid") == "cowrie.session.file_download"]
-
-    top_ips = Counter(redact_ip(e.get("src_ip"), redact)
-                      for e in logins if e.get("src_ip")).most_common(10)
-    top_users = Counter(e.get("username") for e in logins
-                        if e.get("username")).most_common(10)
-    top_pw = Counter(e.get("password") for e in logins
-                     if e.get("password")).most_common(10)
-    top_cmds = Counter((e.get("input") or "").strip() for e in cmds
-                       if (e.get("input") or "").strip()).most_common(12)
+def build_html(analysis, tally, redact, now):
+    # Sessions, not login attempts: one session carries many logins, so
+    # counting logins per IP overshot the Sessions total (the old ~7,700
+    # "per-IP" figure against 4,293 sessions).
+    top_ips = [(redact_ip(ip, redact), n)
+               for ip, n in tally.session_ips.most_common(10)]
+    top_users = tally.users.most_common(10)
+    top_pw = tally.passwords.most_common(10)
+    top_cmds = tally.commands.most_common(12)
 
     tot = analysis["totals"]
-    unique_ips = len({e.get("src_ip") for e in logins if e.get("src_ip")})
-    generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    recent = tally.recent
+    generated = now.strftime("%Y-%m-%d %H:%M UTC")
+    since = (tally.first_ts or "")[:10] or "n/a"
 
     tiles = [
-        ("Sessions", tot["sessions"]),
-        ("Login attempts", tot["login_failed"] + tot["login_success"]),
-        ("Unique attacker IPs", unique_ips),
-        ("Commands run", tot["commands"]),
-        ("Malware downloads", len(downloads)),
-        ("ATT&CK techniques", len(analysis["techniques"])),
+        ("Sessions", tot["sessions"], recent["sessions"]),
+        ("Login attempts", tot["login_failed"] + tot["login_success"],
+         recent["logins"]),
+        ("Unique attacker IPs", len(tally.session_ips), len(tally.recent_ips)),
+        ("Commands run", tot["commands"], recent["commands"]),
+        ("Malware downloads", tally.download_count, recent["downloads"]),
+        ("ATT&CK techniques", len(analysis["techniques"]), None),
     ]
 
     parts = []
     A = parts.append
 
-    A(_HEAD_HTML.replace("__GENERATED__", html.escape(generated)))
+    A(_HEAD_HTML.replace("__GENERATED__", html.escape(generated))
+                .replace("__SINCE__", html.escape(since)))
 
     A('<div class="tiles">')
-    for label, n in tiles:
-        A('<div class="tile"><div class="n">%s</div><div class="l">%s</div></div>'
-          % (format(n, ","), html.escape(label)))
+    for label, n, last24 in tiles:
+        delta = ("" if last24 is None else
+                 '<div class="d">+%s last 24h</div>' % format(last24, ","))
+        A('<div class="tile"><div class="n">%s</div><div class="l">%s</div>%s</div>'
+          % (format(n, ","), html.escape(label), delta))
     A("</div>")
 
     # --- ATT&CK -------------------------------------------------------------
@@ -227,7 +270,8 @@ def build_html(analysis, events, redact):
 
     # --- Charts -------------------------------------------------------------
     A("<h2>Attack Volume</h2><div class='grid2'>")
-    A('<div class="panel"><h3>Top source IPs</h3>%s</div>' % bar_svg(top_ips))
+    A('<div class="panel"><h3>Top source IPs (sessions)</h3>%s</div>'
+      % bar_svg(top_ips))
     A('<div class="panel"><h3>Most-tried usernames</h3>%s</div>'
       % bar_svg(top_users, "#58a6ff"))
     A('<div class="panel"><h3>Most-tried passwords</h3>%s</div>'
@@ -237,18 +281,12 @@ def build_html(analysis, events, redact):
     A("</div>")
 
     # --- Malware ------------------------------------------------------------
-    if downloads:
+    if tally.downloads:
         A("<h2>Malware Retrieved</h2><div class='panel scroll'><table>"
           "<tr><th>URL</th><th>SHA-256</th></tr>")
-        seen = set()
-        for e in downloads:
-            key = e.get("shasum", "")
-            if key in seen:
-                continue
-            seen.add(key)
+        for key, url in tally.downloads.items():
             A("<tr><td>%s</td><td>%s</td></tr>"
-              % (html.escape(str(e.get("url", ""))[:80]),
-                 html.escape(str(key)[:64])))
+              % (html.escape(str(url)[:80]), html.escape(str(key)[:64])))
         A("</table></div>")
 
     # --- Commands -----------------------------------------------------------
@@ -282,12 +320,19 @@ def main():
     args = ap.parse_args()
 
     log_file = mitre_map.resolve_log_file(args.log)
-    analysis = mitre_map.analyze(log_file)
-    events = load_events(log_file)
+    now = datetime.now(timezone.utc)
+    tally = Tally((now - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%S"))
+    # ponytail: re-parses every rotation each run (~2s/day of logs on the
+    # Oracle micro). Cache per-day aggregates of the immutable rotated files
+    # if the hourly run gets too slow.
+    analysis = mitre_map.analyze(
+        log_file, events=tally.watch(mitre_map.iter_events(log_file)))
+    analysis["data_since"] = tally.first_ts
+    analysis["last_24h"] = dict(tally.recent, unique_ips=len(tally.recent_ips))
 
     # Render fully before touching disk, so a failure never leaves a
     # half-written or truncated index.html behind for the publisher to push.
-    page = build_html(analysis, events, args.redact)
+    page = build_html(analysis, tally, args.redact, now)
     layer = mitre_map.build_layer(analysis, "Cowrie Honeypot")
 
     os.makedirs(args.out, exist_ok=True)

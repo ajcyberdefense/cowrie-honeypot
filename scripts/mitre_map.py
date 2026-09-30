@@ -18,6 +18,7 @@
 # =============================================================================
 
 import argparse
+import glob
 import json
 import os
 import re
@@ -169,8 +170,40 @@ def resolve_log_file(explicit=None):
     return DEFAULT_LOG_PATHS[0]
 
 
-def analyze(log_file):
-    """Walk the Cowrie JSON log and accumulate per-technique evidence."""
+def log_files(log_file, rotated=True):
+    """The live log plus Cowrie's daily rotations beside it, oldest first.
+
+    Cowrie rotates cowrie.json at midnight UTC into cowrie.json.YYYY-MM-DD.
+    Reading only the live file would reset every total to zero each night.
+    """
+    if not rotated:
+        return [log_file]
+    older = glob.glob(glob.escape(log_file)
+                      + ".[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]")
+    return sorted(older) + [log_file]
+
+
+def iter_events(log_file, rotated=True):
+    """Yield every parsed event from the live log and, by default, its rotations."""
+    for path in log_files(log_file, rotated):
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    yield json.loads(line)
+                except json.JSONDecodeError:
+                    continue  # partial trailing write
+
+
+def analyze(log_file, events=None):
+    """Walk the Cowrie JSON log and accumulate per-technique evidence.
+
+    Reads only the live log by default — the dashboard calls this on every
+    request. Pass `events` (e.g. iter_events(log_file)) for all-time data or
+    to reuse a stream the caller is already reading.
+    """
     techniques = defaultdict(lambda: {
         "id": "", "name": "", "tactic": "",
         "count": 0, "src_ips": set(), "examples": [], "first": None, "last": None,
@@ -196,48 +229,42 @@ def analyze(log_file):
               file=sys.stderr)
         sys.exit(1)
 
-    with open(log_file, encoding="utf-8", errors="replace") as fh:
-        for line in fh:
-            line = line.strip()
-            if not line:
+    if events is None:
+        events = iter_events(log_file, rotated=False)
+
+    for event in events:
+        eid = event.get("eventid", "")
+        src = event.get("src_ip")
+        ts = event.get("timestamp")
+
+        if eid == "cowrie.session.connect":
+            totals["sessions"] += 1
+
+        elif eid == "cowrie.login.failed":
+            totals["login_failed"] += 1
+            record(*LOGIN_FAILED_TECHNIQUE, src, ts,
+                   "%s / %s" % (event.get("username"), event.get("password")))
+
+        elif eid == "cowrie.login.success":
+            totals["login_success"] += 1
+            record(*LOGIN_SUCCESS_TECHNIQUE, src, ts,
+                   "%s / %s" % (event.get("username"), event.get("password")))
+
+        elif eid == "cowrie.command.input":
+            cmd = (event.get("input") or "").strip()
+            if not cmd:
                 continue
-            try:
-                event = json.loads(line)
-            except json.JSONDecodeError:
-                continue  # partial trailing write
+            totals["commands"] += 1
+            hits = classify_command(cmd)
+            if hits:
+                for tid, name, tactic in hits:
+                    record(tid, name, tactic, src, ts, cmd[:120])
+            else:
+                unmapped[cmd[:120]] += 1
 
-            eid = event.get("eventid", "")
-            src = event.get("src_ip")
-            ts = event.get("timestamp")
-
-            if eid == "cowrie.session.connect":
-                totals["sessions"] += 1
-
-            elif eid == "cowrie.login.failed":
-                totals["login_failed"] += 1
-                record(*LOGIN_FAILED_TECHNIQUE, src, ts,
-                       "%s / %s" % (event.get("username"), event.get("password")))
-
-            elif eid == "cowrie.login.success":
-                totals["login_success"] += 1
-                record(*LOGIN_SUCCESS_TECHNIQUE, src, ts,
-                       "%s / %s" % (event.get("username"), event.get("password")))
-
-            elif eid == "cowrie.command.input":
-                cmd = (event.get("input") or "").strip()
-                if not cmd:
-                    continue
-                totals["commands"] += 1
-                hits = classify_command(cmd)
-                if hits:
-                    for tid, name, tactic in hits:
-                        record(tid, name, tactic, src, ts, cmd[:120])
-                else:
-                    unmapped[cmd[:120]] += 1
-
-            elif eid == "cowrie.session.file_download":
-                record("T1105", "Ingress Tool Transfer", "Command and Control",
-                       src, ts, event.get("url", "")[:120])
+        elif eid == "cowrie.session.file_download":
+            record("T1105", "Ingress Tool Transfer", "Command and Control",
+                   src, ts, event.get("url", "")[:120])
 
     # Sets are not JSON-serializable and callers want a count anyway.
     for t in techniques.values():
