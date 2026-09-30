@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-09-30 01:06:30",
+  "generated": "2026-09-30 02:03:16",
   "totals": {
-    "commands": 192865,
-    "login_failed": 309337,
-    "login_success": 49224,
-    "sessions": 320371
+    "commands": 192872,
+    "login_failed": 309399,
+    "login_success": 49226,
+    "sessions": 320449
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 309337,
+      "count": 309399,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-09-30T01:06:23.455697Z",
-      "unique_ips": 5321
+      "last": "2026-09-30T02:02:35.150792Z",
+      "unique_ips": 5324
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 49224,
+      "count": 49226,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-09-30T00:58:37.888333Z",
-      "unique_ips": 4204
+      "last": "2026-09-30T02:01:23.862547Z",
+      "unique_ips": 4205
     },
     {
       "id": "T1222.002",
@@ -311,15 +311,15 @@
   "unmapped": [
     [
       "sh",
-      44094
+      44095
     ],
     [
       "system",
-      43618
+      43619
     ],
     [
       "shell",
-      29363
+      29364
     ],
     [
       "/bin/busybox",
@@ -331,7 +331,7 @@
     ],
     [
       "enable",
-      2211
+      2212
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -339,11 +339,11 @@
     ],
     [
       "/bin/busybox HISILICON",
-      1551
+      1552
     ],
     [
       "ping; sh",
-      1229
+      1230
     ],
     [
       "linuxshell",
@@ -359,7 +359,7 @@
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      590
+      591
     ],
     [
       "enablelinuxshell",
@@ -392,10 +392,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 7553,
-    "logins": 7979,
-    "commands": 5223,
-    "downloads": 101,
-    "unique_ips": 320
+    "sessions": 7568,
+    "logins": 8005,
+    "commands": 4985,
+    "downloads": 97,
+    "unique_ips": 322
   }
 }
