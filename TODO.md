@@ -60,18 +60,25 @@ logged (`xc3511`: 43 binaries, tried 3,009 times). Write-up:
 
 ---
 
-## Phase 3 — Threat Intel Production `TODO`
+## Phase 3 — Threat Intel Production `IN PROGRESS`
 
 Source IPs are currently just strings. Turn them into an intel product.
 
-- [ ] Enrich: ASN, geolocation, first/last seen, residential vs. hosting
+- [x] Enrich: ASN, geolocation, first/last seen, residential vs. hosting
       (hosting = rented VPS = disposable infrastructure)
-- [ ] Cross-reference against DShield / AbuseIPDB
-- [ ] Infrastructure clustering — do the same IPs reuse credential lists,
+- [x] Cross-reference against DShield / AbuseIPDB
+- [x] Infrastructure clustering — do the same IPs reuse credential lists,
       download URLs, or timing patterns? Look for campaigns, not events
-- [ ] Write with analytic confidence language ("assessed with moderate
+- [x] Write with analytic confidence language ("assessed with moderate
       confidence") — a distinct skill from the technical work
-- [ ] Submit confirmed malicious IPs to AbuseIPDB
+- [ ] Submit confirmed malicious IPs to AbuseIPDB — 1,237 droppers, wording
+      reviewed; free tier is 1,000/day so it takes two runs of
+      `intel_enrich.py --abuseipdb --submit`
+
+Result: 12,208 IPs in four activity tiers, 118 artifact-sharing groups, six
+campaigns assessed with confidence levels (incl. a 1,162-IP SMTP proxy
+validation operation that runs no commands). Write-up:
+[docs/08-threat-intel.md](docs/08-threat-intel.md).
 
 ---
 
