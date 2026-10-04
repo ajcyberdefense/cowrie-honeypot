@@ -101,6 +101,19 @@ at the source. Write-up: [docs/09-siem.md](docs/09-siem.md).
 
 ---
 
+## Phase 5 — Correlation Rules `DONE`
+
+- [x] SSH tunnel to a mail port (no commands run) — query rule
+- [x] Download and chmod split across commands — EQL sequence
+- [x] Burst of fingerprinting commands — threshold rule
+- [x] Parity vs Python, and marginal value vs the Part 6 rules
+
+Result: exact parity on all three. `smtp_tunnel` adds 695 sessions no rule saw;
+the other two mostly re-detect sessions already caught (5 and 0 new).
+Write-up: [docs/10-correlation.md](docs/10-correlation.md).
+
+---
+
 ## Known Issues
 
 - [x] `generate_report.py` — the top source IP table reports per-IP session

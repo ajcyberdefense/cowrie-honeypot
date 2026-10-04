@@ -81,6 +81,7 @@ Follow in order. Part 1 depends on your cloud; everything after is identical.
 7. **[Malware Triage](docs/07-malware-triage.md)** — static-only family attribution, packing, and the credential lists the bots carry
 8. **[Threat Intelligence](docs/08-threat-intel.md)** — IP enrichment, campaign clustering, confidence-graded assessments, AbuseIPDB reporting
 9. **[SIEM](docs/09-siem.md)** — Elasticsearch + Kibana replay, analyze.py as a dashboard, Sigma rules ported and parity-checked
+10. **[Correlation Rules](docs/10-correlation.md)** — multi-event detections (EQL sequence, threshold, tunnel) and their measured marginal value
 
 ### Quick Start
 
@@ -116,7 +117,8 @@ cowrie-honeypot/
 │   ├── 06-detection-engineering.md  # Sigma rules and false-positive analysis
 │   ├── 07-malware-triage.md    # Static triage of captured payloads
 │   ├── 08-threat-intel.md      # Enrichment, campaigns, assessments
-│   └── 09-siem.md              # Elastic replay, dashboard, rule porting
+│   ├── 09-siem.md              # Elastic replay, dashboard, rule porting
+│   └── 10-correlation.md       # Multi-event detections
 │
 ├── detections/                 # Generated Sigma rules, one per file
 ├── siem/docker-compose.yml     # Local Elasticsearch + Kibana (127.0.0.1 only)
@@ -134,6 +136,7 @@ cowrie-honeypot/
 │   ├── siem_load.py            # Bulk-loads the log history into Elasticsearch
 │   ├── siem_dashboard.py       # analyze.py as a Kibana dashboard + parity check
 │   ├── siem_rules.py           # Sigma -> Kibana detection rules + parity check
+│   ├── siem_correlation.py     # EQL / threshold / tunnel rules + parity check
 │   └── publish-report.sh       # Publishes the report (outbound push only)
 │
 ├── configs/
