@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-04 20:02:35",
+  "generated": "2026-10-04 21:10:04",
   "totals": {
-    "commands": 222230,
-    "login_failed": 353842,
-    "login_success": 57034,
-    "sessions": 368439
+    "commands": 222244,
+    "login_failed": 354020,
+    "login_success": 57040,
+    "sessions": 368647
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 353842,
+      "count": 354020,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-04T20:02:33.249562Z",
-      "unique_ips": 5739
+      "last": "2026-10-04T21:10:02.552804Z",
+      "unique_ips": 5742
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 57034,
+      "count": 57040,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-04T20:02:15.970018Z",
-      "unique_ips": 4593
+      "last": "2026-10-04T21:07:05.464590Z",
+      "unique_ips": 4595
     },
     {
       "id": "T1222.002",
@@ -323,15 +323,15 @@
   "unmapped": [
     [
       "sh",
-      51432
+      51435
     ],
     [
       "system",
-      50954
+      50957
     ],
     [
       "shell",
-      34221
+      34224
     ],
     [
       "/bin/busybox",
@@ -339,7 +339,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      2862
+      2865
     ],
     [
       "enable",
@@ -404,10 +404,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 8560,
-    "logins": 8207,
-    "commands": 1415,
-    "downloads": 42,
-    "unique_ips": 307
+    "sessions": 8539,
+    "logins": 8185,
+    "commands": 1280,
+    "downloads": 39,
+    "unique_ips": 305
   }
 }
