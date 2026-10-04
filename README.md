@@ -77,6 +77,7 @@ Follow in order. Part 1 depends on your cloud; everything after is identical.
 3. **[Cowrie Installation](docs/03-cowrie-install.md)** — install, configure, systemd
 4. **[Monitoring & Dashboard](docs/04-monitoring.md)** — analysis, web dashboard, session replay
 5. **[ATT&CK Mapping & Public Report](docs/05-reporting.md)** — MITRE mapping, static report, publish to your own domain
+6. **[Detection Engineering](docs/06-detection-engineering.md)** — Sigma rules measured against the captured data, with false-positive analysis
 
 ### Quick Start
 
@@ -108,7 +109,10 @@ cowrie-honeypot/
 │   ├── 02-hardening.md         # Host hardening + port redirects
 │   ├── 03-cowrie-install.md    # Cowrie install and systemd
 │   ├── 04-monitoring.md        # Analysis, dashboard, session replay
-│   └── 05-reporting.md         # ATT&CK mapping, static report, publishing
+│   ├── 05-reporting.md         # ATT&CK mapping, static report, publishing
+│   └── 06-detection-engineering.md  # Sigma rules and false-positive analysis
+│
+├── detections/                 # Generated Sigma rules, one per file
 │
 ├── scripts/
 │   ├── harden.sh               # Host hardening (lockout-safe, prompts to confirm)
@@ -117,6 +121,7 @@ cowrie-honeypot/
 │   ├── dashboard.py            # Flask dashboard with charts
 │   ├── mitre_map.py            # Maps captured attacks to MITRE ATT&CK
 │   ├── generate_report.py      # Renders the static, self-contained report
+│   ├── sigma_from_cowrie.py    # Measures detections, writes detections/*.yml
 │   └── publish-report.sh       # Publishes the report (outbound push only)
 │
 ├── configs/

@@ -10,21 +10,24 @@ Status key: `TODO` · `IN PROGRESS` · `DONE`
 
 ---
 
-## Phase 1 — Detection Engineering `TODO`
+## Phase 1 — Detection Engineering `DONE`
 
 **Why first:** `cowrie.json` is a labeled dataset. Every command in it is known
 malicious, which is ground truth most people learning detection never get.
 
-- [ ] Cluster captured command sequences into candidate detections
-- [ ] Write Sigma rules for the recurring chains (`wget → chmod +x → execute`,
+- [x] Cluster captured command sequences into candidate detections
+- [x] Write Sigma rules for the recurring chains (`wget → chmod +x → execute`,
       busybox probing, `/etc/passwd` reads)
-- [ ] For each rule, write the false-positive analysis — would it fire on a
+- [x] For each rule, write the false-positive analysis — would it fire on a
       normal admin session?
-- [ ] Add `scripts/sigma_from_cowrie.py` (stdlib-only, auto-resolves the log
+- [x] Add `scripts/sigma_from_cowrie.py` (stdlib-only, auto-resolves the log
       path, matching existing script conventions)
-- [ ] New `detections/` directory: one rule per file, each paired with the
+- [x] New `detections/` directory: one rule per file, each paired with the
       session that motivated it
-- [ ] Document as `docs/06-detection-engineering.md`
+- [x] Document as `docs/06-detection-engineering.md`
+
+Result: 9 rules in `detections/`; they cover 98.9% of sessions that delivered
+a file. Write-up: [docs/06-detection-engineering.md](docs/06-detection-engineering.md).
 
 **Lesson to capture:** which links in an attack chain are actually detectable.
 `uname -a` is worthless as a signal; `curl | sh` is hard; the download-and-execute
