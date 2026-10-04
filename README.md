@@ -80,6 +80,7 @@ Follow in order. Part 1 depends on your cloud; everything after is identical.
 6. **[Detection Engineering](docs/06-detection-engineering.md)** — Sigma rules measured against the captured data, with false-positive analysis
 7. **[Malware Triage](docs/07-malware-triage.md)** — static-only family attribution, packing, and the credential lists the bots carry
 8. **[Threat Intelligence](docs/08-threat-intel.md)** — IP enrichment, campaign clustering, confidence-graded assessments, AbuseIPDB reporting
+9. **[SIEM](docs/09-siem.md)** — Elasticsearch + Kibana replay, analyze.py as a dashboard, Sigma rules ported and parity-checked
 
 ### Quick Start
 
@@ -114,9 +115,11 @@ cowrie-honeypot/
 │   ├── 05-reporting.md         # ATT&CK mapping, static report, publishing
 │   ├── 06-detection-engineering.md  # Sigma rules and false-positive analysis
 │   ├── 07-malware-triage.md    # Static triage of captured payloads
-│   └── 08-threat-intel.md      # Enrichment, campaigns, assessments
+│   ├── 08-threat-intel.md      # Enrichment, campaigns, assessments
+│   └── 09-siem.md              # Elastic replay, dashboard, rule porting
 │
 ├── detections/                 # Generated Sigma rules, one per file
+├── siem/docker-compose.yml     # Local Elasticsearch + Kibana (127.0.0.1 only)
 │
 ├── scripts/
 │   ├── harden.sh               # Host hardening (lockout-safe, prompts to confirm)
@@ -128,6 +131,9 @@ cowrie-honeypot/
 │   ├── sigma_from_cowrie.py    # Measures detections, writes detections/*.yml
 │   ├── triage_downloads.py     # Static malware triage + MalwareBazaar lookup
 │   ├── intel_enrich.py         # IP enrichment, campaign clustering, AbuseIPDB
+│   ├── siem_load.py            # Bulk-loads the log history into Elasticsearch
+│   ├── siem_dashboard.py       # analyze.py as a Kibana dashboard + parity check
+│   ├── siem_rules.py           # Sigma -> Kibana detection rules + parity check
 │   └── publish-report.sh       # Publishes the report (outbound push only)
 │
 ├── configs/

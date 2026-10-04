@@ -53,7 +53,7 @@ Measured against the full history. "Sessions" is how many sessions contained at 
 | `busybox_applet_marker` | 21,743 | 287 | high | T1082 |
 | `writable_dir_probe` | 1,258 | 665 | high | T1083, T1222.002 |
 | `elf_self_read` | 1,030 | 207 | high | T1082 |
-| `download_execute_chain` | 872 | 529 | high | T1105, T1059.004, T1222.002 |
+| `download_execute_chain` | 878 | 530 | high | T1105, T1059.004, T1222.002 |
 | `ssh_key_implant` | 725 | 648 | high | T1098.004, T1222.002 |
 | `hex_echo_marker` | 623 | 389 | high | T1082, T1027 |
 | `pipe_to_shell` | 317 | 187 | medium | T1105, T1059.004 |

@@ -29,7 +29,7 @@ logsource:
 detection:
     selection:
         eventid: cowrie.command.input
-        input|re: '(?i)ssh-(rsa|ed25519|dss)\s+\S+.*>>?\s*\S*authorized_keys|chattr\s+-ia\s+\S*\.ssh|\block(r)?\s+-ia\s+\S*\.ssh'
+        input|re: '(?is)ssh-(rsa|ed25519|dss)\s+\S+.*>>?\s*\S*authorized_keys|chattr\s+-ia\s+\S*\.ssh|\block(r)?\s+-ia\s+\S*\.ssh'
     condition: selection
 fields:
     - src_ip

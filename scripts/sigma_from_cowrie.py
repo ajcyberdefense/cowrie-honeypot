@@ -39,13 +39,16 @@ LINE_WIDTH = 160        # truncate long commands in the comment block
 # -----------------------------------------------------------------------------
 # Each regex runs against one cowrie.command.input line (the `input` field),
 # exactly as the generated Sigma rule's `input|re` will. Prefix (?i) for
-# case-insensitive; Sigma regex is case-sensitive by default.
+# case-insensitive; Sigma regex is case-sensitive by default. Rules using `.*`
+# also set (?s): captured commands are often multi-line scripts. Ranges are
+# spelled out ([a-fA-F]) rather than left to (?i), because Elasticsearch's
+# case-insensitive regex flag does not apply to character ranges.
 DETECTIONS = [
     {
         "name": "download_execute_chain",
         "title": "Download, Make Executable, and Run in One Command Line",
         "level": "high",
-        "regex": r"(?i)\b(wget|curl|tftp|ftpget)\b.*\bchmod\s+(\+x|[0-7]?[0-7][0-7]7)\b.*(\./|\bsh\s+\S)",
+        "regex": r"(?is)\b(wget|curl|tftp|ftpget)\b.*\bchmod\s+(\+x|[0-7]?[0-7][0-7]7)\b.*(\./|\bsh\s+\S)",
         "tags": ["attack.command_and_control", "attack.t1105",
                  "attack.execution", "attack.t1059.004",
                  "attack.defense_evasion", "attack.t1222.002"],
@@ -93,7 +96,7 @@ DETECTIONS = [
         "title": "Hex-Escaped echo Used as a Shell Liveness Marker",
         "level": "high",
         # \x5c is a literal backslash: matches echo -e '\x47\x41\x59...'
-        "regex": r"(?i)echo\s+-e\s+['\"]?(\x5cx[0-9a-f]{2}){4,}",
+        "regex": r"(?i)echo\s+-e\s+['\"]?(\x5cx[0-9a-fA-F]{2}){4,}",
         "tags": ["attack.discovery", "attack.t1082",
                  "attack.defense_evasion", "attack.t1027"],
         "description": "Bots echo a hex-escaped string and check that the decoded "
@@ -141,7 +144,7 @@ DETECTIONS = [
         "name": "ssh_key_implant",
         "title": "SSH Key Written to authorized_keys With Attribute Tampering",
         "level": "high",
-        "regex": r"(?i)ssh-(rsa|ed25519|dss)\s+\S+.*>>?\s*\S*authorized_keys|chattr\s+-ia\s+\S*\.ssh|\block(r)?\s+-ia\s+\S*\.ssh",
+        "regex": r"(?is)ssh-(rsa|ed25519|dss)\s+\S+.*>>?\s*\S*authorized_keys|chattr\s+-ia\s+\S*\.ssh|\block(r)?\s+-ia\s+\S*\.ssh",
         "tags": ["attack.persistence", "attack.t1098.004",
                  "attack.defense_evasion", "attack.t1222.002"],
         "description": "Replaces authorized_keys with the attacker's key and uses "

@@ -33,7 +33,7 @@ logsource:
 detection:
     selection:
         eventid: cowrie.command.input
-        input|re: '(?i)echo\s+-e\s+[''\"]?(\x5cx[0-9a-f]{2}){4,}'
+        input|re: '(?i)echo\s+-e\s+[''\"]?(\x5cx[0-9a-fA-F]{2}){4,}'
     condition: selection
 fields:
     - src_ip

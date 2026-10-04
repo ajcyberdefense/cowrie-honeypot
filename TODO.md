@@ -71,9 +71,9 @@ Source IPs are currently just strings. Turn them into an intel product.
       download URLs, or timing patterns? Look for campaigns, not events
 - [x] Write with analytic confidence language ("assessed with moderate
       confidence") — a distinct skill from the technical work
-- [ ] Submit confirmed malicious IPs to AbuseIPDB — 1,237 droppers, wording
-      reviewed; free tier is 1,000/day so it takes two runs of
-      `intel_enrich.py --abuseipdb --submit`
+- [ ] Submit confirmed malicious IPs to AbuseIPDB — 1,000 of 1,237 sent on
+      2026-10-04 (free tier: 1,000/day). Finish with
+      `intel_enrich.py --abuseipdb --submit`; reported IPs are skipped
 
 Result: 12,208 IPs in four activity tiers, 118 artifact-sharing groups, six
 campaigns assessed with confidence levels (incl. a 1,162-IP SMTP proxy
@@ -82,17 +82,22 @@ validation operation that runs no commands). Write-up:
 
 ---
 
-## Phase 4 — SIEM Reps `TODO`
+## Phase 4 — SIEM Reps `DONE`
 
-- [ ] Stand up Wazuh or Elastic in the home lab
-- [ ] Ship `cowrie.json` in as a log source
-- [ ] Rebuild the existing `analyze.py` output as SIEM queries and dashboards
-- [ ] Port the Phase 1 Sigma rules into live SIEM detections and confirm they
+- [x] Stand up Elastic (Elasticsearch + Kibana, Docker, localhost-only)
+- [x] Ship `cowrie.json` in as a log source
+- [x] Rebuild the existing `analyze.py` output as SIEM queries and dashboards
+- [x] Port the Phase 1 Sigma rules into live SIEM detections and confirm they
       fire against the historical data
 
 Same answers, different tool — that is the point. It converts the honeypot into
 unlimited SOC-analyst practice on data already well enough understood to catch a
 wrong query.
+
+Result: 2,216,698 events loaded with exact parity to Python on every total
+and all nine detections; all nine rules fired in Kibana. Parity caught two
+rule bugs (multi-line scripts, Lucene case-insensitivity on ranges), fixed
+at the source. Write-up: [docs/09-siem.md](docs/09-siem.md).
 
 ---
 

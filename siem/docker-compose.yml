@@ -1,0 +1,61 @@
+# Single-node Elasticsearch + Kibana for replaying Cowrie data (Part 9).
+#
+# Lab only: one node, plain HTTP, both ports bound to 127.0.0.1 so nothing
+# outside this machine can reach them. Security stays ON because Kibana's
+# detection engine refuses to run without it.
+#
+#   cd siem && docker compose up -d      # first start takes ~2 min
+#   http://localhost:5601                 # user: elastic, password in siem/.env
+#
+# siem/.env (git-ignored) must define ELASTIC_PASSWORD, KIBANA_PASSWORD and
+# KIBANA_ENCRYPTION_KEY (32+ characters). See docs/09-siem.md.
+
+services:
+  elasticsearch:
+    restart: unless-stopped
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-8.17.4}
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      - xpack.license.self_generated.type=basic
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -u elastic:${ELASTIC_PASSWORD} http://localhost:9200/_cluster/health | grep -Eq '\"status\":\"(green|yellow)\"'"]
+      interval: 10s
+      retries: 30
+
+  # One-shot: give the built-in kibana_system user its password, then exit.
+  setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION:-8.17.4}
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    command: >
+      bash -c 'until curl -s -o /dev/null -w "%{http_code}" -u elastic:${ELASTIC_PASSWORD}
+      -X POST -H "Content-Type: application/json" http://elasticsearch:9200/_security/user/kibana_system/_password
+      -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q 200; do sleep 5; done'
+
+  kibana:
+    restart: unless-stopped
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION:-8.17.4}
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
+      - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
+      - XPACK_SECURITY_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
+      - XPACK_REPORTING_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
+    ports:
+      - "127.0.0.1:5601:5601"
+
+volumes:
+  esdata:
