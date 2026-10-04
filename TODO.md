@@ -10,21 +10,24 @@ Status key: `TODO` · `IN PROGRESS` · `DONE`
 
 ---
 
-## Phase 1 — Detection Engineering `TODO`
+## Phase 1 — Detection Engineering `DONE`
 
 **Why first:** `cowrie.json` is a labeled dataset. Every command in it is known
 malicious, which is ground truth most people learning detection never get.
 
-- [ ] Cluster captured command sequences into candidate detections
-- [ ] Write Sigma rules for the recurring chains (`wget → chmod +x → execute`,
+- [x] Cluster captured command sequences into candidate detections
+- [x] Write Sigma rules for the recurring chains (`wget → chmod +x → execute`,
       busybox probing, `/etc/passwd` reads)
-- [ ] For each rule, write the false-positive analysis — would it fire on a
+- [x] For each rule, write the false-positive analysis — would it fire on a
       normal admin session?
-- [ ] Add `scripts/sigma_from_cowrie.py` (stdlib-only, auto-resolves the log
+- [x] Add `scripts/sigma_from_cowrie.py` (stdlib-only, auto-resolves the log
       path, matching existing script conventions)
-- [ ] New `detections/` directory: one rule per file, each paired with the
+- [x] New `detections/` directory: one rule per file, each paired with the
       session that motivated it
-- [ ] Document as `docs/06-detection-engineering.md`
+- [x] Document as `docs/06-detection-engineering.md`
+
+Result: 9 rules in `detections/`; they cover 98.9% of sessions that delivered
+a file. Write-up: [docs/06-detection-engineering.md](docs/06-detection-engineering.md).
 
 **Lesson to capture:** which links in an attack chain are actually detectable.
 `uname -a` is worthless as a signal; `curl | sh` is hard; the download-and-execute
@@ -32,49 +35,69 @@ chain is the chokepoint.
 
 ---
 
-## Phase 2 — Malware Triage `TODO`
+## Phase 2 — Malware Triage `DONE`
 
 Payloads are already captured in `/home/cowrie/honeypot/var/lib/cowrie/downloads/`,
 hashed by SHA-256. 95 downloads as of the first report.
 
-- [ ] Set up an isolated analysis VM — **static analysis only, never execute**
-- [ ] Hash lookup against VirusTotal / MalwareBazaar for family attribution
+- [x] Isolated analysis — **static only, never execute**; runs on the honeypot
+      VM itself (already disposable and isolated), only JSON leaves the box
+- [x] Hash lookup against MalwareBazaar for family attribution
       (expect Mirai and Gafgyt variants)
-- [ ] `file` + `strings` on each unique sample: target architectures, hardcoded
+- [x] `file` + `strings` on each unique sample: target architectures, hardcoded
       C2 addresses, embedded credential lists
-- [ ] Compare each binary's embedded credential list against the passwords the
+- [x] Compare each binary's embedded credential list against the passwords the
       honeypot actually logged — overlap shows how botnets propagate their own
       dictionaries
-- [ ] Write up family attribution with the evidence that supports it
+- [x] Write up family attribution with the evidence that supports it
+- [ ] Submit the 105 samples MalwareBazaar didn't know (needs the files,
+      so do it from the honeypot; review MalwareBazaar's terms first)
+
+Result: 268 files, 159 ELF across 12 CPU architectures; 100 Mirai, 19
+cryptominers, 40 unattributed. 56 binaries carry passwords the honeypot
+logged (`xc3511`: 43 binaries, tried 3,009 times). Write-up:
+[docs/07-malware-triage.md](docs/07-malware-triage.md).
 
 ---
 
-## Phase 3 — Threat Intel Production `TODO`
+## Phase 3 — Threat Intel Production `IN PROGRESS`
 
 Source IPs are currently just strings. Turn them into an intel product.
 
-- [ ] Enrich: ASN, geolocation, first/last seen, residential vs. hosting
+- [x] Enrich: ASN, geolocation, first/last seen, residential vs. hosting
       (hosting = rented VPS = disposable infrastructure)
-- [ ] Cross-reference against DShield / AbuseIPDB
-- [ ] Infrastructure clustering — do the same IPs reuse credential lists,
+- [x] Cross-reference against DShield / AbuseIPDB
+- [x] Infrastructure clustering — do the same IPs reuse credential lists,
       download URLs, or timing patterns? Look for campaigns, not events
-- [ ] Write with analytic confidence language ("assessed with moderate
+- [x] Write with analytic confidence language ("assessed with moderate
       confidence") — a distinct skill from the technical work
-- [ ] Submit confirmed malicious IPs to AbuseIPDB
+- [ ] Submit confirmed malicious IPs to AbuseIPDB — 1,000 of 1,237 sent on
+      2026-10-04 (free tier: 1,000/day). Finish with
+      `intel_enrich.py --abuseipdb --submit`; reported IPs are skipped
+
+Result: 12,208 IPs in four activity tiers, 118 artifact-sharing groups, six
+campaigns assessed with confidence levels (incl. a 1,162-IP SMTP proxy
+validation operation that runs no commands). Write-up:
+[docs/08-threat-intel.md](docs/08-threat-intel.md).
 
 ---
 
-## Phase 4 — SIEM Reps `TODO`
+## Phase 4 — SIEM Reps `DONE`
 
-- [ ] Stand up Wazuh or Elastic in the home lab
-- [ ] Ship `cowrie.json` in as a log source
-- [ ] Rebuild the existing `analyze.py` output as SIEM queries and dashboards
-- [ ] Port the Phase 1 Sigma rules into live SIEM detections and confirm they
+- [x] Stand up Elastic (Elasticsearch + Kibana, Docker, localhost-only)
+- [x] Ship `cowrie.json` in as a log source
+- [x] Rebuild the existing `analyze.py` output as SIEM queries and dashboards
+- [x] Port the Phase 1 Sigma rules into live SIEM detections and confirm they
       fire against the historical data
 
 Same answers, different tool — that is the point. It converts the honeypot into
 unlimited SOC-analyst practice on data already well enough understood to catch a
 wrong query.
+
+Result: 2,216,698 events loaded with exact parity to Python on every total
+and all nine detections; all nine rules fired in Kibana. Parity caught two
+rule bugs (multi-line scripts, Lucene case-insensitivity on ranges), fixed
+at the source. Write-up: [docs/09-siem.md](docs/09-siem.md).
 
 ---
 
