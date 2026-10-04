@@ -78,6 +78,7 @@ Follow in order. Part 1 depends on your cloud; everything after is identical.
 4. **[Monitoring & Dashboard](docs/04-monitoring.md)** — analysis, web dashboard, session replay
 5. **[ATT&CK Mapping & Public Report](docs/05-reporting.md)** — MITRE mapping, static report, publish to your own domain
 6. **[Detection Engineering](docs/06-detection-engineering.md)** — Sigma rules measured against the captured data, with false-positive analysis
+7. **[Malware Triage](docs/07-malware-triage.md)** — static-only family attribution, packing, and the credential lists the bots carry
 
 ### Quick Start
 
@@ -110,7 +111,8 @@ cowrie-honeypot/
 │   ├── 03-cowrie-install.md    # Cowrie install and systemd
 │   ├── 04-monitoring.md        # Analysis, dashboard, session replay
 │   ├── 05-reporting.md         # ATT&CK mapping, static report, publishing
-│   └── 06-detection-engineering.md  # Sigma rules and false-positive analysis
+│   ├── 06-detection-engineering.md  # Sigma rules and false-positive analysis
+│   └── 07-malware-triage.md    # Static triage of captured payloads
 │
 ├── detections/                 # Generated Sigma rules, one per file
 │
@@ -122,6 +124,7 @@ cowrie-honeypot/
 │   ├── mitre_map.py            # Maps captured attacks to MITRE ATT&CK
 │   ├── generate_report.py      # Renders the static, self-contained report
 │   ├── sigma_from_cowrie.py    # Measures detections, writes detections/*.yml
+│   ├── triage_downloads.py     # Static malware triage + MalwareBazaar lookup
 │   └── publish-report.sh       # Publishes the report (outbound push only)
 │
 ├── configs/

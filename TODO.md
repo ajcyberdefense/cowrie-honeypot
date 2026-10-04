@@ -35,20 +35,28 @@ chain is the chokepoint.
 
 ---
 
-## Phase 2 — Malware Triage `TODO`
+## Phase 2 — Malware Triage `DONE`
 
 Payloads are already captured in `/home/cowrie/honeypot/var/lib/cowrie/downloads/`,
 hashed by SHA-256. 95 downloads as of the first report.
 
-- [ ] Set up an isolated analysis VM — **static analysis only, never execute**
-- [ ] Hash lookup against VirusTotal / MalwareBazaar for family attribution
+- [x] Isolated analysis — **static only, never execute**; runs on the honeypot
+      VM itself (already disposable and isolated), only JSON leaves the box
+- [x] Hash lookup against MalwareBazaar for family attribution
       (expect Mirai and Gafgyt variants)
-- [ ] `file` + `strings` on each unique sample: target architectures, hardcoded
+- [x] `file` + `strings` on each unique sample: target architectures, hardcoded
       C2 addresses, embedded credential lists
-- [ ] Compare each binary's embedded credential list against the passwords the
+- [x] Compare each binary's embedded credential list against the passwords the
       honeypot actually logged — overlap shows how botnets propagate their own
       dictionaries
-- [ ] Write up family attribution with the evidence that supports it
+- [x] Write up family attribution with the evidence that supports it
+- [ ] Submit the 105 samples MalwareBazaar didn't know (needs the files,
+      so do it from the honeypot; review MalwareBazaar's terms first)
+
+Result: 268 files, 159 ELF across 12 CPU architectures; 100 Mirai, 19
+cryptominers, 40 unattributed. 56 binaries carry passwords the honeypot
+logged (`xc3511`: 43 binaries, tried 3,009 times). Write-up:
+[docs/07-malware-triage.md](docs/07-malware-triage.md).
 
 ---
 
