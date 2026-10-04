@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-04 00:03:31",
+  "generated": "2026-10-04 01:05:35",
   "totals": {
-    "commands": 221115,
-    "login_failed": 346570,
-    "login_success": 56857,
-    "sessions": 360733
+    "commands": 221153,
+    "login_failed": 346667,
+    "login_success": 56869,
+    "sessions": 360844
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 346570,
+      "count": 346667,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-03T23:54:29.193956Z",
-      "unique_ips": 5668
+      "last": "2026-10-04T01:05:31.252377Z",
+      "unique_ips": 5669
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 56857,
+      "count": 56869,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-03T23:54:46.284832Z",
-      "unique_ips": 4529
+      "last": "2026-10-04T01:02:25.197079Z",
+      "unique_ips": 4531
     },
     {
       "id": "T1222.002",
@@ -92,7 +92,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6269,
+      "count": 6270,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,8 +101,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-03T23:04:04.046689Z",
-      "unique_ips": 1059
+      "last": "2026-10-04T00:59:33.742172Z",
+      "unique_ips": 1060
     },
     {
       "id": "T1033",
@@ -323,15 +323,15 @@
   "unmapped": [
     [
       "sh",
-      51340
+      51349
     ],
     [
       "system",
-      50860
+      50870
     ],
     [
       "shell",
-      34127
+      34136
     ],
     [
       "/bin/busybox",
@@ -339,7 +339,7 @@
     ],
     [
       "/bin/busybox UNSTABLE",
-      2796
+      2805
     ],
     [
       "enable",
@@ -404,10 +404,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "logins": 12064,
-    "sessions": 11762,
-    "commands": 5301,
-    "downloads": 57,
-    "unique_ips": 265
+    "sessions": 11642,
+    "logins": 11958,
+    "commands": 5103,
+    "downloads": 33,
+    "unique_ips": 258
   }
 }
