@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-05 07:06:04",
+  "generated": "2026-10-05 08:06:39",
   "totals": {
-    "commands": 222927,
-    "login_failed": 367842,
-    "login_success": 57102,
-    "sessions": 382750
+    "commands": 222929,
+    "login_failed": 368145,
+    "login_success": 57104,
+    "sessions": 383058
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 367842,
+      "count": 368145,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-05T07:06:01.970608Z",
-      "unique_ips": 5783
+      "last": "2026-10-05T07:59:26.280797Z",
+      "unique_ips": 5785
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 57102,
+      "count": 57104,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-05T06:43:59.257462Z",
-      "unique_ips": 4636
+      "last": "2026-10-05T07:58:46.871322Z",
+      "unique_ips": 4638
     },
     {
       "id": "T1222.002",
@@ -92,7 +92,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 6628,
+      "count": 6629,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,8 +101,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-05T06:44:11.781433Z",
-      "unique_ips": 1113
+      "last": "2026-10-05T07:41:21.772743Z",
+      "unique_ips": 1114
     },
     {
       "id": "T1033",
@@ -404,10 +404,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "logins": 19013,
-    "commands": 1402,
-    "sessions": 19459,
+    "sessions": 19737,
+    "logins": 19297,
+    "commands": 1370,
     "downloads": 51,
-    "unique_ips": 346
+    "unique_ips": 347
   }
 }
