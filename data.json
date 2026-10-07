@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-07 18:04:08",
+  "generated": "2026-10-07 19:03:36",
   "totals": {
     "commands": 231434,
-    "login_failed": 381522,
+    "login_failed": 382066,
     "login_success": 59603,
-    "sessions": 397730
+    "sessions": 398272
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 381522,
+      "count": 382066,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,8 +21,8 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-07T18:04:02.956741Z",
-      "unique_ips": 5967
+      "last": "2026-10-07T19:03:22.571799Z",
+      "unique_ips": 5969
     },
     {
       "id": "T1078",
@@ -404,10 +404,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 4795,
-    "logins": 4291,
-    "commands": 384,
+    "logins": 4314,
+    "sessions": 4791,
+    "commands": 382,
     "downloads": 53,
-    "unique_ips": 284
+    "unique_ips": 279
   }
 }
