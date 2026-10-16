@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-16 08:03:49",
+  "generated": "2026-10-16 09:03:24",
   "totals": {
-    "commands": 307304,
-    "login_failed": 452556,
-    "login_success": 69434,
-    "sessions": 468697
+    "commands": 307305,
+    "login_failed": 452674,
+    "login_success": 69437,
+    "sessions": 468822
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 452556,
+      "count": 452674,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-16T08:02:45.253265Z",
-      "unique_ips": 6749
+      "last": "2026-10-16T08:48:48.785043Z",
+      "unique_ips": 6751
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 69434,
+      "count": 69437,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-16T07:32:52.945556Z",
-      "unique_ips": 5523
+      "last": "2026-10-16T08:42:37.747266Z",
+      "unique_ips": 5524
     },
     {
       "id": "T1222.002",
@@ -92,7 +92,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 9351,
+      "count": 9352,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,7 +101,7 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-16T06:41:00.182519Z",
+      "last": "2026-10-16T08:24:49.170929Z",
       "unique_ips": 1467
     },
     {
@@ -417,10 +417,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 7269,
-    "logins": 7002,
-    "commands": 2677,
-    "downloads": 484,
-    "unique_ips": 253
+    "sessions": 7244,
+    "logins": 6968,
+    "commands": 2500,
+    "downloads": 438,
+    "unique_ips": 255
   }
 }
