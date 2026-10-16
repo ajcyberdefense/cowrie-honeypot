@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-16 03:05:51",
+  "generated": "2026-10-16 04:06:40",
   "totals": {
     "commands": 306698,
-    "login_failed": 450491,
-    "login_success": 69411,
-    "sessions": 466525
+    "login_failed": 450913,
+    "login_success": 69412,
+    "sessions": 466978
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 450491,
+      "count": 450913,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-16T02:55:57.461353Z",
-      "unique_ips": 6735
+      "last": "2026-10-16T04:06:37.669414Z",
+      "unique_ips": 6736
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 69411,
+      "count": 69412,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-16T02:45:33.547335Z",
-      "unique_ips": 5512
+      "last": "2026-10-16T03:34:35.400399Z",
+      "unique_ips": 5513
     },
     {
       "id": "T1222.002",
@@ -417,10 +417,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 7704,
-    "logins": 8474,
-    "commands": 6505,
-    "downloads": 430,
-    "unique_ips": 260
+    "sessions": 8015,
+    "logins": 8771,
+    "commands": 6206,
+    "downloads": 421,
+    "unique_ips": 252
   }
 }
