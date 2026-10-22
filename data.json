@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-22 09:07:23",
+  "generated": "2026-10-22 10:04:29",
   "totals": {
-    "commands": 354836,
-    "login_failed": 492110,
-    "login_success": 73630,
-    "sessions": 514778
+    "commands": 355229,
+    "login_failed": 492222,
+    "login_success": 73697,
+    "sessions": 515010
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 492110,
+      "count": 492222,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-22T09:07:20.662941Z",
-      "unique_ips": 7301
+      "last": "2026-10-22T10:04:26.755844Z",
+      "unique_ips": 7356
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 73630,
+      "count": 73697,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,14 +37,14 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-22T09:07:22.465962Z",
-      "unique_ips": 5987
+      "last": "2026-10-22T10:04:11.450069Z",
+      "unique_ips": 6026
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 39217,
+      "count": 39387,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,8 +53,8 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-22T09:05:27.146773Z",
-      "unique_ips": 2259
+      "last": "2026-10-22T10:04:12.562973Z",
+      "unique_ips": 2260
     },
     {
       "id": "T1083",
@@ -92,7 +92,7 @@
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 10790,
+      "count": 10856,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,8 +101,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-22T08:30:44.946441Z",
-      "unique_ips": 1638
+      "last": "2026-10-22T10:02:58.049338Z",
+      "unique_ips": 1671
     },
     {
       "id": "T1033",
@@ -156,15 +156,15 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 1155,
+      "count": 1156,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-08-11T01:37:12.477623Z",
-      "last": "2026-10-22T04:41:22.143274Z",
-      "unique_ips": 1061
+      "last": "2026-10-22T10:04:12.562973Z",
+      "unique_ips": 1062
     },
     {
       "id": "T1070.004",
@@ -352,15 +352,15 @@
   "unmapped": [
     [
       "sh",
-      66529
+      66556
     ],
     [
       "system",
-      65992
+      66019
     ],
     [
       "shell",
-      41503
+      41530
     ],
     [
       "/bin/busybox",
@@ -368,15 +368,15 @@
     ],
     [
       "/bin/busybox HISILICON",
-      8381
+      8422
     ],
     [
       "enable",
-      6823
+      6850
     ],
     [
       "ping; sh",
-      5497
+      5524
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -388,7 +388,7 @@
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      2736
+      2750
     ],
     [
       "sh .k",
@@ -433,10 +433,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 9080,
-    "logins": 8610,
-    "commands": 8069,
-    "downloads": 54,
-    "unique_ips": 309
+    "sessions": 9103,
+    "logins": 8619,
+    "commands": 8021,
+    "downloads": 53,
+    "unique_ips": 378
   }
 }
